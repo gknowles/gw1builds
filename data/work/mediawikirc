@@ -1,8 +1,0 @@
-default: gww
-gww:
-  url: http://wiki.guildwars.com/
-  user: CloudBot
-  password: y1vavx
-  Skill data yaml:
-    category: Ruby
-    page: Skill template data - skills (YAML)

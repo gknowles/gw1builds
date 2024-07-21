@@ -1,5 +1,0 @@
-Cautery Signet
-Elite Signet 0 0 2 15
-All party members lose all Conditions. You are set on fire for 1 second for each Condition removed in this way.
-condition-remove
-
