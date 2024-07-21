@@ -18,7 +18,7 @@ builds to be stored locally.
 ## Using gw1builds
 
 You could go to the [site](https://gknowles.github.io/gw1builds/) and give it a
-try, but it DOESN'T WORK AT ALL YET!
+try, but there's NOTHING THERE YET!
 
 Features:
-- None
+- None that work

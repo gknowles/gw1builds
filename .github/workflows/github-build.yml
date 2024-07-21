@@ -50,7 +50,9 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}
       run: |
-        if not exist "conf\app.xml" copy "conf\app.xml.sample" "conf\app.xml"
+        if not exist conf\app.xml (
+          if exist conf\app.xml.sample copy conf\app.xml.sample conf\app.xml
+        )
         md build
         cd build
         if "${{matrix.toolset}}" == "v143" (
@@ -63,7 +65,6 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=publish -DINSTALL_LIBS:BOOL=ON
         cmake --build . --target install --config ${{matrix.configuration}}
         cd publish
-        :: 7z a dimcli-latest.zip include lib
 
     - name: Test
       if: ${{ !matrix.coverage }}
