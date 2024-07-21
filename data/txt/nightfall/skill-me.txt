@@ -1,0 +1,142 @@
+:pro Mesmer
+:camp Nightfall
+>Domination Magic
+Enchanter's Conundrum
+Elite Hex Spell 15 2 20
+For 10 seconds, target foe casts Enchantments 100% slower. When this Hex ends, that foe takes $damage$ if not under the effects of an Enchantment Spell.
+damage 15 90
+
+Hex Eater Vortex
+Elite Spell 15 1 10
+Remove a Hex from target ally. If a Hex is removed in this way, foes near that ally take $damage$ damage and lose one Enchantment.
+damage 30 120
+
+Mirror of Disenchantment
+Spell 25 1 20
+Remove one Enchantment from target foe. All of that foe's party members also lose that same Enchantment.
+
+Mistrust
+Hex Spell 10 2 20
+For $duration$ seconds, the next time target foe casts a Spell that targets a foe, the Spell fails and all nearby allies take $damage$ damage.
+duration 4 10
+damage 15 75
+
+Power Flux
+Elite Hex Spell 10 .25 15
+If target foe is casting a Spell, that Spell is interrupted and for $duration$ seconds, that foe has -$energy-degen$ Energy degeneration.
+duration 4 10
+energy-degen 2
+interrupt
+
+Price of Pride
+Hex Spell 10 2 15
+For $duration$ seconds, the next time target foe uses an elite Skill, that foe loses $energy-loss$ Energy.
+duration 5 20
+energy-loss 4 10
+
+Simple Thievery
+Elite Spell 10 1 20
+For $duration$ seconds, one random non-Spell is disabled for target foe, and Simple Thievery is replaced by that Skill.
+duration 10 35
+
+Spiritual Pain
+Spell 10 1 30
+Target foe takes $damage$ damage, and all nearby foes take $damage-aoe$ damage. This Skill recharges instantly if it hits a Spirit.
+damage 10 100
+damage-aoe 15 75
+spirit-counter
+
+Visions of Regret
+Elite Hex Spell 10 2 20
+For $duration$ seconds, target foe takes $damage$ damage whenever that foe uses an adrenal Skill.
+duration 5 20
+damage 30 120
+
+Wastrel's Demise
+Spell 5 .25 8
+Target foe takes $damage$. If that foe is not casting a Spell, that foe takes an additional $damage-if$ damage for each equipped Spell.
+damage 5 30
+damage-if 3 7
+
+>Fast Casting
+Persistence of Memory
+Enchant 10 1 20
+For $duration$ seconds, whenver a Spell you cast is interrupted, that Spell is instantly recharged.
+duration 5 20
+
+Symbolic Celerity
+Enchant 10 1 20
+For $duration$ seconds, all of your Signets activate $cast-buff$% faster.
+duration 5 20
+cast-buff 25 50
+
+Symbolic Posture
+Stance 10 0 20
+For $duration$ seconds, the next Signet you activate recharges $recharge-buff$% faster.
+duration 5 20
+recharge-buff 20 80
+
+Symbols of Inspiration
+Elite Enchant 10 1 30
+For $duration$ seconds, whenever you use a Signet, you gain $energy-gain$ Energy.
+duration 5 15
+energy-gain 1 10
+
+>Illusion Magic
+Air of Disenchantment
+Elite Hex Spell 10 1 20
+For 10 seconds, target foe and all adjacent foes cast Enchantments $cast-nerf$% slower. When Air of Disenchantment ends, it removes one Enchantment from each affected foe.
+cast-nerf 10 100
+
+Frustration
+Hex Spell 10 1 15
+For $duration$ seconds, target foe casts Spells 50% slower and takes $damage$ damage whenever interrupted while casting a Spell.
+duration 5 20
+damage 5 50
+
+Signet of Clumsiness
+Signet 0 .25 15
+If target foe is attacking, that foe is interrupted and takes $damage$ damage.
+damage 5 50
+
+>Inspiration Magic
+Discharge Enchantment
+Spell 10 1 15
+Remove one Enchantment from target foe. If that foe is Hexed, this Skill recharges $recharge-buff$% faster.
+recharge-buff 20 50
+
+Drain Delusions
+Spell 5 .25 10
+Remove one Mesmer Hex from target foe. If a Hex was removed in this way, that foes loses $energy-drain$ Energy and you gain $energy-gain$ Energy for each point lost.
+energy-drain 1 5
+energy-gain 2
+
+Ether Phantom
+Hex Spell 5 1 10
+For 10 seconds, target foe has -$energy-degen$ Energy degeneration. If this Hex is remove prematurely, that foe loses $energy-drain$ Energy.
+energy-degen 1
+energy-drain 1 5
+
+Extend Conditions
+Elite Spell 5 .25 20
+All Conditions on target foe last $condition-buff$% longer (maximum 30 seconds).
+condition-buff 5 100
+
+Tease
+Elite Hex Spell 10 .75 15
+For 20 seconds, Skills used by target touched foe take $recharge-nerf$% longer to recharge. This Skill ends if that foe hits you.
+recharge-nerf 20 100
+
+>No Attribute
+Hypochondria
+Spell 5 1 10
+All Conditions on foes in the area of the target foe are transferred to that foe.
+
+Signet of Illusions
+Elite Signet 0 2 5
+Your next Spell uses your Illusion attribute instead of its normal attribute.
+
+Web of Disruption
+Hex Spell 10 .25 15
+Interrupt target foe. For 10 seconds, target foe is Hexed with Web of Disruption. When this Hex ends, that foe is interrupted again.
+

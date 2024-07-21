@@ -1,0 +1,231 @@
+<html>
+<head>
+  <title>Decode Equipment Template</title>
+  <style type='text/css'>
+    * {
+      font-size: 9pt;
+    }
+  </style>
+  <script type="text/javascript" 
+    src="../javascripts/model/base64codec.js"></script>
+  <script type="text/javascript" 
+    src="../javascripts/model/util.js"></script>
+  <script type="text/javascript">
+
+function clearValues() {
+  var out = document.getElementById("decode");
+  out.innerHTML = "<br>";
+  var el = document.getElementById("template");
+  el.value = "";
+  try {
+    el.focus();
+  } catch (e) {}
+}
+
+function Toon() {
+  this.items = [];
+}
+Toon.prototype.decode = function(val) {
+  var codec = new Base64Codec(val);
+  this.lead = codec.get(4);
+  if (this.lead == 15) {
+    this.lead2 = codec.get(4)
+  }
+  this.itemFmt = codec.get(4);
+  this.modFmt = codec.get(4);
+  var num = codec.get(3);
+  this.items = [];
+  for (var i1 = 0; i1 < num; ++i1) {
+    var where = codec.get(3);
+    var id = codec.get(this.itemFmt);
+    this.items[where] = [id];
+    var numMods = codec.get(2);
+    this.items[where].color = codec.get(4);
+    for (var i2 = 0; i2 < numMods; ++i2) {
+      this.items[where].push(codec.get(this.modFmt));
+    }
+  }
+};
+Toon.prototype.encode = function() {
+  var out = "";
+  var codec = new Base64Codec(out);
+  codec.put(this.lead, 4);
+  if (this.lead2 != null) codec.put(this.lead2, 4);
+  codec.put(this.itemFmt, 4);
+  codec.put(this.modFmt, 4);
+  var num = 0;
+  for (var i1 = 0; i1 < this.items.length; ++i1) {
+    if (this.items[i1] != null) num += 1;
+  }
+  codec.put(num, 3);
+  for (var i1 = 0; i1 < this.items.length; ++i1) {
+    var it = this.items[i1];
+    if (it == null) continue;
+    codec.put(i1, 3);
+    codec.put(it[0], this.itemFmt);
+    codec.put(it.length - 1, 2);
+    codec.put(it.color, 4);
+    for (var i2 = 1; i2 < it.length; ++i2) {
+      codec.put(it[i2], this.modFmt);
+    }
+  }
+  codec.putBoundary();
+  
+  return codec.str;
+};
+
+function decode() {
+  var out = "";
+  var val;
+  var outEl = document.getElementById("decode");
+  var recodeEl = document.getElementById('recode');
+  var tmpl = trim(document.getElementById("template").value);
+  var frm = document.forms['frm'];
+  
+  // AS RAW BITS
+  outEl.innerHTML = Base64Codec.prototype.dumpBits(tmpl);
+
+  // AS CHARACTER
+  var toon = new Toon;
+  toon.decode(tmpl);
+  var recode = toon.encode();
+  if (recode != tmpl) {
+    recode = "<span style='color: red'>" + recode + "</span>";
+  }
+  recodeEl.innerHTML = "<p>Recode: " + recode + "</p>";
+  
+  // items
+  frm.width.value = toon.itemFmt;
+  frm.uwidth.value = toon.modFmt;
+  for (var i1 = 0; i1 < toon.items.length; ++i1) {
+    var item = toon.items[i1];
+    if (item == null) {
+      frm['has.' + i1].checked = false;
+      frm['color.' + i1].value = '';
+      for (var i2 = 0; i2 < 4; ++i2) {
+        frm['item.' + i1 + '.' + i2].value = '';
+      }
+    } else {
+      frm['has.' + i1].checked = true;
+      frm['color.' + i1].value = item.color;
+      for (var i2 = 0; i2 < 4; ++i2) {
+        frm['item.' + i1 + '.' + i2].value = item[i2] ? item[i2] : '';
+      }
+    }
+  }
+} // decode
+
+function encode() {
+  var frm = document.forms['frm'];
+  var recodeEl = document.getElementById('recode');
+  toon = new Toon;
+  toon.lead = 15;
+  toon.lead2 = 0;
+  toon.itemFmt = frm.width.value || 9;
+  toon.modFmt = frm.uwidth.value || 9;
+  for (var i1 = 0; i1 < 7; ++i1) {
+    if (!frm['has.' + i1].checked) continue;
+    var item = toon.items[i1] = [];
+    item.color = frm['color.' + i1].value || 0;
+    for (var i2 = 0; i2 < 4; ++i2) {
+      var val = frm['item.' + i1 + '.' + i2].value;
+      if (val != null && val != '') item[i2] = val;
+    }
+  }
+  var recode = toon.encode();
+  recodeEl.innerHTML = "<p>Recode: " + recode + "</p>" +
+    Base64Codec.prototype.dumpBits(recode);
+} // encode
+
+  </script>
+</head>
+<body>
+  <label for="template">Equipment Template:</label>
+  <input type="text" size="80" name="template" id="template" 
+    value="" onchange="decode()">
+  <br>
+  <input type="submit" value="Decode" onclick="decode(); return false">
+  <input type="button" value="Clear" onclick="clearValues()">
+  <br>
+  <div id='decode'><br/></div>
+  <form name='frm'>
+    Bits (Items, Upgrades): 
+    <input type='text' size='1' name='width'>
+    <input type='text' size='1' name='uwidth'>
+    <table>
+      <tr>
+        <th></th><th>Where</th><th>Color</th>
+        <th>Item</th><th colspan='3'>Upgrades</th>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.4'></td>
+        <td>Head</td>
+        <td><input type='text' size='2' name='color.4'></td>
+        <td><input type='text' size='3' name='item.4.0'> -</td>
+        <td><input type='text' size='3' name='item.4.1'></td>
+        <td><input type='text' size='3' name='item.4.2'></td>
+        <td><input type='text' size='3' name='item.4.3'></td>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.2'></td>
+        <td>Chest</td>
+        <td><input type='text' size='2' name='color.2'></td>
+        <td><input type='text' size='3' name='item.2.0'> -</td>
+        <td><input type='text' size='3' name='item.2.1'></td>
+        <td><input type='text' size='3' name='item.2.2'></td>
+        <td><input type='text' size='3' name='item.2.3'></td>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.6'></td>
+        <td>Hands</td>
+        <td><input type='text' size='2' name='color.6'></td>
+        <td><input type='text' size='3' name='item.6.0'> -</td>
+        <td><input type='text' size='3' name='item.6.1'></td>
+        <td><input type='text' size='3' name='item.6.2'></td>
+        <td><input type='text' size='3' name='item.6.3'></td>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.3'></td>
+        <td>Legs</td>
+        <td><input type='text' size='2' name='color.3'></td>
+        <td><input type='text' size='3' name='item.3.0'> -</td>
+        <td><input type='text' size='3' name='item.3.1'></td>
+        <td><input type='text' size='3' name='item.3.2'></td>
+        <td><input type='text' size='3' name='item.3.3'></td>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.5'></td>
+        <td>Feet</td>
+        <td><input type='text' size='2' name='color.5'></td>
+        <td><input type='text' size='3' name='item.5.0'> -</td>
+        <td><input type='text' size='3' name='item.5.1'></td>
+        <td><input type='text' size='3' name='item.5.2'></td>
+        <td><input type='text' size='3' name='item.5.3'></td>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.0'></td>
+        <td>Weapon</td>
+        <td><input type='text' size='2' name='color.0'></td>
+        <td><input type='text' size='3' name='item.0.0'> -</td>
+        <td><input type='text' size='3' name='item.0.1'></td>
+        <td><input type='text' size='3' name='item.0.2'></td>
+        <td><input type='text' size='3' name='item.0.3'></td>
+      </tr>
+      <tr>
+        <td><input type='checkbox' name='has.1'></td>
+        <td>Off-hand</td>
+        <td><input type='text' size='2' name='color.1'></td>
+        <td><input type='text' size='3' name='item.1.0'> -</td>
+        <td><input type='text' size='3' name='item.1.1'></td>
+        <td><input type='text' size='3' name='item.1.2'></td>
+        <td><input type='text' size='3' name='item.1.3'></td>
+      </tr>
+    </table>
+	  <br>
+	  <input type="button" value="Encode" onclick="encode()">
+	  <br>
+	  <div id='recode'></div>
+  </form>
+</body>
+</html>
+

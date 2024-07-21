@@ -1,0 +1,147 @@
+:pro Assassin
+:camp Nightfall
+>Critical Strikes
+Assassin's Remedy
+Enchantment Spell 5 1 20
+For $duration$ seconds, whenever you critical, you lose one Condition.
+duration 10 35
+
+Assault Enchantments
+Elite Hex Spell 5 .25 15
+For $duration$ seconds, the next time target foe is hit by a dual attack, that foe loses all Enchantments.
+duration 10 35
+
+>Deadly Arts
+Augury of Death
+Hex Spell 5 1 12
+For $duration$ seconds, the next time damage would drop target foe's Health below 50%, you Shadow Step to that foe. This Spell has half the normal range.
+duration 5 35
+
+>Dagger Mastery
+Black Spider Strike
+Off-Hand Attack 5 0 12
+Must strike a Hexed foe. If it hits, this attack strikes for +$damage$ and target foe is Poisoned for $poison$ seconds.
+damage 10 31
+poison 5 20
+
+>Critical Strikes
+Deadly Haste
+Enchantment 10 1 20
+For $duration$ seconds, half-ranged spells cast $cast-buff$% faster and recharge $recharge-buff$% faster.
+duration 10 35
+cast-buff 5 50
+recharge-buff 5 50
+
+>Deadly Arts
+Deadly Paradox
+Stance 5 0 10
+All of your attack Skills are disabled for 10 seconds, your Assassin Skills activate and recharge 50% faster.
+duration 5 15
+
+>Shadow Arts
+Death's Retreat
+Spell 5 .25 20
+Shadow Step to target ally. If you have less Health than that ally, you gain $health-gain$ Health.
+health-gain 40 130
+
+>Deadly Arts
+Disrupting Dagger
+Spell 5 .25 10
+Send out a Disrupting Dagger at target foe that strikes for $damage$ earth damage. If that foe was activating a Skill, that Skill is interrupted. This Spell has half the normal range.
+damage 10 35
+
+>Shadow Arts
+Feigned Neutrality
+Enchantment Spell 5 .25 25
+For $duration$ seconds, you have +7 Health regeneration and +80 armor. This Enchantment ends if you successfully hit with an attack or use a Skill.
+duration 5 15
+
+>Critical Strikes
+Fox's Promise
+Elite Enchant 10 1 20
+For $duration$ seconds, your attacks cannot be "blocked" or "evaded." This Enchantment ends the next time you fail to hit.
+duration 5 20
+
+>Dagger Mastery
+Golden Fox Strike
+Lead Attack 5 0 8
+If this attack hits, target foe takes +$damage$ damage. If you are under the effects of an Enchantment, this attack cannot be "blocked" or "evaded."
+damage 10 30
+
+Golden Jaw Strike
+Elite Off-Hand Attack 10 0 15
+Must follow a lead attack. If you are under the effects of an Enchantment and this attack hits, target foe is Dazed $dazed$ seconds.
+dazed 4 10
+
+>Shadow Arts
+Hidden Caltrops
+Elite Hex Spell 5 1 8
+For 20 seconds, the next time target foe takes damage while moving, that foe takes $damage$ damage and is Crippled for $crippled$ seconds.
+damage 15 75
+crippled 5 20
+
+>Deadly Arts
+Lift Enchantment
+Hex Spell 10 1 10
+For $duration$ seconds, whenever target foe is knocked down, that foe loses one Enchantment.
+duration 5 20
+
+>Critical Strikes
+Malicious Strike
+Melee Attack 5 0 6
+If this attack hits a foe suffering from a Condition, you deal +$damage$ and this attack results in a critical hit.
+damage 5 20
+
+>Deadly Arts
+Mark of Insecurity
+Elite Hex Spell 5 1 10
+For $duration$ seconds, Enchantments and Stances on target foe expire 50% faster.
+duration 5 25
+
+>No Attribute
+Shadow Meld
+Elite Enchant -1 10 .25 20
+Shadow Step to target other ally. When you stop maintaining this Enchantment, you return to your original location.
+
+>Deadly Arts
+Shadow Prison
+Elite Hex Spell 5 .25 20
+Shadow Step to target foe. For $duration$ seconds, that foe moves 66% slower.
+duration 4 10
+
+>No Attribute
+Shadow Walk
+Stance 5 0 30
+Shadow Step to target foe. For 30 seconds, you cannot cast Enchantments. When this Stance ends, you return to your original location.
+
+Shameful Waste
+Elite Hex Spell 5 .25 8
+After 5 seconds, target foe is knocked down. This Hex ends prematurely if that foe uses a Skill.
+
+>Dagger Mastery
+Shattering Assault
+Elite Dual Attack 10 0 4
+Must follow an off-hand attack. If it hits, target foe loses one Enchantment. If an Enchantment was removed in this way, you deal +$damage$ damage.
+damage 15 75
+
+>Deadly Arts
+Signet of Toxic Shock
+Signet 0 1 20
+If target foe is suffering from Poison, that foe takes $damage$ damage.
+damage 10 100
+
+>No Attribute
+Signet of Twilight
+Signet 0 2 20
+For each Hex on target foe, that foe loses one Enchantment.
+
+Swap
+Spell 5 .25 10
+You and target summoned creature Shadow Step to each other's location.
+
+>Critical Strikes
+Way of the Assassin
+Elite Stance 5 0 12
+For 20 seconds, if you are under the effects of an Enchantment, your attacks have a +$critical-buff$% chance to critical.
+critical-buff 5 35
+

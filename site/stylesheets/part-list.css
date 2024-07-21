@@ -1,0 +1,136 @@
+/* Part List */
+div.partList {
+  background-color: <%= skin[:stdBG] %>;
+  border: 1px solid;
+}
+
+div.partList div.filters {
+  height: 25px;
+}
+div.partList div.toonPick {
+  height: 23px;
+  border: 0px;
+  overflow: hidden;
+}
+div.partList div.toonPick select {
+  margin-top: 2px;
+  width: 61px; /* 59px in adjust-ie */
+}
+div.partList div.toonPick input {
+  width: 42px;
+  border: 0px; 
+  padding: 2px 0px 2px 2px;
+  position: relative;
+  top: -18px; /* -20px in adjust-ie */
+  background-color: #fefefe; /* non-white to prevent readonly fade */
+}
+div.partList div.filters button,
+div.partList div.filters input,
+div.partList div.filters select {
+  font-size: 7pt;
+}
+
+div.partList div.scroll {
+  height: 525px;
+  border: 2px solid;
+  border-color: black black black black;
+  background-color: <%= skin[:enhBG] %>;
+  color: <%= skin[:weak] %>;
+  overflow: auto;
+  position: static;
+
+  /* special IE (strict-mode) rule to make room for scrollbar */
+  /* since we're making space for it anyway, let's force the scroll
+     bar in there since it looks better then the empty space 
+  <!--[if IE]>
+  overflow-y: scroll; 
+  overflow-x: hidden;
+  padding-right: 16px;
+  <![endif]-->
+  */
+}
+div.partList table.detail {
+  border-spacing: 0;
+  border: 0px none;
+  width: 100%;
+}
+div.partList table.icon {
+  border-collapse: collapse;
+}
+div.partList table.detail tr:hover {
+  /* !!! Corresponding entry in cssHover must match */
+  background-color: <%= skin[:enhHoverBG] %>;
+}
+div.partList td.part {
+  height: 20px;
+  padding: 0px; 
+  cursor: move;
+  -moz-user-select: none;
+}
+div.partList td.detail {
+  padding: 0px 3px 0px 1px; 
+}
+div.partList td.sortGroup {
+  border: 0px solid;
+  padding: 4px 0px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 10pt;
+  font-style: normal;
+  text-align: center;
+  background-color: <%= skin[:enhBG] %>;
+  color: <%= skin[:enh] %>;
+  cursor: default;
+  -moz-user-select: none;
+}
+div.partList table.detail td.sortGroup {
+  padding: 2px 0px;
+}
+div.partList button.action {
+  cursor: pointer;
+  font-size: 7pt;
+}
+
+div.partList span.partName {
+  font-size: 9pt;
+  font-family: sans-serif;
+  padding: 1px;
+}
+div.partList span.partType {
+  font-size: 9pt;
+  font-family: sans-serif;
+}
+
+div.partList div.fullAlt {
+  background-color: <%= skin[:altBG] %>;
+  padding-left: .7em;
+}
+
+div.dataPager span {
+  border: 1px solid;
+  padding: 0px 5px;
+  border-color: <%= skin[:stdBorder] %>;
+	background-color: <%= skin[:stdBG] %>;
+	color: <%= skin[:std] %>; 
+  font-size: 10pt;
+  cursor: pointer;
+}
+div.dataPager span.first {}
+div.dataPager span.prev {}
+div.dataPager span.next {}
+div.dataPager span.last {}
+div.dataPager span:hover { 
+	border-color: <%= skin[:stdHoverBorder] %>;
+	background-color: <%= skin[:stdHoverBG] %>;
+	color: <%= skin[:stdHover] %>; 
+}
+div.dataPager span.current {
+  text-align: center;
+  border-style: none;
+  cursor: default;
+}
+div.dataPager span.current:hover {
+  border-color: <%= skin[:stdBorder] %>;
+	background-color: <%= skin[:stdBG] %>;
+	color: <%= skin[:std] %>; 
+}

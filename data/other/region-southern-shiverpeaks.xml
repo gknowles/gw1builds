@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<Region xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="gwdata1.xsd"
+ name="Southern Shiverpeaks">
+  <Zone name="Camp Rankor" type="outpost">
+    <Trainer name="Steig">
+      <Skill>Conjure Lightning</Skill>
+      <Skill>Glyph of Concentration</Skill>
+      <Skill>Glyph of Sacrifice</Skill>
+      <Skill>Mantra of Inscriptions</Skill>
+      <Skill>Signet of Weariness</Skill>
+      <Skill>Convert Hexes</Skill>
+      <Skill>Barbs</Skill>
+      <Skill>Consume Corpse</Skill>
+      <Skill>Nature's Renewal</Skill>
+      <Skill>Symbiotic Bond</Skill>
+    </Trainer>
+  </Zone>
+  <Zone name="Copperhammer Mines" type="outpost">
+    <Trainer name="Gammel">
+      <Skill>Signet of Capture</Skill>
+      <Skill>Mark of Rodgort</Skill>
+      <Skill>Searing Heat</Skill>
+      <Skill>Clumsiness</Skill>
+      <Skill>Mantra of Signets</Skill>
+      <Skill>Divine Intervention</Skill>
+      <Skill>Draw Conditions</Skill>
+      <Skill>Scourge Sacrifice</Skill>
+      <Skill>Verata's Aura</Skill>
+      <Skill>Verata's Gaze</Skill>
+      <Skill>Verata's Sacrifice</Skill>
+      <Skill>Muddy Terrain</Skill>
+      <Skill>Primal Echoes</Skill>
+      <Skill>Riposte</Skill>
+      <Skill>Rush</Skill>
+    </Trainer>
+  </Zone>
+  <Zone name="Deldrimor War Camp" type="outpost"/>
+  <Zone name="Grenth's Footprint">
+    <Boss name="Gargash Thornbeard" profession="R" species="Dwarf">
+    </Boss>
+    <Boss name="Gorrel Rockmolder" profession="Me" species="Dwarf">
+      <Item name="The Rockmolder" type="focus"/>
+    </Boss>
+    <Boss name="Flint Fleshcleaver" profession="E" species="Ice Golem">
+      <!-- Water Trident -->
+    </Boss>
+    <Boss name="Thorgall Bludgeonhammer" profession="W" species="Dwarf">
+      <Item name="Thorgall's Shield" type="shield"/>
+    </Boss>
+  </Zone>
+  <Zone name="Droknar's Forge" type="city">
+    <Trainer name="Bartoch">
+      <Skill>Signet of Capture</Skill>
+      <Skill>Deep Freeze</Skill>
+      <Skill>Earthquake</Skill>
+      <Skill>Fire Attunement</Skill>
+      <Skill>Flame Burst</Skill>
+      <Skill>Incendiary Bonds</Skill>
+      <Skill>Obsidian Flame</Skill>
+      <Skill>Swirling Aura</Skill>
+      <Skill>Windborne Speed</Skill>
+      <Skill>Arcane Conundrum</Skill>
+      <Skill>Blackout</Skill>
+      <Skill>Elemental Resistance</Skill>
+      <Skill>Ether Lord</Skill>
+      <Skill>Guilt</Skill>
+      <Skill>Mantra of Earth</Skill>
+      <Skill>Mantra of Persistence</Skill>
+      <Skill>Mind Wrack</Skill>
+      <Skill>Balthazar's Aura</Skill>
+      <Skill>Blessed Aura</Skill>
+      <Skill>Blessed Signet</Skill>
+      <Skill>Healing Touch</Skill>
+      <Skill>Mend Condition</Skill>
+      <Skill>Scourge Healing</Skill>
+      <Skill>Vengeance</Skill>
+      <Skill>Zealot's Fire</Skill>
+      <Skill>Animate Bone Fiend</Skill>
+      <Skill>Animate Bone Minions</Skill>
+      <Skill>Chilblains</Skill>
+      <Skill>Demonic Flesh</Skill>
+      <Skill>Malaise</Skill>
+      <Skill>Price of Failure</Skill>
+      <Skill>Signet of Agony</Skill>
+      <Skill>Well of the Profane</Skill>
+      <Skill>Choking Gas</Skill>
+      <Skill>Concussion Shot</Skill>
+      <Skill>Dust Trap</Skill>
+      <Skill>Edge of Extinction</Skill>
+      <Skill>Flame Trap</Skill>
+      <Skill>Precision Shot</Skill>
+      <Skill>Tiger's Fury</Skill>
+      <Skill>Winnowing</Skill>
+      <Skill>Fear Me!</Skill>
+      <Skill>Shields Up!</Skill>
+      <Skill>To the Limit!</Skill>
+      <Skill>Balanced Stance</Skill>
+      <Skill>Bull's Strike</Skill>
+      <Skill>Defensive Stance</Skill>
+      <Skill>Savage Slash</Skill>
+      <Skill>Shield Bash</Skill>
+    </Trainer>
+  </Zone>
+  <Zone name="The Granite Citadel" type="outpost"/>
+  <Zone name="Marhan's Grotto" type="outpost">
+    <Trainer name="Harnil">
+      <Skill>Signet of Capture</Skill>
+      <Skill>Aftershock</Skill>
+      <Skill>Rodgort's Invocation</Skill>
+      <Skill>Mantra of Resolve</Skill>
+      <Skill>Soothing Images</Skill>
+      <Skill>Light of Dwayna</Skill>
+      <Skill>Dark Fury</Skill>
+      <Skill>Desecrate Enchantments</Skill>
+      <Skill>Dryder's Defenses</Skill>
+      <Skill>Frozen Soil</Skill>
+      <Skill>Symbiosis</Skill>
+      <Skill>Crude Swing</Skill>
+      <Skill>Warrior's Cunning</Skill>
+    </Trainer>
+  </Zone>
+  <Zone name="Port Sledge" type="outpost">
+    <Trainer name="Thengen">
+      <Skill>Signet of Capture</Skill>
+      <Skill>Glyph of Elemental Power</Skill>
+      <Skill>Rust</Skill>
+      <Skill>Ignorance</Skill>
+      <Skill>Mantra of Lightning</Skill>
+      <Skill>Divine Healing</Skill>
+      <Skill>Infuse Condition</Skill>
+      <Skill>Order of Pain</Skill>
+      <Skill>Disrupting Lunge</Skill>
+      <Skill>Energizing Wind</Skill>
+      <Skill>Berserker Stance</Skill>
+      <Skill>Deflect Arrows</Skill>
+    </Trainer>
+  </Zone>
+
+  <Zone name="Sorrow's Furnace">
+    <Boss name="Brohn Stoneheart" profession="Mo" species="Dwarf">
+    </Boss>
+    <Boss name="Drago Stoneherder" profession="R" species="Dwarf">
+    </Boss>
+    <Boss name="Galigord Stonestrike" profession="E" species="Dwarf">
+      <SkillBar>Furnace Elementalist</SkillBar>
+    </Boss>
+    <Boss name="Garbok Handsmasher" profession="Me" species="Dwarf">
+      <SkillBar>Furnace Mesmer</SkillBar>
+    </Boss>
+    <Boss name="Gardock Stonesoul" profession="Mo" species="Dwarf">
+      <SkillBar>Furnace Monk</SkillBar>
+    </Boss>
+    <Boss name="Gordak Fleshweaver" profession="N" species="Dwarf">
+    </Boss>
+    <Boss name="Grognard Gravelhead" profession="W" species="Dwarf">
+    </Boss>
+    <Boss name="Runar Brimstone" profession="E" species="Dwarf">
+      <SkillBar>Furnace Elementalist</SkillBar>
+    </Boss>
+    <Boss name="Tanzit Razorstone" profession="W" species="Dwarf">
+    </Boss>
+    <Boss name="Tarnok Forgerunner" profession="R" species="Dwarf">
+    </Boss>
+    <Boss name="Villnar Painforge" profession="N" species="Dwarf">
+    </Boss>
+    <Boss name="Vokur Grimshackles" profession="Me" species="Dwarf">
+      <SkillBar>Furnace Mesmer</SkillBar>
+    </Boss>
+  </Zone>
+
+  <SkillBar name="Furnace Elementalist">
+    <Skill>Earth Attunement</Skill>
+    <Skill>Obsidian Flame</Skill>
+    <Skill>Stoning</Skill>
+    <Skill>Rust</Skill>
+  </SkillBar>
+  <SkillBar name="Furnace Mesmer">
+    <Skill>Crippling Anguish</Skill>
+  </SkillBar>
+  <SkillBar name="Furnace Monk">
+    <Skill>Mark of Protection</Skill>
+  </SkillBar>
+</Region>
+

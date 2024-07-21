@@ -1,0 +1,91 @@
+
+div.roster td.empty,
+div.roster td.emptyAlt,
+div.roster td.full,
+div.roster td.fullAlt {
+  border: 1px solid;
+  padding: 0px;
+  cursor: default;
+  color: orange;
+}
+div.roster td.empty {
+  border-color: <%= skin[:emptyBorder] %>;
+  background-color: <%= skin[:emptyBG] %>;
+  color: <%= skin[:empty] %>;
+}
+div.roster td.emptyAlt {
+  border-color: <%= skin[:emptyAltBorder] %>;
+  background-color: <%= skin[:emptyAltBG] %>;
+  color: <%= skin[:empty] %>;
+  padding-left: 10px;
+}
+div.roster td.full {
+  border-color: <%= skin[:weakBorder] %>;
+  background-color: <%= skin[:weakBG] %>;
+  overflow: hidden;
+}
+div.roster td.fullAlt {
+  border-color: <%= skin[:altBorder] %>;
+  background-color: <%= skin[:altBG] %>;
+  padding-left: 10px;
+}
+div.roster td.full a.unlessToon,
+div.roster td.fullAlt a.unlessToon,
+div.roster td.empty a.ifToon, 
+div.roster td.emptyAlt a.ifToon,
+div.roster td.full span.unlessToon,
+div.roster td.fullAlt span.unlessToon,
+div.roster td.empty span.ifToon, 
+div.roster td.emptyAlt span.ifToon 
+{
+  display: none;
+}
+
+div.roster input.pos {
+  font-family: arial narrow;
+  text-align: right;
+  width: 30px;
+  border: 0px; 
+  padding: 3px 0px;
+  color: <%= skin[:weak] %>;
+  background-color: transparent;
+}
+
+div.roster div.skillbar td {
+  border: 1px solid;
+  vertical-align: top;
+  color: transparent;
+  border-color: transparent;
+}
+div.roster div.skillbar td.fullAlt,
+div.roster div.skillbar td.emptyAlt {
+  padding-left: 0px;
+  padding-top: 12px;
+}
+div.roster div.skillbar td.empty {
+  background-color: <%= skin[:empty] %>;
+}
+div.roster div.skillbar td.emptyAlt {
+  background-color: <%= skin[:emptyAlt] %>;
+}
+div.roster div.skillbar div.partIcon {
+  cursor: move;
+}
+div.roster div.skillbar a.smallButton {
+  position: relative; 
+  top: -6px; 
+  left: 15px; 
+  background-position: -48px 0px; 
+}
+div.roster div.skillbar td.empty a.smallButton { 
+  visibility: hidden; }
+div.roster div.skillbar td.emptyAlt a.smallButton { 
+  visibility: visible; }
+div.roster div.skillbar a.smallButton:hover { 
+  background-position: -16px 0px; }
+div.roster div.skillbar a.smallButton:active { 
+  background-position: 0px 0px; }
+
+div.roster div.attrGrid {
+  border: 0px none;
+}

@@ -1,0 +1,68 @@
+<script type="text/javascript">
+<% paneRef = menuId + '_faq' %>
+<%= paneRef %> = new Pane({
+  title: "FAQ",
+  id: "<%= paneRef %>"
+});
+PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
+</script>
+<div class="pane faqPane" id="<%= paneRef %>" style="display: none">
+<table class='pane'><tr><td class='paneContent'>
+  <div class='minwidth'>
+    <h2>Frequently Asked Questions</h2>
+    <div class='scroll'>
+      <h3>Why OpenID?</h3>
+      <div class='section'>
+      <p>Since some kind of login was needed the choices were either to implement 
+      captcha or email verification signup, recover lost passwords and email, track 
+      activated status, and various other details that are easy to mess up. With 
+      OpenID you have the option to use stronger security anything that would've 
+      been supported here and there wasn't much of a UI required.</p>
+      <p>That's all good for the site, but what about you? Creating a random 
+      OpenID so you have an account here is about the same amount of work as
+      creating an email address for email verification would be. And on the plus 
+      side you can set it up so you never need to type in a password. Go to 
+      <a href='http://openid.net'>openid.net</a> to find out more, there is nothing
+      to fear but fear itself!</p>
+      </div>
+      <h3>How do groups work?</h3>
+      <div class='section'>
+      <p>Groups allow you to share builds with select people. When you 
+      save a build you set the ownership and visibility. By default you are the 
+      owner, but you can also make any group in which you are an editor or admin 
+      the owner. When a group owns a build, any editor or admin in that 
+      gruop can edit it, otherwise it is a private build, and only you can edit 
+      it. Setting the visibility allows other people to see the build; and, if 
+      set to a group, any member of that group can see it.</p>
+      
+      <p>Joining groups is by invitation only. An admin of that group must 
+      explicitly invite you, after which you can either accept or reject the 
+      invitation.</p>
+      
+      <p>Quick breakdown of roles within a group:
+      <ul>
+      <li><b>Invited</b> - invited to the group but has not yet accepted. Can view 
+      the group roster and history, but can't edit or view any of the builds 
+      that belong to the group.</li>
+      <li><b>Member</b> - can view roster, history, and any of the builds owned by 
+      the group.</li>
+      <li><b>Editor</b> - is a member, and edits group owned builds.</li>
+      <li><b>Administrator</b> - is an editor, and invites, kicks, promotes, or 
+      demotes group members, editors, and other admins.</li>
+      </ul>
+      </div>
+      <h3>What if I find an error in a skill?</h3>
+      <div class='section'>
+      <p>Go and fix it on the <a href='http://wiki.guildwars.com'>GW Wiki</a>
+      and it should show up here in a day or two, if its been correct on the wiki 
+      for a few days and is still wrong here, please report it on the GuildBuilds 
+      forum and we'll see what we can do.</p>
+      </div>
+    </div>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <%= render :partial => "welcome/sidebar", :locals => { :menuId => menuId } %>
+  </div>
+</td></tr></table>
+</div>

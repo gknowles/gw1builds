@@ -1,0 +1,46 @@
+
+div.groupPane {
+}
+
+div.groupPane div#groupList,
+div.groupPane div#memberList {
+  min-width: 350px;
+  max-width: 450px;
+  /* width: 350px in adjust-ie.css */
+}
+
+div.groupPane div.minwidth {
+  border: 2px solid;
+  border-color: <%= skin[:stdBorder] %>;
+  background-color: <%= skin[:stdBG] %>;
+  color: <%= skin[:std] %>;
+}
+
+div.groupPane h2.title {
+  background-image: url('../images/headerTopBG.png');
+  line-height: 50px;
+  font-size: 21px;
+  text-align: center;
+}
+div.groupPane div.section {
+  background-color: <%= skin[:stdBG] %>;
+  border-bottom: 2px solid;
+  padding-left: 10px;
+}
+
+div.groupPane div.list {
+  background-color: <%= skin[:enhBG] %>;
+  border-color: <%= skin[:enhBorder] %>;
+  border-bottom: 2px solid;
+	padding-left: 10px;
+}
+div.groupPane div.list a:hover {
+  text-decoration: underline;
+}
+
+div.groupPane tr.sortGroup td {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+

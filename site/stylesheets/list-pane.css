@@ -1,0 +1,9 @@
+
+div.listPane div.partList td.part {
+  cursor: pointer;
+}
+
+div.listPane div.partList {
+	border: 0px none;
+  width: 600px;
+}

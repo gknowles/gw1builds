@@ -1,0 +1,96 @@
+Arcane Zeal
+Elite Enchant 10 1 5
+For 10 seconds, whenever you cast a Spell, you gain 1 Energy for each Enchantment on you (maximum $energy-gain$ Energy).
+energy-gain 5 7
+
+Avatar of Balthazar
+Elite Form 5 2 5
+For $duration$ seconds, you gain +$armor$ armor, you move $move-buff$% faster, and your attacks deal holy damage. This skill is disabled for 120 seconds.
+duration 1 60
+move-buff 33
+armor 40
+
+Avatar of Dwayna
+Elite Form 10 2 5
+For $duration$ seconds, whenever you use a skill, you gain $health-gain$ Health and lose on Hex. This skill is disabled for 120 seconds.
+duration 1 60
+health-gain 5 50
+hex-remove
+
+Avatar of Grenth
+Elite Form 10 2 5
+For $duration$ seconds, whenever you use an attack skill, you also remove one Enchantment from your target, and your attacks deal cold damage. This skill is disabled for 120 seconds.
+duration 1 60
+enchant-remove
+
+Avatar of Lyssa
+Elite Form 15 2 5
+For $duration$ seconds, you have +10 maximum Energy and your attacks deal +$damage$ damage to foes activating skills. This skill is disabled for 120 seconds.
+duration 1 60
+damage 5 50
+
+Avatar of Melandru
+Elite Form 15 2 5
+For $duration$ seconds, you have +200 Health, you are unaffected by Conditions, and your attacks deal earth damage. This skill is disabled for 120 seconds.
+condition-counter
+
+Balthazar's Rage
+Enchant 10 .75 5
+All nearby foes take $damage$ holy damage. For 20 seconds, this Enchantment does nothgin. WHen this Enchantment ends, you gain $health-gain$ Health for each successful hit while under the effects of this Enchantment.
+damage 40 100
+health-gain 4 10
+
+Eremite's Zeal
+Spell 5 1 4
+Lose one Enchantment for each adjacent foe. You gain $energy-gain$ Energy for each Enchantment removed in this way.
+energy-gain 1 5
+
+Extend Enchantments
+Enchant 5 .25 20
+Lose all Enchantments. For $duration$ seconds, Enchantments cast upon you last $enchant-buff$% longer. When this Enchantment ends, you lose all Enchantments on you.
+duration 5 20
+enchant-buff 100
+
+Faithful Intervention
+Enchant 5 2 20
+If damage drops your Health below 50% Faithful Intervention ends. When Faithful Intervention ends, you are healed for $heal$ Health.
+heal 30 150
+
+Imbue Health
+Spell 10 .25 10
+Target other ally is healed for $heal$% of your maximum Health (maximum 300 Health).
+heal 5 50
+
+Meditation
+Spell 5 1 8
+Lose one Enchantment. If an Enchantment is removed in this way, you gain $energy-gain$ Energy, otherwise you are healed for $heal$ Health.
+energy-gain 4 10
+heal 20 125
+
+Mystic Vigor
+Enchant 5 .25 6
+For 10 seconds, every time you successfully hit with an attack, you gain $health-gain$ Health for each Enchantment on you (maximum 25 Health).
+health-gain 1 7
+
+Pious Haste
+Stance 5 0 12
+For $duration$ seconds you move $move-buff$% faster. When this Stand ends, you lose 1 Enchantment.
+duration 5 10
+move-buff 25
+
+Pious Renewal
+Enchant 5 .25 3
+For 8 seconds, whenever an Enchantment ends on you, you gain $energy-gain$ Energy and $health-gain$ Health.
+energy-gain 0 2
+health-gain 0 25
+
+Vow of Silence
+Elite Enchant 5 1 10
+For $duration$ seconds, you cannot be the target of Spells, and you cannot cast Spells.
+duration 5 10
+
+Watchful Intervention
+Enchant 15 1 15
+For 60 seconds, the next time target ally's Health drops below 25%, that ally is healed for $health-gain$ Health.
+health-gain 50 200
+

@@ -1,0 +1,1005 @@
+<html><head>
+  <style type='text/css'>
+  body { background-color: white }
+  tr { vertical-align: top; background-color: #F2FFF0 }
+  tr.listBar { background-color: #C4DBC0 }
+  td { border: 1px solid }
+  td.skill { text-weight: bold }
+  td.attrs { white-space: nowrap }
+  span.add { background-color: lavender; color: blue }
+  span.delete { background-color: mistyrose; color: red }
+  </style>
+</head><body>
+<table cellspacing='0' border='0'>
+<tr><th>Skill</th><th>Attributes</th><th>Description</th></tr>
+<tr class='listBar'><td class='skill'>"Charge!"</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..11 seconds<span class="add">,</span> all allies within earshot move 25% faster.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>"Go for the Eyes!"</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, the next time each ally within earshot makes an attack, that attack has an additional 30..75% chance to <span class="delete">be a </span>critical<span class="delete"> hit</span>.
+&nbsp;</td></tr>
+<tr><td class='skill'>"It's just a flesh wound."</td><td class='attrs'>
+&nbsp;</td><td>
+You suffer <span class="add">from </span>a Deep Wound for 10..5 seconds, and target other ally loses all Conditions.
+&nbsp;</td></tr>
+<tr><td class='skill'>"Lead the Way!"</td><td class='attrs'>
+&nbsp;</td><td>
+Target ally moves 25% faster for 1..5 seconds for each ally within earshot (maximum <span class="add">of </span>20 seconds).
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>"Never Surrender!"</td><td class='attrs'>
+&nbsp;</td><td>
+For 1<span class="add">0</span> seconds, all party members within earshot and below 75% Health<span class="delete">,</span> gain +1..5 Health regeneration.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Agonizing Chop</td><td class='attrs'>
+activation: 0.5 => 0<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Ancestor's Visage</td><td class='attrs'>
+&nbsp;</td><td>
+For 4..10 seconds, whenever target ally is hit by a melee attack<span class="add">,</span> all adjacent foes lose all adrenaline and 3 Energy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Angelic Protection</td><td class='attrs'>
+profession: No Profession => Paragon<br>
+attribute: No Attribute => Leadership<br>
+type:  => Skill<br>
+energy: 0 => 5<br>
+recharge: 0 => 30<br>
+&nbsp;</td><td>
+<span class="add">For 10 seconds, any time target other ally takes more than 250..100 damage per second, that ally is healed for any damage over that amount.</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Arcane Conundrum</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..15 seconds, Spells cast by target foe <span class="delete">and all adjacent foes </span>take twice as long to cast.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Arcane Thievery</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..35 seconds, one random Spell is disabled for target foe<span class="add">,</span> and Arcane Thievery is replaced by that Spell.
+&nbsp;</td></tr>
+<tr><td class='skill'>Ash Blast</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe is struck for 20..<span class="delete">6</span>5<span class="add">5</span> earth damage. If Ash Blast strikes a knocked-down foe, that foe is <span class="add">B</span>linded for 3..15 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Assassin's Remedy</td><td class='attrs'>
+&nbsp;</td><td>
+For 30 seconds, the next 1..10 attack skills you use remove <span class="add">o</span><span class="add">ne</span> Condition.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Augury of Death</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..35 seconds, the next time damage would drop target foe's Health below 50%, you inflict a Deep Wound for 5..20 seconds and Shadow <span class="add">S</span>tep to that foe.<span class="delete"> </span>This Spell has half the normal range.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Aura of the Lich</td><td class='attrs'>
+&nbsp;</td><td>
+For 15..45 seconds, your maximum <span class="add">H</span>ealth is reduced by half, but you <span class="delete">only </span>take half damage from all sources. When Aura of the Lich ends, you're healed for 50..240 <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr><td class='skill'>Avatar of Balthazar</td><td class='attrs'>
+&nbsp;</td><td>
+For 10..90 seconds, you gain +40 armor, you move 33% faster<span class="add">,</span> and your attacks deal holy damage. This <span class="add">S</span>kill is disabled for 120 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Avatar of Dwayna</td><td class='attrs'>
+&nbsp;</td><td>
+For 10..75 seconds, whenever you use a <span class="add">S</span>kill, you gain 15..60 <span class="add">H</span>ealth and lose <span class="add">1</span><span class="delete">ne</span> <span class="add">H</span>ex. This <span class="add">S</span>kill is disabled for 120 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Axe Twist</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits a foe suffering from a <span class="add">D</span>eep <span class="add">W</span>ound, you strike for <span class="delete">+</span>1..20 <span class="add">more </span>damage and that foe suffers from <span class="add">W</span>eakness for 20 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Balthazar's Pendulum</td><td class='attrs'>
+activation: 0.25 => 1<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Balthazar's Spirit</td><td class='attrs'>
+&nbsp;</td><td>
+While you maintain this Enchantment, target ally gains adrenaline and <span class="delete">1 </span>Energy after taking damage. (The amount of adrenaline gained increases depending on your rank in Smiting Prayers.)
+&nbsp;</td></tr>
+<tr><td class='skill'>Battle Rage</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds<span class="add">,</span> you move <span class="add">25</span>% faster and gain double adrenaline from attacks. Battle Rage ends if you use any non-attack skills. When Battle Rage ends, you lose all adrenaline.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Beguiling Haze</td><td class='attrs'>
+&nbsp;</td><td>
+Shadow <span class="add">S</span>tep to target foe. That foe is interrupted and becomes Dazed for <span class="add">1</span>..<span class="add">7</span> seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Belly Smash</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack <span class="add">s</span><span class="delete">i</span>t<span class="add">rike</span>s a foe who is on the ground, the resulting dust cloud will blind adjacent foes for 3..10 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Bestial Fury</td><td class='attrs'>
+&nbsp;</td><td>
+All <span class="delete">of </span>your non-attack skills are disabled for 5 seconds. For 5..11 seconds, you attack 25% faster.
+&nbsp;</td></tr>
+<tr><td class='skill'>Black Mantis Thrust</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for <span class="add">+</span>8..20 damage. If target foe is suffering from a Hex, that foe is Crippled for 3..15 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Blessed Signet</td><td class='attrs'>
+&nbsp;</td><td>
+For each Enchantment you are maintaining, you gain 3 Energy (maximum 3..24)<span class="add">.</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Blinding Powder</td><td class='attrs'>
+&nbsp;</td><td>
+Must follow an off-hand attack. Target foe and all adjacent foes become<span class="delete">s</span> Blinded for 3..15 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Blood of the Master</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 5% maximum Health. All of your undead allies are healed for 30..116<span class="add"> Health</span>. You sacrifice an additional 2% maximum Health per minion healed in this way.
+&nbsp;</td></tr>
+<tr><td class='skill'>Blurred Vision</td><td class='attrs'>
+activation: 2 => 1<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Bull's Charge</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..11 seconds<span class="add">,</span> you move 25% faster and if you strike a moving foe in melee, that foe is knocked down. Bull's Charge ends if you use a skill.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Charging Strike</td><td class='attrs'>
+&nbsp;</td><td>
+For 1..10 seconds, you run 33% faster. Your next suc<span class="delete">c</span>essful hit does +10..40 damage and this <span class="add">S</span>tance ends. This <span class="add">S</span>tance ends if you use a <span class="add">S</span>kill.
+&nbsp;</td></tr>
+<tr><td class='skill'>Claim Resource</td><td class='attrs'>
+type:  => Skill<br>
+energy: 0 => 5<br>
+activation: 0 => 3<br>
+&nbsp;</td><td>
+<span class="add">(monster only)</span>
+&nbsp;</td></tr>
+<tr><td class='skill'>Clumsiness</td><td class='attrs'>
+recharge: 4 => 10<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Concussion Shot</td><td class='attrs'>
+&nbsp;</td><td>
+If Concussion Shot hits while target <span class="add">foe </span>is casting a Spell, the Spell is interrupted and your target is <span class="add">D</span>azed for 5..20 seconds. This attack deals only 1..16 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Conjure Nightmare</td><td class='attrs'>
+&nbsp;</td><td>
+For 2..1<span class="add">4</span> seconds, target foe suffers -8 Health degeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Conjure Phantasm</td><td class='attrs'>
+&nbsp;</td><td>
+For 2..1<span class="add">4</span> seconds, target foe experiences -5 Health degeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Contagion</td><td class='attrs'>
+&nbsp;</td><td>
+For 60 seconds, whenever you suffer from a new <span class="add">C</span>ondition, all nearby foes suffer <span class="add">from </span>that same <span class="add">C</span>ondition and you sacrifice 10..5% maximum <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Convert Hexes</td><td class='attrs'>
+recharge: 12 => 20<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Corrupt Enchantment</td><td class='attrs'>
+&nbsp;</td><td>
+Remove <span class="add">on</span>e<span class="add"> E</span>nchantment from target foe. If an <span class="add">E</span>nchantment is removed in this way, that foe suffers from -1..8 <span class="add">H</span>ealth degeneration for 10 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Crippling Shot</td><td class='attrs'>
+energy: 10 => 15<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Crippling Slash</td><td class='attrs'>
+adrenaline: 6 => 5<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Cultist's Fervor</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds, your <span class="add">S</span>pells cost -7 <span class="add">E</span>nergy to cast<span class="delete">,</span> but you sacrifice 30..15% <span class="add">m</span>aximum Health each time you cast a Spell.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Dark Fury</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 17% maximum <span class="add">H</span>ealth. For 5 seconds, whenever any party member hits with an attack, that party member gains one hit of adrenaline. (50% failure chance with Blood Magic <span class="add">of </span>4 or less<span class="delete">)</span>.<span class="add">)</span>
+&nbsp;</td></tr>
+<tr><td class='skill'>Dash</td><td class='attrs'>
+&nbsp;</td><td>
+For 3 seconds, you <span class="add">run</span><span class="delete">e</span> 50% faster.
+&nbsp;</td></tr>
+<tr><td class='skill'>Deathly Chill</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe is struck for 5..50 cold damage. If that foe's <span class="add">H</span>ealth is above 50%, you deal<span class="add"> an</span> additional 5..50 shadow damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Deep Freeze</td><td class='attrs'>
+&nbsp;</td><td>
+You cause a Deep Freeze at target foe<span class="add">'s</span> location. All foes in this location are struck for 10..85 cold damage, and for 10 seconds, they move 66% slower.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Defensive Anthem</td><td class='attrs'>
+activation: 2 => 1<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Defile Flesh</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 10% maximum Health. For 5..35 seconds, target foe<span class="delete">s</span> gains only two-thirds Health from healing.
+&nbsp;</td></tr>
+<tr><td class='skill'>Dismember</td><td class='attrs'>
+&nbsp;</td><td>
+If it hits, this axe <span class="add">blow</span><span class="delete">ck</span> will inflict a <span class="add">D</span>eep <span class="add">W</span>ound on the target foe, lowering that foe's maximum <span class="add">H</span>ealth by 20% for 5..20 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Disrupting Lunge</td><td class='attrs'>
+&nbsp;</td><td>
+Your animal companion attempts a Disrupting Lunge that deals +1..12 damage. If that attack strikes a foe using a skill that skill is interrupted and <span class="add">is </span>disabled for an additional 20 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Divine Boon</td><td class='attrs'>
+&nbsp;</td><td>
+While you maintain this Enchantment, whenever you cast a Monk <span class="add">S</span>pell that targets an ally, that ally is healed for 15..60 Health<span class="add">,</span> and you lose 2 Energy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Divine Intervention</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, the next time target ally receives damage that would be fatal, th<span class="add">e</span><span class="delete">t</span> damage is negated and that ally is healed for 26..240 <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr><td class='skill'>Double Dragon</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">t</span><span class="add">wo</span> seconds, foes adjacent to this location are struck for 7..112 fire damage each second.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Drunken Blow</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for +10..40 damage<span class="delete">,</span> and your target suffers from one of the following <span class="add">C</span>onditions: Deep Wound (for 20 seconds), Weakness (for 20 seconds), Bleeding (for 25 seconds), or Crippled (for 15 seconds). After making a Drunken Blow, you are knocked down.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Dust Trap</td><td class='attrs'>
+&nbsp;</td><td>
+When Dust Trap is triggered, every second (for 5 seconds total), all nearby foes are <span class="add">B</span>linded for 3..8 seconds and take 10..25 damage. While activating this skill<span class="add">,</span> you are easily interrupted. Dust Trap ends after 90 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Dwarven Battle Stance</td><td class='attrs'>
+recharge: 20 => 30<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Earth Attunement</td><td class='attrs'>
+&nbsp;</td><td>
+For 36..60 seconds, you are attuned to Earth. You gain 1 Energy plus 30% of the base Energy cost of the Skill <span class="add">e</span><span class="add">ac</span>h<span class="add"> tim</span>e<span class="delete">never</span> you use Earth Magic.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Ebon Hawk</td><td class='attrs'>
+&nbsp;</td><td>
+Send a projectile that strikes for <span class="add">2</span>0..<span class="add">9</span><span class="delete">0</span>0 earth damage if it hits. If this Spell hits a moving or attacking foe, that foe suffers from Weakness for 5..15 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Elemental Attunement</td><td class='attrs'>
+&nbsp;</td><td>
+For 30..55 seconds, you are attuned to <span class="add">A</span>ir, <span class="add">F</span>ire, <span class="add">W</span>ater<span class="add">,</span> and <span class="add">E</span>arth. You gain 50% of the base Energy cost of the <span class="add">s</span>kill each time you use magic associated with any of these elements.
+&nbsp;</td></tr>
+<tr><td class='skill'>Empathic Removal</td><td class='attrs'>
+recharge: 7 => 10<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Endure Pain</td><td class='attrs'>
+&nbsp;</td><td>
+For 7..18 seconds<span class="delete">,</span> you have an additional 90..300 Health.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Energizing Wind</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 <span class="add">S</span>pirit. For non-<span class="add">S</span>pirit creatures within its range, all skills cost 15 less <span class="add">E</span>nergy (minimum cost 10 <span class="add">E</span>nergy), and skills recharge 25% slower. This <span class="add">S</span>pirit dies after <span class="add">3</span>0..150 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Enraging Charge</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..15 seconds, you move 25% faster. Enraging Charge ends when you successfully strike a target, at which point you gain <span class="add">1</span>..4 strikes of adrenaline.
+&nbsp;</td></tr>
+<tr><td class='skill'>Ether Feast</td><td class='attrs'>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Ether Prodigy</td><td class='attrs'>
+&nbsp;</td><td>
+Lose all Enchantments. For 5..20 seconds, you gain +6 Energy regeneration. When Ether Prodigy ends, you <span class="add">los</span>e 3 <span class="add">H</span><span class="delete">amag</span>e<span class="add">alth</span> for each point of Energy you have. This <span class="add">S</span>pell causes Exhaustion.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Expose Defenses</td><td class='attrs'>
+recharge: 15 => 10<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Expunge Enchantments</td><td class='attrs'>
+&nbsp;</td><td>
+<span class="delete">Target foe loses 1 Enchantment. </span>All of your other non-attack skills are disabled for 10..5 seconds. For each skill disabled in this way, target touched foe loses <span class="delete">1 additi</span>on<span class="add">e</span><span class="delete">l</span> Enchantment.
+&nbsp;</td></tr>
+<tr><td class='skill'>Extend Conditions</td><td class='attrs'>
+&nbsp;</td><td>
+All Conditions on target foe last 5..100% longer (maximum 30 seconds<span class="delete">).</span>
+&nbsp;</td></tr>
+<tr><td class='skill'>Faintheartedness</td><td class='attrs'>
+&nbsp;</td><td>
+For the next <span class="add">5</span>..<span class="add">35</span> seconds, target foe attacks 50% slower, and that foe suffers -1..3 Health degeneration.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Falling Spider</td><td class='attrs'>
+&nbsp;</td><td>
+Must strike a knocked-down foe. If it hits, Falling Spider strikes for +15..35 damage and target foe is Poisoned for 5..20 seconds<span class="add">.</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Ferocious Strike</td><td class='attrs'>
+&nbsp;</td><td>
+Your animal companion attempts a Ferocious Strike that deals <span class="add">+</span>13..28 damage. If that attack hits, you gain adrenaline and 3..10 <span class="add">E</span>nergy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Final Thrust</td><td class='attrs'>
+&nbsp;</td><td>
+Lose all adrenaline. If Final Thrust hits, you deal <span class="delete">+</span>1..40 <span class="add">more </span>damage. This damage is doubled if your target was below 50% <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr><td class='skill'>Fire Attunement</td><td class='attrs'>
+&nbsp;</td><td>
+For 36..60 seconds, you are attuned to <span class="add">F</span>ire. You gain 1 <span class="add">E</span>nergy plus 30% of the <span class="add">bas</span>e<span class="add"> E</span>nergy cost of the <span class="add">S</span>kill each time you use Fire Magic.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Flame Trap</td><td class='attrs'>
+&nbsp;</td><td>
+When Flame Trap is triggered, every second (for 3 seconds total), all nearby foes are struck for 5..11 fire damage and set on fire for 1..3 seconds. Flame Trap <span class="delete">automatically trigg</span>e<span class="add">n</span><span class="add">d</span>s after 90 seconds. While activating this skill, you are easily interrupted.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Frenzied Defense</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">8</span> seconds, you have a 75% chance to block incoming attacks, but take double damage.
+&nbsp;</td></tr>
+<tr><td class='skill'>Frigid Armor</td><td class='attrs'>
+&nbsp;</td><td>
+For 10..25 seconds, you have +10..40 armor against physical damage and can<span class="add">n</span><span class="add">o</span>t be set on fire.
+&nbsp;</td></tr>
+<tr><td class='skill'>Frozen Burst</td><td class='attrs'>
+&nbsp;</td><td>
+All nearby foes are struck for 10..85 cold damage and move 66% slower for <span class="add">5</span>..<span class="add">1</span><span class="add">1</span> seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Furious Axe</td><td class='attrs'>
+&nbsp;</td><td>
+If Furious Axe hits, you strike for +5..35 damage. If it is blocked<span class="delete">,</span> you gain 3 strikes worth of adrenaline.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Generous Was Tsungrai</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 10% Health. Hold Tsungrai's ashes for up to 15..60 seconds and gain +50..140 maximum Health. When you drop his ashes<span class="add">,</span> you gain 100..280 Health.
+&nbsp;</td></tr>
+<tr><td class='skill'>Glyph of Concentration</td><td class='attrs'>
+&nbsp;</td><td>
+For 15 seconds, your next two <span class="add">S</span>pells cannot be interrupted<span class="delete">,</span> and ignore the effects of being <span class="add">D</span>azed.
+&nbsp;</td></tr>
+<tr><td class='skill'>Glyph of Lesser Energy</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">the next </span>15 seconds, your next <span class="add">2</span><span class="delete">wo</span> Spells cost 10..18 less Energy to cast.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Golden Fox Strike</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, target foe takes +10..30 damage. If you are under the effects of an Enchantment, this attack cannot be <span class="delete">"</span>blocked<span class="delete">"</span>.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Golden Lotus Strike</td><td class='attrs'>
+&nbsp;</td><td>
+If it hits, this attack strikes for <span class="add">+</span>5..20 damage. If you are under the effects of an Enchantment, you gain 5..12 Energy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Golden Skull Strike</td><td class='attrs'>
+&nbsp;</td><td>
+Must follow a <span class="add">l</span>ead <span class="add">a</span>ttack. If you are under the effects of an <span class="add">E</span>nchantment and this attack hits, target foe is Dazed<span class="delete"> for</span> 4..10 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Grenth's Balance</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe has more <span class="add">H</span>ealth than you, you gain half the difference (up to your maximum <span class="add">H</span>ealth<span class="delete">,</span>)<span class="add">,</span> and that foe loses an equal amount.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Heal as One</td><td class='attrs'>
+&nbsp;</td><td>
+If you or your animal companion are below 75% <span class="add">H</span>ealth, you <span class="delete">are </span>both <span class="add">g</span><span class="delete">e</span>a<span class="add">in</span><span class="delete">d</span> <span class="delete">for </span>25..145 <span class="add">H</span>ealth. If your companion is dead, it is resurrected with 50% <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Healing Breeze</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, target ally gains <span class="add">+</span>3..9 Health regeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Healing Burst</td><td class='attrs'>
+&nbsp;</td><td>
+Target touched ally and <span class="add">all </span>nearby allies are healed for 30..150 Health. If more than one ally was healed, you lose 5 Energy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Healing Spring</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, a<span class="add">ll a</span>djacent allies are healed for 15..60 every 2 seconds. While activating this skill<span class="add">,</span> you are easily interrupted.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Hex Eater Signet</td><td class='attrs'>
+activation: 1 => 2<br>
+recharge: 25 => 45<br>
+&nbsp;</td><td>
+Target touched ally and up to 2..5 adjacent allies each lose one Hex. You gain 1..<span class="add">7</span> Energy for each Hex removed this way.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Hexbreaker Aria</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, the next time each ally within earshot casts a <span class="add">S</span>pell<span class="add">,</span> that ally loses 1 Hex.
+&nbsp;</td></tr>
+<tr><td class='skill'>Hidden Caltrops</td><td class='attrs'>
+&nbsp;</td><td>
+For 20 seconds, the next time target foe takes damage while moving, th<span class="delete">is Hex ends. When Hidden C</span>a<span class="delete">l</span>t<span class="delete">rops</span> <span class="delete">ends, target </span>foe takes 15..75 damage and is <span class="add">C</span>rippled for 5..20 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Hypochondria</td><td class='attrs'>
+&nbsp;</td><td>
+All <span class="add">C</span>onditions on foes in the area of<span class="add"> the</span> target foe are transferred to that foe.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Ice Prison</td><td class='attrs'>
+&nbsp;</td><td>
+For 8..20 seconds, target foe's legs are encased in ice, causing th<span class="add">e</span><span class="delete">t</span> foe to move 66% slower. This effect ends if target takes fire damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Icy Veins</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe is struck for 10..90 cold damage. For 10..35 seconds, if target foe dies<span class="delete">,</span> all nearby foes are struck for 20..110 cold damage.
+&nbsp;</td></tr>
+<tr><td class='skill'>Imagined Burden</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">8</span><span class="delete">0</span>..<span class="add">2</span>0 seconds, target foe moves 50% slower.
+&nbsp;</td></tr>
+<tr><td class='skill'>Immolate</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe is struck for 15..<span class="add">60</span> fire damage and is set on fire for 1..3 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Jagged Strike</td><td class='attrs'>
+&nbsp;</td><td>
+If Jagged Strike hits, your target suffers from Bleeding for <span class="add">1</span>..15 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Jaizhenju Strike</td><td class='attrs'>
+&nbsp;</td><td>
+If Jaizhenju Strike hits, you strike for +1..30 damage. If you are not using a <span class="add">S</span>tance, Jaizhenju Strike cannot be <span class="delete">"</span>blocked<span class="delete">"</span>.
+&nbsp;</td></tr>
+<tr><td class='skill'>Jaundiced Gaze</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 10% <span class="add">maximum </span>Health. If target foe has more Health than you, you steal up to 18..60 Health. Otherwise, you deal 18..60 damage.
+&nbsp;</td></tr>
+<tr><td class='skill'>Kinetic Armor</td><td class='attrs'>
+&nbsp;</td><td>
+For 8 seconds, you gain <span class="add">+</span>20..80 armor. Whenever you cast a <span class="add">S</span>pell, Kinetic Armor is renewed for 8 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Kitah's Burden</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, target foe moves 50% slower. When Kitah's Burden ends<span class="delete">,</span> you gain 10..22 Energy.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Lacerate</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 <span class="add">S</span>pirit. Bleeding creatures within its range suffer -2 <span class="add">H</span>ealth degeneration. When this <span class="add">S</span>pirit dies, all <span class="add">non-Spirit </span>creatures within its range that have less tha<span class="add">n</span> 90% <span class="add">H</span>ealth begin <span class="add">B</span>leeding for 5..25 seconds. This <span class="add">S</span>pirit dies after 30..150 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Lava Font</td><td class='attrs'>
+&nbsp;</td><td>
+For 5 seconds, foes adjacent to the location where this Spell was cast are struck for 5..50 fire damage<span class="delete">.</span>
+&nbsp;</td></tr>
+<tr><td class='skill'>Leaping Mantis Sting</td><td class='attrs'>
+&nbsp;</td><td>
+If <span class="delete">Leaping </span>Mantis Sting hits, target foe takes +14..20 damage. If this attack strikes a moving foe, that foe is Crippled for 3..15 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Life Siphon</td><td class='attrs'>
+&nbsp;</td><td>
+For 12..24 seconds, target suffers -1..3 <span class="add">H</span>ealth degeneration, and you gain +1..3<span class="add"> Health</span> regeneration.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Life Transfer</td><td class='attrs'>
+&nbsp;</td><td>
+For 6..12 seconds, target foe suffers <span class="add">-3..8 </span>Health degeneration<span class="delete"> of 3..8</span>, which you gain as Health regeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Lifebane Strike</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe takes 12..48 shadow damage. If t<span class="add">h</span>a<span class="delete">rge</span>t foe's Health is above 50%, you steal up to 12..48 Health.
+&nbsp;</td></tr>
+<tr><td class='skill'>Lightbringer Signet</td><td class='attrs'>
+pve: true => false<br>
+&nbsp;</td><td>
+If you are <span class="add">w</span>i<span class="add">thi</span>n<span class="add">g</span> range of a demonic servant of Abaddon, you gain 1 strike of <span class="add">a</span>drenaline, plus 1 <span class="add">a</span>drenaline and 3 <span class="add">e</span>nergy for each rank of Lightbringer you have attained.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Lightbringer's Gaze</td><td class='attrs'>
+pve: true => false<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Lightning Touch</td><td class='attrs'>
+&nbsp;</td><td>
+Target touched foe and all adjacent foes are struck for 10..60 lightning damage. Foes suffering from a Water Magic Hex are struck for an additional 10..40 lightning damage. This s<span class="add">ki</span>ll has 25% armor penetration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Lyssa's Balance</td><td class='attrs'>
+&nbsp;</td><td>
+<span class="delete">Target foe loses one Enchantment. </span>If you have <span class="add">f</span><span class="delete">or</span>e<span class="add">wer</span> Enchantments than target foe, th<span class="add">at</span> <span class="add">foe</span><span class="delete">ll</span> <span class="add">lo</span>s<span class="add">es</span> <span class="delete">n</span>o<span class="add">n</span>e<span class="add"> En</span>c<span class="add">hantmen</span>t.
+&nbsp;</td></tr>
+<tr><td class='skill'>Magebane Shot</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, it interrupts target foe's action. If that action was a Spell, this attack <span class="delete">recharges </span>instantly<span class="add"> recharges</span>.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Malicious Strike</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits a foe suffering from a Condition, you deal <span class="add">+</span>10..30 damage and this attack results in a critical hit.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Malign Intervention</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds, target foe rec<span class="delete">i</span>e<span class="add">i</span>ves 20% less benefit from healing. If target foe dies while Hexed with Malign Intervention, a level 1..17<span class="add"> masterless</span> bone horror is summoned.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mantis Touch</td><td class='attrs'>
+&nbsp;</td><td>
+Must follow a lead attack. Target foe becomes Crippled for 5..20 seconds. <span class="add">Th</span><span class="delete">nt</span>is <span class="add">skill</span> counts as an off-hand attack.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mantra of Persistence</td><td class='attrs'>
+&nbsp;</td><td>
+For 30 seconds, any Illusion Magic Hex you cast lasts 20..<span class="add">1</span><span class="add">0</span>0% longer.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Mark of Rodgort</td><td class='attrs'>
+recharge: 15 => 5<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Meditation</td><td class='attrs'>
+&nbsp;</td><td>
+Lose <span class="add">1</span><span class="delete">ne</span> Enchantment. If an Enchantment is removed in this way, you gain 3..8 Energy, otherwise you are healed for 20..125 Health.
+&nbsp;</td></tr>
+<tr><td class='skill'>Meekness</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 17% Health. For 20..44 seconds, target foe and all foe<span class="add">s</span> in the area attack 50% slower.
+&nbsp;</td></tr>
+<tr><td class='skill'>Melandru's Arrows</td><td class='attrs'>
+&nbsp;</td><td>
+For 18 seconds, whenever your arrows hit, they cause Bleeding for 3..25 seconds, and if they hit a target who is under an Enchantment, they do +8..2<span class="add">8</span> damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Melandru's Resilience</td><td class='attrs'>
+recharge: 15 => 25<br>
+&nbsp;</td><td>
+For 8..20 seconds, you gain +<span class="add">3</span> Health regeneration and +1 Energy regeneration for each Condition and Hex you are suffering.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Mending</td><td class='attrs'>
+&nbsp;</td><td>
+While you maintain this Enchantment, target ally gains <span class="add">+</span>1..4 Health regeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mending Refrain</td><td class='attrs'>
+&nbsp;</td><td>
+For 20 seconds, target non-Spirit ally has <span class="add">+</span>1..4 Health regeneration. This Echo is reapplied every time a Chant or Shout ends on that ally.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mighty Blow</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for <span class="add">+</span>10..40 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Mighty Was Vorizun</td><td class='attrs'>
+&nbsp;</td><td>
+Hold Vorizun's ashes for up to 15..60 seconds. While you hold his ashes, you gain +15 armor<span class="delete">,</span> and +30 maximum Energy.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Migraine</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds, target foe suffers <span class="add">-</span>1..3 <span class="add">H</span>ealth degeneration and takes 100% longer to cast <span class="add">S</span>pells.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mind Shock</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe suffers 10..50 lightning damage. If you have more <span class="add">E</span>nergy than target foe, that foe suffers 10..50 additional lightning damage and is knocked down. This <span class="add">S</span>pell has 25% armor penetration<span class="delete">.</span> <span class="add">and</span><span class="delete">s</span> <span class="delete">spell </span>causes <span class="add">E</span>xhaustion.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mirage Cloak</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, you have a 50% chance to block incoming attacks. When this <span class="add">E</span>nchantment ends<span class="add">,</span> all nearby foes are struck for 15..75 earth damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Mirror of Ice</td><td class='attrs'>
+&nbsp;</td><td>
+For 60 seconds, the next time an enemy <span class="add">S</span>pell would deal damage to you, that damage is negated and that <span class="add">S</span>pell<span class="add">'</span>s caster takes 10..85 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Mokele Smash</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for +5..20 damage and gain 2 strike<span class="delete">s</span> of adrenaline.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mystic Regeneration</td><td class='attrs'>
+&nbsp;</td><td>
+For 20 seconds, you have +1..4 Health regeneration for each Enchantment <span class="delete">spell </span>on you.
+&nbsp;</td></tr>
+<tr><td class='skill'>Mystic Sandstorm</td><td class='attrs'>
+&nbsp;</td><td>
+Lose all Enchantments. For each Enchantment removed in this way, all nearby foes are struck for 10..35 earth damage<span class="delete">.</span> (maximum 130 damage)<span class="add">.</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Mystic Twister</td><td class='attrs'>
+&nbsp;</td><td>
+For each Enchantment on you, <span class="add">1</span><span class="delete">ne</span> foe in the area is struck for 30..125 cold damage (the same target cannot be hit more than once).
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Nature's Renewal</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..1<span class="add">0</span> <span class="add">S</span>pirit. For 30..150 seconds, Enchantments and Hexes cast by non-Spirit creatures take twice as long to cast, and it costs twice as much <span class="add">E</span>nergy to maintain <span class="add">E</span>nchantments. This Spirit dies after 30..150 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Nightmare Weapon</td><td class='attrs'>
+&nbsp;</td><td>
+For 12 seconds, target ally has a Nightmare Weapon. Target ally's next 3 attacks are reduced by 10..50 damage and steal<span class="delete">s</span> up to 10..50 Health.
+&nbsp;</td></tr>
+<tr><td class='skill'>No Skill</td><td class='attrs'>
+type:  => Empty<br>
+&nbsp;</td><td>
+<span class="add">Empty slot</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Obsidian Flesh</td><td class='attrs'>
+&nbsp;</td><td>
+For 8..2<span class="add">0</span> seconds, you gain +20 armor and cannot be the target of enemy Spells, but move 50% slower.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Parasitic Bond</td><td class='attrs'>
+&nbsp;</td><td>
+For 20 seconds, target <span class="add">foe </span>suffers -1 <span class="add">H</span>ealth degeneration. The caster is healed for 30..120 when Parasitic Bond ends.
+&nbsp;</td></tr>
+<tr><td class='skill'>Penetrating Blow</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for +5..20 damage. This a<span class="add">xe a</span>ttack has 20% armor penetration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Penetrating Chop</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for +5..20 damage. This a<span class="add">xe a</span>ttack has 20% armor penetration.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Pin Down</td><td class='attrs'>
+&nbsp;</td><td>
+If Pin Down hits, your target is Crippled for <span class="delete">+</span>3..15 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Pious Assault</td><td class='attrs'>
+&nbsp;</td><td>
+You lose <span class="add">1</span><span class="delete">ne</span> Enchantment. If this attack hits, you deal +10..30 damage. If you lose an Enchantment in this way, this Skill recharges instantly.
+&nbsp;</td></tr>
+<tr><td class='skill'>Pious Concentration</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds<span class="add">,</span> you can<span class="delete"> </span>not be interrupted, but each time you would have been interrupted<span class="delete"> </span>, you lose 1 Enchantment or Pious Concentration ends.
+&nbsp;</td></tr>
+<tr><td class='skill'>Pious Restoration</td><td class='attrs'>
+&nbsp;</td><td>
+Lose 1 Enchantment. You gain 30..90 <span class="add">H</span>ealth<span class="add">.</span> <span class="add">I</span>f you are still under the effects of an Enchantment<span class="add">,</span> lose 1..3 <span class="add">H</span>exes.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Plague Sending</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 10% maximum Health. Transfer one negative Condition and its remaining duration f<span class="add">r</span>om yourself to target foe and all adjacent foes.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Power Block</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, that S<span class="add">pe</span>ll is interrupted. The interrupted Spell and all Spells of the same attribute are disabled for 3..15 seconds for that foe.
+&nbsp;</td></tr>
+<tr><td class='skill'>Power Drain</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, th<span class="add">e</span><span class="delete">t</span> S<span class="add">pe</span>ll is interrupted and you gain 1..31 Energy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Power Flux</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, that S<span class="add">pe</span>ll is interrupted and for 4..10 seconds, that foe has -2 Energy degeneration.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Power Leak</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, the S<span class="add">pe</span>ll is interrupted and target foe loses 5..20 Energy.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Power Leech</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, that S<span class="add">pe</span>ll is interrupted and for 10 seconds, whenever that foe casts a Spell, you steal up to 1..7 Energy from that foe.
+&nbsp;</td></tr>
+<tr><td class='skill'>Power Return</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, that S<span class="add">pe</span>ll is interrupted and target foe gains 10..5 Energy.
+&nbsp;</td></tr>
+<tr><td class='skill'>Power Spike</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe is casting a Spell<span class="delete"> or Chant</span>, the <span class="add">Spe</span>ll is interrupted and target foe takes <span class="add">2</span>0..1<span class="delete">2</span>0<span class="add">2</span> damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Predator's Pounce</td><td class='attrs'>
+&nbsp;</td><td>
+Your animal companion attempts a Predator's Pounce that deals <span class="add">+</span>5..35 damage. If that attack hits, your animal companion gains 5..50 Health.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Predatory Season</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 Spirit. For <span class="add">non-Spirit </span>creatures within its range, all healing is reduced by 20%. If any of your attacks hit, you gain 5 <span class="add">H</span>ealth. This Spirit dies after 30..150 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Primal Echoes</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 Spirit. For <span class="add">non-Spirit </span>creatures within its range, <span class="add">S</span>ignets cost 10 <span class="add">E</span>nergy to use. This Spirit dies after 30..150 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Protective Was Kaolai</td><td class='attrs'>
+&nbsp;</td><td>
+Hold Kaolai's ashes for up to 15..60 seconds. While you hold his ashes, you gain 24 armor. When you drop <span class="add">h</span><span class="delete">aola</span>i<span class="delete">'</span>s ashes, <span class="add">all</span><span class="delete">r</span> party <span class="add">m</span><span class="add">ember</span>s <span class="add">are </span>healed for 10..85<span class="add"> Health</span>.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Psychic Instability</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds, any<span class="delete"> </span>time target foe is interrupted that foe is knocked down.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Pure Strike</td><td class='attrs'>
+&nbsp;</td><td>
+If Pure Strike hits, you strike for +1..30 damage. If you are not using a <span class="add">S</span>tance, Pure Strike cannot be <span class="delete">"</span>blocked<span class="delete">"</span>.
+&nbsp;</td></tr>
+<tr><td class='skill'>Purge Signet</td><td class='attrs'>
+&nbsp;</td><td>
+Remove all Hexes and Conditions from target ally. You lose 10 Energy for each Hex and <span class="add">each </span>Condition removed.
+&nbsp;</td></tr>
+<tr><td class='skill'>Putrid Explosion</td><td class='attrs'>
+&nbsp;</td><td>
+The <span class="add">c</span>orpse nearest <span class="delete">to </span>you<span class="add">r target</span> explodes, sending out a shockwave that deals 24..120 damage to nearby foes.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Quickening Zephyr</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 Spirit. For <span class="add">non-Spirit </span>creatures within its range, all skills recharge twice as fast a<span class="delete">s </span>n<span class="delete">ormal an</span>d cost 30% more of the base <span class="add">E</span>nergy to cast. This Spirit dies after 15..45 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Quivering Blade</td><td class='attrs'>
+&nbsp;</td><td>
+If Quivering Blade hits, you strike for +10..40 damage. If it is blocked, Quivering Blade is disabled for 4 seconds<span class="delete">,</span> and you are Dazed for 8 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Reaper's Mark</td><td class='attrs'>
+recharge: 12 => 10<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Reckless Haste</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds, target foe and all adjacent foes are Hexed with Reckless Haste. While Hexed, they attack 25% faster<span class="delete">,</span> but have a 15..50% chance to miss with attacks.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Rend Enchantments</td><td class='attrs'>
+&nbsp;</td><td>
+Remove 5..9 Enchantments from target foe. Fo<span class="add">r</span> each Monk Enchantment removed, you take 55..25 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Resilient Was Xiko</td><td class='attrs'>
+&nbsp;</td><td>
+Hold Xiko's ashes for up to 5..20 seconds. For each Hex or Condition you are suffering from while holding her ashes<span class="add">,</span> you gain +3 Health regeneration. When you drop her ashes, you lose 1..4 Conditions.
+&nbsp;</td></tr>
+<tr><td class='skill'>Restoration</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 Spirit. When this Spirit dies, all <span class="add">p</span>arty members in the area are resurrected with 5..50% Health and zero Energy. This Spirit dies <span class="add">af</span><span class="add">ter</span> 30 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Restore Condition</td><td class='attrs'>
+&nbsp;</td><td>
+Remove all Conditions (Poison, Disease, Blindness, Dazed, Bleeding, Crippled, Burning, Weakness<span class="add">,</span> and Deep Wound) from target other ally. For each Condition removed, that ally is healed for 10..70 Health.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Ride the Lightning</td><td class='attrs'>
+recharge: 5 => 20<br>
+&nbsp;</td><td>
+You <span class="add">r</span>ide the <span class="add">l</span>ightning to target foe. That foe is struck for 1<span class="add">5</span>..<span class="add">75</span><span class="delete">0</span> lightning damage. This <span class="add">S</span>pell has 25% armor penetration and causes <span class="add">E</span>xhaustion.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Savage Slash</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, it interrupts the target foe's action. If that action was a <span class="add">S</span>pell, you deal <span class="delete">+</span>1..40 extra damage.
+&nbsp;</td></tr>
+<tr><td class='skill'>Searing Flames</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe and all nearby foes are struck with Searing Flames. Foes already on fire when this <span class="add">S</span>kill is cast are struck for <span class="add">7</span><span class="delete">0</span>..1<span class="add">12</span> fire damage. Foes not already on fire begin <span class="add">B</span>urning for 1..5 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Seeking Blade</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits<span class="delete">,</span> you strike for +1..20 damage. If Seeking Blade is <span class="delete">"</span>blocked<span class="delete">"</span>, your target begins <span class="add">B</span>leeding and takes 1..20 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Shadow Strike</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe takes 12..48 shadow damage. If t<span class="add">h</span>a<span class="delete">rge</span>t foe's Health is above 50%, you steal up to 12..48 Health.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Shadowsong</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..6 Spirit. The Spirit's attacks cause Blindness for 1..6 second<span class="delete">[</span>s<span class="delete">]</span>. This Spirit dies after 30 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Shard Storm</td><td class='attrs'>
+&nbsp;</td><td>
+Send out an ice shard that strikes target foe for 10..85 cold damage if it hits and caus<span class="add">in</span><span class="add">g</span> target foe to move 66% slower for 2..6 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Shared Burden</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">3</span>..<span class="add">17</span> seconds, target foe and all nearby foes move 50% slower.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Shield Guardian</td><td class='attrs'>
+activation: 0.25 => 1<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Shield Stance</td><td class='attrs'>
+&nbsp;</td><td>
+For 1..8 seconds, while wielding a shield, you have a 75% chance to <span class="delete">"</span>block<span class="delete">"</span> incoming attacks, but you move 33% slower.
+&nbsp;</td></tr>
+<tr><td class='skill'>Shockwave</td><td class='attrs'>
+recharge: 15 => 20<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Shove</td><td class='attrs'>
+&nbsp;</td><td>
+Lose all <span class="add">A</span>drenaline. All of you<span class="add">r othe</span>r non-attack skills are disabled for 10..5 seconds. Target touched foe is knocked down and takes 15..75 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Signet of Aggression</td><td class='attrs'>
+&nbsp;</td><td>
+If you are under the effects of a Shout o<span class="add">r</span> Chant, you gain 1 strike of adrenaline.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Signet of Capture</td><td class='attrs'>
+pve: true => false<br>
+&nbsp;</td><td>
+Choose one skill from a nearby dead Boss of your profession. Signet of Capture is permanently replaced by that skill. If that skill was elite, gain 250 X<span class="add">p</span> for e<span class="add">ver</span><span class="add">y</span> level you have earned.
+&nbsp;</td></tr>
+<tr><td class='skill'>Signet of Disenchantment</td><td class='attrs'>
+&nbsp;</td><td>
+Lose all Energy. Target foe loses <span class="add">o</span><span class="add">ne</span> Enchantment.
+&nbsp;</td></tr>
+<tr><td class='skill'>Signet of Ghostly Might</td><td class='attrs'>
+&nbsp;</td><td>
+Target <span class="add">allied </span>summoned creature's attacks deal 5..35 more damage. After 10 seconds, that creature is destroyed.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Signet of Humility</td><td class='attrs'>
+activation: 3 => 2<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Signet of Rage</td><td class='attrs'>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+Target foe takes 10..40 holy damage and +5..<span class="add">11</span> holy damage for each adrenaline skill that foe has.
+&nbsp;</td></tr>
+<tr><td class='skill'>Siphon Strength</td><td class='attrs'>
+energy: 10 => 15<br>
+&nbsp;</td><td>
+For 5..20 seconds, target foe deals -5..50 damage with attacks and all <span class="add">of </span>your attacks against that foe have an additional 33% chance of being a critical hit.
+&nbsp;</td></tr>
+<tr><td class='skill'>Sliver Armor</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..11 seconds, you have 25..50% chance to block attacks and whenever you are the target of a hostile Spell or attack<span class="delete">,</span> one nearby foe is struck for 5..35 earth damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Soldier's Stance</td><td class='attrs'>
+&nbsp;</td><td>
+For 4..10 seconds, you attack 33% faster while under the effect<span class="add">s</span> of a <span class="add">S</span>hout or <span class="add">C</span>hant.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Soul Barbs</td><td class='attrs'>
+&nbsp;</td><td>
+For 30 seconds, target foe takes 15..30 damage when <span class="add">an </span>Enchantment or Hex is cast on that target.
+&nbsp;</td></tr>
+<tr><td class='skill'>Spike Trap</td><td class='attrs'>
+&nbsp;</td><td>
+When Spike Trap is triggered, all nearby foes are struck for 10..40 piercing damage, become Crippled for 3..2<span class="add">5</span> seconds, and are knocked down. Spike Trap ends after 90 seconds. While activating this skill, you are easily interrupted.
+&nbsp;</td></tr>
+<tr><td class='skill'>Spirit Transfer</td><td class='attrs'>
+&nbsp;</td><td>
+The <span class="add">S</span>pirit nearest <span class="delete">to </span>you loses 5..50 <span class="add">H</span>ealth. Target ally is healed for 5 for each point of <span class="add">H</span>ealth lost.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Spiritual Pain</td><td class='attrs'>
+&nbsp;</td><td>
+Target foe takes 15..75 damage. If that foe is near a Spirit, all other nearby foes take 15..75 damage<span class="delete"> </span>, and this Skill recharges instantly if it hits a Spirit.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Spiteful Spirit</td><td class='attrs'>
+energy: 15 => 10<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Splinter Weapon</td><td class='attrs'>
+&nbsp;</td><td>
+For 15..60 seconds, target ally has a Splinter Weapon. Target ally's next <span class="delete">successful </span>1..5 attack<span class="delete">s</span> deal 5..50 damage to all adjacent foes.
+&nbsp;</td></tr>
+<tr><td class='skill'>Spoil Victor</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..20 seconds, whenever target foe attacks or casts a <span class="add">S</span>pell on a creature with less <span class="add">H</span>ealth<span class="delete">,</span> that foe loses 25..100 <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Standing Slash</td><td class='attrs'>
+&nbsp;</td><td>
+If <span class="delete">th</span>i<span class="delete">s a</span>t<span class="delete">tack</span> hits, Standing Slash deals +5..20 damage plus an additional 5..20 damage if you are in a Stance.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Steady Stance</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, the next time you would be knocked down, you gain 1..3 strikes of <span class="add">a</span>drenaline and 1..7 Energy instead<span class="delete"> </span>.
+&nbsp;</td></tr>
+<tr><td class='skill'>Stoneflesh Aura</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..<span class="add">20</span> seconds, damage you receive is reduced by 1..31, and you are immune to critical attacks.
+&nbsp;</td></tr>
+<tr><td class='skill'>Storm Chaser</td><td class='attrs'>
+&nbsp;</td><td>
+For 8..20 seconds<span class="add">,</span> you move 25% faster, and you gain 1..5 <span class="add">E</span>nergy whenever you take elemental damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Strength of Honor</td><td class='attrs'>
+&nbsp;</td><td>
+While you maintain this Enchantment, target ally deals <span class="add">1</span>..1<span class="add">0</span> more damage in melee.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Suffering</td><td class='attrs'>
+&nbsp;</td><td>
+For 6..30 seconds, target foe and <span class="add">all </span>nearby foes suffer -2 Health degeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Sunspear Rebirth Signet</td><td class='attrs'>
+pve: true => false<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Swift Chop</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits, you strike for +1..20 damage. If Swift Chop is <span class="delete">"</span>blocked<span class="delete">"</span>, your target suffers a <span class="add">D</span>eep <span class="add">W</span>ound for 20 seconds and takes an additional 1..20 damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Symbiosis</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 Spirit. For <span class="delete">cr</span>ea<span class="delete">tures within its range, for ea</span>ch <span class="add">E</span>nchantment on a <span class="add">non-Spirit </span>creature<span class="add"> within range</span>, that creature<span class="add"> </span><span class="add">ha</span>s <span class="add">+27..150 </span>maximum <span class="add">H</span>ealth<span class="delete"> is increased by 27..150</span>. This Spirit dies after 30..150 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Thrill of Victory</td><td class='attrs'>
+&nbsp;</td><td>
+If this blow hits, and you have more Health than target foe you strike for +1<span class="add">5</span>..45 damage.
+&nbsp;</td></tr>
+<tr><td class='skill'>Throw Dirt</td><td class='attrs'>
+&nbsp;</td><td>
+Target touched foe and foes adjacent to your target become <span class="delete">"</span>Blinded<span class="delete">"</span> for 3..15 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Tiger's Fury</td><td class='attrs'>
+&nbsp;</td><td>
+All <span class="delete">of </span>your non-attack skills are disabled for 5 seconds. For 5..11 seconds, you attack 25% faster.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Tranquility</td><td class='attrs'>
+&nbsp;</td><td>
+Create a level 1..10 Spirit. Enchantments cast by non-<span class="add">S</span>pirit creatures within its range expire 20..50% faster. This <span class="add">S</span>pirit dies after 15..60 seconds<span class="add">.</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Trapper's Focus</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..2<span class="add">0</span> seconds, your trap skills are not easily interruptible.
+&nbsp;</td></tr>
+<tr><td class='skill'>Troll Unguent</td><td class='attrs'>
+&nbsp;</td><td>
+For 10 seconds, you gain <span class="add">+</span>3..10 <span class="add">H</span>ealth regeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Ulcerous Lungs</td><td class='attrs'>
+&nbsp;</td><td>
+For 10..25 seconds, target foe and all nearby foes suffer from -4 Health degeneration when Bleeding, and whenever they use a Shout or Chant, they Bleed for 3..15 seconds<span class="delete">.</span>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Vampiric Swarm</td><td class='attrs'>
+&nbsp;</td><td>
+Vampiric Swarm flies out slowly and steals up to 15..60 Health from up to <span class="add">t</span><span class="add">hree</span> foes in the area.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Verata's Aura</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 33% maximum Health. All hostile animated undead in the area become bound to you. Verata's Aura ends after 120..300 seconds. When Verata's Aura ends, you lose your bond with any undead bound to you.<span class="delete"> </span>(50% failure chance with Death Magic 4 or less.)
+&nbsp;</td></tr>
+<tr><td class='skill'>Verata's Sacrifice</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 15% maximum Health. For 5..10 seconds, all of your undead allies gain +10 Health regeneration. All Conditions are removed from those allies and transfer<span class="add">r</span>ed to you. If this Spell is successful and you have control of 3 or fewer minions, Verata's Sacrifice instantly recharges.
+&nbsp;</td></tr>
+<tr><td class='skill'>Vicious Attack</td><td class='attrs'>
+&nbsp;</td><td>
+If this attack hits<span class="add">,</span> you deal +5..20 damage. If you land a critical hit with this attack, target foe suffer<span class="add">s</span> from a Deep Wound for 5..15 seconds.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Viper's Nest</td><td class='attrs'>
+&nbsp;</td><td>
+Create a Viper's Nest. When it is triggered, all nearby foes are struck for 5..35 piercing damage and become Poisoned for 5..<span class="add">20</span> seconds. Viper's Nest expires after 90 seconds. This Trap is easily interrupted.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Virulence</td><td class='attrs'>
+&nbsp;</td><td>
+If target foe was already suffering from a <span class="add">C</span>ondition, that foe suffers from Disease, Poison<span class="add">,</span> and Weakness for 3..15 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Wail of Doom</td><td class='attrs'>
+&nbsp;</td><td>
+Sacrifice 10% <span class="add">H</span>ealth<span class="add">,</span> and target foe is interrupted. If target foe was attacking, all of that foe's attack skills are disabled for 5..20 seconds.
+&nbsp;</td></tr>
+<tr><td class='skill'>Ward Against Harm</td><td class='attrs'>
+&nbsp;</td><td>
+Create a Ward Against Harm at this location. For 8..20 seconds, non-<span class="add">S</span>pirit allies in th<span class="add">i</span><span class="add">s</span> area have 12..60 armor against fire damage and 12..24 armor against other damage.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Ward Against Melee</td><td class='attrs'>
+&nbsp;</td><td>
+You create a Ward Against Melee at your current location. For 8..20 seconds, non-Spirit allies in this area have a 50% chance to <span class="delete">"</span>block<span class="delete">"</span> melee attacks.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Ward of Stability</td><td class='attrs'>
+&nbsp;</td><td>
+Create a Ward of Stability at your current location. For 10..25 seconds, non-Spirit allies cannot be knocked down.<span class="delete"> ==Scaling==</span>
+&nbsp;</td></tr>
+<tr><td class='skill'>Warrior's Cunning</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..11 seconds, your melee attacks cannot be <span class="delete">"</span>blocked<span class="delete">"</span>.
+&nbsp;</td></tr>
+<tr><td class='skill'>Warrior's Endurance</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">1</span><span class="add">0</span>..<span class="add">2</span>3<span class="delete">5</span> seconds, you gain 3 <span class="add">E</span>nergy each time you hit with a melee attack. Warrior's Endurance cannot raise your <span class="add">E</span>nergy above 10..25.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Wary Stance</td><td class='attrs'>
+&nbsp;</td><td>
+For 1..6 seconds, you block any attack skill<span class="add">s</span> used against you. For each successful block, you gain adrenaline and 5 <span class="add">E</span>nergy. Wary Stance ends if you use a skill.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Wastrel's Worry</td><td class='attrs'>
+&nbsp;</td><td>
+After 3 seconds, target foe takes 8..64 damage. Wastrel's Worry ends <span class="add">prematurely </span>if that foe uses a skill.
+&nbsp;</td></tr>
+<tr><td class='skill'>Water Attunement</td><td class='attrs'>
+&nbsp;</td><td>
+For 36..60 seconds, you are attuned to Water. You gain 1 Energy plus 30% of the base Energy cost of the Skill <span class="add">e</span><span class="add">ac</span>h<span class="add"> tim</span>e<span class="delete">never</span> you use Water Magic.
+&nbsp;</td></tr>
+<tr><td class='skill'>Way of Perfection</td><td class='attrs'>
+&nbsp;</td><td>
+For 10..35 seconds, whenever you successfully <span class="add">l</span>a<span class="add">nd</span> a critical hit, you gain 10..40 <span class="add">H</span>ealth.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Weaken Knees</td><td class='attrs'>
+&nbsp;</td><td>
+For 3..38 seconds, if target foe is struck while moving<span class="delete">,</span> that foe is knocked down and Weaken Knees ends.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Weapon of Warding</td><td class='attrs'>
+&nbsp;</td><td>
+For <span class="add">5</span>..<span class="add">1</span><span class="add">1</span> seconds, target ally has a Weapon of Warding that grants target ally +2..4 Health regeneration and a 50% chance to block.
+&nbsp;</td></tr>
+<tr><td class='skill'>Web of Disruption</td><td class='attrs'>
+&nbsp;</td><td>
+Interrupt target foe. For 10 seconds, target foe is <span class="add">H</span>exed with Web of Disruption. When this Hex ends, t<span class="add">h</span>a<span class="delete">rge</span>t foe is interrupted again.
+&nbsp;</td></tr>
+<tr><td class='skill'>Well of Blood</td><td class='attrs'>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Well of Darkness</td><td class='attrs'>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Well of Power</td><td class='attrs'>
+energy: 5 => 10<br>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+Exploit nearest corpse to create a Well of Power at that location. For 8..20 seconds, allies <span class="add">w</span>i<span class="add">thi</span>n the area of Well of Power <span class="add">ga</span><span class="delete">ce</span>i<span class="add">n</span><span class="delete">e</span> <span class="add">+</span>1..6 Health regeneration and +2 Energy regeneration.
+&nbsp;</td></tr>
+<tr><td class='skill'>Well of Silence</td><td class='attrs'>
+energy: 10 => 15<br>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr><td class='skill'>Well of Suffering</td><td class='attrs'>
+energy: 10 => 15<br>
+activation: 1 => 2<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Well of Weariness</td><td class='attrs'>
+energy: 5 => 10<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Whirling Defense</td><td class='attrs'>
+&nbsp;</td><td>
+For 8..20 seconds, you have 75% chance to <span class="delete">"</span>block<span class="delete">"</span> attacks. Whenever you block a projectile in this way, adjacent foes take 5..11 damage.
+&nbsp;</td></tr>
+<tr><td class='skill'>Wild Blow</td><td class='attrs'>
+&nbsp;</td><td>
+Lose all adrenaline. If it hits, this attack will result in a critical hit and any Stance being used by your target ends. This attack cannot be <span class="delete">"</span>blocked.<span class="delete">"</span>
+&nbsp;</td></tr>
+<tr><td class='skill'>Wither</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..35 seconds, target foe suffers -2..4 <span class="add">H</span>ealth degeneration and -1 Energy degeneration. If target foe's <span class="add">E</span>nergy reaches 0, that foe takes 15..75 damage<span class="delete">,</span> and Wither ends.
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Yeti Smash</td><td class='attrs'>
+adrenaline: 6 => 7<br>
+&nbsp;</td><td>
+&nbsp;</td></tr>
+<tr class='listBar'><td class='skill'>Zojun's Haste</td><td class='attrs'>
+&nbsp;</td><td>
+For 5..11 seconds, you move 33% faster and have a 27..75% chance to <span class="delete">"</span>block<span class="delete">"</span> incoming projectiles. Zojun's Haste ends if you attack.
+&nbsp;</td></tr>
+</table>
+</body></html>

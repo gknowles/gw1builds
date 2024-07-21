@@ -1,0 +1,15 @@
+Intimidating Gaze
+Enchant 10 .75 20
+For 20 seconds, if you strike a foe who has less Health than you, that foe loses one Enchantment and intimidating Gaze ends.
+enchant-remove
+
+Rending Touch
+Spell 5 .75 10
+You and target touched foe lose one Enchantment.
+enchant-remove
+
+Winds of Disenchantment
+Spell 10 .75 20
+Lose all Enchantments. For each Enchantment lost in this way, one nearby foe also loses one Enchantment. (The same foe cannot lose more than one Enchantment.)
+enchant-remove
+

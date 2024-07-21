@@ -1,0 +1,33 @@
+
+div.toonInfo th,
+div.toonInfo td { 
+  color: <%= skin[:std] %>; 
+  font-size: 10pt;
+}
+
+div.toonInfo div.toonPick {
+  height: 23px;
+  border: 0px;
+  overflow: hidden;
+}
+div.toonInfo div.toonPick select {
+  font-family: arial narrow;
+  width: 179px; /* 177px in adjust-ie */
+}
+div.toonInfo div.toonPick input.pos {
+  font-family: arial narrow;
+  text-align: right;
+  /* height: 22px; in adjust-ie */
+  width: 30px;
+  border: 0px; 
+  padding: 3px 0px;
+  position: relative;
+  top: -22px; /* -23px in adjust-ie */
+  color: <%= skin[:std] %>;
+  background-color: <%= skin[:emptyBG] %>;
+}
+div.toonInfo div.toonPick input.name {
+  width: 130px;
+  position: relative;
+  top: -22px; /* -23px in adjust-ie */
+}

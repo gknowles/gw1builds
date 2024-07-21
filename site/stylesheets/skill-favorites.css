@@ -1,0 +1,9 @@
+/* Skill Favorites */
+div.skillFavorites td {
+  border: 1px solid;
+  border-color: #000000 #677199 #677199 #000000;
+  padding: 0px;
+}
+div.skillFavorites td.skill {
+  cursor: move;
+}

@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Derive Progressions from samples</title>
+  <script type="text/javascript" src='progs.js'></script>
+</head>
+<body onload="update()">
+  <form id="inputs">
+  <table>
+    <thead>
+    <script type="text/javascript">
+      for (var i1 = 0; 17 > i1; ++i1) {
+        document.write("<th>" + i1 + "</th>");
+      }
+    </script>
+    </thead>
+    <tbody><tr>
+    <td><input tabindex='1' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='3' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='4' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='5' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='6' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='7' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='8' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='9' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='10' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='11' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='12' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='13' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='2' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='14' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='15' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='16' type="text" size="2" maxlength="3" onchange="update()"></td>
+    <td><input tabindex='17' type="text" size="2" maxlength="3" onchange="update()"></td>
+    </tr>
+    <tr style='text-align: center'>
+      <script type="text/javascript">
+        for (var i1 = 0; 17 > i1; ++i1) {
+          document.write("<td id='out." + i1 + "'></td>");
+        }
+      </script>
+    </tr></tbody>
+  </table>
+  </form>
+  <input type="button" value="Clear" onclick="clearValues()">&nbsp;
+  <span id='result' class='result'></span>
+  <div id="atAll"></div>
+  </div>
+</body>
+</html>
+

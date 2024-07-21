@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="GWData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Region" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SkillBar">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Skill" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:token" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Item">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="type" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="wand"/>
+            <xs:enumeration value="focus"/>
+            <xs:enumeration value="staff"/>
+            <xs:enumeration value="bow"/>
+            <xs:enumeration value="axe"/>
+            <xs:enumeration value="hammer"/>
+            <xs:enumeration value="sword"/>
+            <xs:enumeration value="shield"/>
+            <xs:enumeration value="daggers"/>
+            <xs:enumeration value="scythe"/>
+            <xs:enumeration value="spear"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="Region">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Zone" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Boss" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element ref="Trainer" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:token" use="required"/>
+            <xs:attribute name="type" default="area">
+              <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                  <xs:enumeration value="area"/>
+                  <xs:enumeration value="city"/>
+                  <xs:enumeration value="outpost"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="SkillBar" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:token" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="Boss">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SkillBar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="Item" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:token" use="required"/>
+      <xs:attribute name="profession" type="profession"/>
+      <xs:attribute name="species" type="xs:string"/>
+      <xs:attribute name="quest" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Trainer">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Skill" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:token" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Quest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Skill" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Item" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="zone" type="xs:string" use="required"/>
+      <xs:attribute name="npc" type="xs:string" use="required"/>
+      <xs:attribute name="profession" type="profession" use="optional">
+        <xs:annotation><xs:documentation>
+          Profession required to activate quest, if not present any profession can activate it  
+        </xs:documentation></xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="prereq" type="xs:string" use="optional">
+        <xs:annotation><xs:documentation>
+          Quest that must be taken before this one can be activated  
+        </xs:documentation></xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

@@ -1,0 +1,41 @@
+<script type="text/javascript">
+<% 
+paneRef = menuId + "_group"
+%>
+<%= paneRef %> = new Pane({
+  title: "Groups",
+  id: "<%= paneRef %>",
+  hidden: true,
+
+  onload: function() { this.loadElems(); },
+  onactive: function() {
+    this.elems.main.groupListEl.appendChild(dojo.byId('groupList'));
+    this.elems.main.memberListEl.appendChild(dojo.byId('memberList'));
+    clearMemberList();
+    executeGroupListAction('List', true);
+  },
+  onupdate: function(upd) {
+    if (upd.keys.user) { 
+      this.hidden = !g_user.hasRole(); 
+      SGroupList.search.values.acctRev = 0;
+      SGroupList.memberSearch.values.groupRev = 0;
+    }
+  }
+} );
+PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
+</script>
+
+<div class="pane groupPane" id="<%= paneRef %>" style="display: none">
+<table class='pane'><tr><td class='paneContent'>
+  <div class="pdiv-main">
+    <table><tr>
+      <td style='vertical-align: top'><div class='pvar-groupList'></div></td>
+      <td style='vertical-align: top'><div class='pvar-memberList'></div></td>
+    </tr></table>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <%= render :partial => "welcome/sidebar", :locals => { :menuId => menuId } %>
+  </div>
+</td></tr></table>
+</div>

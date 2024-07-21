@@ -1,0 +1,28 @@
+
+div.teamPane div.editDesc {
+}
+
+div.teamPane div#buildList h2 button {
+  display: none;
+}
+div.teamPane div.partList {
+	border: 0px none;
+  width: 300px;
+}
+div.teamPane div.partList div.scroll {
+  height: 500px;
+}
+div.teamPane div.alternateFactory {
+  width: 71px;
+  height: 3em;
+}
+div.teamPane div.emptyFactory {
+  width: 71px;
+  height: 3em;
+}
+div.teamPane div.skillFavorites {
+  width: 75px;
+}
+div.teamPane div.roster {
+  width: 400px;
+}

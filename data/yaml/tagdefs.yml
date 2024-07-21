@@ -1,0 +1,76 @@
+Tagdefs:
+  aspect:
+    adrenal: Adrenaline pool used by warrior and paragon skills
+    armor: Armor rating
+    attack: Standard weapon attacks
+    bleeding: Bleeding condition
+    blind: Blind condition
+    block: Chance to block attacks
+    burning: Burning condition
+    cast: Activation time of spells
+    condition: Any or all conditions
+    corpse: Body of slain corpeal creature
+    crippled: Crippled condition
+    critical: Critical hit chance
+    damage: Direct damage or weapon bonus damage.
+    dazed: Dazed condition
+    deepwound: Deepwound condition
+    disease: Disease condition
+    dual: Assassin dual attack
+    ecost: Energy cost of skill
+    enchant: Enchantments
+    energy: Energy
+    exhaust: Energy exhaustion
+    heal: Direct healing
+    health: Used for things that effect health but aren't heals or damage
+    hex: Under the effect of a hex spell
+    interrupt: Interruption of a foes skill or action
+    item: Something held (e.g. flag, repair kit, ashes of an item spell)
+    knockdown: Knockdown
+    lead: Assassin lead attack
+    lock: Locks skill or skills making them unusable for a period of time
+    minion: Animated undead minions
+    move: Movement speed
+    off-hand: Assassin off-hand attack
+    poison: Poison condition
+    preparation: Ranger preparations 
+    recharge: Skill recharge time, not skill lock a la Diversion 
+    rez: Resurrects dead party members or animal companions
+    sacrifice: Life sacrifice as part of skill activation
+    shadowstep: Assassin style shadow-step, not pure teleports
+    shout: Shout or chant
+    signet: Signet skills
+    skill: Generic skill 
+    spell: Skills of the spell family (enchant, hex, etc)
+    spirit: Created or summoned spirits
+    stance: Stance of user or target
+    teleport: True teleport, not shadow-step
+    touch: Touch skills
+    weakness: Weakness condition
+    weapon: Weapon spells
+  effect:
+    buff: Improves the aspect (e.g. dmg, heal, move speed) but separately applied
+    counter: Decreases effectiveness or prevents completely
+    drain: Removes from pool of energy or adrenaline
+    gain: Increase in pool of energy or adrenaline
+    gone: Completely empties pool (adrenaline or energy)
+    leak: Periodic loss, triggered by some event
+    nerf: Weakens the effect (e.g. low armor, higher cast time, etc)
+    punish: Cause extra damage, conditions, or energy loss when the aspect applies
+    remove: Removal of aspect (e.g. condition, hex, enchant)
+    require: Requires aspect (e.g. must follow lead attack)
+    uses: Takes advantage of allied aspect (e.g. being enchanted)
+  target: # for 'wrong' (e.g. heal foe, dmg ally) or unusual targets
+    ally: Allied to skill user
+    foe: Something hostile to skill user, usually target of skill
+    pet: Personal or allied animal companions
+    self: Applies to user of the skill
+  area: # only use either -aoe or -ot in any single tag, use two tags if you need both
+        # and tags ending in -aoe or -ot should be accompanied by the unadorned versions
+    aoe: Effects others around target
+    ot: Applies over time (e.g. firestorm, empathy)
+  
+  special:
+    lead-attack: Acts as lead attack in assassin skill chain
+    off-hand-attack: Acts as off-hand attack in assassin skill chain
+ 

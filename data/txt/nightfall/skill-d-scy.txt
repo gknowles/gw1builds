@@ -1,0 +1,72 @@
+Banishing Strike
+Melee Attack 5 0 10
+If this attack hits, you deal +$damage$ damage. If it hits a summoned creature, all nearby foes take $damage-if$ holy damage.
+damage 5 20
+damage-if 10 85
+
+Chilling Victory
+Scythe Attack 10 0 5
+If it hits, this attack strikes for +$damage$ damage. Whenever it hits a foe who has less Health than you, all adjacent foes are struck for $damage-if$ cold damage.
+damage 5 20
+damage-if 5 50
+
+Crippling Sweep
+Scythe Attack 5 0 15
+If this attack hits, target foe is Crippled for 5 seconds for each Enchantment on you (maximum $duration$ seconds).
+crippled 10 20
+
+Eremite's Attack
+Melee Attack 5 0 8
+If this attack hits, you deal +$damage$ damage for each adjacent foe (maximum $damage-limit$ bonus damage).
+damage 5 10
+damage-limit 10 40
+
+Exhausting Strike
+Scythe Attack 5 0 10
+If this attack hits, you deal +$damage$ damage and inflict a Deep Wound for $deepwound$ seconds, but suffer from Weakness for 10 seconds.
+damage 1 31
+deepwound 3 10
+
+Irresistible Sweep
+Melee Attack 5 0 8
+You lose one Enchantment. If you lose an Enchantment in this way, Irresistible Sweep cannot be "blocked" or "evaded." This attack deals +$damage$ damage if it hits.
+damage 5 20
+block-counter
+evade-counter
+
+Lyssa's Assault
+Scythe Attack 10 0 10
+This attack strikes for +$damage$ damage if it hits. If you are under the effects of an Enchantment, you gain 10 Energy.
+damage 5 20
+
+Mystic Sweep
+Melee Attack 5 0 12
+If this attack hits, you deal +$damage$ damage for each Enchantment on you (maximum 40 bonus damage).
+damage 5 10
+
+Penitent Strike
+Melee Attack 5 0 8
+If this attack hits, you deal +$damage$ damage. If target foe has less Health than you, you lose one Enchantment.
+damage 1 31
+
+Pious Assault
+Melee Attack 5 0 20
+You lose one Enchantment. If this attack hits, you deal +$damage$ damage. If you lose an Enchantment in this way, this Skill recharges instantly.
+damage 1 31
+
+Reap Impurities
+Melee Attack 10 0 6
+If this attack hits, you deal +$damage$ damage. You gain $heal$ Health for each foe you hit that is suffering from a Condition.
+damage 5 20
+heal 5 50
+
+Twin Moon Sweep
+Melee Attack 10 0 12
+You lose one Enchantment, if an Enchantment is lost in this way, you strike twice.
+
+Wounding Strike
+Scythe Attack 10 0 3
+If this attack hits while you are under the effects of an Enchantment, target foe suffers from a Deep Wound for $deepwound$ seconds. If you do not have an Enchantment on you, this attack causes Bleeding for $bleeding$ seconds.
+deepwound 10
+bleeding 5 20
+

@@ -1,0 +1,932 @@
+--- %YAML:1.0
+No Profession:
+  axe:
+    weapon:
+      - effects:
+          - { dtype: Slashing, req: Axe Mastery, value: "6-28" }
+        skins:
+          - { code: 110, value: "Axe" }
+  bow:
+    weapon:
+      - effects:
+          - { dtype: Piercing, req: Marksmanship, value: "15-28" }
+        skins:
+          - { code: 111, value: "Flatbow" }
+          - { code: 112, value: "Hornbow" }
+          - { code: 113, value: "Longbow" }
+          - { code: 114, value: "Shortbow" }
+          - { code: 115, value: "Recurve Bow" }
+  daggers:
+    weapon:
+      - effects:
+          - { dtype: Piercing, req: Dagger Mastery, value: "7-17" }
+        skins:
+          - { code: 279, value: "Daggers" }
+  hammer:
+    weapon:
+      - effects:
+          - { dtype: Blunt, req: Hammer Mastery, value: "19-35" }
+        skins:
+          - { code: 133, value: "Hammer" }
+  scythe:
+    weapon:
+      - effects:
+          - { dtype: Slashing, req: Scythe Mastery, value: "9-41" }
+        skins:
+          - { code: 322, value: "Scythe" }
+  spear:
+    weapon:
+      - effects:
+          - { dtype: Piercing, req: Spear Mastery, value: "14-27" }
+        skins:
+          - { code: 325, value: "Spear" }
+  sword:
+    weapon:
+      - effects:
+          - { dtype: Slashing, req: Swordsmanship, value: "15-22" }
+        skins:
+          - { code: 158, value: "Sword" }
+  shield:
+    offhand:
+      - effects:
+          - { req: Tactics, value: "Armor: 16" }
+        skins:
+          - { code: 146, value: "Tactics Shield" }
+      - effects:
+          - { req: Strength, value: "Armor: 16" }
+        skins:
+          - { code: 145, value: "Strength Shield" }
+      - effects:
+          - { req: Motivation, value: "Armor: 16" }
+        skins:
+          - { code: 323, value: "Motivation Shield" }
+      - effects:
+          - { req: Command, value: "Armor: 16" }
+        skins:
+          - { code: 324, value: "Command Shield" }
+  staff:
+    weapon:
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Chaos, req: Domination Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 147, value: "Inscribed Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Chaos, req: Illusion Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 148, value: "Jeweled Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Dark, req: Blood Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 149, value: "Blood Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Cold, req: Death Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 150, value: "Dead Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Cold, req: Curses, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 151, value: "Accursed Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Lightning, req: Air Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 152, value: "Air Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Earth, req: Earth Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 153, value: "Earth Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Fire, req: Fire Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 154, value: "Fire Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Cold, req: Water Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 155, value: "Water Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Fire, req: Divine Favor, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 156, value: "Holy Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Holy, req: Smiting Prayers, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 157, value: "Smiting Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Dark, req: Communing, Communing value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 287, value: "Communing Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Lightning, req: Spawning Power, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 288, value: "Spawning Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Lightning, req: Channeling Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 289, value: "Channeling Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Chaos, req: Fast Casting, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 332, value: "Arcane Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Chaos, req: Inspiration Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 333, value: "Scrying Glass Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Dark, req: Soul Reaping, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 334, value: "Soul Spire" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Chaos, req: Energy Storage, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 335, value: "Ether Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Holy, req: Healing Prayers, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 336, value: "Holy Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Holy, req: Protection Prayers, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 337, value: "Holy Staff" }
+      - effects:
+          - { type: energy, value: 10 }
+          - { dtype: Dark, req: Restoration Magic, value: "11-22" }
+          - { value: "Halves skill recharge of spells (Chance: 20%)" }
+        skins:
+          - { code: 339, value: "Restoration Staff" }
+  wand:
+    weapon:
+      - effects:
+          - { dtype: Chaos, req: Domination Magic, value: "11-22" }
+        skins:
+          - { code: 134, value: "Cane" }
+      - effects:
+          - { dtype: Chaos, req: Inspiration Magic, value: "11-22" }
+        skins:
+          - { code: 135, value: "Crystal Wand" }
+      - effects:
+          - { dtype: Dark, req: Blood Magic, value: "11-22" }
+        skins:
+          - { code: 136, value: "Truncheon" }
+      - effects:
+          - { dtype: Cold, req: Death Magic, value: "11-22" }
+        skins:
+          - { code: 137, value: "Deathly Cesta" }
+      - effects:
+          - { dtype: Cold, req: Curses, value: "11-22" }
+        skins:
+          - { code: 138, value: "Accursed Rod" }
+      - effects:
+          - { dtype: Lightning, req: Air Magic, value: "11-22" }
+        skins:
+          - { code: 139, value: "Air Wand" }
+      - effects:
+          - { dtype: Earth, req: Earth Magic, value: "11-22" }
+        skins:
+          - { code: 140, value: "Earth Wand" }
+      - effects:
+          - { dtype: Fire, req: Fire Magic, value: "11-22" }
+        skins:
+          - { code: 141, value: "Fire Wand" }
+      - effects:
+          - { dtype: Cold, req: Water Magic, value: "11-22" }
+        skins:
+          - { code: 142, value: "Water Wand" }
+      - effects:
+          - { dtype: Fire, req: Divine Favor, value: "11-22" }
+        skins:
+          - { code: 143, value: "Holy Rod" }
+      - effects:
+          - { dtype: Holy, req: Smiting Prayers, value: "11-22" }
+        skins:
+          - { code: 144, value: "Smiting Rod" }
+      - effects:
+          - { dtype: Dark, req: Communing, value: "11-22" }
+        skins:
+          - { code: 284, value: "Communing Scepter" }
+      - effects:
+          - { dtype: Lightning, req: Spawning Power, value: "11-22" }
+        skins:
+          - { code: 285, value: "Spawning Scepter" }
+      - effects:
+          - { dtype: Lightning, req: Channeling Magic, value: "11-22" }
+        skins:
+          - { code: 286, value: "Channeling Scepter" }
+      - effects:
+          - { dtype: Chaos, req: Fast Casting, value: "11-22" }
+        skins:
+          - { code: 326, value: "Arcane Scepter" }
+      - effects:
+          - { dtype: Chaos, req: Illusion Magic, value: "11-22" }
+        skins:
+          - { code: 327, value: "Cane" }
+      - effects:
+          - { dtype: Dark, req: Soul Reaping, value: "11-22" }
+        skins:
+          - { code: 328, value: "Crimson Claw Scepter" }
+      - effects:
+          - { dtype: Chaos, req: Energy Storage, value: "11-22" }
+        skins:
+          - { code: 329, value: "Voltaic Wand" }
+      - effects:
+          - { dtype: Holy, req: Healing Prayers, value: "11-22" }
+        skins:
+          - { code: 330, value: "Holy Rod" }
+      - effects:
+          - { dtype: Holy, req: Protection Prayers, value: "11-22" }
+        skins:
+          - { code: 331, value: "Holy Rod" }
+      - effects:
+          - { dtype: Dark, req: Restoration Magic, value: "11-22" }
+        skins:
+          - { code: 338, value: "Restoration Scepter" }
+  focus:
+    offhand:
+      - effects:
+          - { type: energy, req: Domination Magic, value: 12 }
+        skins:
+          - { code: 116, value: "Inscribed Chakram" }
+      - effects:
+          - { type: energy, req: Fast Casting, value: 12 }
+        skins:
+          - { code: 117, value: "Glided Artifact" }
+      - effects:
+          - { type: energy, req: Illusion Magic, value: 12 }
+        skins:
+          - { code: 118, value: "Jeweled Chakram" }
+      - effects:
+          - { type: energy, req: Inspiration Magic, value: 12 }
+        skins:
+          - { code: 119, value: "Jeweled Chalice" }
+      - effects:
+          - { type: energy, req: Blood Magic, value: 12 }
+        skins:
+          - { code: 120, value: "Idol" }
+      - effects:
+          - { type: energy, req: Curses, value: 12 }
+        skins:
+          - { code: 121, value: "Accursed Icon" }
+      - effects:
+          - { type: energy, req: Death Magic, value: 12 }
+        skins:
+          - { code: 122, value: "Grim Cesta" }
+      - effects:
+          - { type: energy, req: Soul Reaping, value: 12 }
+        skins:
+          - { code: 123, value: "Bone Idol" }
+      - effects:
+          - { type: energy, req: Air Magic, value: 12 }
+        skins:
+          - { code: 124, value: "Storm Artifact" }
+      - effects:
+          - { type: energy, req: Earth Magic, value: 12 }
+        skins:
+          - { code: 125, value: "Earth Scroll" }
+      - effects:
+          - { type: energy, req: Energy Storage, value: 12 }
+        skins:
+          - { code: 126, value: "Golden Chalice" }
+      - effects:
+          - { type: energy, req: Fire Magic, value: 12 }
+        skins:
+          - { code: 127, value: "Flame Artifact" }
+      - effects:
+          - { type: energy, req: Water Magic, value: 12 }
+        skins:
+          - { code: 128, value: "Frost Artifact" }
+      - effects:
+          - { type: energy, req: Divine Favor, value: 12 }
+        skins:
+          - { code: 129, value: "Divine Symbol" }
+      - effects:
+          - { type: energy, req: Healing Prayers, value: 12 }
+        skins:
+          - { code: 130, value: "Healing Ankh" }
+      - effects:
+          - { type: energy, req: Protection Prayers, value: 12 }
+        skins:
+          - { code: 131, value: "Protective Icon" }
+      - effects:
+          - { type: energy, req: Smiting Prayers, value: 12 }
+        skins:
+          - { code: 132, value: "Hallowed Idol" }
+      - effects:
+          - { type: energy, req: Communing, value: 12 }
+        skins:
+          - { code: 280, value: "Communing Focus" }
+      - effects:
+          - { type: energy, req: Spawning Power, value: 12 }
+        skins:
+          - { code: 281, value: "Spawning Focus" }
+      - effects:
+          - { type: energy, req: Restoration Magic, value: 12 }
+        skins:
+          - { code: 282, value: "Restoration Focus" }
+      - effects:
+          - { type: energy, req: Channeling Magic, value: 12 }
+        skins:
+          - { code: 283, value: "Channeling Focus" }
+
+          
+  upgrades:
+    prefix:
+      - name: "Adept"
+        effects:
+          - { value: "Halves casting time on spells of item's attribute (Chance: 20%)" }
+        for: 
+          - { code: 350, value: staff }
+      - name: "Barbed"
+        effects:
+          - { value: "Lengthens Bleeding duration on foes by 33% (Stacking)" }
+        for:
+          - { code: 101, value: axe }
+          - { code: 205, value: bow }
+          - { code: 192, value: daggers }
+          - { code: 237, value: scythe }
+          - { code: 254, value: spear }
+          - { code: 102, value: sword }
+      - name: "Crippling"
+        effects:
+          - { value: "Lengthens Crippled duration on foes by 33% (Stacking)" }
+        for:
+          - { code: 103, value: axe }
+          - { code: 206, value: bow }
+          - { code: 193, value: daggers }
+          - { code: 238, value: scythe }
+          - { code: 255, value: spear }
+          - { code: 104, value: sword }
+      - name: "Cruel"
+        effects:
+          - { value: "Lengthens Deep Wound duration on foes by 33% (Stacking)" }
+        for:
+          - { code: 105, value: axe }
+          - { code: 194, value: daggers }
+          - { code: 106, value: hammer }
+          - { code: 239, value: scythe }
+          - { code: 256, value: spear }
+          - { code: 107, value: sword }
+      - name: "Defensive"
+        effects:
+          - { value: "Armor +5" }
+        for: 
+          - { code: 100, value: staff }
+      - name: "Furious"
+        effects:
+          - { value: "Double adrenaline on hit (Chance: 10%)" }
+        for:
+          - { code: 17, value: axe }
+          - { code: 197, value: daggers }
+          - { code: 18, value: hammer }
+          - { code: 240, value: scythe }
+          - { code: 257, value: spear }
+          - { code: 19, value: sword }
+      - name: "Hale"
+        effects:
+          - { type: health, value: 30 }
+        for: 
+          - { code: 109, value: staff }
+      - name: "Heavy"
+        effects:
+          - { value: "Lengthens Weakness duration on foes by 33% (Stacking)" }
+        for:
+          - { code: 113, value: axe }
+          - { code: 114, value: hammer }
+          - { code: 242, value: scythe }
+          - { code: 260, value: spear }
+      - name: "Insightful"
+        effects:
+          - { type: energy, value: 5 }
+        for: 
+          - { code: 108, value: staff }
+      - name: "Poisonous"
+        effects:
+          - { value: "Lengthens Poison duration on foes by 33% (Stacking)" }
+        for:
+          - { code: 110, value: axe }
+          - { code: 111, value: bow }
+          - { code: 195, value: daggers }
+          - { code: 241, value: scythe }
+          - { code: 258, value: spear }
+          - { code: 112, value: sword }
+      - name: "Silencing"
+        effects:
+          - { value: "Lengthens Dazed duration on foes by 33% (Stacking)" }
+        for:
+          - { code: 207, value: bow }
+          - { code: 196, value: daggers }
+          - { code: 259, value: spear }
+      - name: "Sundering"
+        effects:
+          - { value: "Armor penetration +20% (Chance: 20%)" }
+        for:
+          - { code: 208, value: axe }
+          - { code: 209, value: bow }
+          - { code: 212, value: daggers }
+          - { code: 210, value: hammer }
+          - { code: 236, value: scythe }
+          - { code: 253, value: spear }
+          - { code: 211, value: sword }
+      - name: "Swift"
+        effects:
+          - { value: "Halves casting time of spells (Chance: 10%)" }
+        for: 
+          - { code: 273, value: staff }
+      - name: "Vampiric"
+        effects:
+          - { value: "Life stealing: 3" }
+          - { value: "Health regeneration -1" }
+        for:
+          - { code: 119, value: axe }
+          - { code: 191, value: daggers }
+          - { code: 252, value: spear }
+          - { code: 122, value: sword }
+      - name: "Vampiric"
+        effects:
+          - { value: "Life stealing: 5" }
+          - { value: "Health regeneration -1" }
+        for:
+          - { code: 121, value: bow }
+          - { code: 120, value: hammer }
+          - { code: 235, value: scythe }
+      - name: "Zealous"
+        effects:
+          - { value: "Energy gain on hit: 1" }
+          - { value: "Energy regeneration -1" }
+        for:
+          - { code: 115, value: axe }
+          - { code: 117, value: bow }
+          - { code: 190, value: daggers }
+          - { code: 116, value: hammer }
+          - { code: 234, value: scythe }
+          - { code: 251, value: spear }
+          - { code: 118, value: sword }
+      - name: "Ebon"
+        effects:
+          - { dtype: Earth }
+        for:
+          - { code: 2, value: axe }
+          - { code: 6, value: bow }
+          - { code: 187, value: daggers }
+          - { code: 10, value: hammer }
+          - { code: 233, value: scythe }
+          - { code: 272, value: spear }
+          - { code: 14, value: sword }
+      - name: "Fiery"
+        effects:
+          - { dtype: Fire }
+        for:
+          - { code: 4, value: axe }
+          - { code: 8, value: bow }
+          - { code: 188, value: daggers }
+          - { code: 12, value: hammer }
+          - { code: 269, value: scythe }
+          - { code: 249, value: spear }
+          - { code: 16, value: sword }
+      - name: "Icy"
+        effects:
+          - { dtype: Cold }
+        for:
+          - { code: 1, value: axe }
+          - { code: 5, value: bow }
+          - { code: 186, value: daggers }
+          - { code: 9, value: hammer }
+          - { code: 232, value: scythe }
+          - { code: 271, value: spear }
+          - { code: 13, value: sword }
+      - name: "Shocking"
+        effects:
+          - { dtype: Lightning }
+        for:
+          - { code: 3, value: axe }
+          - { code: 7, value: bow }
+          - { code: 189, value: daggers }
+          - { code: 11, value: hammer }
+          - { code: 270, value: scythe }
+          - { code: 250, value: spear }
+          - { code: 15, value: sword }
+
+    suffix:
+      - name: "Aptitude"
+        effects:
+          - { value: "Halves casting time on spells of item's attribute (Chance: 20%)" }
+        for:
+          - { code: 343, value: focus }  
+      - name: "Defense"
+        effects:
+          - { value: "Armor +5" }
+        for:
+          - { code: 127, value: axe }
+          - { code: 128, value: bow }
+          - { code: 200, value: daggers }
+          - { code: 134, value: hammer }
+          - { code: 244, value: scythe }
+          - { code: 262, value: spear }
+          - { code: 141, value: sword }
+          - { code: 140, value: staff }
+      - name: "Devotion"
+        effects:
+          - { value: "Health +45 (while Enchanted)" }
+        for:
+          - { code: 274, value: staff }
+          - { code: 347, value: shield }
+          - { code: 341, value: focus }
+      - name: "Enchanting"
+        effects:
+          - { value: "Enchantments last 20% longer" }
+        for:
+          - { code: 147, value: axe }
+          - { code: 148, value: bow }
+          - { code: 203, value: daggers }
+          - { code: 149, value: hammer }
+          - { code: 247, value: scythe }
+          - { code: 265, value: spear }
+          - { code: 151, value: sword }
+          - { code: 150, value: staff }
+      - name: "Endurance"
+        effects:
+          - { value: "Health +45 (while in a Stance)" }
+        for:
+          - { code: 275, value: staff }
+          - { code: 348, value: shield }
+          - { code: 267, value: focus }
+      - name: "Fortitude"
+        effects:
+          - { type: health, value: 30 }
+        for:
+          - { code: 142, value: axe }
+          - { code: 143, value: bow }
+          - { code: 204, value: daggers }
+          - { code: 144, value: hammer }
+          - { code: 248, value: scythe }
+          - { code: 266, value: spear }
+          - { code: 146, value: sword }
+          - { code: 145, value: staff }
+          - { code: 346, value: shield }
+          - { code: 340, value: focus }
+      - name: "Mastery"
+        effects:
+          - { value: "Item's attribute +1 (20% chance while using skills)" }
+        for:
+          - { code: 152, value: axe }
+          - { code: 153, value: bow }
+          - { code: 199, value: daggers }
+          - { code: 154, value: hammer }
+          - { code: 243, value: scythe }
+          - { code: 261, value: spear }
+          - { code: 155, value: sword }
+          - { code: 351, value: staff }
+      - name: "Memory"
+        effects:
+          - { value: "Halves skill recharge on spells of item's attribute (Chance: 20%)" }
+        for:
+          - { code: 345, value: wand }
+      - name: "Quickening"
+        effects:
+          - { value: "Halves skill recharge of spells (Chance: 10%)" }
+        for:
+          - { code: 344, value: wand }
+      - name: "Shelter"
+        effects:
+          - { value: "Armor +7 (vs. physical damage)" }
+        for:
+          - { code: 135, value: axe }
+          - { code: 136, value: bow }
+          - { code: 201, value: daggers }
+          - { code: 137, value: hammer }
+          - { code: 245, value: scythe }
+          - { code: 263, value: spear }
+          - { code: 139, value: sword }
+          - { code: 138, value: staff }
+      - name: "Swiftness"
+        effects:
+          - { value: "Halves casting time of spells (Chance: 10%)" }
+        for:
+          - { code: 342, value: focus }
+      - name: "Valor"
+        effects:
+          - { value: "Health +60 (while Hexed)" }
+        for:
+          - { code: 276, value: staff }
+          - { code: 349, value: shield }
+          - { code: 268, value: focus }
+      - name: "Warding"
+        effects:
+          - { value: "Armor +7 (vs. elemental damage)" }
+        for:
+          - { code: 129, value: axe }
+          - { code: 130, value: bow }
+          - { code: 202, value: daggers }
+          - { code: 131, value: hammer }
+          - { code: 246, value: scythe }
+          - { code: 264, value: spear }
+          - { code: 133, value: sword }
+          - { code: 132, value: staff }
+
+
+    inside:
+      - name: "Strength and Honor"
+        effects:
+          - { value: "Damage +15% (while Health is above 50%)" }
+        for:
+          - { code: 338, value: [axe, daggers, hammer, bow,
+                scythe, spear, sword, staff, wand ] }
+      - name: "Guided by Fate"
+        effects:
+          - { value: "Damage +15% (while Enchanted)" }
+        for:
+          - { code: 283, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "Dance with Death"
+        effects:
+          - { value: "Damage +15% (while in a Stance)" }
+        for:
+          - { code: 287, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "To the Pain!"
+        effects:
+          - { value: "Damage +15%" }
+          - { value: "Armor -10 (while attacking)" }
+        for:
+          - { code: 289, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "Brawn over Brains"
+        effects:
+          - { value: "Damage +15%" }
+          - { value: "Energy -5" }
+        for:
+          - { code: 288, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "Too Much Information"
+        effects:
+          - { value: "Damage +15% (vs. Hexed foes)" }
+        for:
+          - { code: 282, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "Vengeance is Mine"
+        effects:
+          - { value: "Damage +20% (while Health is below 50%)" }
+        for:
+          - { code: 339, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "Don't Fear the Reaper"
+        effects:
+          - { value: "Damage +20% (while Hexed)" }
+        for:
+          - { code: 286, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "Don't Think Twice"
+        effects:
+          - { value: "Halves casting time of spells (Chance: 10%)" }
+        for:
+          - { code: 281, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword, staff, wand ] }
+      - name: "I have the power!"
+        effects:
+          - { value: "Energy +5" }
+        for:
+          - { code: 329, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword] }
+      - name: "Let the Memory Live Again"
+        effects:
+          - { value: "Halves skill recharge of spells (Chance: 10%)" }
+        for:
+          - { code: 277, value: [axe, daggers, hammer, bow, 
+                scythe, spear, sword] }
+      - name: "Aptitude not Attitude"
+        effects:
+          - { value: "Halves casting time on spells of item's attribute (Chance: 20%)" }
+        for:
+          - { code: 335, value: [staff, wand] }
+      - name: "Seize the Day"
+        effects:
+          - { value: "Energy +15" }
+          - { value: "Energy regeneration -1" }
+        for:
+          - { code: 336, value: [staff, wand] }
+      - name: "Hale and Hearty"
+        effects:
+          - { value: "Energy +5 (while Health is above 50%)" }
+        for:
+          - { code: 337, value: [staff, wand] }
+      - name: "Have Faith"
+        effects:
+          - { value: "Energy +5 (while Enchanted)" }
+        for:
+          - { code: 278, value: [staff, wand] }
+      - name: "Don't call it a comeback!"
+        effects:
+          - { value: "Energy +7 (while Health is below 50%)" }
+        for:
+          - { code: 279, value: [staff, wand] }
+      - name: "I am Sorrow"
+        effects:
+          - { value: "Energy +7 (while Hexed)" }
+        for:
+          - { code: 280, value: [staff, wand] }
+      - name: "Serenity Now"
+        effects:
+          - { value: "Halves skill recharge of spells (Chance: 10%)" }
+        for:
+          - { code: 327, value: focus }
+      - name: "Forget Me Not"
+        effects:
+          - { value: "Halves skill recharge on spells of item's attribute (Chance: 20%)" }
+        for:
+          - { code: 328, value: focus }
+      - name: "Live for Today"
+        effects:
+          - { value: "Energy +15" }
+          - { value: "Energy regeneration -1" }
+        for:
+          - { code: 326, value: focus }
+      - name: "Faith is My Shield"
+        effects:
+          - { value: "Armor +5 (while Enchanted)" }
+        for:
+          - { code: 325, value: focus }
+      - name: "Ignorance is Bliss"
+        effects:
+          - { value: "Armor +5" }
+          - { value: "Energy -5" }
+        for:
+          - { code: 368, value: focus }
+      - name: "Life is Pain"
+        effects:
+          - { value: "Armor +5" }
+          - { value: "Health -20" }
+        for:
+          - { code: 369, value: focus }
+      - name: "Man for All Seasons"
+        effects:
+          - { value: "Armor +5 (vs. elemental damage)" }
+        for:
+          - { code: 370, value: focus }
+      - name: "Survival of the Fittest"
+        effects:
+          - { value: "Armor +5 (vs. physical damage)" }
+        for:
+          - { code: 371, value: focus }
+      - name: "Might makes Right"
+        effects:
+          - { value: "Armor +5 (while attacking)" }
+        for:
+          - { code: 372, value: focus }
+      - name: "Knowing is Half the Battle"
+        effects:
+          - { value: "Armor +5 (while casting)" }
+        for:
+          - { code: 373, value: focus }
+      - name: "Down But Not Out"
+        effects:
+          - { value: "Armor +5 (while Health is below 50%)" }
+        for:
+          - { code: 374, value: focus }
+      - name: "Hail to the King"
+        effects:
+          - { value: "Armor +5 (while Health is above 50%)" }
+        for:
+          - { code: 375, value: focus }
+      - name: "Be Just and Fear Not"
+        effects:
+          - { value: "Armor +10 (while Hexed)" }
+        for:
+          - { code: 376, value: focus }
+      - name: "Luck of the Draw"
+        effects:
+          - { value: "Received physical damage -5 (Chance: 20%)" }
+        for:
+          - { code: 330, value: [shield, focus] }
+      - name: "Sheltered by Faith"
+        effects:
+          - { value: "Received physical damage -2 (while Enchanted)" }
+        for:
+          - { code: 331, value: [shield, focus] }
+      - name: "Nothing to Fear"
+        effects:
+          - { value: "Received physical damage -3 (while Hexed)" }
+        for:
+          - { code: 332, value: [shield, focus] }
+      - name: "Run For Your Life!"
+        effects:
+          - { value: "Received physical damage -2 (while in a Stance)" }
+        for:
+          - { code: 333, value: [shield, focus] }
+      - name: "Master of My Domain"
+        effects:
+          - { value: "Item's attribute +1 (Chance: 20%)" }
+        for:
+          - { code: 334, value: [shield, focus] }
+      - name: "Not the face!"
+        effects:
+          - { value: "Armor +10 (vs. Blunt damage)" }
+        for:
+          - { code: 377, value: [shield, focus] }
+      - name: "Leaf on the Wind"
+        effects:
+          - { value: "Armor +10 (vs. Cold damage)" }
+        for:
+          - { code: 378, value: [shield, focus] }
+      - name: "Like a Rolling Stone"
+        effects:
+          - { value: "Armor +10 (vs. Earth damage)" }
+        for:
+          - { code: 379, value: [shield, focus] }
+      - name: "Riders on the Storm"
+        effects:
+          - { value: "Armor +10 (vs. Lightning damage)" }
+        for:
+          - { code: 380, value: [shield, focus] }
+      - name: "Sleep Now in the Fire"
+        effects:
+          - { value: "Armor +10 (vs. Fire damage)" }
+        for:
+          - { code: 381, value: [shield, focus] }
+      - name: "Through Thick and Thin"
+        effects:
+          - { value: "Armor +10 (vs. Piercing damage)" }
+        for:
+          - { code: 382, value: [shield, focus] }
+      - name: "The Riddle of Steel"
+        effects:
+          - { value: "Armor +10 (vs. Slashing damage)" }
+        for:
+          - { code: 383, value: [shield, focus] }
+      - name: "Fear Cuts Deeper"
+        effects:
+          - { value: "Reduces Bleeding duration on you by 20% (Stacking)" }
+        for:
+          - { code: 384, value: [shield, focus] }
+      - name: "I Can See Clearly Now"
+        effects:
+          - { value: "Reduces Blind duration on you by 20% (Stacking)" }
+        for:
+          - { code: 385, value: [shield, focus] }
+      - name: "Swift as the Wind"
+        effects:
+          - { value: "Reduces Crippled duration on you by 20% (Stacking)" }
+        for:
+          - { code: 386, value: [shield, focus] }
+      - name: "Strength of Body"
+        effects:
+          - { value: "Reduces Deep Wound duration on you by 20% (Stacking)" }
+        for:
+          - { code: 387, value: [shield, focus] }
+      - name: "Cast Out the Unclean"
+        effects:
+          - { value: "Reduces Disease duration on you by 20% (Stacking)" }
+        for:
+          - { code: 388, value: [shield, focus] }
+      - name: "Pure of Heart"
+        effects:
+          - { value: "Reduces Poison duration on you by 20% (Stacking)" }
+        for:
+          - { code: 389, value: [shield, focus] }
+      - name: "Soundness of Mind"
+        effects:
+          - { value: "Reduces Dazed duration on you by 20% (Stacking)" }
+        for:
+          - { code: 284, value: [shield, focus] }
+      - name: "Only the Strong Survive"
+        effects:
+          - { value: "Reduces Weakness duration on you by 20% (Stacking)" }
+        for:
+          - { code: 285, value: [shield, focus] }
+          

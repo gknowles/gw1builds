@@ -1,0 +1,157 @@
+:pro Warrior
+:camp Nightfall
+>Axe Mastery
+Agonizing Chop
+Axe Attack 0 6 0 0
+When this attack hits, you deal +$damage$ damage. If target foe is suffering from a Deep Wound, you interrupt that foe's action.
+damage 5 20
+deepwound-punish
+interrupt
+
+Critical Chop
+Axe Attack 5 0 .5 10
+If this attack hits, you inflict +$damage$ damage. If this attack results in a critical hit, target foe is interrupted.
+damage 10 30
+interrupt
+
+Destructive Chop
+Elite Axe Attack 0 8 0 0 
+You lose all adrenaline and all Energy. If this attack hits, you deal +$damage$ damage and cause a Deep Wound for $deepwound$ seconds. This attack always results in a critical hit.
+adrenal-loss
+damage 5 50
+deepwound 5 20
+
+>Hammer Mastery
+Magehunter's Smash
+Elite Hammer Attack 0 5 0 0
+If this attack hits a foe who is under the effects of an Enchantment, that foe is knocked down.
+knockdown
+enchant-punish
+
+Oogara Smash
+Hammer Attack 5 0 0 20
+If this attack hits, you strike for +$damage$ damage and gain $adrenal$ strike of adrenaline.
+damage 5 20
+adrenal 2
+
+Overbearing Smash
+Hammer Attack 0 6 0 0
+If this attack hits, you deal +$damage$ damage. If target foe is suffering from Weakness, this attack cannot be "blocked" or "evaded."
+damage 5 20
+weakness-punish
+block-counter
+evade-counter
+
+>Strength
+Burst of Aggression
+Stance 5 0 0 12
+For $duration$ seconds, you attack 33% faster. When this Stance ends, you lose all adrenaline.
+duration 5 10
+
+Charging Strike
+Elite Stance 5 0 0 5
+For $duration$ seconds, you run 33% faster. Your next successful hit does +$damage$ damage. This Stance ends if you successfully hit or if you use a Skill.
+duration 1 10
+damage 10 40
+
+Counterattack
+Melee Attack 5 0 0 4
+If this attack hits, you strike for +$damage$ damage. If you hit an attacking foe, you gain $energy-gain$ Energy.
+damage 5 30
+energy-gain 2 6
+
+Enraging Charge
+Stance 5 0 0 20
+For $duration$ seconds, you move 25% faster. Enraging Charge ends when you successfully strike a target, at which point you gain $adrenal-gain$ strike of adrenaline.
+duration 5 15
+adrenal-gain 1 4
+
+Flail
+Stance 0 4 0 0
+For $duration$ seconds, you attack 33% faster but move 33% slower.
+duration 5 15
+
+Headbutt
+Elite Skill 15 0 .75 20
+Target touched foe takes $damage$ damage. You are Dazed for $dazed$ seconds.
+damage 40 100
+dazed 5 20
+
+Lion's Might
+Skill 0 5 1 0
+You are healed for $heal$ Health, and you gain 5 Health for each rank in Tactics.
+heal 30 80
+
+Magehunter Strike
+Elite Melee Attack 5 0 .5 3
+If this attack hits, you strike for +$damage$ damage. If your target is under the effects of an Enchantment, this attack cannot be "blocked" or "evaded."
+damage 5 20
+enchant-punish
+block-counter
+evade-counter
+
+Rage of the Ntouka
+Elite Skill 5 0 0 15
+Gain $adrenal-gain$ strike of adrenaline. For 10 seconds, whenever you use an adrenal Skill, that SKill recharges for 5 seconds.
+adrenal-gain 1 7
+
+Signet of Stamina
+Signet 0 .25 20
+You have +$health-buff$ maximum Health. This Signet ends if you successfully hit with an attack.
+health-buff 50 300
+
+>Swordsmanship
+Barbarous Slice
+Sword Attack 0 6 0 0
+If this attack hits, you deal +$damage$ damage. If you are currently not in a Stance, you also inflict Bleeding for $bleeding$ seconds.
+damage 5 20
+bleeding 5 15
+
+Crippling Slash
+Elite Sword Attack 0 4 0 0
+If this attack hits, target foe is Crippled for $crippled$ seconds.
+crippled 5 15
+
+Lion Slash
+Sword Attack 0 8 0 0
+If this attack hits, you deal +$damage$ damage. If you hit a foe that is knocked down, you gain $adrenal-gain$ adrenaline.
+damage 1 31
+adrenal-gain 1 5
+
+>Tactics
+Soldier's Defense
+Stance 5 0 30
+For $duration$ seconds, you have a $block$% chance to block attacks while under the effects of a Shout or Chant.
+duration 5 20
+block 75
+
+Soldier's Stance
+Elite Stance 5 0 8
+For $duration$ seconds, you attack 33% faster while under the effects of a Shout or Chant.
+duration 4 10
+
+Soldier's Strike
+Melee Attack 5 0 4
+If this attack hits, you deal +$damage$ more damage. If you are under the effects of a Chant or Shout, this attack cannot be "blocked" or "evaded."
+damage 5 30
+block-counter
+evade-counter
+
+Steady Stance
+Elite Stance 5 0 5
+For 10 seconds, the next time you would be knocked down, you gain $adrenal$ strikes of adrenaline and $energy-gain$ Energy instead.
+adrenal 1 3
+energy-gain 1 8
+
+>No Attribute
+"You're All Alone!"
+Elite Shout 5 0 8
+If target foe is not adjacent to an ally, that foe suffers from Cripple and Weakness for 10 seconds.
+crippled
+weakness
+
+Frenzied Defense
+Stance 5 0 10
+For 5 seconds, you have a 75% chance to block incoming attacks but take double damage.
+block
+

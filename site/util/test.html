@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" 
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style type="text/css">
+<!--
+-->
+</style>
+<script type='text/javascript'>
+function updateH2() {
+  document.getElementById('head').innerHTML = 
+    'Changed Header - ' + String(new Date());
+    
+  var el = document.getElementById('hiddenIframe');
+  try {
+    el.src = 'file://c|jects/gwdata/homepage/';
+  } catch (e) {
+    alert(e);
+  }
+  el.style.display = '';
+}
+</script>
+</head>
+<body>
+<script type='text/javascript'>
+document.write(String(new Date()));
+</script>
+<hr>
+<h2 id='head' 
+  onclick="document.getElementById('hiddenIframe').src = 'test_frame.html'"
+  >Header to change</h2>
+<iframe id='hiddenIframe' style='display: none'></iframe>
+<hr>
+</body>
+</html>

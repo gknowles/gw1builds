@@ -1,0 +1,198 @@
+/* Skill Description and Name Spans for coloring */
+span.skill {
+  border: 0px;
+  padding: 0px;
+}
+div.partIcon {
+  border: 0px;
+  padding: 0px;
+  background-image: url(../images/skills/skill-tiles-28.png);
+  width: 28px;
+  height: 28px; 
+
+  /* IE7 refuses to draw a short div without these */
+  font-size: 0px;
+  line-height: 0;
+}
+span.skill div.partIcon {
+  clear: left;
+  float: left;
+  background-image: url(../images/skills/skill-tiles-18.png);
+  width: 18px;
+  height: 18px;
+}
+div#tipPopup span.partName {
+  font-weight: bold;
+}
+span.partName {
+  white-space: nowrap;
+  padding: 0;
+  color: <%= skin[:enh] %>;
+  vertical-align: top;
+  -moz-user-select: none;
+  font-size: 9pt;
+  font-family: sans-serif;
+}
+span.partName span.skillFailure {
+  text-transform: uppercase;
+}
+span.partName span.partType {
+  color: <%= skin[:weak] %>;
+}
+span.partType {
+  margin-right: 0.5em;
+  vertical-align: middle;
+  color: chocolate;
+  -moz-user-select: none;
+}
+span.profIcon {
+  padding: 0px 3px 0px 3px;
+  font-size: 1pt;
+  border: 1px solid #000000;
+}
+b.adjSkillProp {
+  color: #4B977D;
+}
+span.effectValue {
+  color: green;
+  font-weight: bold;
+}
+span.skillFailure {
+  color: red;
+}
+span.skillFailure span.effectValue {
+  color: #ff9c00;
+}
+span.elite {
+  color: #9F7C14;
+  font-weight: normal;
+}
+div.effects {
+  border: 1px solid;
+  padding: 1px 4px 4px 4px;
+  border-color: <%= skin[:stdBorder] %>;
+  background-color: <%= skin[:stdBG] %>;
+  color: <%= skin[:std] %>;
+  text-align: right;
+}
+div.partDesc {
+  color: <%= skin[:enh] %>;
+  clear: both;
+  padding: 3px 0px 0px 0px;
+}
+.primaryAttr { color: darkblue; }
+.primary { color: #004040; }
+.secondary { color: #202020; }
+.secondaryAttr { color: firebrick; } /* primary attr of 2ndary */
+span.linkedAttr { color: gray; }
+
+table.effectRange {
+  border-collapse: collapse;
+}
+div.partDesc tr.linkedAttr td,
+div.partDesc tr.effectValue td { 
+  padding: 1px 3px;
+  text-align: right;
+}
+div.partDesc tr.linkedAttr { 
+  background-color: <%= skin[:stdHoverBG] %>;
+  color: <%= skin[:stdHover] %>;
+}
+div.partDesc tr.linkedAttr td.effectValue { 
+  font-weight: bold;
+}
+div.partDesc tr.effectValue { 
+  background-color: <%= skin[:stdBG] %>;
+  color: <%= skin[:std] %>;
+}
+div.partDesc tr.effectValue td.effectValue { 
+	color: green; 
+	font-weight: bold; 
+}
+
+div.editDesc textarea {
+/*  background-color: gainsboro; */
+}
+
+
+/* Build stats bar */
+div.buildTeam {
+  float: left;
+  width: 4em;
+}
+div.buildPve {
+  float: left;
+  width: 3em;
+}
+div.buildCat {
+  float: left;
+  width: 5em;
+}
+
+
+/* Skill stats bar */
+span.skillIcons {
+  float: right;
+  clear: right;
+  font-weight: bold;
+  font-size: 8pt;
+  font-family: MS Sans Serif, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  color: <%= skin[:weak] %>;
+  -moz-user-select: none;
+}
+span.skillIcons span.upkeep {
+  background-image: url('../images/skill-upkeep.png');
+  white-space: nowrap; /* because IE7 (6?) splits '-1' onto two lines */
+  width: 12px;
+}
+span.skillIcons span.adCost {
+  background-image: url('../images/skill-adCost.png');
+  width: 16px;
+}
+span.skillIcons span.enCost {
+  background-image: url('../images/skill-enCost.png');
+  width: 16px;
+}
+span.skillIcons span.enCost.adjusted { 
+  width: auto;
+  min-width: 16px;
+  color: gray; 
+}
+span.skillIcons span.enCost.exhaustion {
+  background-image: url('../images/skill-exhaustion.png');
+  color: lightsalmon;
+}
+span.skillIcons span.noCost {
+  width: 16px;
+}
+span.skillIcons span.activation {
+  background-image: url('../images/skill-activation.png');
+  width: 12px;
+}
+span.skillIcons span.activation.adjusted { 
+  width: auto; 
+  min-width: 12px;
+  color: gray;
+}
+span.skillIcons span.noActivation {
+  width: 12px;
+}
+span.skillIcons span.recharge {
+  background-image: url('../images/skill-recharge.png');
+  min-width: 16px;
+  width: 16px;
+}
+span.skillIcons span.noRecharge {
+  width: 16px;
+}
+span.skillIcons span {
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  padding: 1px 17px 0px 0px;
+  text-align: right;
+  line-height: 16px;
+  border: 0px solid #000000;
+  float: left;
+}

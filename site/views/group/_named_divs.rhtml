@@ -1,0 +1,56 @@
+<!-- named divs -->
+
+<div id="groupList"><form class='pvar-form'>
+  <div class='minwidth'>
+    <h2>Groups</h2>
+    <div class="section pvar-input">
+      <h3>Create Group</h3>
+      <input type="text" name="group[name]" 
+        onkeydown='return enterSubmits(this, event)'
+        size="20" maxlength='20'>
+      <input type="button" name="submit" value="Create"
+        onclick="executeGroupListAction('Create', true, 
+          this.form['group[name]'].value)">
+      <br/><br/>
+    </div>
+    <h2>Group List</h2>
+    <div class="pvar-list list">
+      No groups
+    </div>
+  </div>
+</form></div>
+<div id="memberList"><form class='pvar-form'>
+  <div class='minwidth'>
+    <h2 class='pvar-title title'>(None)</h2>
+    <div class='insetTab'>
+      <ul class="insetTab">
+        <li><a href='' class="active" onclick="insetTabSelect(this, 0); return false">Roster</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 1); return false">History</a></li>
+      </ul>
+      <br style="clear: both">
+      <div class='insetTabPane'>
+        <div style="display: none" class="section pvar-input">
+          <h3>Invite User</h3>
+          <input type="text" name="user[name]" 
+            onkeydown='return enterSubmits(this, event)'
+            size="20">
+          <input type="button" name="submit" value="Invite"
+            onclick="executeGroupListAction('Invite', true, 
+              SGroupList.memberSearch.values.groupName, 
+              this.form['user[name]'].value)">
+          <br/><br/>
+        </div>
+        <h2>Member List</h2>
+        <div class="pvar-list list">
+          No group selected
+        </div>
+      </div> <!-- roster tab -->
+      <div class="insetTabPane" style='display: none'>
+        <h2>History</h2>
+        <div class='pvar-history list'>
+          No group selected
+        </div>
+      </div> <!-- history tab -->
+    </div> <!-- tab container -->
+  </div>
+</form></div>

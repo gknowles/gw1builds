@@ -1,0 +1,2816 @@
+--- 
+Skills: 
+  Dismount Siege Devourer: {}
+
+  Signet of Pious Restraint: {}
+
+  Sum of All Fears: {}
+
+  Aria of Restoration: {}
+
+  Conviction: {}
+
+  Vow of Piety: {}
+
+  Boon of Creation: {}
+
+  Spirit to Flesh: {}
+
+  Primal Echoes: {}
+
+  Illusion of Haste: {}
+
+  Glyph of Elemental Power: {}
+
+  Sight Beyond Sight: {}
+
+  Phantom Pain: {}
+
+  Soothing: {}
+
+  Ebon Battle Standard of Wisdom: {}
+
+  Avatar of Balthazar: {}
+
+  Agonizing Chop: {}
+
+  Moebius Strike: {}
+
+  Ice Elemental Form: {}
+
+  Scorpion Wire: {}
+
+  Ursan Roar: {}
+
+  Burning Arrow: {}
+
+  Polymock Migraine: {}
+
+  Cautery Signet: {}
+
+  Skull Crack: {}
+
+  Malign Intervention: {}
+
+  Attuned Was Songkai: {}
+
+  Doom: {}
+
+  Gelatinous Absorption: {}
+
+  Spear of Fury: {}
+
+  Shadow Sanctuary: {}
+
+  Mirrored Stance: {}
+
+  Keystone Signet: {}
+
+  Ravenous Gaze: {}
+
+  Depravity: {}
+
+  Whirling Fires: {}
+
+  Wild Throw: {}
+
+  Unblockable Throw: {}
+
+  Signet of Humility: {}
+
+  Glyph of Energy: {}
+
+  Wild Blow: {}
+
+  Spirit Light: {}
+
+  Polymock Stoning: {}
+
+  Angelic Protection: {}
+
+  Draw Conditions: {}
+
+  Aura of Faith: {}
+
+  Summon Ice Imp: {}
+
+  Mark of Fury: {}
+
+  Release Enchantments: {}
+
+  Soul Leech: {}
+
+  Song of Restoration: {}
+
+  Critical Chop: {}
+
+  Shield of Absorption: {}
+
+  Ice Spout: {}
+
+  Falling Lotus Strike: {}
+
+  Shadow Walk: {}
+
+  Watchful Healing: {}
+
+  Faintheartedness: {}
+
+  Healing Hands: {}
+
+  Whirling Axe: {}
+
+  Phoenix: {}
+
+  Polymock Signet of Clumsiness: {}
+
+  Glimmer of Light: {}
+
+  Dash: {}
+
+  Purge Conditions: {}
+
+  Blessed Signet: {}
+
+  Brutal Weapon: {}
+
+  Rejuvenation: {}
+
+  Blazing Finale: {}
+
+  Mystic Sandstorm: {}
+
+  Boon Signet: {}
+
+  Way of the Empty Palm: {}
+
+  Ursan Force: {}
+
+  Belly Smash: {}
+
+  Symbiotic Bond: {}
+
+  Way of Perfection: {}
+
+  "\"Dodge This!\"": {}
+
+  Signet of Return: {}
+
+  Shadow Meld: {}
+
+  Elemental Attunement: {}
+
+  Holy Strike: {}
+
+  Crossfire: {}
+
+  Quick Shot: {}
+
+  Whirlwind: {}
+
+  Shame: {}
+
+  Signet of Agony: {}
+
+  Signet of Malice: {}
+
+  Hex Eater Signet: {}
+
+  Siege Devourer: {}
+
+  Soulrending Shriek: {}
+
+  Charr Flame Keeper Form: {}
+
+  Ice Jet: {}
+
+  Cruel Spear: {}
+
+  Tripwire: {}
+
+  Ward Against Melee: {}
+
+  Blood of the Aggressor: {}
+
+  Devourer Bite: {}
+
+  Smooth Criminal: {}
+
+  Volfen Blessing: {}
+
+  Divert Hexes: {}
+
+  Signet of Stamina: {}
+
+  Meteor Shower: {}
+
+  Life Bond: {}
+
+  Savage Slash: {}
+
+  Bone Dragon Form: {}
+
+  Low Blow: {}
+
+  Glyph of Immolation: {}
+
+  Toxic Chill: {}
+
+  Faithful Intervention: {}
+
+  Entangling Asp: {}
+
+  Contemplation of Purity: {}
+
+  Dormant Husk: {}
+
+  Unstable Aura: {}
+
+  Spirit Light Weapon: {}
+
+  Stone Daggers: {}
+
+  Healing Touch: {}
+
+  Healing Light: {}
+
+  Order of Unholy Vigor: {}
+
+  Sneak Attack: {}
+
+  Critical Agility: {}
+
+  Swap: {}
+
+  Skeletal Mage Form: {}
+
+  Polymock Piercing Light Spear: {}
+
+  Blinding Surge: {}
+
+  Gift of Health: {}
+
+  Vigorous Spirit: {}
+
+  Spirit Burn: {}
+
+  Ineptitude: {}
+
+  Conjure Nightmare: {}
+
+  Polymock Mind Wreck: {}
+
+  Dismember: {}
+
+  Ether Lord: {}
+
+  Knee Cutter: {}
+
+  Reversal of Damage: {}
+
+  Signet of Creation: {}
+
+  Eruption: {}
+
+  Putrid Bile: {}
+
+  Ice Dart: {}
+
+  Anthem of Envy: {}
+
+  Mark of Death: {}
+
+  Barbed Signet: {}
+
+  Mark of Subversion: {}
+
+  Dark Pact: {}
+
+  Forceful Blow: {}
+
+  Ursan Rage: {}
+
+  Jungle Strike: {}
+
+  Contagion: {}
+
+  Overload: {}
+
+  Sunspear Rebirth Signet: {}
+
+  "\"Incoming!\"": {}
+
+  Twisting Jaws: {}
+
+  Oppressive Gaze: {}
+
+  Drunken Blow: {}
+
+  Swift Chop: {}
+
+  Mend Ailment: {}
+
+  Brawling: {}
+
+  Signet of Pious Light: {}
+
+  Inspired Hex: {}
+
+  Thunderclap: {}
+
+  Falling Spider: {}
+
+  Comfort Animal: {}
+
+  Inner Fire: {}
+
+  Natural Temper: {}
+
+  Wounding Strike: {}
+
+  Mokele Smash: {}
+
+  Weakness Trap: {}
+
+  Spear of Lightning: {}
+
+  Water Trident: {}
+
+  Immolate: {}
+
+  Expert Focus: {}
+
+  Vital Boon: {}
+
+  Reap Impurities: {}
+
+  Reclaim Essence: {}
+
+  Resilient Was Xiko: {}
+
+  Iron Mist: {}
+
+  Shadow Refuge: {}
+
+  Punishing Shot: {}
+
+  Meteor: {}
+
+  Star Servant: {}
+
+  Spirit Boon Strike: {}
+
+  Natural Healing: {}
+
+  Ether Prism: {}
+
+  Vengeance: {}
+
+  Charm Animal: {}
+
+  Renew Life: {}
+
+  Taste of Pain: {}
+
+  Clamor of Souls: {}
+
+  Fertile Season: {}
+
+  Siege Devourer Feast: {}
+
+  Mind Burn: {}
+
+  Soul Twisting: {}
+
+  Blood of the Master: {}
+
+  Golem Boosters: {}
+
+  Mark of Instability: {}
+
+  Stolen Speed: {}
+
+  Ward of Stability: {}
+
+  Armor of Earth: {}
+
+  Dual Shot: {}
+
+  Ebon Battle Standard of Courage: {}
+
+  Draw Spirit: {}
+
+  Furious Axe: {}
+
+  "\"Victory is Mine!\"": {}
+
+  Life Transfer: {}
+
+  Black Mantis Thrust: {}
+
+  Savage Pounce: {}
+
+  Crude Swing: {}
+
+  Aspect of Oak: {}
+
+  Pure Was Li Ming: {}
+
+  Rotting Flesh: {}
+
+  Poisoned Heart: {}
+
+  Avatar of Grenth: {}
+
+  Extinguish: {}
+
+  Lingering Curse: {}
+
+  Leech Signet: {}
+
+  Summon Mursaat: {}
+
+  Eternal Aura: {}
+
+  Feigned Neutrality: {}
+
+  Star Strike: {}
+
+  Deep Freeze: {}
+
+  Point Blank Shot: {}
+
+  Deadly Riposte: {}
+
+  Word of Healing: {}
+
+  Restful Breeze: {}
+
+  Raven Swoop: {}
+
+  Mantis Dreamweaver Form: {}
+
+  "\"Never Give Up!\"": {}
+
+  Anthem of Guidance: {}
+
+  Inspired Enchantment: {}
+
+  Kinetic Armor: {}
+
+  Well of Suffering: {}
+
+  Signet of Devotion: {}
+
+  Chest Thumper: {}
+
+  Accumulated Pain: {}
+
+  Skale Form: {}
+
+  Anthem of Flame: {}
+
+  Dulled Weapon: {}
+
+  Parasitic Bond: {}
+
+  Pain of Disenchantment: {}
+
+  Vile Miasma: {}
+
+  Signet of Strength: {}
+
+  Poison Tip Signet: {}
+
+  Barbed Spear: {}
+
+  Spirit Walk: {}
+
+  Frigid Armor: {}
+
+  Charr Shaman Form: {}
+
+  The Way of Kinship: {}
+
+  Golem Fire Shield: {}
+
+  Ether Phantom: {}
+
+  Defensive Stance: {}
+
+  Glowing Signet: {}
+
+  Price of Failure: {}
+
+  Raven Blessing: {}
+
+  Ceiling Collapse: {}
+
+  Signet of Corruption: {}
+
+  Tiger Stance: {}
+
+  Polymock Lamentation: {}
+
+  Zealous Sweep: {}
+
+  Mending Refrain: {}
+
+  Celestial Stance: {}
+
+  Spirit Shackles: {}
+
+  Way of the Fox: {}
+
+  Spirit Transfer: {}
+
+  Polymock Power Drain: {}
+
+  Nightmare Weapon: {}
+
+  Gaze of Contempt: {}
+
+  Divine Intervention: {}
+
+  Brawling Hook: {}
+
+  Polymock Meteor: {}
+
+  Burning Refrain: {}
+
+  Animate Bone Fiend: {}
+
+  Burning Speed: {}
+
+  Unstable Pulse: {}
+
+  Slippery Ground: {}
+
+  Withering Aura: {}
+
+  Whirling Charge: {}
+
+  Winds of Disenchantment: {}
+
+  Vengeful Was Khanhei: {}
+
+  Spawn Pods: {}
+
+  Polymock Deathly Chill: {}
+
+  Churning Earth: {}
+
+  Earth Shaker: {}
+
+  Wind Rider Form: {}
+
+  Master of Necromancy: {}
+
+  Sandstorm: {}
+
+  Signet of Lost Souls: {}
+
+  Animate Vampiric Horror: {}
+
+  Bed of Coals: {}
+
+  Poison Spout: {}
+
+  Forked Arrow: {}
+
+  Pious Renewal: {}
+
+  Yeti Smash: {}
+
+  Shield Stance: {}
+
+  Remove Hex: {}
+
+  Armor of Sanctity: {}
+
+  Savannah Heat: {}
+
+  Anthem of Disruption: {}
+
+  Mistrust: {}
+
+  Healing Signet: {}
+
+  Crystal Wave: {}
+
+  Snare: {}
+
+  Feedback: {}
+
+  Plague Sending: {}
+
+  Virulence: {}
+
+  Calculated Risk: {}
+
+  Unnatural Signet: {}
+
+  Shard Storm: {}
+
+  "\"Make Haste!\"": {}
+
+  Anthem of Fury: {}
+
+  Celestial Haste: {}
+
+  Parasitic Bite: {}
+
+  Shattered Spirit: {}
+
+  Poison Jet: {}
+
+  Signet of Sorrow: {}
+
+  Lit Torch: {}
+
+  Guiding Hands: {}
+
+  Crippling Anguish: {}
+
+  Hex Breaker: {}
+
+  Gust: {}
+
+  Caltrops: {}
+
+  Final Thrust: {}
+
+  Foul Feast: {}
+
+  Selfless Spirit: {}
+
+  Edification: {}
+
+  Summon Naga Shaman: {}
+
+  Heal Party: {}
+
+  Ebon Vanguard Sniper Support: {}
+
+  Summon Ruby Djinn: {}
+
+  Aura Slicer: {}
+
+  Dodge: {}
+
+  Infuse Health: {}
+
+  Glowing Gaze: {}
+
+  Troll Unguent: {}
+
+  Shielding Hands: {}
+
+  Heal as One: {}
+
+  Ice Prison: {}
+
+  Twisting Fangs: {}
+
+  Tongue Whip: {}
+
+  Rigor Mortis: {}
+
+  Mantra of Recovery: {}
+
+  Concussion Shot: {}
+
+  Jaundiced Gaze: {}
+
+  Heal Area: {}
+
+  Web of Disruption: {}
+
+  Healing Seed: {}
+
+  Destruction: {}
+
+  Polymock Signet of Smiting: {}
+
+  Onslaught: {}
+
+  Staggering Force: {}
+
+  Blood Drinker: {}
+
+  Mantra of Concentration: {}
+
+  Lightning Strike: {}
+
+  Illusion of Weakness: {}
+
+  Great Dwarf Armor: {}
+
+  Cure Hex: {}
+
+  "\"The Power Is Yours!\"": {}
+
+  Energizing Finale: {}
+
+  Elemental Flame: {}
+
+  Strength of Honor: {}
+
+  Order of Pain: {}
+
+  Needling Shot: {}
+
+  Well of Power: {}
+
+  "\"Lead the Way!\"": {}
+
+  Blood is Power: {}
+
+  Rising Bile: {}
+
+  Battle Rage: {}
+
+  Ursan Aura: {}
+
+  Sundering Weapon: {}
+
+  Signet of Binding: {}
+
+  Meditation: {}
+
+  Splinter Shot: {}
+
+  Martyr: {}
+
+  Spiteful Spirit: {}
+
+  Volfen Claw: {}
+
+  Fleeting Stability: {}
+
+  Backbreaker: {}
+
+  Power Leech: {}
+
+  Meekness: {}
+
+  Polymock Poisoned Ground: {}
+
+  Signet of Infection: {}
+
+  Prepared Shot: {}
+
+  Shadowy Burden: {}
+
+  Vile Touch: {}
+
+  Reckless Haste: {}
+
+  Lava Arrows: {}
+
+  Kindle Arrows: {}
+
+  "\"Never Surrender!\"": {}
+
+  Power Spike: {}
+
+  Psychic Distraction: {}
+
+  Psychic Instability: {}
+
+  Muddy Terrain: {}
+
+  Ebon Escape: {}
+
+  Corrupt Enchantment: {}
+
+  Ferocious Strike: {}
+
+  Resurrect: {}
+
+  Smoldering Embers: {}
+
+  Ulcerous Lungs: {}
+
+  Sliver Armor: {}
+
+  Vanguard Patrol: {}
+
+  Necrosis: {}
+
+  Magehunter Strike: {}
+
+  Wearying Spear: {}
+
+  Pious Haste: {}
+
+  Protective Spirit: {}
+
+  Spawn Hatchling: {}
+
+  Black Lotus Strike: {}
+
+  Dust Cloak: {}
+
+  Scourge Enchantment: {}
+
+  Offering of Blood: {}
+
+  Searing Flames: {}
+
+  Natural Stride: {}
+
+  Signet of Judgment: {}
+
+  Glimmering Mark: {}
+
+  Polymock Overload: {}
+
+  Freezing Ground: {}
+
+  Bladeturn Refrain: {}
+
+  Mantra of Frost: {}
+
+  Scourge Healing: {}
+
+  Critical Strike: {}
+
+  Titan Form: {}
+
+  Lava Blast: {}
+
+  Ebon Vanguard Assassin Support: {}
+
+  Mind Blast: {}
+
+  Signet of Toxic Shock: {}
+
+  Angelic Bond: {}
+
+  Recurring Insecurity: {}
+
+  Mark of Pain: {}
+
+  Savage Shot: {}
+
+  Ruby Djinn Form: {}
+
+  Shadow Shroud: {}
+
+  Dwarven Stability: {}
+
+  Crippling Sweep: {}
+
+  Spirit World Retreat: {}
+
+  Ward of Weakness: {}
+
+  Life Barrier: {}
+
+  Mist Form: {}
+
+  Blinding Flash: {}
+
+  Jagged Bones: {}
+
+  Siphon Strength: {}
+
+  Call of Protection: {}
+
+  Purifying Veil: {}
+
+  Vampiric Assault: {}
+
+  Roaring Winds: {}
+
+  Flourish: {}
+
+  Blood Ritual: {}
+
+  Seeping Wound: {}
+
+  Dwarven Raider: {}
+
+  Weapon of Remedy: {}
+
+  "\"Go for the Eyes!\"": {}
+
+  Soothing Images: {}
+
+  Binding Chains: {}
+
+  Ignorance: {}
+
+  "\"You Are All Weaklings!\"": {}
+
+  Polymock Ether Signet: {}
+
+  Piercing Trap: {}
+
+  Rending Touch: {}
+
+  Sand Shards: {}
+
+  Lacerating Chop: {}
+
+  Bloodstone Slash: {}
+
+  Spotless Mind: {}
+
+  Purge Signet: {}
+
+  Spore Explosion: {}
+
+  Ether Nightmare: {}
+
+  Signet of Synergy: {}
+
+  Supportive Spirit: {}
+
+  Ethereal Burden: {}
+
+  Renewing Memories: {}
+
+  Shatterstone: {}
+
+  Penetrating Attack: {}
+
+  Shroud of Silence: {}
+
+  Power Shot: {}
+
+  Consume Corpse: {}
+
+  Polymock Glyph Destabilization: {}
+
+  Pyroclastic Shot: {}
+
+  Trampling Ox: {}
+
+  Soul Feast: {}
+
+  Nine Tail Strike: {}
+
+  Signet of Shadows: {}
+
+  Breath of Fire: {}
+
+  Retribution: {}
+
+  Reverse Polarity Fire Shield: {}
+
+  Dark Prison: {}
+
+  Visions of Regret: {}
+
+  Armor of Frost: {}
+
+  Beguiling Haze: {}
+
+  Ash Blast: {}
+
+  Famine: {}
+
+  Sprint: {}
+
+  Weapon of Aggression: {}
+
+  Glyph of Lesser Energy: {}
+
+  Heavy Blow: {}
+
+  Blessed Light: {}
+
+  Metamorphosis: {}
+
+  Zealous Renewal: {}
+
+  Glowstone: {}
+
+  Empathy: {}
+
+  Shroud of Distress: {}
+
+  Shelter: {}
+
+  Ether Feast: {}
+
+  Primal Rage: {}
+
+  Essence Bond: {}
+
+  Dragon Slash: {}
+
+  Polymock Sandstorm: {}
+
+  Read the Wind: {}
+
+  Conjure Phantasm: {}
+
+  Barbed Trap: {}
+
+  Aura of the Bloodstone: {}
+
+  Polymock Icy Prison: {}
+
+  Throw Dirt: {}
+
+  Blackout: {}
+
+  "\"Finish Him!\"": {}
+
+  Charging Strike: {}
+
+  Orison of Healing: {}
+
+  Restore Life: {}
+
+  Conjure Frost: {}
+
+  "\"Shields Up!\"": {}
+
+  Flashing Blades: {}
+
+  Elemental Shift: {}
+
+  Glowing Ice: {}
+
+  "\"Find Their Weakness!\"": {}
+
+  Aggressive Refrain: {}
+
+  Lyric of Zeal: {}
+
+  "\"I Will Avenge You!\"": {}
+
+  Ursan Blessing: {}
+
+  Crippling Victory: {}
+
+  Icy Veins: {}
+
+  Sundering Attack: {}
+
+  Obsidian Flesh: {}
+
+  Gaki Form: {}
+
+  Mystic Sweep: {}
+
+  Putrid Flesh: {}
+
+  Ride the Lightning: {}
+
+  Hunt Point Bonus: {}
+
+  Polymock Bane Signet: {}
+
+  Phase Shield: {}
+
+  Chain Lightning: {}
+
+  Desperate Strike: {}
+
+  Persistence of Memory: {}
+
+  "\"I Am The Strongest!\"": {}
+
+  Chaotic Energy: {}
+
+  Snaring Web: {}
+
+  Mighty Blow: {}
+
+  Enraged Blast: {}
+
+  Polymock Obsidian Flame: {}
+
+  Signet of Rejuvenation: {}
+
+  Energy Tap: {}
+
+  Brawling Block: {}
+
+  Remedy Signet: {}
+
+  "\"Fall Back!\"": {}
+
+  Glyph of Concentration: {}
+
+  Disrupting Chop: {}
+
+  Kappa Form: {}
+
+  Polymock Frozen Trident: {}
+
+  Magnetic Surge: {}
+
+  Signet of Rage: {}
+
+  Mark of Insecurity: {}
+
+  Rending Aura: {}
+
+  Whirling Defense: {}
+
+  Magnetic Aura: {}
+
+  Hidden Caltrops: {}
+
+  Stone Sheath: {}
+
+  Wail of Doom: {}
+
+  Axe Rake: {}
+
+  Fire Dart: {}
+
+  Wearying Strike: {}
+
+  Pin Down: {}
+
+  "\"None Shall Pass!\"": {}
+
+  Symbols of Inspiration: {}
+
+  "\"Fear Me!\"": {}
+
+  Imagined Burden: {}
+
+  Asuran Bodyguard: {}
+
+  Call of the Eye: {}
+
+  Vampirism: {}
+
+  Infuriating Heat: {}
+
+  Shadowsong: {}
+
+  Well of the Profane: {}
+
+  Pure Strike: {}
+
+  Master of Magic: {}
+
+  Wither: {}
+
+  Ear Bite: {}
+
+  Glass Arrows: {}
+
+  Ray of Judgment: {}
+
+  Soul Bind: {}
+
+  Energy Boon: {}
+
+  Elemental Resistance: {}
+
+  Ether Signet: {}
+
+  Bestial Fury: {}
+
+  Brutal Strike: {}
+
+  Barrage: {}
+
+  "\"You Move Like a Dwarf!\"": {}
+
+  Predatory Bond: {}
+
+  Incendiary Arrows: {}
+
+  Aftershock: {}
+
+  Pestilence: {}
+
+  Hex Eater Vortex: {}
+
+  Volfen Agility: {}
+
+  Thunderfist Strike: {}
+
+  Polymock Glowing Gaze: {}
+
+  Polymock Stone Daggers: {}
+
+  Healing Spring: {}
+
+  Chilblains: {}
+
+  Well of Darkness: {}
+
+  Sever Artery: {}
+
+  Crippling Dagger: {}
+
+  Extend Enchantments: {}
+
+  Pious Assault: {}
+
+  Revealed Hex: {}
+
+  Ward Against Elements: {}
+
+  Hypochondria: {}
+
+  A Touch of Guile: {}
+
+  Body Blow: {}
+
+  Defiant Was Xinrae: {}
+
+  Infuse Condition: {}
+
+  Shared Burden: {}
+
+  Critical Defenses: {}
+
+  Decapitate: {}
+
+  Arcane Languor: {}
+
+  Mirror of Disenchantment: {}
+
+  Divine Healing: {}
+
+  Symbiosis: {}
+
+  Vampiric Touch: {}
+
+  Radiation Field: {}
+
+  Polymock Glyph of Concentration: {}
+
+  Wurm Bile: {}
+
+  Rage of the Ntouka: {}
+
+  Glyph of Renewal: {}
+
+  Conjure Lightning: {}
+
+  Broad Head Arrow: {}
+
+  Well of Blood: {}
+
+  Feast of Souls: {}
+
+  Icy Shackles: {}
+
+  Merciless Spear: {}
+
+  Burst of Aggression: {}
+
+  Dancing Daggers: {}
+
+  Standing Slash: {}
+
+  Devourer Siege: {}
+
+  Brawling Jab: {}
+
+  Fire Attunement: {}
+
+  Signet of Disruption: {}
+
+  Unyielding Aura: {}
+
+  Rip Enchantment: {}
+
+  Disenchantment: {}
+
+  Spoil Victor: {}
+
+  Animate Bone Horror: {}
+
+  Arcane Echo: {}
+
+  Maiming Spear: {}
+
+  Putrid Flames: {}
+
+  Gaze of Fury: {}
+
+  Intimidating Aura: {}
+
+  Flail: {}
+
+  Dissonance: {}
+
+  Focused Shot: {}
+
+  Images of Remorse: {}
+
+  Icy Prism: {}
+
+  Grasping Was Kuurong: {}
+
+  Golden Fox Strike: {}
+
+  Purifying Finale: {}
+
+  Painful Bond: {}
+
+  Enraged Smash: {}
+
+  Fetid Ground: {}
+
+  Focused Anger: {}
+
+  Lightning Orb: {}
+
+  Enraged Lunge: {}
+
+  Lightning Reflexes: {}
+
+  Counterattack: {}
+
+  Stone Striker: {}
+
+  Ward Against Harm: {}
+
+  Shield of Regeneration: {}
+
+  Divine Spirit: {}
+
+  Arcane Conundrum: {}
+
+  Illusion of Pain: {}
+
+  Ward Against Foes: {}
+
+  Weapon of Fury: {}
+
+  Words of Comfort: {}
+
+  Mending: {}
+
+  Incendiary Bonds: {}
+
+  Arcane Larceny: {}
+
+  Lightning Javelin: {}
+
+  Essence Strike: {}
+
+  Norn Hunting Party: {}
+
+  Horns of the Ox: {}
+
+  Bestial Pounce: {}
+
+  Feast for the Dead: {}
+
+  "\"You Will Die!\"": {}
+
+  Pounce: {}
+
+  Greater Conflagration: {}
+
+  Fire Storm: {}
+
+  Pain Inverter: {}
+
+  Ursan Strike: {}
+
+  Spear Swipe: {}
+
+  Summon Spirits: {}
+
+  Lively Was Naomei: {}
+
+  Called Shot: {}
+
+  Recuperation: {}
+
+  Shadow Fang: {}
+
+  Never Rampage Alone: {}
+
+  Polymock Rotting Flesh: {}
+
+  Zealous Benediction: {}
+
+  Zealous Anthem: {}
+
+  Well of Weariness: {}
+
+  Courageous Was Saidra: {}
+
+  Extract Inscription: {}
+
+  Signet of Mystic Speed: {}
+
+  Disrupting Throw: {}
+
+  Death Blossom: {}
+
+  Siphon Speed: {}
+
+  Inspirational Speech: {}
+
+  Jaizhenju Strike: {}
+
+  Disrupting Stab: {}
+
+  Wailing Weapon: {}
+
+  Polymock Signet of Revenge: {}
+
+  Shivers of Dread: {}
+
+  Distortion: {}
+
+  Unseen Fury: {}
+
+  Journey to the North: {}
+
+  Wandering Eye: {}
+
+  Invoke Lightning: {}
+
+  Barbarous Slice: {}
+
+  Scavenger Strike: {}
+
+  Penetrating Chop: {}
+
+  Restore Condition: {}
+
+  Light of Dwayna: {}
+
+  Polymock Icy Bonds: {}
+
+  Lift Enchantment: {}
+
+  Enduring Harmony: {}
+
+  Mend Body and Soul: {}
+
+  Feel No Pain: {}
+
+  Lava Wave: {}
+
+  "\"We Shall Return!\"": {}
+
+  Ice Spear: {}
+
+  Recovery: {}
+
+  Shadow Prison: {}
+
+  Empathic Removal: {}
+
+  Glyph of Sacrifice: {}
+
+  Necrotic Traversal: {}
+
+  Defy Pain: {}
+
+  Mind Freeze: {}
+
+  Air of Superiority: {}
+
+  Shameful Fear: {}
+
+  Fox Fangs: {}
+
+  Pain: {}
+
+  Shatter Storm: {}
+
+  Whirlwind Attack: {}
+
+  Stoneflesh Aura: {}
+
+  Mind Shock: {}
+
+  Ooze Division: {}
+
+  Agony: {}
+
+  "\"Make Your Time!\"": {}
+
+  Spirit Siphon: {}
+
+  Favorable Winds: {}
+
+  Flesh of My Flesh: {}
+
+  Weapon of Quickening: {}
+
+  Animate Flesh Golem: {}
+
+  Technobabble: {}
+
+  Polymock Flare: {}
+
+  Chomp: {}
+
+  Glyph of Restoration: {}
+
+  Spike Trap: {}
+
+  Feast of Corruption: {}
+
+  Chaos Storm: {}
+
+  Predatory Season: {}
+
+  Fevered Dreams: {}
+
+  Shield of Force: {}
+
+  Spirit Roar: {}
+
+  Signet of Twilight: {}
+
+  Flame Burst: {}
+
+  Hundred Blades: {}
+
+  Amity: {}
+
+  Guided Weapon: {}
+
+  Shell Shock: {}
+
+  Awaken the Blood: {}
+
+  Vengeful Weapon: {}
+
+  Tranquil Was Tanasen: {}
+
+  Defile Flesh: {}
+
+  Unstable Ooze Explosion: {}
+
+  Lotus Strike: {}
+
+  Signet of Mystic Wrath: {}
+
+  Putrid Explosion: {}
+
+  Feral Lunge: {}
+
+  Blind Was Mingson: {}
+
+  Enfeebling Blood: {}
+
+  Lightning Surge: {}
+
+  Shove: {}
+
+  "\"I Am Unstoppable!\"": {}
+
+  Maiming Strike: {}
+
+  Life Siphon: {}
+
+  Gale: {}
+
+  Repeating Strike: {}
+
+  Wary Stance: {}
+
+  Symbolic Celerity: {}
+
+  Stoning: {}
+
+  Ooze Combination: {}
+
+  Ghostly Weapon: {}
+
+  Mending Grip: {}
+
+  Defile Defenses: {}
+
+  Symbol of Wrath: {}
+
+  Poisonous Bite: {}
+
+  Naga Shaman Form: {}
+
+  Pulverizing Smash: {}
+
+  Star Shine: {}
+
+  Swirling Aura: {}
+
+  Freezing Gust: {}
+
+  Flame Trap: {}
+
+  Unsteady Ground: {}
+
+  Echo: {}
+
+  Spirit Rift: {}
+
+  Signet of Illusions: {}
+
+  Symbolic Posture: {}
+
+  Polymock Eruption: {}
+
+  Assault Enchantments: {}
+
+  Watchful Intervention: {}
+
+  Signet of Spirits: {}
+
+  Hamstring: {}
+
+  Resurrection Signet: {}
+
+  Polymock Smite: {}
+
+  Well of Ruin: {}
+
+  Cacophony: {}
+
+  Signet of Aggression: {}
+
+  Aura of the Lich: {}
+
+  Mantra of Lightning: {}
+
+  Signet of Suffering: {}
+
+  Consume Flames: {}
+
+  Fire Spout: {}
+
+  "\"Stand Your Ground!\"": {}
+
+  Overbearing Smash: {}
+
+  Healing Breeze: {}
+
+  Conjure Flame: {}
+
+  Expunge Enchantments: {}
+
+  Pacifism: {}
+
+  Volley: {}
+
+  Ignite Arrows: {}
+
+  Defile Enchantments: {}
+
+  Guardian: {}
+
+  Call of Haste: {}
+
+  Dolyak Rider Form: {}
+
+  Ebon Dust Aura: {}
+
+  Holy Haste: {}
+
+  Blazing Spear: {}
+
+  Drain Delusions: {}
+
+  Wild Strike: {}
+
+  Polymock Recurring Insecurity: {}
+
+  Fire Jet: {}
+
+  Heart of Holy Flame: {}
+
+  Soul Barbs: {}
+
+  Leaping Mantis Sting: {}
+
+  Disciplined Stance: {}
+
+  Dwarven Battle Stance: {}
+
+  Holy Veil: {}
+
+  Rapid Fire: {}
+
+  Earthen Shackles: {}
+
+  Ghostly Haste: {}
+
+  Weaken Knees: {}
+
+  Clumsiness: {}
+
+  Frozen Burst: {}
+
+  Polymock Immolate: {}
+
+  "\"Help Me!\"": {}
+
+  Windborne Speed: {}
+
+  Discharge Enchantment: {}
+
+  Winds: {}
+
+  "\"I Meant to Do That!\"": {}
+
+  Mighty Throw: {}
+
+  Vow of Silence: {}
+
+  Rend Enchantments: {}
+
+  Quivering Blade: {}
+
+  Order of the Lich: {}
+
+  Berserk: {}
+
+  Intensity: {}
+
+  Renewing Surge: {}
+
+  Lightning Hammer: {}
+
+  Rampage as One: {}
+
+  Headbutt: {}
+
+  Axe Twist: {}
+
+  Frenzy: {}
+
+  Jagged Strike: {}
+
+  Tryptophan Signet: {}
+
+  Way of the Assassin: {}
+
+  Mending Touch: {}
+
+  Bitter Chill: {}
+
+  Steelfang Slash: {}
+
+  Power Return: {}
+
+  Dolyak Signet: {}
+
+  Blurred Vision: {}
+
+  Riposte: {}
+
+  Siege Devourer Swipe: {}
+
+  STAND UP!: {}
+
+  Heart of Fury: {}
+
+  Brambles: {}
+
+  Counter Blow: {}
+
+  Energizing Wind: {}
+
+  Polymock Shock Arrow: {}
+
+  Confusing Images: {}
+
+  Avatar of Melandru: {}
+
+  Lacerate: {}
+
+  Unholy Feast: {}
+
+  Healing Burst: {}
+
+  Recall: {}
+
+  Maelstrom: {}
+
+  Mergoyle Form: {}
+
+  Polymock Calculated Risk: {}
+
+  Polymock Glyph of Power: {}
+
+  Energy Blast: {}
+
+  Avatar of Lyssa: {}
+
+  Bane Signet: {}
+
+  Cruel Was Daoshen: {}
+
+  Physical Resistance: {}
+
+  Earth Elemental Form: {}
+
+  Energetic Was Lee Sa: {}
+
+  Time Attack: {}
+
+  Keen Chop: {}
+
+  Diamondshard Mist: {}
+
+  Signet of Distraction: {}
+
+  Dark Fury: {}
+
+  Resilient Weapon: {}
+
+  Touch of Agony: {}
+
+  Ice Spikes: {}
+
+  Tainted Flesh: {}
+
+  Lava Ground: {}
+
+  Black Spider Strike: {}
+
+  Enduring Toxin: {}
+
+  Hammer Bash: {}
+
+  Enervating Charge: {}
+
+  Raven Flight: {}
+
+  Twin Moon Sweep: {}
+
+  Obsidian Flame: {}
+
+  Heart of Shadow: {}
+
+  Dust Trap: {}
+
+  Healing Whisper: {}
+
+  Generous Was Tsungrai: {}
+
+  The Way of Duty: {}
+
+  Vitality Transfer: {}
+
+  Price of Pride: {}
+
+  Water Attunement: {}
+
+  Brawling Uppercut: {}
+
+  Weapon of Renewal: {}
+
+  Polymock Block: {}
+
+  Symbolic Strike: {}
+
+  Way of the Lotus: {}
+
+  Vapor Blade: {}
+
+  Run as One: {}
+
+  Paranoid Indignation: {}
+
+  Polymock Guilt: {}
+
+  Polymock Glyph Freeze: {}
+
+  Resurrection Chant: {}
+
+  Plague Touch: {}
+
+  Seeking Blade: {}
+
+  Second Wind: {}
+
+  Protective Was Kaolai: {}
+
+  Precision Shot: {}
+
+  Spell Shield: {}
+
+  "\"On Your Knees!\"": {}
+
+  Volfen Bloodlust: {}
+
+  Polymock Painful Bond: {}
+
+  Polymock Earthquake: {}
+
+  Ebon Battle Standard of Honor: {}
+
+  Mirage Cloak: {}
+
+  Expose Defenses: {}
+
+  Signet of Disenchantment: {}
+
+  Awe: {}
+
+  Pious Concentration: {}
+
+  Companionship: {}
+
+  Hasty Refrain: {}
+
+  Power Lock: {}
+
+  Zealous Vow: {}
+
+  Apply Poison: {}
+
+  Lightning Touch: {}
+
+  Holy Spear: {}
+
+  Charging Spirit: {}
+
+  Chilling Victory: {}
+
+  Spirit Bond: {}
+
+  Energy Drain: {}
+
+  Spear of Light: {}
+
+  Mantra of Inscriptions: {}
+
+  Animate Shambling Horror: {}
+
+  Body Shot: {}
+
+  Envenom Enchantments: {}
+
+  Air Attunement: {}
+
+  Weaken Armor: {}
+
+  Eviscerate: {}
+
+  Fire Elemental Form: {}
+
+  Club of a Thousand Bears: {}
+
+  Call of Destruction: {}
+
+  Polymock Ice Spear: {}
+
+  Way of the Master: {}
+
+  Quicksand: {}
+
+  Illusionary Weaponry: {}
+
+  Drain Enchantment: {}
+
+  Sharpen Daggers: {}
+
+  Polymock Mind Blast: {}
+
+  Poison Dart: {}
+
+  Arcane Mimicry: {}
+
+  Smite Hex: {}
+
+  Fierce Blow: {}
+
+  Silverwing Slash: {}
+
+  Epidemic: {}
+
+  Tease: {}
+
+  Reversal of Fortune: {}
+
+  Iron Palm: {}
+
+  Flame Call: {}
+
+  Life Sheath: {}
+
+  Taste of Death: {}
+
+  Tranquility: {}
+
+  Mend Condition: {}
+
+  Strength of the Norn: {}
+
+  Unsuspecting Strike: {}
+
+  Choking Gas: {}
+
+  Dark Escape: {}
+
+  Sun and Moon Slash: {}
+
+  Mirror of Ice: {}
+
+  Auspicious Incantation: {}
+
+  Soothing Memories: {}
+
+  Mount: {}
+
+  Ice Imp Form: {}
+
+  Shatter Delusions: {}
+
+  Insidious Parasite: {}
+
+  Fireball: {}
+
+  Lyric of Purification: {}
+
+  Ballad of Restoration: {}
+
+  Practiced Stance: {}
+
+  Palm Strike: {}
+
+  Crushing Blow: {}
+
+  Polymock Rising Bile: {}
+
+  Cry of Pain: {}
+
+  Song of Concentration: {}
+
+  Shatter Hex: {}
+
+  Lamentation: {}
+
+  Cleave: {}
+
+  Augury of Death: {}
+
+  Malicious Strike: {}
+
+  Defensive Anthem: {}
+
+  Raven Talons: {}
+
+  Aura of Stability: {}
+
+  "\"Brace Yourself!\"": {}
+
+  Animate Undead: {}
+
+  Golden Fang Strike: {}
+
+  Malaise: {}
+
+  Polymock Searing Flames: {}
+
+  Empowerment: {}
+
+  Screaming Shot: {}
+
+  Mantra of Resolve: {}
+
+  Spirit Channeling: {}
+
+  Energy Surge: {}
+
+  Cyclone Axe: {}
+
+  Aneurysm: {}
+
+  Signet of Clumsiness: {}
+
+  Quickening Zephyr: {}
+
+  Endure Pain: {}
+
+  Energy Burn: {}
+
+  Mental Block: {}
+
+  Crippling Anthem: {}
+
+  Irresistible Sweep: {}
+
+  Barbed Arrows: {}
+
+  Healing Ring: {}
+
+  Restoration: {}
+
+  Revive Animal: {}
+
+  Golem Strike: {}
+
+  Vow of Strength: {}
+
+  Crippling Slash: {}
+
+  Diversion: {}
+
+  Thrill of Victory: {}
+
+  Aura of Restoration: {}
+
+  Shield Bash: {}
+
+  Diamondshard Grave: {}
+
+  Ghostmirror Light: {}
+
+  Lava Font: {}
+
+  Disrupting Dagger: {}
+
+  Dwarven Arcanist Form: {}
+
+  Mursaat Elementalist Form: {}
+
+  Smoke Trap: {}
+
+  Song of Purification: {}
+
+  Mark of Protection: {}
+
+  Light of Deldrimor: {}
+
+  Masochism: {}
+
+  Castigation Signet: {}
+
+  Vocal Was Sogolon: {}
+
+  Mark of Rodgort: {}
+
+  Penetrating Blow: {}
+
+  Avatar of Dwayna: {}
+
+  Channeling: {}
+
+  Distracting Blow: {}
+
+  Distracting Strike: {}
+
+  Mystic Regeneration: {}
+
+  Panic: {}
+
+  Shock: {}
+
+  "\"Charge!\"": {}
+
+  Heal Other: {}
+
+  Expel Hexes: {}
+
+  Burning Shield: {}
+
+  Pious Fury: {}
+
+  Disrupting Shot: {}
+
+  Seed of Life: {}
+
+  Veil of Thorns: {}
+
+  Displacement: {}
+
+  Dark Apostasy: {}
+
+  Withdraw Hexes: {}
+
+  Animate Bone Minions: {}
+
+  Crystal Snare: {}
+
+  Extend Conditions: {}
+
+  Splinter Weapon: {}
+
+  Succor: {}
+
+  Seeking Arrows: {}
+
+  Shadow of Fear: {}
+
+  Searing Heat: {}
+
+  Bear Form: {}
+
+  Polymock Fireball: {}
+
+  Healing Ribbon: {}
+
+  Patient Spirit: {}
+
+  Rending Sweep: {}
+
+  Aegis: {}
+
+  Consume Soul: {}
+
+  Power Block: {}
+
+  Ether Prodigy: {}
+
+  Spotless Soul: {}
+
+  Banishing Strike: {}
+
+  Sugar Rush: {}
+
+  Backfire: {}
+
+  Rebel Yell: {}
+
+  Drunken Master: {}
+
+  Spirit Senses: {}
+
+  Chilling Winds: {}
+
+  Edge of Extinction: {}
+
+  "\"I Will Survive!\"": {}
+
+  Vital Blessing: {}
+
+  Crippling Shot: {}
+
+  Spear of Redemption: {}
+
+  Rock Slide: {}
+
+  Anguish: {}
+
+  Finale of Restoration: {}
+
+  Complicate: {}
+
+  Wanderlust: {}
+
+  Strike as One: {}
+
+  Blessed Aura: {}
+
+  Mantra of Flame: {}
+
+  Tongue Lash: {}
+
+  Return: {}
+
+  Anthem of Weariness: {}
+
+  Mantis Touch: {}
+
+  Rebirth: {}
+
+  Power Attack: {}
+
+  Shockwave: {}
+
+  Scourge Sacrifice: {}
+
+  Mantra of Persistence: {}
+
+  Order of Undeath: {}
+
+  Peace and Harmony: {}
+
+  Blood Rage: {}
+
+  Mystic Healing: {}
+
+  Mind Wrack: {}
+
+  Shadow Form: {}
+
+  Liquid Flame: {}
+
+  Vanguard Commendation: {}
+
+  Elemental Lord: {}
+
+  Deadly Haste: {}
+
+  Celestial Summoning: {}
+
+  Deadly Paradox: {}
+
+  Migraine: {}
+
+  "\"Coward!\"": {}
+
+  Offering of Spirit: {}
+
+  Anguished Was Lingwah: {}
+
+  Plague Signet: {}
+
+  Deft Strike: {}
+
+  Mystic Vigor: {}
+
+  Blinding Powder: {}
+
+  Ether Renewal: {}
+
+  Golden Phoenix Strike: {}
+
+  Vocal Minority: {}
+
+  Vampiric Spirit: {}
+
+  Vampiric Bite: {}
+
+  Cry of Frustration: {}
+
+  Heart of the Norn: {}
+
+  Breath of the Great Dwarf: {}
+
+  Preservation: {}
+
+  Armor of Mist: {}
+
+  Earthbind: {}
+
+  Flare: {}
+
+  Powder Keg Explosion: {}
+
+  Aura of Thorns: {}
+
+  Shield of Deflection: {}
+
+  Polymock Lightning Orb: {}
+
+  Feral Aggression: {}
+
+  Arcing Shot: {}
+
+  Power Drain: {}
+
+  Deathly Chill: {}
+
+  Brawling Combo Punch: {}
+
+  Fire Imp Form: {}
+
+  Smoke Powder Defense: {}
+
+  Shield of Fire: {}
+
+  Firebomb: {}
+
+  Rush: {}
+
+  Glyph of Essence: {}
+
+  Live Vicariously: {}
+
+  Aura of Displacement: {}
+
+  Dark Bond: {}
+
+  Celestial Storm: {}
+
+  Blood Renewal: {}
+
+  Gelatinous Corpse Consumption: {}
+
+  Deathly Swarm: {}
+
+  Volfen Pounce: {}
+
+  Energizing Chorus: {}
+
+  Blades of Steel: {}
+
+  Lifebane Strike: {}
+
+  Shadow Strike: {}
+
+  Polymock Lightning Blast: {}
+
+  Brawling Headbutt: {}
+
+  Trample: {}
+
+  Triple Shot: {}
+
+  Signet of Ghostly Might: {}
+
+  Protective Bond: {}
+
+  Auspicious Parry: {}
+
+  Signet of Removal: {}
+
+  Aria of Zeal: {}
+
+  Vampiric Gaze: {}
+
+  Devastating Hammer: {}
+
+  Revealed Enchantment: {}
+
+  Polymock Smite Hex: {}
+
+  Demonic Flesh: {}
+
+  Blood Bond: {}
+
+  Winter: {}
+
+  Earthquake: {}
+
+  Deny Hexes: {}
+
+  HYAHHHHH!: {}
+
+  Galrath Slash: {}
+
+  Gash: {}
+
+  Polymock Mind Freeze: {}
+
+  Signet of Recall: {}
+
+  Renewing Smash: {}
+
+  Shock Arrow: {}
+
+  Exhausting Assault: {}
+
+  Stunning Strike: {}
+
+  Ebon Hawk: {}
+
+  Double Dragon: {}
+
+  "\"For Great Justice!\"": {}
+
+  Spinal Shivers: {}
+
+  Flurry: {}
+
+  Mirage Iboga Form: {}
+
+  Barbs: {}
+
+  Desperation Blow: {}
+
+  Energy Channel: {}
+
+  Smite Condition: {}
+
+  Dismiss Condition: {}
+
+  Simple Thievery: {}
+
+  Ritual Lord: {}
+
+  Bestial Mauling: {}
+
+  Storm of Swords: {}
+
+  Crystal Shield: {}
+
+  Signet of Deadly Corruption: {}
+
+  Grapple: {}
+
+  Escape: {}
+
+  Rust: {}
+
+  Auspicious Blow: {}
+
+  Union: {}
+
+  Fungal Explosion: {}
+
+  Great Dwarf Weapon: {}
+
+  Frenzied Defense: {}
+
+  Vicious Attack: {}
+
+  Pious Restoration: {}
+
+  Discord: {}
+
+  Triple Chop: {}
+
+  Gaze from Beyond: {}
+
+  "\"To the Limit!\"": {}
+
+  Frozen Soil: {}
+
+  Oath Shot: {}
+
+  Mighty Was Vorizun: {}
+
+  Equinox: {}
+
+  The Way of Strength: {}
+
+  Light of Deliverance: {}
+
+  Ethereal Light: {}
+
+  Enfeebling Touch: {}
+
+  Death Nova: {}
+
+  Convert Hexes: {}
+
+  Reverse Hex: {}
+
+  Totem of Man: {}
+
+  Rolling Shift: {}
+
+  Air of Disenchantment: {}
+
+  Hexbreaker Aria: {}
+
+  Inferno: {}
+
+  Rupture Soul: {}
+
+  Signet of Midnight: {}
+
+  Mindbender: {}
+
+  Aloe Seed Form: {}
+
+  Shatter Enchantment: {}
+
+  Distracting Shot: {}
+
+  Searing Breath: {}
+
+  Atrophy: {}
+
+  Decipher Inscriptions: {}
+
+  Unseen Aggression: {}
+
+  Disarm: {}
+
+  Suffering: {}
+
+  Desecrate Enchantments: {}
+
+  Impale: {}
+
+  Gloat: {}
+
+  Enchanted Haste: {}
+
+  Deflect Arrows: {}
+
+  Shadow of Haste: {}
+
+  Raven Shriek: {}
+
+  Polymock Lightning Strike: {}
+
+  Test of Faith: {}
+
+  Victorious Sweep: {}
+
+  Death Pact Signet: {}
+
+  Antidote Signet: {}
+
+  Weapon of Shadow: {}
+
+  Spell Breaker: {}
+
+  Polymock Spirit Rift: {}
+
+  Glyph of Swiftness: {}
+
+  Determined Shot: {}
+
+  Debilitating Shot: {}
+
+  Strip Enchantment: {}
+
+  Bloodsong: {}
+
+  Brawling Straight Right: {}
+
+  Polymock Diversion: {}
+
+  Shattering Assault: {}
+
+  Berserker Stance: {}
+
+  Channeled Strike: {}
+
+  Asuran Scan: {}
+
+  Chorus of Restoration: {}
+
+  Toxicity: {}
+
+  Storm Chaser: {}
+
+  Mantra of Recall: {}
+
+  Mystic Corruption: {}
+
+  Banish: {}
+
+  Poison Arrow: {}
+
+  Vital Weapon: {}
+
+  Polymock Mind Shock: {}
+
+  "\"Save Yourselves!\"": {}
+
+  Temple Strike: {}
+
+  Power Leak: {}
+
+  Steam: {}
+
+  Signet of Weariness: {}
+
+  Winnowing: {}
+
+  Critical Eye: {}
+
+  Swift Javelin: {}
+
+  Spiritual Pain: {}
+
+  Song of Power: {}
+
+  Stonesoul Strike: {}
+
+  Polymock Ice Shard Storm: {}
+
+  Mystic Twister: {}
+
+  Staggering Blow: {}
+
+  Power Flux: {}
+
+  Explosive Growth: {}
+
+  Life: {}
+
+  Sympathetic Visage: {}
+
+  Aura of Holy Might: {}
+
+  Armor of Unfeeling: {}
+
+  "\"Watch Yourself!\"": {}
+
+  Order of Apostasy: {}
+
+  Polymock Frozen Armor: {}
+
+  Pensive Guardian: {}
+
+  Word of Censure: {}
+
+  Earth Attunement: {}
+
+  Snow Storm: {}
+
+  Spiritleech Aura: {}
+
+  Firebomb Explosion: {}
+
+  Radiant Scythe: {}
+
+  Well of Silence: {}
+
+  Weapon of Warding: {}
+
+  Black Powder Mine: {}
+
+  Featherfoot Grace: {}
+
+  Frustration: {}
+
+  Guilt: {}
+
+  Spirit of Failure: {}
+
+  Arc Lightning: {}
+
+  Mantra of Earth: {}
+
+  Godspeed: {}
+
+  Order of the Vampire: {}
+
+  Grasping Earth: {}
+
+  Arcane Thievery: {}
+
+  Irresistible Blow: {}
+
+  Shield of Judgment: {}
+
+  Dark Aura: {}
+
+  Holy Wrath: {}
+
+  Mantra of Signets: {}
+
+  Smoke Wraith Form: {}
+
+  Shrinking Armor: {}
+
+  Conflagration: {}
+
+  Fragility: {}
+
+  Infernal Rage: {}
+
+  Steady Stance: {}
+
+  Golden Skull Strike: {}
+
+  Arcane Zeal: {}
+
+  Enraging Charge: {}
+
+  Enfeeble: {}
+
+  Asuran Flame Staff: {}
+
+  Magebane Shot: {}
+
+  Lightning Bolt: {}
+
+  Divine Boon: {}
+
+  Balanced Stance: {}
+
+  Dishonorable: {}
+
+  Polymock Savannah Heat: {}
+
+  Disrupting Accuracy: {}
+
+  Signet of Capture: {}
+
+  Golden Lotus Strike: {}
+
+  Destructive Was Glaive: {}
+
+  Watchful Spirit: {}
+
+  Air of Enchantment: {}
+
+  Lightbringer Signet: {}
+
+  Imbue Health: {}
+
+  Life Attunement: {}
+
+  Star Burst: {}
+
+  Boss Bounty: {}
+
+  Stone Rain Form: {}
+
+  Gargoyle Form: {}
+
+  Smite: {}
+
+  "\"Retreat!\"": {}
+
+  Vampiric Swarm: {}
+
+  Polymock Banish: {}
+
+  Polymock Backfire: {}
+
+  Tremor: {}
+
+  Keen Arrow: {}
+
+  Disrupting Lunge: {}
+
+  Shield Guardian: {}
+

@@ -1,0 +1,407 @@
+Professions:
+  Assassin:
+    code: 7
+    abbrev: A
+    campaign: Factions
+    desc: >-
+      A swift, silent master of shadows, daggers, and death. The Assassin
+      can chain together increasingly deadly strikes that target a foe's
+      critical areas, killing quickly and efficiently.
+    attrs:
+      Critical Strikes:
+        code: 35
+        abbrev: CS
+        primary: true
+        desc: >-
+          For each rank of Critical Strikes you have, you gain an
+          additional 1% chance to critical hit. Whenever you critical hit,
+          you gain 1 Energy at 3 ranks and above, 2 Energy at 8 ranks and
+          above, and 3 Energy at 13 ranks and above.
+      Dagger Mastery:
+        code: 29
+        abbrev: Dag
+        desc: >-
+          Dagger Mastery increases the damage you do with daggers and your
+          chance to inflict a critical hit when using a dagger. There is a
+          2% chance per rank of Dagger Mastery that attacks from your
+          daggers will double strike. Many skills, especially dagger attack
+          skills, become more effective with higher Dagger Mastery.
+      Deadly Arts:
+        code: 30
+        abbrev: DA
+        desc: >-
+          No inherent effect. Many Assassin skills, especially those
+          related to harming enemies, become more effective with higher
+          Deadly Arts.
+      Shadow Arts:
+        code: 31
+        abbrev: SA
+        desc: >-
+          No inherent effect. Many Assassin skills, especially those
+          related to defense and moving as a shadow, become more effective
+          with higher Shadow Arts.
+  Dervish:
+    code: 10
+    abbrev: D
+    campaign: Nightfall
+    desc: >-
+      Bolstered by the blessings of the gods, these holy warriors reap the
+      benefits of multiple Enhancements. With a sharpened scythe, the
+      Dervish can unleash a whirlwind of destruction.
+    attrs:
+      Earth Prayers:
+        code: 43
+        abbrev: EP
+        desc: >-
+          No inherent effect. Many Dervish Spells, especially those dealing
+          with defense of Earth damage, become more effective with higher
+          Earth Prayers.
+      Mysticism:
+        code: 44
+        abbrev: Myt
+        primary: true
+        desc: >-
+          Whenever an Enchantment ends, you gain 3 Health for each rank of
+          Mysticism and 1 Energy for every 2 ranks of Mysticism.
+      Scythe Mastery:
+        code: 41
+        abbrev: Scy
+        desc: >-
+          Scythe Mastery increases the damage you do with scythes and your
+          chance to inflict a critical hit when using a scythe. Many
+          skills, especially scythe attack skills, become more effective
+          with higher Scythe Mastery.
+      Wind Prayers:
+        code: 42
+        abbrev: WP
+        desc: >-
+          No inherent effect. Many Paragon Spells, especially those dealing
+          with movement or cold damage, become more effective with higher
+          Wind Prayers.
+  Elementalist:
+    code: 6
+    abbrev: E
+    campaign: Core
+    desc: >-
+      The master of arcane lore and magical aptitude, the Elementalist
+      calls upon the power of fire, earth, air and water to obliterate
+      enemies.
+    attrs:
+      Air Magic:
+        code: 8
+        abbrev: Air
+        desc: >-
+          No inherent effect. Many Elementalist skills, especially spells
+          that deal lightning damage to or debilitate a single enemy,
+          become more effective with higher Air Magic.
+      Earth Magic:
+        code: 9
+        abbrev: Eth
+        desc: >-
+          No inherent effect. Many Elementalist skills, especially spells
+          that protect you and your allies or deal earth damage, become
+          more effective with higher Earth Magic.
+      Energy Storage:
+        code: 12
+        abbrev: ES
+        primary: true
+        desc: >-
+          For each rank of Energy Storage, your maximum Energy raises by 3.
+          Several skills, related to gaining Health or Energy, become more
+          effective with higher Energy Storage.
+      Fire Magic:
+        code: 10
+        abbrev: Fr
+        desc: >-
+          No inherent effect. Many Elementalist skills, especially spells
+          that burn your foes or deal fire damage in large areas, become
+          more effective with higher Fire Magic.
+      Water Magic:
+        code: 11
+        abbrev: Wat
+        desc: >-
+          No inherent effect. Many Elementalist skills, especially spells
+          that deal cold damage or slow and hinder your foes, become more
+          effective with higher Water Magic.
+  Mesmer:
+    code: 5
+    abbrev: Me
+    campaign: Core
+    desc: >-
+      A master of illusion, misdirection, and control, the Mesmer subverts
+      the damage-dealing capabilities of others, manipulating their
+      perceptions to achieve personal goals.
+    attrs:
+      Domination Magic:
+        code: 2
+        abbrev: Dom
+        desc: >-
+          No inherent effect. Many Mesmers skills, especially spells which
+          disrupt spell-casting and deal direct damage, become more
+          effective with higher Domination Magic.
+      Fast Casting:
+        code: 0
+        abbrev: FC
+        primary: true
+        skillAdjust: true
+        desc: >-
+          Fast Casting increases the casting time of your Spells. Additionally,
+          each rank in this attribute decreases your Signet activation times 
+          by 3%.
+      Illusion Magic:
+        code: 1
+        abbrev: Ill
+        desc: >-
+          No inherent effect. Many Mesmer skills, especially spells which
+          deceive your foes and hinder their movement and attacks, become
+          more effective with higher Illusion Magic.
+      Inspiration Magic:
+        code: 3
+        abbrev: Ins
+        desc: >-
+          No inherent effect. Many Mesmer skills, especially spells which
+          generate Energy and reduce damage, become more effective with
+          higher Inspiration Magic.
+  Monk:
+    code: 3
+    abbrev: Mo
+    campaign: Core
+    desc: >-
+      The server of divine spirits, the Monk uses prayer to protect,
+      preserve, and restore the well-being of companions.
+    attrs:
+      Divine Favor:
+        code: 16
+        abbrev: DF
+        primary: true
+        desc: >-
+          For each rank of Divine Favor, allies are healed for 3.2 whenever
+          you cast Monk spells on them. Several Monk skills, especially
+          spells realted to Energy gain and healing, become more effective
+          with higher Divine Favor.
+      Healing Prayers:
+        code: 13
+        abbrev: HP
+        desc: >-
+          No inherent effect. Many Monk skills, especially spells related
+          to healing, become more effective with higher Healing Prayers.
+      Protection Prayers:
+        code: 15
+        abbrev: PP
+        desc: >-
+          No inherent effect. Many Monk skills, especially enchantments
+          which prevent damage or provide healing, become more effective
+          with higher Protection Prayers.
+      Smiting Prayers:
+        code: 14
+        abbrev: SP
+        desc: >-
+          No inherent effect. Many Monk skills, especially those related to
+          dealing holy damage, become more effective with higher Smiting
+          Prayers. Holy damage is especially powerful against the undead.
+  Necromancer:
+    code: 4
+    abbrev: N
+    campaign: Core
+    desc: >-
+      One who has learned to draw power from the blood sacrifice and
+      communion with death, the Necromancer uses black magic to cast curses
+      and raise undead minions.
+    attrs:
+      Blood Magic:
+        code: 4
+        abbrev: Bld
+        desc: >-
+          No inherent effect. Many Necromancer skills, especially spells
+          that damage and steal Health from your foes, become mor effective
+          with higher Blood Magic.
+      Curses:
+        code: 7
+        abbrev: Crs
+        desc: >-
+          No inherent effect. Many Necromancer skills, especially hex
+          spells that reduce your foes' effectiveness in battle, become
+          more effective with higher Curses.
+      Death Magic:
+        code: 5
+        abbrev: Dth
+        desc: >-
+          No inherent effect. Many Necromancer skills, especially those
+          which animate undead servants, manipulate corpses, and deal cold
+          damage, become more effective with higher Death Magic.
+      Soul Reaping:
+        code: 6
+        abbrev: SR
+        primary: true
+        desc: >-
+          For each point of Soul Reaping, you gain 1 Energy whenever a
+          creature near you dies. You may only gain Energy this way 3
+          times every 15 seconds. Spirits only provide you with Energy 
+          if they are under your control.
+  Paragon:
+    code: 9
+    abbrev: P
+    campaign: Nightfall
+    desc: >-
+      With a commanding voice and charismatic presence, the Paragon rallies
+      the valiant through inspiration, motivation, and leadership.
+    attrs:
+      Command:
+        code: 38
+        abbrev: Cmd
+        desc: >-
+          No inherent effect. Many Paragon skills, especially those that
+          protect your allies or increase your tactical position on the
+          battlefield, become more effective with higher Command.
+      Leadership:
+        code: 40
+        abbrev: Ld
+        primary: true
+        desc: >-
+          You gain 1 Energy for each ally affected by one of your Shouts or
+          Chants (maximum 1 Energy for every 3 ranks).
+      Motivation:
+        code: 39
+        abbrev: Mo
+        desc: >-
+          No inherent effect. Many Paragon skills, especially those related
+          to Energy management or that inspire your allies, become more
+          effective with higher Motivation.
+      Spear Mastery:
+        code: 37
+        abbrev: Spr
+        desc: >-
+          Spear Mastery increases the damage you do with spears and your
+          chance to inflict a critical hit when using a spear. Many skills,
+          especially spear attack skills, become more effective with higher
+          Spear Mastery.
+  Ranger:
+    code: 2
+    abbrev: R
+    campaign: Core
+    desc: >-
+      An agile and wily suvivor, the Ranger specializes in archery, beast
+      mastery, and attunement to nature.
+    attrs:
+      Beast Mastery:
+        code: 22
+        abbrev: Bst
+        desc: >-
+          Beast Mastery increases the damage dealt by your animal companion
+          and its chance to inflict a critical hit. Many Ranger skills,
+          especially those related to making your animal companion
+          stronger, become more effective with higher Beast Mastery.
+      Expertise:
+        code: 23
+        abbrev: Ex
+        primary: true
+        skillAdjust: true
+        desc: >-
+          For each rank of Expertise the Energy cost of your [non-Spell
+          skills] Attack skills, Preparations, and Traps decreases by 4%.
+          Several skills, especially those related to Energy costs and
+          skill recharge times, become more effective with higher
+          Expertise.
+      Marksmanship:
+        code: 25
+        abbrev: Mks
+        desc: >-
+          Marksmanship increases the damage you do with bows and your
+          chance to inflict a critical hit when using a bow. Many Ranger
+          skills, especially bow attack skills, become more effective with
+          higher Marksmanship.
+      Wilderness Survival:
+        code: 24
+        abbrev: WS
+        desc: >-
+          No inherent effect. Many Ranger skills, especially Rituals,
+          Preparations and Traps, become more effective with higher
+          Wilderness Survival.
+  Ritualist:
+    code: 8
+    abbrev: Rt
+    campaign: Factions
+    desc: >-
+      A living conduit to the Spirit world, the Ritualist spawns powerful
+      Spirit allies that inflict harm on foes, and can channel restorative
+      magic that heals and protects injured companions.
+    attrs:
+      Channeling Magic:
+        code: 34
+        abbrev: Chn
+        desc: >-
+          No inherent effect. Many Ritualist skills, especially thos
+          related to lightning damage and Energy, become more effective
+          with higher Channeling Magic.
+      Communing:
+        code: 32
+        abbrev: Com
+        desc: >-
+          No inherent effect. Many Ritualist skills, especially those
+          related to summoning spirits, become more effective with higher
+          Communing.
+      Restoration Magic:
+        code: 33
+        abbrev: Res
+        desc: >-
+          No inherent effect. Many Ritualist skills, especially those
+          related to healing, life-stealing, and defense, become more
+          effective with higher Restoration Magic.
+      Spawning Power:
+        code: 36
+        abbrev: Spn
+        primary: true
+        desc: >-
+          For each rank of Spawning Power you have, creatures you create
+          (or animate) have 4% more Health, and weapon Spells you cast
+          last 2% longer. Some Ritualist skills, especially those related 
+          to spirit creatures, become more effective with higher Spawning 
+          Power.
+  Warrior:
+    code: 1
+    abbrev: W
+    campaign: Core
+    desc: >-
+      The mightiest of mighty, the bravest of the brave, the Warrior is the
+      master of melee combat and heavy armor.
+    attrs:
+      Axe Mastery:
+        code: 18
+        abbrev: Axe
+        desc: >-
+          Axe Mastery increases the damage you do with axes and your chance
+          to inflict a critical hit when using an axe. Many skills,
+          especially axe attack skills, become more effective with higher
+          Axe Mastery.
+      Hammer Mastery:
+        code: 19
+        abbrev: Ham
+        desc: >-
+          Hammer Mastery increases the damage you do with hammers and your
+          chance to inflict a critical hit when using a hammer. Many
+          skills, especially hammer attack skills, become more effective
+          with higher Hammer Mastery.
+      Strength:
+        code: 17
+        abbrev: Str
+        primary: true
+        desc: >-
+          When you use attack skills, each point of Strength gives you 1%
+          armor penetration. Many skills, especially those related to
+          surviving and inflicting damage, become more effective with
+          higher Strength.
+      Swordsmanship:
+        code: 20
+        abbrev: Sw
+        desc: >-
+          Swordsmanship increases the damage you do with swords and your
+          chance to inflict a critical hit when using a sword. Many skills,
+          especially sword attack skills, become more effective with higher
+          Swordsmanship.
+      Tactics:
+        code: 21
+        abbrev: Tac
+        desc: >-
+          No inherent effect. Many skills, especially defensive skills and
+          skills that aid your allies, become more effective with higher
+          Tactics.

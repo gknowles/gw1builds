@@ -1,0 +1,76 @@
+Dwayna's Touch
+Spell 5 .75 2
+Target touched ally is healed for $heal$ Health for each Enchantment on you (maximum 120).
+heal 25 55
+
+Enchanted Haste
+Stance 5 0 25
+For $duration$ seconds, if you are under the effects of an Enchantment, you move $move-buff$% faster.
+duration 5 20
+move-buff 25
+
+Grenth's Fingers
+Enchant 10 .75 8
+All nearby foes are struck for $damage$ cold damage. For 30 seconds, your attacks deal cold damage. When this Enchantment ends, all nearby foes are Crippled for $crippled$ seconds.
+damage 40 100
+crippled 4 10
+
+Guiding Hands
+Enchant 5 .25 30
+For 20 seconds, your next $attacks$ attacks cannot be "blocked" or "evaded."
+attacks 2 6
+block-counter
+evade-counter
+
+Heart of Holy Flame
+Enchant 10 .75 8
+All nearby foes take $damage$ holy damage. For 30 seconds, your attacks deal holy damage. When this Enchantment ends, all nearby foes are set on fire for $burning$ seconds.
+damage 40 100
+burning 1 4
+
+Initiate's Blessing
+Enchant 5 1 8
+For 20 seconds, whenever you lose an Enchantment, one ally in the area is healed for $health-gift$ Health.
+health-gift 5 50
+
+Lyssa's Haste
+Enchant 5 1 15
+For $duration$ seconds, you run $move-buff$% faster. While moving, you gain $energy-gain$ Energy each second but lose $damage-self$ Health each second.
+duration 5 11
+move-buff 25
+energy-gain 1
+damage-self 20 10
+
+Mystic Healing
+Spell 5 1 2
+For each Enchantment on you, one party member is healed for $heal$ Health (the same party member cannot be healed more than once).
+heal 25 85
+
+Mystic Twister
+Spell 10 .75 12
+For each Enchantment on you, one foe in the area is struck for $damage$ cold damage (the same target cannot be hit more than once).
+damage 30 125
+
+Natural Healing
+Spell 5 1 8
+You are healed for $heal$ Health. If you are under an Enchantment, you lose 5 Energy.
+heal 10 100
+
+Pious Restoration
+Spell 5 .25 4
+Lose one Enchantment. You gain $heal$ Health, if you are still under the effects of an enchantment lose $hex-remove$ hexes.
+heal 30 90
+hex-remove 1 3
+
+Tremblers Touch
+Spell 10 .75 15
+Target touched foe and all nearby foes are struck for $damage-aoe$ cold damage. Affected foes below 50% Health lose all Enchantments.
+damage-aoe 5 50
+enchant-remove
+
+Whirling Charge
+Stance 15 0 15
+For $duration$ seconds, you move and attack $attack-buff$% faster than normal. This Stance ends if you are not under the effect of any Enchantments.
+duration 3 10
+attack-buff 33
+

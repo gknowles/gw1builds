@@ -1,0 +1,46 @@
+/* menu.css */
+ul.tabmenu li a {
+  height: 24px;
+}
+
+/* global.css */
+div.head input {
+  height: 18px;
+  margin: 3px;
+}
+
+/* account-pane.css */
+div#dialog div.accountPane div.titlebar h2 {
+  width: 350px;
+}
+div.accountPane div.minwidth {
+  width: 350px;
+}
+
+
+/* group-pane.css */
+div.groupPane div#groupList,
+div.groupPane div#memberList {
+  width: 350px;
+}
+
+/* part-list.css */
+div.partList div.toonPick select {
+  width: 59px;
+}
+div.partList div.toonPick input {
+  top: -21px;
+}
+
+/* toon-info.css */
+div.toonInfo div.toonPick select {
+  width: 177px; 
+}
+div.toonInfo div.toonPick input.pos {
+  height: 22px;
+  top: -23px;
+}
+div.toonInfo div.toonPick input.name {
+  top: -23px;
+}
+

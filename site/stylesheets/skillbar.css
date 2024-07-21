@@ -1,0 +1,70 @@
+/* Skillbar */
+div.skillbar {
+  border: 1px solid;
+  border-color: lightgray black black black;
+  padding: 0px;
+}
+.sameSlotDropTB { border: 1px solid magenta; }
+.otherSlotDropTB { border: 1px solid lime; }
+.sameSlotDropLR { border: 1px solid magenta; }
+.otherSlotDropLR { border: 1px solid lime; }
+
+div.skillbar td {
+  border: 1px solid;
+  cursor: default;
+  width: 100%;
+  color: white;
+}
+div.skillbar td.empty {
+  border-color: <%= skin[:emptyBorder] %>;
+  background-color: <%= skin[:emptyBG] %>;
+  color: <%= skin[:empty] %>;
+}
+div.skillbar td.emptyAlt {
+  border-color: <%= skin[:emptyAltBorder] %>;
+  background-color: <%= skin[:emptyAltBG] %>;
+  color: <%= skin[:emptyAlt] %>;
+  padding-left: 10px;
+}
+div.skillbar td.full {
+  border-color: <%= skin[:enhBorder] %>;
+  background-color: <%= skin[:enhBG] %>;
+  overflow: hidden;
+}
+div.skillbar td.fullAlt {
+  border-color: <%= skin[:altBorder] %>;
+  background-color: <%= skin[:altBG] %>;
+  overflow: hidden;
+  padding-left: 10px;
+}
+div.skillbar tr.linked td.full {
+  /* !!! Corresponding entry in hover-ie.js must match */
+  background-color: <%= skin[:enhHoverBG] %>;
+}
+div.skillbar tr.linked td.fullAlt {
+  /* !!! Corresponding entry in hover-ie.js must match */
+  background-color: <%= skin[:altHoverBG] %>;
+}
+
+
+div.skillbar td div.drag {
+  cursor: move;
+}
+div.skillbar span.attr {
+  color: dimgray;
+  float: left; 
+  min-width: 2em; 
+  text-align: center;
+}
+span.effectRange {
+  border: 1px solid;
+  border-color: <%= skin[:stdBorder] %>;
+  background-color: <%= skin[:stdBG] %>;
+  color: <%= skin[:std] %>;
+  padding: 0px 3px 0px 3px;
+  margin: 0px 2px 0px 2px;
+  text-align: center;
+  white-space: pre;
+  font-family: serif;
+  font-size: 12pt;
+}

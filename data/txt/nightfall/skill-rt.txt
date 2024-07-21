@@ -1,0 +1,167 @@
+:pro Ritualist
+:camp Nightfall
+>Communing
+Anguish
+Binding Ritual 25 3 60
+Create a level $level$ Spirit. This Spirit's attacks deal $damage$ damage and deal double damage to Hexed foes. This Spirit dies after $duration$ seconds.
+level 1 5
+damage 5 20
+duration 15 45
+
+>No Attribute
+Death Pact Signet
+Signet 0 2 8
+Resurrect target party member with your current Health and Energy. The next time that ally dies, so do you.
+
+>Channeling Magic
+Destructive was Glaive
+Elite Spell 10 1 10
+Hold Glaive's ashes for up to 10 seconds. When you drop her ashes, you lose all Enchantments and all foes in the area are struck for $damage$ lightning damage.
+damage 10 100
+
+>Spawning Power
+Essence
+Binding Ritual 5 3 60
+Create a level $level$ Spirit. All allies within its range holding an item gain $health-buff$ maximum Health and $energy-buff$ maximum Energy.
+level 1 ?
+health-buff 15 ?
+energy-buff 10
+
+Feast of Creation
+Elite Spell 5 .25 5
+Destroy target allied summoned creature. You gain $energy-gain$ Energy.
+energy-gain 5 ?
+
+>Channeling Magic
+Gaze of Fury
+Binding Ritual 10 2 30
+Destroy target Spirit and create a level $level$ Spirit of Fury. This Spirit's attacks deal $damage$ damage. This Spirit dies after $duration$ seconds.
+level 1 10
+damage 5 20
+duration 30 60
+
+>Restoration Magic
+Recovery
+Binding Ritual 15 3 45
+Creat a level $level$ Spirit. Conditions on allies within range of this Spirit expire $condition-counter$% faster. This Spirit dies after $duration$ seconds.
+level 1 10
+condition-counter 20 50
+duration 30 60
+
+>Spawning Power
+Renewing Memories
+Enchant 5 1 30
+For $duration$ seconds, while holding an item, any weapon and item Spells you cast cost $cost-reduce$% less Energy.
+duration 5 ?
+cost-reduce 5 ?
+
+>Channeling Magic
+Renewing Surge
+Spell 5 1 10
+Target foe is struck for $damage$ lightning damage. If you are holding an item, this Skill recharges instantly.
+damage 15 60
+
+>Spawning Power
+Sight Beyond Sight
+Enchant 5 .25 20
+For $duration$ seconds, you cannot be Blinded.
+duration 5 ?
+
+>Communing
+Signet of Binding
+Signet 0 1 15
+Target allied summoned creature gains +$health-buff$ maximum Health. After 30 seconds, that creature is destroyed.
+health-buff 50 200
+
+Signet of Might
+Elite Signet 0 1 5
+Target allied summoned creature's attacks deal $damage-buff$ more damage. After 10 seconds, that creature is destroyed.
+damage-buff 10 30
+
+>Channeling Magic
+Siphon
+Elite Spell 5 1 6
+Target foe is struck for $damage$ lightning damage. If you are holding an item, you gain $energy-gain$ Energy and $heal$ Health.
+damage 15 60
+heal 15 60
+energy-gain 5
+
+Spirit Strike
+Elite Spell 5 .25 15
+Sacrifice $sacrifice$% maximum Health. Gain $energy-gain$ Energy. If any Spirits are in the area, you do not sacrifice Health.
+sacrifice 17
+energy-gain 5 15
+
+>Spawning Power
+Spirit's Gift
+Enchant 10 1 45
+For 60 seconds, whenever you creat a creature, all allies near that creature gain $heal$ Health and lose $condition-remove$ Condition.
+heal 5 ?
+condition-remove 1
+
+Spirit's Strength
+Elite Enchant 5 1 45
+For $duration$ seconds, you attacks deal $damage$ more damage while under the effects of a weapon Spell.
+duration 15 ?
+damage 1 ?
+
+>Restoration Magic
+Synergetic Light
+Spell 5 1 5
+Target other ally is healed for $heal$ Health. If you are near a Spirit, you are also healed for $heal-self$ Health.
+heal 15 90
+heal-self 15 90
+
+Vocal was Sogolon
+Item Spell 10 1 30
+For 60 seconds, all Shouts and Chants you use last $duration-buff$% longer.
+duration-buff 20 50
+
+>Channeling Magic
+Warmonger's Weapon
+Weapon Spell 10 1 20
+For $duration$ seconds, if target ally attacks a foe who is not attacking, that foe is interrupted.
+duration 5 15
+
+Weapon of Fury
+Elite Weapon Spell 5 1 8
+For $duration$ seconds, target ally gains $adrenal-gain$% more adrenaline and $energy-gain$ Energy.
+duration 5 15
+adrenal-gain 5 50
+energy-gain 1
+
+>Restoration Magic
+Weapon of Remedy
+Elite Weapon Spell 5 .25 3
+For 8 seconds, the next time target ally takes damage from a foe, that ally steals up to $health-steal$ from that foe and loses $condition-remove$ Condition.
+health-steal 15 75
+condition-remove 1
+
+>Spawning Power
+Wielder's Remedy
+Enchant 5 1 10
+For $duration$ seconds, whenever you cast a Weapon Spell on an ally, that ally loses $condition-remove$ Condition.
+duration 10 ?
+condition-remove 1
+
+>Channeling Magic
+Wielder's Strike
+Spell 5 1 12
+Target foe is struck for $damage$ lightning damage. If you are under the effects of a weapon Spell, you deal an additional $damage-if$ lightning damage.
+damage 15 60
+damage-if 15 60
+
+>Spawning Power
+Wielder's Zeal
+Elite Enchant 10 1 10
+For $duration$ seconds, whenever you cast a weapon Spell on an ally, you gain $energy-gain$ Energy.
+duration 10 ?
+energy-gain 1 ?
+
+>Communing
+Xinrae's Weapon
+Elite Weapon Spell 25 .25 30
+For $duration$ seconds, target ally has Xinrae's Weapon. Whenever a foe casts a Spell on that ally that Spell is disabled for an additional $skill-lock$ seconds for that foe and all party members of that foe.
+duratoin 4 10
+skill-lock 5 15
+

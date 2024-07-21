@@ -1,0 +1,4623 @@
+--- 
+Dismount Siege Devourer: |-
+  {{Skill infobox
+  | name = Dismount Siege Devourer
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Devourer
+  | activation = 5
+  | recharge = 10
+  | description = [[Skill]]. You dismount the [[Siege Devourer|siege devourer]].
+  | concise description = Skill. Dismount the siege devourer.}}
+Ice Elemental Form: "{{effect infobox\n\
+  | name = Ice Elemental Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Ice Elemental Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Ice Elemental Form.jpg|thumb|left|300px|Ice Elemental Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Frozen Armor\xC2\xA6Polymock Glyph Freeze\xC2\xA6Polymock Ice Spear}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Ice Elemental Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Ursan Roar: |-
+  {{Skill infobox
+  | name = Ursan Roar
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Shout
+  | recharge = 15
+  | pve-only = y
+  | description = [[Shout]]. For 2..5 seconds, all enemies within [[Area of Effect#Earshot|earshot]] are [[Weakness|Weakened]] and all allies deal +5..15 damage per attack.
+  | concise description = [[Shout]]. (2..5 seconds) Inflicts [[Weakness]] condition to foes in [[Area of Effect#Earshot|earshot]]. Allies in earshot deal +5..15 damage per attacks.}}
+  
+  {{Skill progression max10
+  | title track = [[Norn rank]]
+  | var1 name = [[Weakness]] duration
+  | var1 at0  = 2
+  | var1 at10 = 5
+  | var2 name = Damage buff duration
+  | var2 at0  = 2
+  | var2 at10 = 5
+  | var3 name = + damage per attack
+  | var3 at0  = 5
+  | var3 at10 = 15
+  }}
+  
+  ==Notes==
+  *For acquisition and related information, see [[Ursan Blessing]].
+Polymock Migraine: |-
+  {{Skill infobox
+  | name = Polymock Migraine
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 20
+  | description = [[Hex Spell]]. For 15 seconds, target foe's [[spell]]s take an additional 1 second to cast.
+  | concise description = Hex Spell. (15 seconds.) Target foe's spells take +1 second to cast.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mantis Dreamweaver Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Migraine}}
+Spear of Fury: |-
+  {{skill infobox
+  | name = Spear of Fury
+  | campaign = Factions
+  | profession = Paragon
+  | attribute = Allegiance rank
+  | type = Spear Attack
+  | energy = 5
+  | activation = 1
+  | recharge = 8
+  | description=
+  [[Spear Attack]]. Deals +20..40 [[damage]]. If this attack hits a [[foe]] suffering from a [[Condition]], you gain 2..4 strikes of [[adrenaline]].
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = [[Damage]] 
+  | var1 at0 = 20 
+  | var1 at12 = 40 
+  | var2 name = [[Adrenaline]] 
+  | var2 at0 = 2 
+  | var2 at12 = 4 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Notes==
+  *Contrary to other skill use, [[Anthem of Flame]] or [[Grenth's Grasp]] will not apply the condition first in combination with this skill.
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Paragon PvE-only skills]]
+Gelatinous Absorption: |-
+  {{skill infobox
+  | name = Gelatinous Absorption
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | elite = n
+  | activation = 0.75
+  | recharge = 30
+  | description = [[Skill]]. For 15 seconds, all damage dealt to the caster heals the caster.
+  }}
+  
+  ==Notes==
+  *This skill is used by the [[Prismatic Ooze]]s in the [[Ooze Pit]].
+Shadow Sanctuary: |-
+  {{skill infobox
+  | name = Shadow Sanctuary
+  | campaign = Factions
+  | profession = Assassin
+  | attribute = Allegiance rank
+  | type = Enchantment Spell
+  | energy = 5
+  | activation = 0.25
+  | recharge = 30
+  | description=
+  [[Enchantment Spell]]. You are [[Blinded]] for 10 seconds. For 10 seconds, you gain +5..10 [[Health regeneration]] and +40 [[armor]].
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Health regeneration 
+  | var1 at0 = 5 
+  | var1 at12 = 10 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Notes==
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Assassin PvE-only skills]]
+Whirling Fires: |-
+  {{Skill infobox
+  | name = Whirling Fires
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | adrenaline = 5
+  | description= Skill. All foes in the area take 120 fire damage.
+  | concise description = Skill. Deals 120 fire damage to foes in the area.
+  }}
+  
+  ==Notes==
+  *Used by [[Scorch Maulclaw]] and [[Flamemaster Maultooth]].
+Polymock Stoning: |-
+  {{Skill infobox
+  | name = Polymock Stoning
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Send out a large stone, striking target foe for 800 damage if it hits.
+  | concise description = Spell. Projectile: 800 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Stone Rain Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Stoning}}
+Ice Spout: |-
+  {{effect infobox
+  | campaign = Eye of the North
+  | type = Environment effect
+  | recharge = 10
+  | duration = 6
+  | description = [[Spell]]. A blast of freezing air shoots upward, inflicting 50 damage and slowing target by 66% for 6 seconds.
+  | concise description = Environment Effect. Deals 50 damage and slows movement by 66% (6 seconds).}}
+  
+  ==Related Skills==
+  *{{skill icon|Ice Dart}}
+  *{{skill icon|Ice Jet}}
+  *{{skill icon|Fire Spout}}
+  *{{skill icon|Poison Spout}}
+  
+  ==Notes==
+  * This is applied in [[Darkrime Delves]]. <!--details needed-->
+Polymock Signet of Clumsiness: |-
+  {{Skill infobox
+  | name = Polymock Signet of Clumsiness
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Signet
+  | activation = 0.25
+  | recharge = 20
+  | description = [[Signet]]. Target foe takes 150 damage. If that foe is casting a spell, that spell is interrupted.
+  | concise description = Signet. Interrupts a spell. Deals 150 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mantis Dreamweaver Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Signet of Clumsiness}}
+Ursan Force: |-
+  {{Skill infobox
+  | name = Ursan Force
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Skill
+  | recharge = 12
+  | pve-only = y
+  | description = [[Skill]]. For 8..14 seconds, you move 20..33% faster and can break wooden barricades.
+  | concise description = [[Skill]]. (8..14 seconds.) You move 20..33% faster and can break wooden barricades.}}
+  
+  {{Skill progression max10
+  |title track = [[Norn rank]]
+  |var1 name = Duration
+  |var1 at0  = 8
+  |var1 at10 = 14
+  |var2 name = Speed boost %
+  |var2 at0  = 20
+  |var2 at10 = 33
+  }}
+  
+  ==Notes==
+  *This skill is acquired after activating [[Ursan Blessing]].
+  {{bug|Although this skill has no activation time and no subtype, it cannot be activated in the middle of another action, and it has a short [[aftercast delay]].}}
+Ice Jet: |-
+  {{Effect-stub}}
+  {{Effect infobox
+  | name = Ice Jet
+  | campaign = Eye of the North 
+  | recharge = 10
+  | description = [[Environment Effect]]. Freezing air bursts outward, inflicting 66 damage and slowing target by 50% for 6 seconds.
+  }}
+  
+  ==Related Skills==
+  *{{skill icon|Ice Dart}}
+  *{{skill icon|Ice Spout}}
+  *{{skill icon|Fire Jet}}
+  *{{skill icon|Poison Jet}}
+Siege Devourer: |-
+  {{Otheruses|the [[skill]] Siege Devourer|the creature|Siege Devourer (npc)}}__NOTOC__{{skill infobox
+  | name = Siege Devourer
+  | campaign = Eye of the North
+  | fixed health = 1000
+  | fixed energy = 25
+  | type = Form
+  | description = [[Form]]. You have mounted a [[Siege Devourer (npc)|siege devourer]]. You can command the siege devourer to move and use its [[Skill]]s.
+  | concise description = Form. Mount the Siege Devourer. You can command it to move and use skills.}}
+  
+  ==Acquisition==
+  [[Charr Homelands]]
+  *[[Grothmar Wardowns]] (Find, defeat and talk to [[Siege Devourer (npc)|Siege Devourer]])
+  *[[Dalada Uplands]] (Find, defeat and talk to [[Siege Devourer (npc)|Siege Devourer]])
+  *[[Sacnoth Valley]] (Find, defeat and talk to [[Siege Devourer (npc)|Siege Devourer]])
+  
+  == Notes ==
+  *To receive this form, you have to find a hostile [[Siege Devourer (npc)|Siege Devourer]] and reduce its health under 20%. The Siege Devourer will turn neutral to players, and the [[Charr Bladestorm]] riding it will dismount to attack players. Once neutral, a character can Mount the Siege Devourer by talking to it. The Siege Devourer will use the [[Mount]] skill with the character that talked to it. Once the Mount skill successfully activates, the character will be under this form.
+  *This Form will be kept when zoning between the three [[Charr Homelands]] explorable areas. This does not happen if you go into a dungeon or town/outpost.
+  *There are two spawn points where Siege Devourers can be found. One can be found in the [[Dalada Uplands]], the other in [[Grothmar Wardowns]]. 
+  *While in Siege Devourer Form, your max health is fixed to 1000, max energy energy to 25, and your skills are replaced with the siege devourer skills:
+  {{skill bar|Devourer Siege|Devourer Bite|Siege Devourer Swipe|Siege Devourer Feast|HYAHHHHH!|Blank|Blank|Dismount Siege Devourer}}
+  *The normal attacks dealt while in this form will be always armor ignoring typeless damage. The damage and special properties of the attack will vary as follows:
+  **Sword, Axe and Hammer: Melee, 55 damage.
+  **Dagger: Melee, 40 damage. May deal double attacks.
+  **Scythe: Melee, 35 damage. May hit a second foe if it is adjacent to target foe.
+  **Bow, Staff, Wand: Ranged, 40 damage. Range and attack speed depends on weapon.
+  **Spear: Ranged, 55 damage. Same range as spear.
+  *While in this form, if you health goes to 0, the Siege Devourer will die instead of you, the Form will end and you will appear next to the dead Corpse of the Siege devourer, with full health and energy. If you want to keep the siege devourer alive, you have to Dismount before that happens.
+  *If you resign while mounted, the Siege Devourer completely disappears & is replaced by your dead body.
+  *Siege Devourer models respond to some emote commands:
+  **/dance : The Siege Devourer jumps and starts side-walking left and right, clapping its pincers.
+  * The siege devourer form and the way of acquiring it (killing the Charr controlling it) may be a tribute to the [[W:Scorpion tank|Scorpion tank]] from the popular Halo game series
+  
+  ===Tactics===
+  *While controlling the devourer you may notice that it gets exhausted easily.  Timing your attacks or at least reserving your attacks for when you have the energy helps with this.  If you get it right you can avoid being completely exhausted in this form, but it isn't easy.  For the most part targeting a single target in a group works much like that of meteor shower, but to a slightly larger area and only once per shot.
+  *With 2 siege devourers in the group things can get interesting and farming reputation points becomes much easier.  One thing to note is that both devourers can safely target enemies attacking the other in the group.  That is to say 1 devourer can target a foe attacking the other devourer without doing [[AoE]] damage to their teammate.  Knowing this helps out quite a bit since it means that teammates can back each other up.
+  *You might notice that while using both devourers you can alternate attacks, helping the other conserve energy.  Since you can also save the devourer by dismounting before it dies it will remain where you left it if you die and get resurrected some distance away.  You can benefit from this since you will not be affected by the death penalty gained when you die while you are controlling the devourer.  They do die easily though so be careful when using them.
+  
+  ==Related skills==
+  *{{skill icon|Desert Wurm (disguise)}}
+  
+  [[Category:Forms]]
+Soulrending Shriek: |-
+  {{skill infobox
+  | name = Soulrending Shriek
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 10
+  | activation = 1
+  | recharge = 15
+  | description = [[Skill]]. Target [[foe]] takes 40 damage. If target is [[Enchantment|enchanted]], that foe loses one enchantment and is [[Dazed]] for 8 seconds.
+  | concise description = Skill. 50 damage. Removes one enchantment and inflicts Dazed condition (8 seconds) if target foe is enchanted.
+  }}
+  
+  ==Notes==
+  *Used by [[Bloodthirst Incubus]], [[Stormcloud Incubus]], [[Cryptwing Incubus]], and [[Bloodbath Incubus]].
+  *This skill was named ''Mystic Shriek'' during the [[Guild Wars Eye of the North Sneak Peek Weekend]].
+Charr Flame Keeper Form: |-
+  {{effect infobox
+  | name = Charr Flame Keeper Form
+  | campaign = Eye of the North
+  | type = Disguise
+  | description = [[Disguise]]. You are playing as the [[Charr Flamecaller Polymock piece|Charr Flame Keeper Polymock piece]].
+  }}
+  ==Notes==
+  *This disguise is applied when the Charr Flamecaller Polymock piece is selected as the active piece in the [[Polymock Coliseum]].
+  {{anomaly|This Polymock piece disguise effect has a name that is different from the name of their Polymock piece.}}
+  
+  ==See also==
+  *[[Polymock]]
+  
+  [[Category:Polymock disguises]]
+Devourer Bite: |-
+  {{Skill infobox
+  | name = Devourer Bite
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Devourer
+  | energy = 5
+  | activation = 1
+  | recharge = 10
+  | description = [[Skill]]. [[Target]] touched [[foe]] is struck for 100 [[piercing damage]].
+  | concise description = Touch Skill. Deals 100 piercing damage.
+  }}
+Bone Dragon Form: "{{effect infobox\n\
+  | name = Bone Dragon Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Bone Dragon Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Deathly Chill\xC2\xA6Polymock Poisoned Ground\xC2\xA6Polymock Rising Bile}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Dormant Husk: |-
+  {{skill infobox
+  | name = Dormant Husk
+  | campaign = Eye of the North
+  | type = Skill
+  | elite = n
+  | energy = 5
+  | recharge = 9,999
+  | special = Monster
+  | description = Skill. This plant has 40 damage reduction and +20 Health regeneration while dormant but cannot attack or use other skills.
+  | concise description = Skill. This plant gains 40 damage reduction and +20 Health regeneration while dormant but cannot attack or use other skills.
+  }}
+  
+  ==Notes==
+  This skill is used by [[Blooming Nettle]]s, [[Fungal Bloom]]s, [[Nettle Seedling]]s and [[Parasitic Growth]]s.
+Unstable Aura: |-
+  {{skill infobox
+  | image = [[image:Monster skill.jpg]]
+  | name = Unstable Aura
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | recharge = 30
+  | description = [[Skill]]. For 0 seconds, if the golem is struck by [[elemental damage]], all of its attacks are converted to that damage type.
+  | concise description = Skill. (0 seconds.) If the golem takes elemental damage, its attacks are converted to that damage type.
+  }}
+Order of Unholy Vigor: |-
+  {{skill infobox
+  | name = Order of Unholy Vigor
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 5
+  | activation = 1
+  | recharge = 12
+  | description = [[Spell]]. For 15 seconds, all of Zoldark's minions attack 33% faster.<br>
+  Spell. For 15 seconds, all of Palawa Joko's minions attack 33% faster.
+  | concise description = Spell. (15 seconds.) All Minions of Zoldark attack 33% faster.<br>
+  Spell. (15 seconds.) Palawa Joko's minions attack 33% faster.
+  }}
+  
+  ==Notes==
+  *Used by [[Zoldark the Unholy]] in [[Vloxen Excavations]].
+  *Used by [[Palawa Joko]] in the [[Norn Fighting Tournament]].
+Sneak Attack: |-
+  {{Skill infobox
+  | name = Sneak Attack
+  | campaign = Eye of the North
+  | attribute = Ebon Vanguard rank
+  | type = Melee Attack
+  | recharge = 5
+  | energy = 5
+  | pve-only = y
+  | description = [[Lead Attack]]. If this attack hits, target foe is Blinded for 4..8 seconds. This attack counts as a lead attack.
+  | concise description = [[Lead Attack]]. Inflicts Blindness (4..8 seconds). Counts as a lead attack.
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Ebon Vanguard rank]]
+  |var1 name = [[Blindness]] duration
+  |var1 at0  = 4
+  |var1 at10 = 8
+  }}
+  
+  ==Acquisition==
+  *[[Plan A]] (From [[Captain Langmar]] in [[Grothmar Wardowns]])
+  
+  ==Notes==
+  *Unlike other lead attacks, this attack can be used with any [[weapon|melee weapon]] and hence should be typed a [[melee attack]].
+  {{bug|This attack doesn't work properly with scythes: only the foe you target is struck and blinded.}}
+Skeletal Mage Form: "{{effect infobox\n\
+  | name = Skeletal Mage Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Skeletal Mage Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Backfire\xC2\xA6Polymock Diversion\xC2\xA6Polymock Overload}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Polymock Piercing Light Spear: |-
+  {{Skill infobox
+  | name = Polymock Piercing Light Spear
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 5
+  | description = [[Spell]]. A Piercing Light Spear flies toward target foe and causes Bleeding for 20 seconds if it hits.
+  | concise description = Spell. Projectile: inflicts Bleeding condition (20 seconds). Bleeding causes -3 Health degeneration.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Charr Shaman Form]]
+  
+  ==Notes==
+  *Bleeding causes 10 health degeneration in Polymock.
+  
+  ==Related skills==
+  {{skill icon|Spear of Light}}(icon)
+  
+  {{skill icon|Barbed Spear}}
+Polymock Mind Wreck: |-
+  {{Skill infobox
+  | name = Polymock Mind Wreck
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex spell
+  | energy = 2
+  | activation = 2
+  | recharge = 30
+  | description = [[Hex Spell]]. For 15 seconds, target foe loses 75 [[Health]] whenever that foe casts a [[spell]] that costs less than 2 [[Energy]].
+  | concise description = Hex Spell. (15 seconds.) Causes 75 Health loss whenever target foe casts a spell that costs less than 2 Energy.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mergoyle Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Mind Wrack}}
+  
+  == Notes ==
+  *In the description it is misspelled as "Mind Wreck" Where it should actually be Mind Wrack. See the skill [[Mind Wrack]]
+Ice Dart: |-
+  {{effect infobox
+  | type = Environment effect
+  | recharge = 5
+  | duration = 6
+  | campaign = Eye of the North
+  | description = [[Spell]]. An icy [[projectile]] flies outward, inflicting 33 damage and slowing target's movement by 33% for 6 seconds.
+  | concise description = Spell. Projectile: deals 33 damage and causes 33% slower movement (6 seconds).}}
+  
+  ==Related Skills==
+  *{{skill icon|Ice Jet}}
+  *{{skill icon|Ice Spout}}
+  *{{skill icon|Fire Dart}}
+  *{{skill icon|Poison Dart}}
+  
+  ==Notes==
+  * [[Ice Dart]]s are shot three at a time every five seconds
+  * This is applied when one walks near a stationary turret in [[Norrhart Domains]] and some [[dungeon]]s in [[GW:EN]].
+  {{bug|This skill can fire projectiles through walls.}}
+Ursan Rage: |-
+  {{Skill infobox
+  | name = Ursan Rage
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Skill
+  | activation = 1
+  | recharge = 10
+  | pve-only = y
+  | description = [[Skill]]. You deal 60..135 [[physical damage]] to all [[Area of Effect#Adjacent|adjacent]] foes. Struck foes are also [[Knock down|knocked down]] for 2 seconds.
+  | concise description = [[Skill]]. Deals 60..135 [[physical damage]]. Causes [[Knock down|knock-down]]. Hits foes [[Area of Effect#Adjacent|adjacent]] to you.}}
+  
+  {{Skill progression max10
+  | title track = [[Norn rank]]
+  | var1 name = Damage
+  | var1 at0  = 60
+  | var1 at10 = 135
+  }}
+  
+  ==Notes==
+  *The knock-down duration can be increased to 3 seconds with [[Stonefist Insignia]].
+  * For acquisition and related information, see [[Ursan Blessing]].
+Twisting Jaws: |-
+  {{skill infobox
+  | name = Twisting Jaws
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 15
+  | recharge = 20
+  | description = [[Skill]]. Creature steals 120 Health from target touched foe. That foe suffers from a [[Deep Wound]] and begins [[Bleeding]] for 10 seconds.
+  | concise description = Touch Skill. Steals 120 Health; inflicts a Deep Wound and Bleeding (10 seconds).
+  }}
+  
+  ==Notes==
+  *Most [[Dinosaur]]s use this skill. While it has a long recharge, having a pack of four descend on an unprepared party could mean a party wipe.
+  *The deep wound effect is triggered instantly, and thus causes a very large spike when combined with the health loss it also causes. It's a good idea to prepare for the possible spike a large group of dinosaurs may cause with this skill.
+Brawling: |-
+  {{skill infobox
+  | name = Brawling
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Brawling
+  | elite = n
+  | description = [[Skill]]. You are currently '''brawling'''. While brawling, your maximum [[Health]] is 500. You can only use brawling Skills to damage [[foe]]s. When you knock out a foe, you gain 200 Health. Instead of dying when you reach 0 Health, you are knocked out. While knocked out, use [[STAND UP!|STAND UP]] to get back on your feet.
+  | concise description = Skill. You are currently brawling. Your max Health is 500. You can only use brawling skills to deal damage. When you knock out an enemy, you gain 200 Health. Instead of dying when you reach 0 Health, you are knocked out. While knocked out, repeatedly use STAND UP to get back on your feet.
+  }}
+  
+  ==Notes==
+  * This "Skill" is an indicator that you are in a [[Dwarven Brawling]] area.
+  * Maximum Energy is initially 15. It increases by 5 every time you recover from a knock out.
+  * Maximum Health is 600 in hard mode, and health gain per enemy defeated is 300.
+Inner Fire: |-
+  {{Skill infobox
+  | name = Inner Fire
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | recharge = 20
+  | description = Skill. For 10 seconds, you gain 30 Health every second.
+  | concise description = Skill. (10 seconds.) You gain 30 Health every second.}}
+  
+  ==Notes==
+  *This skill is used by [[Destroyer]]s.
+  
+  ==Trivia==
+  *This skill was bugged until the [[Game_updates/20080331#Bug_Fixes|March, 31, 2008]] Update. Prior to this date the skill did nothing.
+Star Servant: |-
+  {{skill-stub}}
+  {{skill infobox
+  | name = Star Servant
+  | campaign = Factions
+  | profession = Necromancer
+  | type = Skill
+  | special = Celestial
+  | pve-only = y
+  | activation = 1
+  | description = Skill. Summon a level-25 [[Celestial Horror|celestial horror]] at your location. Each time the celestial horror successfully lands an [[attack]], your [[party]] gains 25 [[Health]] and 3 [[Energy]].
+  | concise description = Skill. Summon a level 25 celestial horror. Your party members gain 25 Health and 3 Energy each time the celestial horror lands an attack.}}
+  
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Necromancer]]s by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *Only [[recharge]]s after [[morale boost]]s.
+  *Can be [[echo]]ed, but each necromancer can only control one at a time.
+Siege Devourer Feast: |-
+  {{Skill infobox
+  | name = Siege Devourer Feast
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Devourer
+  | energy = 5
+  | activation = 0.75
+  | recharge = 10
+  | description = [[Skill]]. [[Exploit]] one [[adjacent]] [[corpse]] to gain 200 [[Health]].
+  | concise description = Skill. Gain 200 Health. Requires an adjacent fresh corpse.}}
+Golem Boosters: |-
+  {{skill infobox
+  | name = Golem Boosters
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Stance
+  | energy = 5
+  | recharge = 30
+  | description = [[Stance]]. For 8 seconds, you move 100% faster. While this skill is active, your next attack knocks down target foe, and this skill ends.
+  | concise description = Stance. (8 seconds.) You move 100% faster. Your next attack causes knock-down and this skill ends.
+  }}
+  
+  == Notes ==
+  *This skill is used by the [[GOLEM|GOLEMS]] in [[Oola's Lab]], as well as [[G.O.L.E.M. 1.0]]s.
+Pure Was Li Ming: |-
+  {{Skill infobox
+  | name=Pure Was Li Ming
+  | campaign=Eye of the North
+  | profession=Ritualist
+  | attribute=Restoration Magic
+  | type=Item Spell
+  | energy=10
+  | activation=1
+  | recharge=20
+  | description = [[Item Spell]]. Hold Li Ming's [[ashes]] for 5..20 seconds. While you hold her ashes, [[Condition]]s on you expire 10..50% faster. When you drop her ashes, all [[ally|allies]] within [[earshot]] lose 1..4 Conditions.
+  | concise description = [[Item Spell]]. (5..20 seconds.) [[Condition]]s on you expire 10..50% faster. Drop effect: removes 1..4 conditions from [[ally|allies]] in [[earshot]].
+  }}
+  
+  {{Skill progression
+  |attribute = [[Restoration Magic]]
+  |var1 name = [[Duration]]
+  |var1 at0 = 5
+  |var1 at15 = 20
+  |var2 name = [[Condition]] [[duration]] reduction %
+  |var2 at0 = 10
+  |var2 at15 = 50
+  |var3 name = [[Condition]]s lost
+  |var3 at0 = 1
+  |var3 at15 = 4}}
+  
+  ==Acquisition==
+  '''[[Skill trainer]]s'''
+  *[[Eye of the North]]
+  **[[Micah Fergson]] ([[Eye of the North (outpost)]])
+  
+  ==Notes==
+  *Using this with [[Recovery]] will reduce the threat of conditions even further.
+Aspect of Oak: |-
+  {{skill infobox
+  | name = Aspect of Oak
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | recharge = 20
+  | description = Skill. Prevents the next 300 damage this creature would take.
+  | concise description = Skill. Prevents the next 300 damage you would take.
+  }}
+  
+  == Notes ==
+  *[[Timberland Guardian]] uses this skill.
+Star Strike: |-
+  
+  {{skill infobox| name = Star Strike
+  | campaign = Factions
+  | profession = Assassin
+  | type = Skill
+  | special = Celestial
+  | pve-only = y
+  | activation = 1
+  | description = Skill. For 10 seconds, upon every successful hit by you or a [[party member]] a level 20 [[Celestial Assassin|celestial attacker]] is called forth to attack foes (maximum of 6).
+  | concise description = Skill. (10 seconds.) Party-wide effect. Every successful attack summons a level 20 celestial attacker (maximum of 6).}}
+  
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Assassin]]s by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *Only [[recharge]]s after [[morale boost]]s.
+  *Despite their appearance, celestial Assassins are not minions. They do not have inherent degeneration, do not turn hostile when their master is killed and regenerate outside of combat like normal creatures.
+  *Celestial Assassins will not follow the party, however they will follow and attack anything which attacks or is attacked by the party.
+Mantis Dreamweaver Form: "{{effect infobox\n\
+  | name = Mantis Dreamweaver Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Mantis Dreamweaver Polymock piece]].\n\
+  }}\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Migraine\xC2\xA6Polymock Overload\xC2\xA6Polymock Signet of Clumsiness}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Mantis Dreamweaver Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Raven Swoop: |-
+  {{Skill infobox
+  | name = Raven Swoop
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Spell
+  | activation = 0.75
+  | recharge = 4
+  | pve-only = y
+  | description = [[Spell]]. Strike target foe and all adjacent foes for 60..100 damage.
+  | concise description = [[Spell]]. Deals 60..100 damage. Also hits adjacent foes.
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Norn rank]]
+  |var1 name = Damage
+  |var1 at0  = 60
+  |var1 at10 = 100
+  }}
+  
+  ==Notes==
+  *For acquisition and related information, see [[Raven Blessing]].
+Skale Form: "{{effect infobox\n\
+  | name = Skale Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Skale Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Skale Form.jpg|thumb|left|300px|Skale Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Deathly Chill\xC2\xA6Polymock Rising Bile\xC2\xA6Polymock Rotting Flesh}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Skale Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Golem Fire Shield: |-
+  {{skill infobox
+  | name = Golem Fire Shield
+  | campaign = Eye of the North
+  | type = Spell
+  | special = Monster
+  | description = [[Spell]]. You are immune to the damage and effects from [[Fire Dart|fire dart]]s while [[in the area]] of the [[Worker Golem|worker golem]].
+  | concise description = Spell. You are immune to damage and effects from fire darts while in the area of the worker golem.
+  }}
+  == Notes ==
+  *This skill is used by a Worker Golem in [[The Elusive Golemancer]] quest.
+Charr Shaman Form: "{{effect infobox\n\
+  | name = Charr Shaman Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Charr Shaman Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Piercing Light Spear\xC2\xA6Polymock Signet of Smiting\xC2\xA6Polymock Smite}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+The Way of Kinship: |-
+  {{Environment effect infobox
+  | campaign = Eye of the North
+  | trigger = [[Gate of Kinship]]
+  }}
+  [[Environment Effect]]. The gate before you remains closed. Its inscription reads: "Those who possess strong ties of kinship find strength in others when steps falter. The way forward will open to those who show proof of kinship."
+Signet of Corruption: |-
+  {{Skill infobox
+  | name = Signet of Corruption
+  | campaign = Factions
+  | profession = Necromancer
+  | attribute = Allegiance rank
+  | type = Signet
+  | activation = 1
+  | recharge = 20
+  | description=
+  [[Signet]]. Target [[foe]] and all [[nearby]] foes take 15..30 [[damage]]. For each affected foe suffering from a [[Condition]] or [[Hex]], you gain 2 [[Energy]] (maximum 12..20 Energy).
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Damage 
+  | var1 at0 = 15 
+  | var1 at12 = 30 
+  | var2 name = Max. energy
+  | var2 at0 = 12 
+  | var2 at12 = 20 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Notes==
+  *Works well with [[Suffering]] and [[Ether Nightmare]].
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Necromancer PvE-only skills]]
+Ceiling Collapse: |-
+  {{skill infobox
+  | name = Ceiling Collapse
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 10
+  | activation = 2
+  | recharge = 30
+  | description = Spell. Creature causes debris to fall from the ceiling, dealing 50 damage and [[interrupt]]ing all foes within [[earshot]].
+  | concise description = Spell. Creature causes debris to fall from the ceiling, dealing 50 damage and interrupting all foes within earshot.
+  }}
+  
+  == Notes ==
+  * This skill is used by [[Dredge]]s in [[Raven's Point]]: [[Dredge Warrior]]s, [[Dredge Hunter]]s, [[Dredge Gardener]]s and [[Dredge Gutter]]s.
+  
+  == See also ==
+  *{{skill icon|Cathedral Collapse}}
+Polymock Lamentation: |-
+  {{Skill infobox
+  | name = Polymock Lamentation
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Strike target foe for 120 damage.
+  | concise description = Spell. Deals 120 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Naga Shaman Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Lamentation}}
+Celestial Stance: |-
+  {{skill infobox
+  | name = Celestial Stance
+  | campaign = Factions
+  | profession = Ranger
+  | type = Skill
+  | special = Celestial
+  | pve-only = y
+  | description = Skill. For 15 seconds, your entire [[party]] has a 75% chance to [[block]] attacks and +3 [[Health regeneration]].
+  | concise description = Skill. (15 seconds.) Affects all party members. 75% chance to block. +3 Health regeneration.}}
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Ranger]]s by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Related skills==
+  *{{skill icon|Aegis}}
+  *{{skill icon|Shield Guardian}}
+  
+  ==Notes==
+  *This skill only [[recharge]]s after [[morale boost]]s.
+Polymock Power Drain: |-
+  {{Skill infobox
+  | name = Polymock Power Drain
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 3
+  | activation = 0.25
+  | recharge = 20
+  | description = [[Spell]]. If target foe is casting a [[spell]] or [[glyph]], that foe is [[interrupted]] and you gain 3 [[Energy]].
+  | concise description = Spell. Interrupts a spell or glyph. Interruption effect: you gain 3 Energy.}}
+  
+  ==Acquisition==
+  '''Polymock Power Drain''' is one of the five skills that is available to all [[Polymock]] pieces.
+  
+  ==Related skills==
+  *{{Skill icon|Power Drain}}
+Brawling Hook: |-
+  {{Skill infobox
+  | name = Brawling Hook
+  | campaign = Eye of the North
+  | special = Brawling
+  | type = Melee Attack
+  | adrenaline = 4
+  | description = [[Melee Attack]]. Target foe takes 30 damage.
+  | concise description = Melee Attack. Deals 30 damage.
+  }}
+Polymock Meteor: |-
+  {{Skill infobox
+  | name = Polymock Meteor
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Target foe is struck for 600 damage. If that foe is casting a spell, that spell is interrupted.
+  | concise description = Spell. Deals 600 damage. Interrupts a spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Fire Imp Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Meteor}}
+Unstable Pulse: |-
+  {{skill infobox
+  | name = Unstable Pulse
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | recharge = 10
+  | description = [[Skill]].  For 175 seconds, if the golem is struck by [[elemental damage]], all of its attacks are converted to that damage type and Unstable Pulse ends. When Unstable Pulse ends, the golem hits all [[adjacent]] foes for 175 damage.
+  | concise description = Skill. (175 seconds.) If the golem takes elemental damge, its attacks are converted to that damage type. End effect: adjacent foes take 175 damage.
+  }}
+  
+  ==Notes==
+  *While not mentioned in the description, this skill ends when the [[TPS Regulator Golem]] takes elemental damage. Furthermore, being a boss in Eye of the North, the damage is doubled to 350. The damage ignores armor, causing devastation to anyone adjacent to it with [[Death Penalty]].
+Polymock Deathly Chill: |-
+  {{Skill infobox
+  | name = Polymock Deathly Chill
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description=[[Spell]]. Target foe is struck for 100 damage. If that foe is above 50% Health, you deal an additional 50 damage.
+  | concise description = Spell. Deals 100 damage. Deals 50 more damage if target foe's Health is above 50%.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Skale Form]]
+  *[[Bone Dragon Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Deathly Chill}}
+Spawn Pods: |-
+  {{skill-stub}}
+  {{Skill infobox
+  | image = [[Image:Spawn Pods.jpg]]
+  | name = Spawn Pods
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | adrenaline = 4
+  | activation = 3
+  | recharge = 15
+  | description = [[Skill]]. Summons 2 [[Destroyer Spawn]]s in the area.
+  | concise description = Skill. Summons 2 Destroyer Spawns in the area.}}
+Wind Rider Form: "{{effect infobox\n\
+  | name = Wind Rider Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Wind Rider Polymock piece]].\n\
+  }}\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Backfire\xC2\xA6Polymock Guilt\xC2\xA6Polymock Overload}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Wind Rider Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Master of Necromancy: |-
+  {{skill infobox
+  | name = Master of Necromancy
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | recharge = 10
+  | description = [[Spell]]. For 12 seconds, [[Zoldark the Unholy|Zoldark]] has +10 armor and +5% maximum Health for each Minion of Zoldark that is currently alive.
+  | concise description = Spell. (12 seconds.) Zoldark gains +10 armor and +5% maximum Health for each Minion of Zoldark that is alive.}}
+  
+  ==Notes==
+  *Used by [[Zoldark the Unholy]] in [[Vloxen Excavations]].
+Poison Spout: |-
+  {{effect infobox
+  | campaign = Eye of the North
+  | type = Environment effect
+  | recharge = 10
+  | duration = 12
+  | description = [[Spell]]. Poisonous gas spouts forth, inflicting 50 damage and [[poison|Poisoning]] target for 12 seconds.
+  }}
+  
+  ==Related Skills==
+  *{{skill icon|Poison Dart}}
+  *{{skill icon|Poison Jet}}
+  *{{skill icon|Fire Spout}}
+  *{{skill icon|Ice Spout}}
+  
+  ==Notes==
+  * This is applied if walking into poisoned gas in [[Shards of Orr]], [[Sparkfly Swamp]], [[Arachni's Haunt]] or other swampy areas in [[GW:EN]].
+Celestial Haste: |-
+  {{skill infobox
+  | name = Celestial Haste
+  | campaign = Factions
+  | profession = Mesmer
+  | type = Spell
+  | activation = 1
+  | special = Celestial
+  | pve-only = y
+  | description = Spell. For 15 seconds, your entire [[party]] has 50% [[fast casting]] and all skills [[recharge]] 25% faster.
+  | concise description = Spell. (15 seconds.) Affects all party members. 50% faster casting. 25% faster skill recharge.}}
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Mesmer]]s by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *Only [[recharge]]s after [[morale boost]]s.
+Poison Jet: |-
+  {{effect infobox
+  | campaign = Eye of the North
+  | type = Environment effect
+  | recharge = 10
+  | duration = 10
+  | description = [[Spell]]. Poisonous gas is released into the air, inflicting 66 damage and [[poison|Poisoning]] target for 10 seconds.
+  }}
+  
+  ==Related Skills==
+  *{{skill icon|Poison Dart}}
+  *{{skill icon|Poison Spout}}
+  *{{skill icon|Fire Jet}}
+  *{{skill icon|Ice Jet}}
+  
+  ==Notes==
+  * This is applied if walking into gas blown out by Poison traps in [[Bogroot Growths]].
+Shattered Spirit: |-
+  {{Skill infobox
+  | name = Shattered Spirit
+  | campaign = Eye of the North
+  | recharge = 10
+  | special = Monster
+  | type = Melee Attack
+  | description = [[Melee Attack]]. This attack removes 2 [[hex]]es on target [[boss]] and deals 50 more damage for each hex removed in this way.
+  | concise description = Melee Attack. This attack removes 2 hexes on target boss. Removal effect: +50 damage for each hex removed.}}
+  ==Notes==
+  *This skill is only used by the [[Nornbear]].
+Parasitic Bite: |-
+  {{Skill infobox
+  | name = Parasitic Bite
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | recharge = 1
+  | description = [[Melee Attack]]. If this attack is successful, target foe has -1 [[Health degeneration]] and you have +1 Health regeneration for 5 seconds.
+  | concise description = Melee Attack. (5 seconds.) This attack inflicts -1 Health degeneration and you gain + 1 Health regeneration.}}
+  
+  == Notes == 
+  * This [[monster skill]] is used by enemy [[Mantid]]s in the [[Eye of the North]] expansion.
+Lit Torch: |-
+  {{Skill infobox
+  | name = Lit Torch
+  | campaign = Core
+  | special = Special
+  | type = Skill
+  | description = [[Skill]]. This [[torch]]'s flame expires after 30 seconds. Bring the torch to a burning [[Flame Brazier|brazier]] to rekindle it.
+  | concise description = Skill. This torch's flame expires after 30 seconds. Bring the torch to a burning brazier to rekindle it.}}
+  
+  ==Notes==
+  *While this skill is active, a [[Unlit Torch]] is turned into a [[Lit Torch]]. The effect is reversed when the skill ends.
+  *Encountered in [[Shards of Orr]], [[Raven's Point]] and during [[The Flight North]].
+Selfless Spirit: |-
+  {{Skill infobox
+  | name = Selfless Spirit
+  | campaign = Factions
+  | profession = Monk
+  | attribute = Allegiance rank
+  | type = Enchantment Spell
+  | energy = 5
+  | activation = 0.25
+  | recharge = 60
+  | description=
+  [[Enchantment]] [[Spell]]. For 10..20 seconds, [[spell]]s you cast that target an [[ally]] cost 5 less [[energy]]. This enchantment ends if you cast a spell on yourself.
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Duration
+  | var1 at0 = 10 
+  | var1 at12 = 20 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Notes==
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  
+  [[Category:Monk PvE-only skills]]
+Edification: |-
+  {{effect infobox
+  |name = Edification
+  |campaign = Eye of the North
+  |title = Asura
+  |type = Title
+  |description = [[Title (skill type)|Title]]. You have +5..15 maximum Energy in Asura territory.
+  }}
+  {{Skill progression max10
+  |title track = Asura rank
+  |var1 name = + maximum Energy
+  |var1 at0  = 5
+  |var1 at10 = 15
+  }}
+  
+  ==Acquisition==
+  *Talk to [[Lexx]] the Asuran Talent Scout in [[Rata Sum]] after attaining the first rank of the [[Asura rank|Asura title track]].
+  
+  ==Notes==
+  *This cannot be equipped on the skill bar. While a character displays the Asura title, this effect is applied to that character and all of their heroes.
+  *Asura territory consists of the [[Tarnished Coast]], as well as the zones for [[Finding the Bloodstone]] and [[The Elusive Golemancer]].
+  *Since heroes aren't actually present in an outpost their energy won't update when the title is switched on or off.
+Tongue Whip: |-
+  {{Skill infobox
+  | name = Tongue Whip
+  | special = Monster
+  | type = Hex Spell
+  | campaign = Eye of the North
+  | activation = 0.25
+  | recharge = 2
+  | description = Hex Spell. For 5 seconds, target touched foe suffers from -12 Health degeneration and has a 50% chance to miss with attacks. {{sic}}
+  | concise description = Half Range Hex Spell. Causes knock-down (3 seconds); inflicts a Deep Wound (10 seconds).}}
+  
+  ==Related Skills==
+  *{{Skill icon|Tongue Lash}}
+  
+  ==Notes==
+  *This skill induces a screen effect similar to being drunk
+  *This is a monster skill used by [[Khabuus]] in [[Bogroot Growths]]
+Polymock Signet of Smiting: |-
+  {{Skill infobox
+  | name = Polymock Signet of Smiting
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Signet
+  | activation = 0.25
+  | recharge = 20
+  | description = [[Signet]]. Target foe takes 150 damage. If that foe is casting a spell, the spell is interrupted and that foe takes an additional 150 damage.
+  | concise description = Signet. Deals 150 damage. Interrupts a spell. Interruption effect: deals 150 more damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Charr Shaman Form]]
+  *[[Gaki Form]]
+  
+  ==Related skills==
+  {{section-stub}}
+Great Dwarf Armor: |-
+  {{Skill infobox
+  | name = Great Dwarf Armor
+  | energy = 5
+  | activation = 1
+  | recharge = 10
+  | campaign = Eye of the North
+  | attribute = Deldrimor rank
+  | type = Enchantment Spell
+  | pve-only = y
+  | description = [[Enchantment Spell]]. For 10..40 seconds, target ally has +24 armor, +60 maximum Health, and an additional +24 armor against [[Destroyer]]s.
+  | concise description = [[Enchantment Spell]].  (10..40 seconds.)  +24 armor and +60 maximum Health.  Additional +24 armor against [[Destroyer]]s.
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Deldrimor rank]]
+  |var1 name = Duration
+  |var1 at0  = 10
+  |var1 at10 = 40
+  }}
+  
+  ==Acquisition==
+  *[[In the Service of Revenge]] (From [[Orozar Highstone]] in [[Battledepths]])
+  
+  ==Trivia==
+  *The shield animation which appears when casting this spell always faces the north.
+Ursan Aura: |-
+  {{Skill infobox
+  | name = Ursan Aura
+  | campaign = Eye of the North
+  | special = Special
+  | type = Skill
+  | energy = 10
+  | recharge = 30
+  | description = [[Skill]]. You take on the aspect of the bear. Your Energy returns to maximum and you have -2 Energy degeneration. You have +20 armor and +180 maximum Health. Bear attacks replace your skills. You gain Energy every time you take or deal damage. This skill ends when your Energy drops to 0.
+  | concise description = Skill. You take on the aspect of the bear. Your Energy returns to maximum and you have -2 Energy degeneration. You have +20 armor and +180 maximum Health. Bear attacks replace your skills. You gain Energy every time you take or deal damage. Ends when your Energy drops to 0.
+  }}
+  
+  ==Acquisition==
+  This skill is acquired temporarily from the [[Shrine of the Bear Spirit]] during [[Blood Washes Blood]].
+  
+  ==Related Skills==
+  *{{Skill icon|Raven Blessing}}
+  *{{Skill icon|Raven Blessing (A Gate Too Far)}}
+  *{{Skill icon|Ursan Blessing}}
+  *{{Skill icon|Volfen Blessing}}
+  *{{Skill icon|Volfen Blessing (Curse of the Nornbear)}}
+  
+  ==Notes==
+  *This skill gives you the following skill bar:
+  {{skill bar|Ursan Strike (Blood Washes Blood)|Ursan Rage (Blood Washes Blood)|Ursan Roar (Blood Washes Blood)|Ursan Force (Blood Washes Blood)|Totem of Man}}
+  
+  *Ursan Aura and its skills equate to a Ursan Blessing at Rank 8.
+Polymock Poisoned Ground: |-
+  {{Skill infobox
+  | name = Polymock Poisoned Ground
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 1
+  | recharge = 5
+  | description = [[Spell]]. Target foe becomes Poisoned for 20 seconds.
+  | concise description = Spell. Inflicts Poisoned condition (20 seconds). Poison causes -4 Health degeneration.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Bone Dragon Form]]
+  
+  ==Notes==
+  *Poison causes 10 health degeneration in Polymock.
+  
+  ==Related skills==
+  {{section-stub}}
+Vanguard Patrol: |-
+  {{blessing infobox
+  | name = Vanguard Patrol
+  | reputation = Ebon Vanguard
+  | campaign = Eye of the North
+  | type = Blessing
+  | npc = Ascalonian Refugee
+  | npc2 = Ebon Vanguard Scout
+  }}
+  [[Blessing]]. Earn 1 [[Vanguard]] reputation point for each creature your party slays in this area. After every 25 kills, you receive a random bonus.
+  
+  ==Acquisition==
+  [[Eye of the North]]
+  *[[Charr Homelands]]
+  **[[Ascalonian Refugee]]s
+  **[[Ebon Vanguard Scout]]s
+  
+  ==Blessings==
+  ;[[Vanguard Patrol Rank 2]]:Blessing. You earn an additional +2 reputation points per kill.<br>
+  ;[[Vanguard Patrol Rank 3]]:Blessing. You earn an additional +3 reputation points per kill.<br>
+  ;[[Vanguard Patrol Rank 4]]:Blessing. You earn an additional +4 reputation points per kill.
+  {{bug|If your party is granted a Vanguard Patrol rank increase while you are dead, your own rank is reduced back to 1.}}
+  {|
+  |-
+  |[[Image:Vanguard Patrol Rank 2.jpg|60px]]
+  |[[Image:Vanguard Patrol Rank 3.jpg|60px]]
+  |[[Image:Vanguard Patrol Rank 4.jpg|60px]]
+  |- align=center
+  |Rank 2
+  |Rank 3
+  |Rank 4
+  |}
+  ==Random bonuses==
+  ;[[Boss Bounty]]:Blessing. For 5 minutes, you earn +200 reputation points for the next boss you kill.
+  ;[[Hunt Rampage]]:Blessing. You earn double reputation points for each kill. This bonus ends if your party fails to kill an enemy for 45 seconds.
+  ;[[Hunt Point Bonus]]:Blessing. For 60 seconds, you earn +4, +6, +10 reputation points per kill.
+  ;[[Time Attack]]:Blessing. If your party gets 10 kills in the next 60 seconds, you earn +200 reputation points.
+  ;[[Vanguard Commendation]]:Blessing. For 60 seconds, you have +4 Health regeneration.
+  ;You gain 10-100 Vanguard reputation points.
+  ;Hunt Rank Up: Your hunt rank increases.
+  
+  {|
+  |-align=center
+  |[[Image:Boss Bounty (Vanguard).jpg]]
+  |[[Image:Hunt Rampage (Vanguard).jpg|60px]]
+  |[[Image:Hunt Point Bonus (Ebon Vanguard) small.png]]
+  |[[Image:Time Attack Vanguard.jpg|60px]]
+  |[[Image:Vanguard Commendation.jpg|60px]]
+  |- align=center
+  | Boss Bounty
+  | Hunt Rampage
+  | Point Bonus
+  | Time Attack
+  | Commendation
+  |}
+  
+  === Kill bonuses ===
+  {| {{STDT}}
+  ! Kills || Reputation || Rank increase cap || Boss Bounty || Hunt Rampage || Hunt Point Bonus || Time Attack || Vanguard Commendation
+  |-
+  | 25 || 10, 15, 20 || 1 || {{no}} || {{yes}} || {{no}} || {{no}} || {{yes}}
+  |-
+  | 50 || 30, 35, 40 || 2 || {{no}} || {{yes}} || {{no}} || {{no}} || {{no}}
+  |-
+  | 75 || 30, 35, 40 || 3 || {{no}} || {{yes}} || {{no}} || {{no}} || {{no}}
+  |-
+  | 100 || 50, 55, 60 || 4 || {{yes}} || {{yes}} || +4 || {{yes}} || {{yes}}
+  |-
+  | 125 || 60 || 4 || {{no}} || {{yes}} || +4 || {{yes}} || {{no}}
+  |-
+  | 150 || 70, 80, 150 || 4 || {{no}} || {{yes}} || +6 || {{no}} || {{yes}}
+  |-
+  | 175 || 70 || 4 || {{yes}} || {{no}} || +6 || {{yes}} || {{yes}}
+  |-
+  | 200 || 90, 100 || 4 || {{yes}} || {{yes}} || +10 || {{yes}} || {{no}}
+  |-
+  | 225 || 100 || 4 || {{no}} || {{yes}} || +10 || {{no}} || {{no}}
+  |-
+  | 250 || 120 || 4 || {{yes}} || {{yes}} || +10 || {{no}} || {{no}}
+  |-
+  | 275 || 120 || 4 || {{yes}} || {{no}} || {{no}} || {{yes}} || {{no}}
+  |-
+  | 300 || ? || 4 || {{no}} || {{yes}} || {{no}} || {{no}} || {{no}}
+  |-
+  | 325 || 120 || 4 || {{no}} || {{no}} || {{no}} || {{yes}} || {{no}}
+  |-
+  | 350 || 110 || 4 || {{no}} || {{yes}} || {{no}} || {{no}} || {{no}}
+  |}
+  
+  === Shrine bonuses ===
+  {| {{STDT}}
+  ! Kills || Reputation || Rank increase cap
+  |-
+  | 25-49 || 20 || 1
+  |-
+  | 50-74 || 40 || 2
+  |-
+  | 75-99 || 40 || 3
+  |-
+  | 100-124 || 60 || 4
+  |-
+  | 125-149 || 60 || 4
+  |-
+  | 150+ || 100 || 4
+  |}
+  
+  ==Notes==
+  *This is a [[Bounty]]-like blessing.
+  *If a player is dead when a blessing is bestowed, they will not receive the blessing.
+  *Boss Bounty is lost on death.
+  *Hunt Rampage and Hunt Point Bonus stack. You get +20 points instead of only +10.
+  *Getting rank 2 triples your reputation gain per kill in NM and doubles it in HM.
+  *You also automatically get a point bonus when killing bosses. The boss bonus is dependent on your total number of kills and is shown as follows:
+  {| {{STDT}}
+  !rowspan=2| Total number of kills<sup>1</sup> ||colspan=2| Bonus per boss
+  |-
+  ! Normal Mode || Hard Made
+  |-
+  | 0-49 || 50 points || 75 points
+  |-
+  | 50-99 || 100 points || 150 points
+  |-
+  | 100-149 || 150 points || 225 points
+  |-
+  | 150-199 || 200 points || 300 points
+  |-
+  | 200-249 || 250 points || 375 points
+  |-
+  | 250+ || 300 points || 450 points
+  |}
+  #Including the boss.
+  
+  == Related articles ==
+  * [[Norn Hunting Party]]
+  * [[Dwarven Raider]]
+  * [[Asuran Bodyguard]]
+  
+  [[Category:Bounty-like blessings]]
+Spawn Hatchling: |-
+  {{skill-stub}}
+  {{Skill infobox
+  | image = [[Image:Monster skill.jpg]]
+  | name = Spawn Hatchling
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | activation = 8
+  | recharge = 8
+  | description = [[Skill]]. Creates a Destroyer hatchling from a pod.
+  | concise description = Skill. Creates a Destroyer hatchling from a pod.}}
+  
+  ==Notes==
+  *This skill is used by [[Destroyer Spawn]].
+  *This skill destroys the Destroyer Spawn, so the recharge time is only relevant if it is interrupted.
+  *In normal mode, this skill spawns one [[Destroyer of Bones]], one [[Destroyer of Flesh]] and one [[Destroyer of Thoughts]], all of which are level 24.
+  
+  [[Category:Research needed]]
+Freezing Ground: |-
+  {{skill-stub}}{{skill infobox
+  | name = Freezing Ground
+  | campaign = Eye of the North
+  | type = Spell
+  | recharge = 2
+  | description = [[Spell]]. A trap is triggered. It inflicts 50 cold damage and slows target by 33% for 50 seconds.
+  }}
+  
+  ==Notes==
+  *Trap found in [[Darkrime Delves]]
+Polymock Overload: |-
+  {{Skill infobox
+  | name = Polymock Overload
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Target foe takes 100 [[damage]]. If that foe was casting a [[spell]], you deal +50 damage.
+  | concise description = Spell. Deals 100 damage. Deals 50 more damage if target foe was casting a spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mergoyle Form]]
+  *[[Mirage Iboga Form]]
+  *[[Mantis Dreamweaver Form]]
+  *[[Skeletal Mage Form]]
+  *[[Wind Rider Form]]
+  
+  
+  ==Related skills==
+  *{{Skill icon|Overload}}
+Lava Blast: |-
+  {{Skill infobox
+  |name = Lava Blast
+  |campaign = Eye of the North
+  |special = Monster
+  |type = Skill
+  |energy = 5
+  |activation = 2
+  |recharge = 25
+  |description = [[Skill]]. Lava surges upward, knocking down all foes standing in lava and dealing 75 damage.
+  | concise description = Skill. Lava surges upward, knocking down all foes standing in lava and dealing 75 damage.}}
+  
+  ==Notes==
+  *Used by [[The Great Destroyer]] only.
+Titan Form: "{{effect infobox\n\
+  | name = Titan Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Titan Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Flare\xC2\xA6Polymock Rodgort's Invocation\xC2\xA6Polymock Savannah Heat}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Ruby Djinn Form: "{{effect infobox\n\
+  | name = Ruby Djinn Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Ruby Djinn Polymock piece]].\n\
+  }}\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Flare\xC2\xA6Polymock Glowing Gaze\xC2\xA6Polymock Searing Flames}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Ruby Djinn Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Spirit World Retreat: |-
+  {{Skill infobox
+  | name = Spirit World Retreat
+  | campaign = Eye of the North
+  | energy = 5
+  | activation = 3
+  | recharge = 20
+  | special = Monster
+  | type = Hex Spell
+  | description = [[Hex Spell]]. For 3 seconds this creature hides in the Spirit World and hexes all foes with -2 [[Energy degeneration]]. For each foe hexed, this creature gains 75 [[Health]].
+  | concise description = Hex Spell. (3 seconds.) Hide in the Spirit World and hex all foes with -2 Energy degeneration. For each foe hexed, gain 75 Health.}}
+  ==Notes==
+  *This skill is only used by the [[Nornbear]].
+  *This skill cannot be interrupted, disabled or delayed by any [[Hex Spell]]s such as [[Migraine]].
+  *During [[Tracking the Nornbear]] this skill CAN be interrupted. However, since the Nornbear is immortal during that quest interrupting this skill has no useful effect.
+Dwarven Raider: |-
+  {{blessing infobox
+  | name = Dwarven Raider
+  | reputation = Deldrimor
+  | campaign = Eye of the North
+  | type = Blessing
+  | npc = Beacon of Droknar
+  }}
+  [[Blessing]]. Earn 1..2 Dwarf reputation point for each creature your party slays in this area. After every 25 kills, you receive a random bonus.
+  
+  ==Acquisition==
+  [[Eye of the North]]
+  *[[Beacon of Droknar]]
+  
+  ==Blessings==
+  === 25 Kills bonus ===
+  {| {{STDT}}
+  | colspan="3"|
+  ! |
+  [[Image:Dwarven Raider Rank 2.png|Rank 2]]
+  [[Image:Dwarven Raider Rank 3.png|Rank 3]]
+  [[Image:Dwarven Raider Rank 4.png|Rank 4]]
+  ! | [[Image:Boss Bounty (Deldrimor).png|Boss Bounty]]
+  ! | [[Image:Great Dwarf's Blessing.png|Great Dwarf's Blessing]]
+  ! | [[Image:Hunt Rampage (Deldrimor).png|Hunt rampage]]
+  !colspan="2" | [[Image:Hunt Point Bonus (Deldrimor) small.png|Hunt Point Bonus]] [[Image:Hunt Point Bonus (Deldrimor) medium.png|Hunt Point Bonus]] [[Image:Hunt Point Bonus (Deldrimor) large.png|Hunt Point Bonus]]
+  ! | [[Image:Time Attack (Deldrimor).png|Time Attack]]
+  |-
+  ! rowspan="2" | Kills !! colspan="2" | Reputation !! rowspan="2" |[[Hunting Rank|Maximum Rank]] !! rowspan="2"| [[Boss Bounty]] !! rowspan="2"| [[Great Dwarf's Blessing]] !! rowspan="2"| [[Hunt Rampage]] !! colspan="2" | [[Hunt Point Bonus]] !! rowspan="2"| [[Time Attack]]
+  |-
+  |[[Normal Mode]]|| [[Hard Mode]]|| [[Normal Mode]]|| [[Hard Mode]]
+  |- align=center
+  | 25 || 10, 15, 20 || 20,25,30 || 1 || {{no}} || {{yes}} || {{yes}} || {{no}} || {{no}} || {{no}}
+  |- align=center
+  | 50 || 30, 35, 40 || 50,60  || 2 || {{no}} || {{yes}} || {{yes}} || {{no}} || {{no}} ||  {{no}}
+  |- align=center
+  | 75 || 30, 35, 40 || 50,55   || 3 || {{no}} || {{yes}} || {{yes}} || {{no}} || {{no}} ||  {{no}}
+  |- align=center
+  | 100 || 50, 55, 60 || 80   || 4 || {{yes}} || {{yes}} || {{yes}} || {{no}} || +5 || {{yes}}
+  |- align=center
+  | 125 || 50 || 90   || 4 || {{yes}} || {{yes}} || {{no}} || +4 || +5 || {{yes}}
+  |- align=center
+  | 150 || ? || 110   || 4 || {{yes}} || {{yes}} || {{yes}} || {{no}} || {{no}} || {{yes}}
+  |- align=center
+  | 175 || 70 || 110   || 4 || {{yes}} || {{yes}} || {{no}} || {{no}} || +10 || {{yes}}
+  |- align=center
+  | 200 || ? || 150   || 4 || {{no}} || {{yes}} || {{no}} || {{no}} || {{no}} || {{no}}
+  |- align=center
+  | 225 || ? || ?   || 4 || {{no}} || {{no}} || {{no}} || {{no}} || {{no}} || {{no}}
+  |- align=center
+  | 250 || 120 || 170   || 4 || {{no}} || {{no}} || {{no}} || +10|| +15 || {{yes}}
+  |}
+  
+  === Shrine bonuses ===
+  {| {{STDT}}
+  ! colspan="3" | Reputation
+  |
+  [[Image:Dwarven Raider Rank 2.png|Rank 2]]
+  [[Image:Dwarven Raider Rank 3.png|Rank 3]]
+  [[Image:Dwarven Raider Rank 4.png|Rank 4]]
+  |-
+  ! Kills || [[Normal Mode]] || [[Hard Mode]] || Maximum rank increase
+  |- align=center
+  | 25-49 || 20 || ? || 1
+  |- align=center
+  | 50-74 || 40 || 50, 60 || 2
+  |- align=center
+  | 75-99 || 40 || ? || 2
+  |- align=center
+  | 100-124 || 60 || 80, 90 || 4
+  |- align=center
+  | 125-149 || 60 || ? || 4
+  |- align=center
+  | 150+ || 100 || 110, 150 || 4
+  |}
+  
+  ==Notes==
+  *You receive a [[Morale Boost]] of 7% in [[normal mode]] or 5% in [[hard mode]] for every 25 kills in addition to the random bonus.  Heroes and henchmen gain a 7% boost after every 25 kills, regardless of difficulty level.
+  *The morale boost does not recharge your skills.
+  *The morale boost does affect the morale of Heroes.
+  *You also automatically get a point bonus when killing bosses. The boss bonus is dependent on your total number of kills and is shown as follows:
+  {| {{STDT}}
+  ! Total number of kills<sup>1</sup> ||  [[Normal Mode|Normal]] Bonus per boss || [[Hard Mode|Hard]] Bonus per Boss
+  |-
+  | 0-49 || 50 points || 75 points
+  |-
+  | 50-99 || 100 points || 150 points
+  |-
+  | 100-149 || 150 points || 225 points
+  |-
+  | 150-199 || 200 points || 300 points
+  |-
+  | 200-249 || 250 points || 375 points
+  |-
+  | 250+ || 300 points || 450 points
+  |}
+  #Including the boss.
+  
+  ==Related articles==
+  
+  *[[Norn Hunting Party]]
+  *[[Vanguard Patrol]]
+  *[[Asuran Bodyguard]]
+  *[[Guide to farming Deldrimor points]].
+  
+  [[Category:Bounty-like blessings]]
+Polymock Ether Signet: |-
+  {{Skill infobox
+  | name = Polymock Ether Signet
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Signet
+  | activation = 1
+  | description = [[Signet]]. If you have 0 [[Energy]], you gain 10 [[Energy]].
+  | concise description = Signet. Gain 10 Energy if you have 0 Energy.}}
+  
+  ==Acquisition==
+  '''Polymock Ether Signet''' is one of the five skills that is available to all [[Polymock]] pieces.
+  
+  ==Related skills==
+  *{{Skill icon|Ether Signet}}
+Bloodstone Slash: |-
+  {{skill infobox
+  | name = Bloodstone Slash
+  | campaign = Eye of the North
+  | type = Melee Attack
+  | special = Monster
+  | description = [[Melee Attack]]. If this attack hits, it [[Life Stealing|steals]] 75 Health.
+  | concise description = Melee Attack. Steal 75 Health.
+  }}
+  == Notes ==
+  This skill is used by [[G.O.L.E.M. 1.0]]s, it is also used by [[G.O.L.E.M. 2.0]] while in attack mode.
+Spore Explosion: |-
+  {{skill infobox
+  | name = Spore Explosion
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | activation = 2
+  | recharge = 10
+  | description = [[Skill]]. This plant spore explodes, causing [[Poison]] and [[Disease]] to nearby foes, and spreading seeds for new plants.
+  | concise description = Skill. This plant spore explodes, inflicting Poison and Disease conditions on nearby foes; also spreads seeds for new plants.
+  }}
+  
+  ==Notes==
+  *Used by [[Nettle Spore]].
+  *This skill causes the Nettle Spore to be replaced with a [[Nettle Seedling]].
+Ether Nightmare: |-
+  {{Skill infobox
+  | name = Ether Nightmare
+  | campaign = Factions
+  | profession = Mesmer
+  | attribute = Allegiance rank
+  | type = Hex Spell
+  | energy = 10
+  | activation = 3
+  | elite = n
+  | recharge = 15
+  | description=
+  [[Hex Spell]]. [[Target]] [[foe]] loses 4..8 [[Energy]]. For each point of Energy lost in this way, that foe and all foes [[in the area]] suffer -1 [[Health degeneration]] for 10 seconds.
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Energy loss
+  | var1 at0 = 4 
+  | var1 at12 = 8 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Notes==
+  *Works well with [[Signet of Corruption]].
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Mesmer PvE-only skills]]
+Polymock Glyph Destabilization: |-
+  {{Skill infobox
+  | name = Polymock Glyph Destabilization
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex spell
+  | energy = 4
+  | activation = 1
+  | recharge = 20
+  | description = [[Hex Spell]]. For 12 seconds, whenever target foe uses a [[glyph]], that foe loses 10 [[Energy]].
+  | concise description = Hex Spell. (12 seconds.) Causes 10 Energy loss whenever target foe uses a glyph.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mergoyle Form]]
+  
+  ==Related skills==
+  {{section-stub}}
+Pyroclastic Shot: |-
+  {{Skill infobox
+  | name = Pyroclastic Shot
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | activation = 0.75
+  | recharge = 6
+  | description = [[Skill]]. Pyroclastic fragments spew forth, dealing 80 damage to target foe and all adjacent foes. Affected foes are Crippled and begin Burning for 7 seconds. This skill causes any powder keg in target's hands to explode.
+  | concise description = Skill. Projectile: deals 80 damage and inflicts Burning and Crippled conditions (7 seconds) on target and adjacent foes. Causes any powder keg in target's hands to explode.
+  }}
+  
+  ==Notes==
+  * This skill is used by [[Cyndr the Mountain Heart]].
+  * This skill can not be disabled.
+  * This skill does not ignore armor. Cyndr will do 256 damage with it against a target with 60 armor.
+  
+  == See Also ==
+  {{Skill icon|Powder Keg Explosion}}
+Reverse Polarity Fire Shield: |-
+  {{effect infobox
+  | campaign = Eye of the North
+  | type = Environment effect
+  | description = [[Spell]]. Living creatures standing within this shield have -50 armor against [[fire damage]].
+  }}
+  == Notes ==
+  This is a [[ward]] like area that follows a [[Malfunctioning Shield Golem]] in [[Oola's Lab: Level 2]].
+Metamorphosis: |-
+  {{skill infobox
+  | name = Metamorphosis
+  | campaign =  Eye of the North
+  | special = Monster
+  | type = Skill
+  | elite = n
+  | recharge = 9,999
+  | description = [[Skill]]. Creature changes into an adult [[krait]].
+  | concise description = Skill. Creature changes into an adult krait.
+  }}
+  
+  ==Notes==
+  *This skill is used by [[Krait Neoss]].
+  *This skill causes the Krait to vanish after several seconds, spawning a [[Krait]] [[Krait Devouss|Devouss]], [[Krait Necross|Necross]], [[Krait Hypnoss|Hypnoss]] or [[Krait Arcanoss|Arcanoss]], the new Krait will be level 20 to 24 in normal mode (unless it is a Devouss, in which case it will always be level 20) and 26 in hard mode. The new Krait will yield loot and experience and count towards bounties, as well will the original Krait if it is killed before vanishing.
+Polymock Sandstorm: |-
+  {{Skill infobox
+  | name = Polymock Sandstorm
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 30
+  | description = [[Spell]]. Create a Sandstorm at target foe's location. For 10 seconds, target foe is struck for 40 damage each second. If that foe is casting a spell, that foe takes an additional 20 damage each second.
+  | concise description = Spell. Deals 40 damage each second at target foe's location (10 seconds). Deals 20 more damage each second if that foe is casting a spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dwarven Arcanist Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Sandstorm}}
+Polymock Icy Prison: |-
+  {{Skill infobox
+  | name = Polymock Icy Prison
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 0.25
+  | recharge = 30
+  | description = [[Spell]]. Target foe is struck for 200 damage. If target foe is casting a spell, that spell is interrupted and is disabled for 5 seconds.
+  | concise description = Spell. Deals 200 damage. Interrupts a spell. Interruption effect: disables interrupted spell (5 seconds).}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Ice Imp Form]]
+  
+  ==Related skills==
+  {{section-stub}}
+Aura of the Bloodstone: |-
+  {{effect infobox
+  | name = Aura of the Bloodstone
+  | campaign = Eye of the North
+  | special = Environment effect
+  | type = Environment effect
+  | description = [[Environment Effect]]. Whenever a creature dies near the Bloodstone, it heals all other nearby creatures for <span style="color: green; font-weight: bold;">20...40...60</span> Health.
+  }}
+  ==Note==
+  *This [[environment effect]] only appears in [[Finding the Bloodstone]] and in the [[Bloodstone Caves]] itself. The amount of heal increases by 20 for each dungeon level.
+  *This effect's "sister" [[environment effect]] is the [[Curse of the Bloodstone]].
+Elemental Shift: |-
+  {{Skill infobox
+  | name = Elemental Shift
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Form
+  | energy = 5
+  | activation = 1
+  | recharge = 30
+  | description = Form. Creature becomes attuned to a different element.
+  | concise description = Form. Creature becomes attuned to a different element.}}
+  ==Notes==
+  *This skill is used by [[Chromatic Drake]]s in order to switch between their four skill sets.
+Gaki Form: "{{effect infobox\n\
+  | name = Gaki Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Gaki Polymock piece]].\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Signet of Revenge\xC2\xA6Polymock Signet of Smiting\xC2\xA6Polymock Smite}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Gaki Polymock piece is selected as the active piece in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Hunt Point Bonus: |-
+  This is available for each of the group that has a [[title]] track in [[Eye of the North]] while affected by a [[blessing]]:
+  *[[Asuran Bodyguard|Asura]]
+  *[[Dwarven_Raider|Deldrimor]]
+  *[[Norn Hunting Party|Norn]]
+  *[[Vanguard Patrol|Ebon Vanguard]]
+  
+  Hunt Point is a [[Blessing]] that has a chance to be granted after every 25 kills.
+  
+  [[Image:Hunt Point Bonus Asura.jpg]][[Image:Hunt Point Bonus Dwarf.jpg]][[Image:Hunt Point Bonus Norn.jpg]][[Image:Hunt Point Bonus Vanguard.jpg]]
+  
+  [[Normal Mode]]
+  ''Blessing. For 60 seconds, you earn +4...10 reputation points per kill.''
+  
+  [[Hard Mode]]
+  ''Blessing. For ? seconds, you earn +?...? reputation points per kill''
+  
+  {| {{STDT}}
+  ! Kills || [[Normal Mode|Normal]] Bonus || [[Hard Mode|Hard]] Bonus
+  |- align=center
+  | 25 || {{no}} || {{no}}
+  |- align=center
+  | 50 || {{no}} || {{no}}
+  |- align=center
+  | 75 || {{no}} || {{no}}
+  |- align=center
+  | 100 || +4 || +5
+  |- align=center
+  | 125 || +4 || +5
+  |- align=center
+  | 150 || +6 || {{no}}
+  |- align=center
+  | 175 || +6 || {{no}}
+  |- align=center
+  | 200 ||  +10 || {{no}}
+  |- align=center
+  | 225 ||  +10 || {{no}}
+  |- align=center
+  | 250 ||  +10 || {{no}}
+  |- align=center
+  | 275 || {{no}} || +15
+  |- align=center
+  | 300  || +10 || {{no}}
+  |- align=center
+  | 325 || +10 || {{no}}
+  |- align=center
+  | 350 || {{no}} || {{no}}
+  |- align=center
+  | 375 || +10 || {{no}}
+  |- align=center
+  | 400 || +10 || {{no}}
+  |}
+  
+  ==Notes==
+  *The Icons for the according races change their appearance. The bigger the Bonus, the bigger the item shown on the Icons will be.
+Polymock Bane Signet: |-
+  {{Skill infobox
+  | name = Polymock Bane Signet
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Signet
+  | energy = 
+  | activation = 0.25
+  | recharge = 20 
+  | description = [[Signet]]. Target foe takes 150 damage. If target foe is casting a spell, that spell is interrupted.
+  | concise description = Signet. Deals 150 damage. Interrupts a spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Aloe Seed Form]]
+  *[[Dolyak Rider Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Bane Signet}}
+Phase Shield: |-
+  {{skill infobox
+  | name = Phase Shield
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Monster
+  | activation = 2
+  | recharge= 15
+  | description = [[Skill]]. A shield surrounds the golem preventing up to 750 damage to nearby allies.
+  | concise description = Skill. A shield around the golem prevents up to 750 damage to nearby allies.
+  }}
+  
+  == Notes ==
+  *This skill is used by [[G.O.L.E.M. 2.0]] when in defense mode.
+  *They never seem to use this skill unless they take significant damage.
+  *This skill causes the [[Phase Shield (effect)|Phase Shield effect]] on all allies within range.
+Snaring Web: |-
+  {{skill infobox
+  | name = Snaring Web
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 5
+  | activation = 2
+  | recharge = 30
+  | description = [[Spell]]. Creature launches a Snaring Web. For 15 second, foes near target that are hit by Snaring Web are [[Crippled]] and activate [[skills]] 100% slower.
+  | concise description = Spell. Projectile: target and nearby foes are Crippled and activate skills 100% slower (15 seconds.)
+  }}
+Chaotic Energy: |-
+  {{skill infobox
+  | name = Chaotic Energy
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Monster
+  | activation = 3
+  | recharge = 25
+  | description = [[Skill]]. 5 chaotic Energy sources strike up to 5 foes and deal 125 damage per strike.
+  | concise description = Skill. 5 chaotic energy sources strike up to 5 foes and deal 125 damage per strike.
+  }}
+  == Notes ==
+  This skill is used by [[G.O.L.E.M. 2.0]] when in ranged mode.
+Enraged Blast: |-
+  {{Skill infobox
+  |name = Enraged Blast
+  |campaign = Eye of the North
+  |special = Monster
+  |type = Skill
+  |energy = 5
+  |activation = 1/4
+  |description = [[Skill]]. When interrupted, the [[Great Destroyer]] becomes enraged and emits a blast of Energy that knocks down all foes within earshot and deals 115 damage.
+  | concise description = Skill. When interrupted, the Great Destroyer becomes enraged and emits a blast that knocks down all foes within earshot and deals 115 damage.
+  }}
+Polymock Obsidian Flame: |-
+  {{Skill infobox
+  | name = Polymock Obsidian Flame
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Target foe takes 800 damage.
+  | concise description = Spell. Deals 800 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Earth Elemental Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Obsidian Flame}}
+Brawling Block: |-
+  {{Skill infobox
+  | name = Brawling Block
+  | campaign = Eye of the North
+  | special = Brawling
+  | recharge = 4
+  | type = Stance
+  | description = [[Stance]].For the next 2 seconds, you block the next attack. This Skill ends if you use an attack Skill. You cannot use this Skill if you are Dazed.
+  | concise description = Stance. (2 seconds.) Block the next attack. Ends if you use an attack skill. You cannot use this skill if you are Dazed.
+  }}
+Polymock Frozen Trident: |-
+  {{Skill infobox
+  | name = Polymock Frozen Trident
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Send out a fast-moving Frozen Trident that strikes target foe for 600 [[damage]] if it hits. If target foe is casting a [[spell]], that spell is [[interrupted]].
+  | concise description = Spell. Fast projectile: deals 600 damage. Interrupts a spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Kappa Form]]
+  
+  ==Related skills==
+  
+  *{{skill icon|Water Trident}}
+Kappa Form: "{{effect infobox\n\
+  | name = Kappa Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Kappa Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Kappa Form.jpg|thumb|left|300px|Kappa Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Frozen Trident\xC2\xA6Polymock Ice Shard Storm\xC2\xA6Polymock Ice Spear}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Kappa Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Fire Dart: |-
+  {{skill-stub}}{{skill infobox
+  | name = Fire Dart
+  | campaign = Eye of the North
+  | type = Skill
+  | recharge = 5
+  | special = Environment
+  | description = [[Skill]]. A flaming projectile flies outward, inflicting 33 damage and setting targets [[Burning|on fire]] for 4 seconds.
+  | concise description = Skill. Projectile: deals 33 damage and inflicts Burning condition (4 seconds).
+  }}
+  
+  ==Related Skills==
+  *{{skill icon|Fire Jet}}
+  *{{skill icon|Fire Spout}}
+  *{{skill icon|Poison Dart}}
+  *{{skill icon|Ice Dart}}
+  
+  ==Notes==
+  *The range of the projectiles is approximately half the radar range.
+  *These can be seen in certain dungeons such as [[Cathedral of Flames]].
+Call of the Eye: |-
+  {{effect infobox
+  | name = Call of the Eye
+  | campaign = Eye of the North
+  | description = You feel the Eye of the North calling you.
+  }}
+  
+  ==Notes==
+  *Your character will have gained this effect once for each completion of a primary story arc of [[Guild Wars Eye of the North]] ([[Northern Allies]], [[The Missing Vanguard]], and [[The Knowledgeable Asura]]) while in the [[Hall of Monuments]].
+  *This effect is simply an indication that a new vision awaits your character at the [[Scrying Pool]] in the Hall of Monuments. The effect will be removed once you have viewed the vision.
+  
+  * If you miss a vision, you will only be able to see it after you finished the quest Time of Heroes, which is the end of the main quest in Eye of the North.
+  
+  [[Category:Eye of the North PvE-only skills]]
+Asuran Bodyguard: "{{blessing infobox\n\
+  | name = Asuran Bodyguard\n\
+  | reputation = Asura\n\
+  | campaign = Eye of the North\n\
+  | type = Blessing\n\
+  | npc = Big Machine Krewe Member\n\
+  | npc2 = Experiment Krewe Member\n\
+  | npc3 = Machine Krewe Member\n\
+  | npc4 = Purifier Krewe Member\n\
+  | npc5 = Sky Krewe Member\n\
+  | npc6 = Weapon Krewe Member\n\
+  }}\n\
+  [[Blessing]]. Earn 1 Asura reputation point for each creature your party slays in this area. After every 25 kills, you receive a random bonus.\n\n\
+  ==Acquisition==\n\
+  [[Eye of the North]]\n\
+  *[[Tarnished Coast]]\n\
+  **[[Big Machine Krewe Member]]s\n\
+  **[[Experiment Krewe Member]]s\n\
+  **[[Machine Krewe Member]]s\n\
+  **[[Purifier Krewe Member]]s\n\
+  **[[Sky Krewe Member]]s\n\
+  **[[Weapon Krewe Member]]s\n\n\
+  ==Random bonuses==\n\
+  ;'''You gain 10-80 Asura reputation points'''\n\n\
+  [[Image:Hunt Boss (Asura).jpg|thumb|Boss Bounty]]\n\
+  ;[[Boss Bounty]]:Blessing. For 5 minutes, you earn +200 reputation points for the next boss you kill.\n\n\
+  [[Image:Energy Channel.jpg|thumb|Energy Channel]]\n\
+  ;[[Energy Channel]]:Blessing. For 60 seconds, you gain 5 Energy every time you kill a foe.\n\n\
+  [[Image:Hunt Rampage (Asura).jpg|thumb|Hunt Rampage]]\n\
+  ;[[Hunt Rampage (Asura)|Hunt Rampage]]:Blessing. You earn double reputation points for each kill. This bonus ends if your party fails to kill an enemy for 45 seconds.\n\n\
+  [[Image:Hunt Point Bonus Asura.jpg|thumb|Hunt Point Bonus]]\n\
+  ;[[Hunt Point Bonus (Asura)|Hunt Point Bonus]]:Blessing. For 60 seconds, you earn +4 / +6 / +10 reputation points per kill.\n\n\
+  [[Image:Time Attack (Asura).jpg|thumb|Time Attack]]\n\
+  ;[[Time Attack]]:Blessing. If your party gets 10 kills in the next 150 seconds, you earn +200 reputation points.\n\
+  <br> <br> <br>\n\n\
+  ;'''Hunt Rank Up''': (rank increases, [[Asuran Bodyguard Rank 2]], [[Asuran Bodyguard Rank 3]], and [[Asuran Bodyguard Rank 4]])\n\n\
+  {{bug|When you get the ''Hunt Rank Up'' bonus while you are dead, you will not get the next rank and the actual rank is removed.}}\n\n\n\
+  == Veteran Asuran Bodyguard ==\n\
+  [[Image:Asuran_Bodyguard.jpg|thumb|Veteran Asuran Bodyguard]]\n\
+  ;After every 25 kills, you receive the [[Energy Channel]] bonus.\n\
+  Received in Normal Mode to characters  with a rank of 8 or higher in Asura Reputation.\n\
+  <br> <br> <br> <br>\n\n\n\
+  == Bonuses ==\n\
+  === Kill bonuses ===\n\
+  {| {{STDT}}\n\
+  ! Kills || Reputation || Maximum rank increase || Boss Bounty || Energy Channel || Hunt Rampage || Hunt Point Bonus || Time Attack\n\
+  |- align=center\n\
+  | 25 || 10, 15, 20 || 1 || {{no}} || {{yes}} || {{yes}} || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 50 || 30, 35, 40 || 2 || {{no}} || {{yes}} || {{yes}} || +2 || {{no}}\n\
+  |- align=center\n\
+  | 75 || 30, 35, 40 || 3 || {{no}} || {{yes}} || {{yes}} || +2 || {{no}}\n\
+  |- align=center\n\
+  | 100 || 50, 55, 60 || 4 || {{no}} || {{yes}} || {{yes}} || +4 || {{yes}}\n\
+  |- align=center\n\
+  | 125 || 50, 55, 60 || 4 || {{yes}} || {{yes}} || {{no}} || +4 || {{yes}}\n\
+  |- align=center\n\
+  | 150 || 70, 80 || 4 || {{no}} || {{yes}} || {{no}} || +6 || {{yes}}\n\
+  |- align=center\n\
+  | 175 || 70, 80 || 4 || {{yes}} || {{yes}} || {{yes}} || +6 || {{yes}}\n\
+  |- align=center\n\
+  | 200 || 90 || 4 || {{yes}} || {{no}} || {{yes}} || +10 || {{yes}}\n\
+  |- align=center\n\
+  | 225 || 100 || 4 || {{yes}} || {{no}} || {{yes}} || +10 || {{yes}}\n\
+  |- align=center\n\
+  | 250 || 120 || 4 || {{yes}} || {{no}} || {{yes}} || +10 || {{yes}}\n\
+  |- align=center\n\
+  | 275 || 120 || 4 || {{yes}} || {{no}} || {{yes}} || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 300 || 110, 120 || 4 || {{no}} || {{yes}} || {{no}} || +10 || {{no}}\n\
+  |- align=center\n\
+  | 325 || ? || 4 || {{yes}} || {{no}} || {{yes}} || +10 || {{no}}\n\
+  |- align=center\n\
+  | 350 || 110 || 4 || {{yes}} || {{no}} || {{no}} || {{no}} || {{yes}}\n\
+  |- align=center\n\
+  | 375 || 110, 120 || 4 || {{no}} || {{no}} || {{no}} || {{no}} || {{yes}}\n\
+  |- align=center\n\
+  | 400 || ? || 4 || {{no}} || {{no}} || {{no}} || {{no}} || {{yes}}\n\
+  |}\n\n\
+  === Shrine bonuses ===\n\
+  {| {{STDT}}\n\
+  ! Kills || Reputation || Maximum rank increase\n\
+  |- align=center\n\
+  | 25-49 || 20 || 1\n\
+  |- align=center\n\
+  | 50-74 || 40 || 2\n\
+  |- align=center\n\
+  | 75-99 || 40 || 3\n\
+  |- align=center\n\
+  | 100-124 || 60 || 4\n\
+  |- align=center\n\
+  | 125-149 || 60 || 4\n\
+  |- align=center\n\
+  | 150-174 || 100 || 4\n\
+  |- align=center\n\
+  | 175+ || 100 || 4\n\
+  |}\n\n\
+  ==Notes==\n\
+  *This is a [[Bounty]]-like blessing.\n\
+  *You also automatically get a point bonus when killing bosses. The boss bonus is dependent on your total number of kills and is shown as follows:\n\
+  {| {{STDT}}\n\
+  !rowspan=2| Total number of kills<sup>1</sup> ||colspan=2| Bonus per boss\n\
+  |-\n\
+  ! Normal mode || Hard mode\n\
+  |-\n\
+  | 0-49 || 50 points || 75 points\n\
+  |-\n\
+  | 50-99 || 100 points || 150 points\n\
+  |-\n\
+  | 100-149 || 150 points || 225 points\n\
+  |-\n\
+  | 150-199 || 200 points || 300 points\n\
+  |-\n\
+  | 200-249 || 250 points || 375 points\n\
+  |-\n\
+  | 250+ || 300 points || 450 points\n\
+  |}\n\
+  #Including the boss.\n\
+  *Talking to Asura at [[Resurrection Shrine]]s while under the ''Asuran Bodyguard'' will either upgrade ''Asuran Bodyguard'' to the next rank or grant bonus reputation points:\n\
+  :*25-49 kills - 20 reputation points\n\
+  :*50-74 kills - 40 reputation points\n\
+  :*100-149 kills - 60 reputation points\n\
+  :*150+ kills - 100 reputation points\n\
+  *Tip: The ''Rampager Hunt'' allows for double points towards this title by killing one enemy under 45 seconds. The bonus itself is not stackable, but combinations with other bonuses are possible. Example:\n\
+  :* Asuran Bodyguard Rank 2 (1+2) + 1x ''Rampager Hunt'' bonus: 6 points/kill\n\
+  :* Asuran Bodyguard Rank 2 (1+2) + 2x ''Rampager Hunt'' bonus: 6 points/kill\n\
+  :* Asuran Bodyguard Rank 2 (1+2) + 1x ''Rampager Hunt'' bonus + ''10 points/kill in 60 seconds'' bonus: 26 points/kill\n\
+  *Tip: Do not rush to get bonuses from shrines. Collect them after killing each and every mob in the area. That way you will collect from 200 up to 500 points.\n\
+  *Getting rank 2 triples your reputation gain per kill in NM and doubles it in HM.\n\n\
+  == Related articles ==\n\
+  * [[Norn Hunting Party]]\n\
+  * [[Dwarven Raider]]\n\
+  * [[Vanguard Patrol]]\n\n\
+  [[Category:Bounty-like blessings]]"
+Thunderfist Strike: |-
+  {{Skill infobox
+  | name = Thunderfist Strike
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Melee Attack
+  | recharge = 15
+  | description = [[Melee Attack]]. You deliver a Thunderfist Strike to your opponent, dealing 100 damage if it hits.
+  | concise description = Melee Attack. Deals 100 damage.
+  }}
+  
+  ==Notes==
+  * This skill is used by [[Bjorn Thunderfist]] during the quest [[The Throwdown in a Norn Town]].
+  * As with all [[Brawling skill|Brawling skills]], this attack adds +100 damage, rather than dealing 100 direct damage like the description states.
+Vocal was Sogolon: "#REDIRECT [[Vocal Was Sogolon]]"
+Polymock Glowing Gaze: |-
+  {{Skill infobox
+  | name = Polymock Glowing Gaze
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 1
+  | recharge = 10
+  | description = [[Spell]]. Target foe takes 150 damage. If that foe is on fire, you gain 6 Energy.
+  | concise description = Spell. Deals 150 damage. You gain 6 Energy if target foe is Burning.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Ruby Djinn Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Glowing Gaze}}
+Polymock Stone Daggers: |-
+  {{Skill infobox
+  | name = Polymock Stone Daggers
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Send out two Stone Daggers. Each Stone Dagger strikes target foe for 60 damage if it hits.
+  | concise description = Spell. Two projectiles: deals 60 damage each.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dwarven Arcanist Form]]
+  *[[Earth Elemental Form]]
+  *[[Stone Rain Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Stone Daggers}}
+Polymock Glyph of Concentration: |-
+  {{Skill infobox
+  | name = Polymock Glyph of Concentration
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Glyph
+  | energy = 1
+  | activation = 1
+  | recharge = 30
+  | description = [[Glyph]]. For 15 seconds, your next [[spell]] cannot be [[interrupted]].
+  | concise description = Glyph. (15 seconds.) Your next spell cannot be interrupted.}}
+  
+  ==Acquisition==
+  '''Polymock Glyph of Concentration''' is one of the five skills that is available to all [[Polymock]] pieces.
+  
+  ==Related skills==
+  *{{Skill icon|Glyph of Concentration}}
+Wurm Bile: |-
+  {{Skill infobox
+  | name = Wurm Bile
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Hex Spell
+  | energy = 5
+  | activation = 2
+  | recharge = 12
+  | description = [[Hex Spell]]. For 20 seconds, nearby foes are hit by Wurm Bile and take 40 damage each second. When Wurm Bile ends, affected creatures suffer from one random Condition for 12 seconds.}}
+  
+  ==Notes==
+  * This skill is used by [[Frost Wurm]]s.
+  * [[Inspired Hex]] & [[Revealed Hex]] are particularly effective at removing this, since monster skills cannot be used by players.
+  * Assuming the condition inflicted does not cause degeneration or other forms of damage, this skill will deal a total of 800 damage. [[Bleeding]] adds another 72 damage, [[Poison]] and [[Disease]] add 96 damage. [[Burning]] will deal 168 damage. [[Deep Wound]] may add up to 100 damage depending on maximum health.
+Brawling Jab: |-
+  {{Skill infobox
+  | name = Brawling Jab
+  | campaign = Eye of the North
+  | special = Brawling
+  | type = Melee Attack
+  | description = [[Melee Attack]]. Deal 10 damage if [[Brawling Jab]] hits.
+  | concise description = Melee Attack. Deals 10 damage.
+  }}
+Devourer Siege: |-
+  {{Skill infobox
+  | name = Devourer Siege
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Devourer
+  | energy = 5
+  | activation = 0.75
+  | recharge = 10
+  | exhaustion = y
+  | description =
+  [[Skill]]. Launch two [[projectile]]s at [[target]] [[foe]]'s location. Foes near that location are struck for 150 [[fire damage]] and [[knocked down]]. This skill causes [[Exhaustion]]. This skill cannot target a foe [[near]] you.
+  | concise description = Skill. Two projectiles: deal 150 fire damage; causes knock-down. Hits foes near target. Causes Exhaustion. Cannot target foes near you.}}
+  
+  == Notes == 
+  *This skill is used by [[Molotov Rocktail]] and [[Siege Devourer]]s
+Putrid Flames: |-
+  {{skill infobox
+  | name = Putrid Flames
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 5
+  | activation = 2
+  | recharge = 10
+  | description = [[Spell]]. All [[adjacent]] foes are struck for 100 [[fire damage]] and becomes [[Poison]]ed and [[Disease]]d for 10 seconds.
+  | concise description = Spell. Deals 100 fire damage; inflicts Poisoned and Diseased conditions (10 seconds); affects adjacent foes.
+  }}
+  
+  ==Notes==
+  *Used by [[Charr Hunter Beast]]s.
+Norn Hunting Party: "{{blessing infobox\n\
+  | name = Norn Hunting Party\n\
+  | reputation = Norn\n\
+  | campaign = Eye of the North\n\
+  | type = Blessing\n\
+  | npc = Norn\n\
+  }}\n\
+  [[Blessing]]. Earn 1 Norn reputation point for each creature your party slays in this area. After every 25 kills, you receive a random bonus.\n\n\
+  ==Acquisition==\n\
+  [[Eye of the North]]\n\
+  *[[Far Shiverpeaks]]\n\
+  **[[Norn]] at [[Resurrection Shrine]]s (after you defeat them)\n\n\
+  ==Blessings==\n\
+  [[Image:Norn Hunting Party Rank 2.jpg|left]]\n\
+  ;[[Norn Hunting Party Rank 2]]\n\
+  :Blessing. You earn an additional +2 reputation points per kill.\n\
+  {{clear}}\n\
+  [[Image:Norn Hunting Party Rank 3.jpg|left]]\n\
+  ;[[Norn Hunting Party Rank 3]]\n\
+  :Blessing. You earn an additional +3 reputation points per kill.\n\
+  {{clear}}\n\
+  [[Image:Norn_Hunting_Party_Rank_4.jpg|left]]\n\
+  ;[[Norn Hunting Party Rank 4]]\n\
+  :Blessing. You earn an additional +4 reputation points per kill.\n\
+  {{clear}}\n\
+  {{bug|If your party is granted a Hunting Party rank increase while you are dead, your own rank is reduced back to 1.}}\n\n\
+  ==Random bonuses==\n\
+  ;Boss Bounty\n\
+  :Blessing. For 5 minutes, you earn +200 reputation points for the next boss you kill.\n\
+  ;Hunt Rampage\n\
+  :Blessing. You earn double reputation points for each kill. This bonus ends if your party fails to kill an enemy for 45 seconds.\n\
+  ;Hunt Point Bonus\n\
+  :Blessing. For 60 seconds, you earn +5, +10, +20 reputation points per kill.\n\
+  ;Strength of  the Norn\n\
+  :Blessing. For 60 seconds, you have +100 maximum Health. When Strength of the Norn ends, you gain 100 Health.\n\
+  ;Time Attack\n\
+  :Blessing. If your party gets 10 kills in the next 60 seconds, you earn +200 reputation points.\n\
+  ;Hunt Rank Up\n\
+  :Your hunt rank increases.\n\n\
+  You gain 10-100 Norn reputation points.\n\n\
+  === Kill bonuses ===\n\
+  {| {{STDT}}\n\
+  ! Kills || Normal Reputation || [[Hard Mode]] Reputation || Maximum rank increase || Boss Bounty || Hunt Rampage || Hunt Point Bonus || Strength of the Norn || Time Attack\n\
+  |- align=center\n\
+  | 25 || 10, 15, 20 || 20, 25, 30  || 1 || {{no}} || {{yes}} || {{no}} || {{yes}} || {{no}}\n\
+  |- align=center\n\
+  | 50 || 40 || 50 || 2 || {{no}} || {{yes}} || {{no}} || {{yes}} || {{no}}\n\
+  |- align=center\n\
+  | 75 || 35, 40 || ? || 3 || {{no}} || {{yes}} || {{no}} || {{yes}} || {{no}}\n\
+  |- align=center\n\
+  | 100 || 55, 60 || 80 || 4 || {{no}} || {{yes}} || {{no}} || {{yes}} || {{no}}\n\
+  |- align=center\n\
+  | 125 || 50, 55 || 80 || 4 || {{no}} || {{no}} || {{no}} || {{no}} || {{yes}}\n\
+  |- align=center\n\
+  | 150 || 70, 80 || ? || 4 || {{no}} || {{no}} || +6 || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 175 || 70, 80 || ? || 4 || {{no}} || {{yes}} || {{no}} || {{yes}} || {{no}}\n\
+  |- align=center\n\
+  | 200 || 100 || ? || 4 || {{yes}} || {{no}} || {{no}} || {{yes}} || {{yes}}\n\
+  |- align=center\n\
+  | 225 || 100 || ? || 4 || {{no}} || {{no}} || +10 || {{yes}} || {{yes}}\n\
+  |- align=center\n\
+  | 250 || 110 || ? || 4 || {{yes}} || {{yes}} || +10 || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 275 || 110, 120 || ? || 4 || {{no}} || {{no}} || {{no}} || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 300 || 110, 120 || 180 || 4 || {{no}} || {{no}} || {{no}} || {{no}} || {{yes}}\n\
+  |- align=center\n\
+  | 325 ||110 ,120 || ? || 4 || {{yes}} || {{no}} || +10 || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 350 || 110, 120 || ? || 4 || {{yes}} || {{yes}} || +10 || {{no}} || {{no}}\n\
+  |- align=center\n\
+  | 375 || 110, 120 || ? || 4 || {{yes}} || {{yes}} || +10 || {{no}} || {{yes}}\n\
+  |- align=center\n\
+  | 400 || 110, 120 || 180 || 4 || {{yes}} || {{no}} || +10 || {{no}} || {{no}}\n\
+  |}\n\n\
+  === Shrine bonuses ===\n\
+  {| {{STDT}}\n\
+  ! Kills || Normal Reputation || [[Hard Mode]] Reputation || Maximum rank increase\n\
+  |- align=center\n\
+  | 25-49 || 20 || 30 || 1\n\
+  |- align=center\n\
+  | 50-74 || 40 || 60 || 2\n\
+  |- align=center\n\
+  | 75-99 || 40 || 60 || 3\n\
+  |- align=center\n\
+  | 100-124 || 60 || 90 || 4\n\
+  |- align=center\n\
+  | 125-149 || 80 || 90 || 4\n\
+  |- align=center\n\
+  | 150+ || 100 || 150 || 4\n\
+  |}\n\n\
+  ==Notes==\n\
+  *This is a [[Bounty]]-like blessing.\n\
+  *If a player is dead when a blessing is bestowed, they will not receive the blessing.\n\
+  *All bonuses except for increased hunt rank are lost upon death.\n\
+  *Hunt Rampage doubles all bonuses, including those from bosses, shrines, Hunt Point Bonuses, and 25 kill rewards.\n\
+  *Getting rank 2 triples your reputation gain per kill in NM and doubles it in HM.\n\
+  *You also automatically get a point bonus when killing bosses. The boss bonus is dependent on your total number of kills and is shown as follows:\n\
+  {| {{STDT}}\n\
+  ! Total kills<sup>1</sup> || Bonus per boss<br>([[Normal mode]]) || Bonus per boss<br>([[Hard mode]])\n\
+  |-\n\
+  | 0-49 || 50 points || 75 points\n\
+  |-\n\
+  | 50-99 || 100 points || 150 points\n\
+  |-\n\
+  | 100-149 || 150 points || 225 points\n\
+  |-\n\
+  | 150-199 || 200 points || 300 points\n\
+  |-\n\
+  | 200-249 || 250 points || 375 points\n\
+  |-\n\
+  | 250+ || 300 points || 450 points\n\
+  |}\n\
+  #Including the boss.\n\n\
+  == Related articles ==\n\
+  * [[Dwarven Raider]]\n\
+  * [[Vanguard Patrol]]\n\
+  * [[Asuran Bodyguard]]\n\n\
+  [[Category:Bounty-like blessings]]\n\n\n\
+  == Trivia ==\n\
+  *The icon's appearance might have been inspired by the [[Celestial Compass]]."
+Summon Spirits: |-
+  {{skill infobox
+  | name = Summon Spirits
+  | campaign = Factions
+  | profession = Ritualist
+  | attribute = Allegiance rank
+  | type = Spell
+  | energy = 5
+  | activation = 0.25
+  | recharge = 10
+  | description=
+  [[Spell]]. All [[Spirit]]s you control [[shadow step]] to your location, and gain 40..100 [[Health]].
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Health gain 
+  | var1 at0 = 40 
+  | var1 at12 = 100 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Related skills==
+  *{{skill icon|Draw Spirit}}
+  
+  ==Notes==
+  *This skill shadow steps all spirits you control '''in compass range''' to your location, not earshot range like [[Draw Spirit]].
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Ritualist PvE-only skills]]
+Ursan Strike: |-
+  {{Skill infobox
+  | name = Ursan Strike
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Skill
+  | activation = 1
+  | recharge = 3
+  | pve-only = y
+  | description = [[Skill]]. You deal 40..75 [[damage]] to target touched foe twice.
+  | concise description = [[Touch Skill]]. Deals 40..75 [[damage]], twice.}}
+  
+  {{Skill progression max10
+  |title track = [[Norn rank]]
+  |var1 name = Damage
+  |var1 at0  = 40
+  |var1 at10 = 75
+  }}
+  
+  ==Notes==
+  *This skill deals armor-ignoring typeless damage.
+  *For acquisition and related information, see [[Ursan Blessing]].
+  
+  [[Category: Touch skills]]
+Polymock Rotting Flesh: |-
+  {{Skill infobox
+  | name = Polymock Rotting Flesh
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 20
+  | description = [[Spell]]. Target foe becomes Diseased for 20 seconds and slowly loses Health.
+  | concise description = Spell. Inflicts Diseased condition (20 seconds). Disease causes -4 Health degeneration.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Skale Form]]
+  
+  ==Notes==
+  *Disease causes 10 health degeneration in Polymock.
+  
+  ==Related skills==
+  *{{Skill icon|Rotting Flesh}}
+Extract Inscription: |-
+  {{skill infobox
+  | name = Extract Inscription
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | activation = 5
+  | description = Skill. Extracts an inscription from an [[Inscribed Ettin]].
+  | concise description = Skill. Extracts an inscription from an Inscribed Ettin.
+  }}
+  
+  ==Notes==
+  *This skill is used by [[Livia]] during [[Finding Gadd]] and [[Finding the Bloodstone]].
+Courageous Was Saidra: |-
+  {{Skill infobox
+  | name = Courageous Was Saidra
+  | type = Item Spell
+  | campaign = Eye of the North
+  | description = [[Item Spell]]. Hold [[Saidra's Ashes]] for up to 300 seconds. While you hold her ashes, you gain +30 maximum [[Energy]]. When you drop her ashes, all party members are [[heal]]ed for 200 Health.
+  | concise description = Item Spell. Hold Saidra's Ashes for up to 300 seconds. While you hold her ashes, you gain +30 maximum Energy. When you drop her ashes, all party members are healed for 200 Health.
+  }}
+  
+  ==Acquisition==
+  This effect activates when you pick up [[Saidra's Ashes]].
+  
+  ==Notes==
+  *All allies will be affected, not just party members.
+  *Once dropped, these ashes cannot be picked up again.
+  *Skills which increase the effectiveness of healing such as Healer's Boon enhance the healing effect of Courageous Was Saidra.
+  
+  
+  
+  
+  {{spoiler|[[Prophecies]] campaign}}
+  *[[Saidra]] was one of the members of the [[Shining Blade]] in the [[Prophecies]] Campaign. She died protecting your party from [[Mursaat]] attack in the [[Ice Caves of Sorrow]] mission.
+  
+  [[Category:Item spells]]
+Polymock Signet of Revenge: |-
+  {{Skill infobox
+  | name = Polymock Signet of Revenge
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Signet
+  | activation = 1
+  | recharge = 20
+  | description = [[Signet]]. Target foe takes 500 damage and 200 more damage for each glyph that foe has recharging.
+  | concise description = Signet. Deals 500 damage and 200 more damage for each glyph target foe has recharging.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Gaki Polymock piece]]
+  
+  ==Related skills==
+  {{section-stub}}
+Journey to the North: |-
+  {{effect infobox
+  | name = Journey to the North
+  | campaign = Eye of the North
+  | fixed health = 480
+  | description = Don't stop believing. As you journey onward into the North, know that what you lack in experience will be made up for by your courage. While adventuring in Eye of the North, you are treated as a level 20 character.
+  }}
+  
+  ==Notes==
+  *This buff grants players a base Health of 480 and bonuses to their attributes, and replaces their current armor level with the max armor level for that class until they reach level 20. 
+  *This buff sets one attribute to rank 12 and three additional attributes to rank 9. The effect overrides the player's current ranks in all attributes and places 12 ranks in the attribute of the weapon the player is wielding, 9 ranks in that player's primary attribute, 9 ranks based on the attribute of the focus or shield the player is wearing (if applicable), and 9 ranks based on the skills on the player's Skill Bar until the player has three attributes with 9 ranks in them.
+  *If the attribute of the weapon the player is wielding isn't available to that player, no attribute will be set to 12 and instead you will get four attributes with 9 points in each.
+  *Upon reaching level 20, this buff goes away the next time that player enters a new zone. 
+  *Any runes on your armor which boost attributes are nullified. No part of the rune works, that is, you won't get -75 health for a superior rune which isn't actually doing anything.
+  *Skills which boost your attributes, such as [[Glyph of Elemental Power]], [[Elemental Lord]], [[Awaken the Blood]] no longer function correctly when this buff is applied.
+  *Heroes are not affected by this buff.
+  *[[Weakness]] does not reduce your attributes when you are buffed by this.
+  
+  ==Trivia==
+  *"Don't stop believing" comes from a [[W:Don't Stop Believing|song by the same name]] by the band [[W:Journey (band)|Journey]].
+  
+  [[Category:Eye of the North PvE-only skills]]
+Polymock Icy Bonds: |-
+  {{Skill infobox
+  | name = Polymock Icy Bonds
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 20
+  | description = [[Hex Spell]]. For 15 seconds, target foe's spells take an additional 1 second to cast.
+  | concise description = Hex Spell. (15 seconds.) +1 second to spell casting time.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dredge Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Polymock Migraine}}
+Lava Wave: |-
+  {{Skill infobox
+  |name = Lava Wave
+  |campaign = Eye of the North
+  |special = Monster
+  |type = Skill
+  |energy = 5
+  |activation = 2
+  |recharge = 25
+  |description = [[Skill]]. The [[Great Destroyer]] sends out a wave of lava that deals 100 fire damage to all Burning foes. While submerged in lava, the [[Great Destroyer]] gains 10 Health regeneration and is immune to all damage. [[Lava Wave]] ends after 12 seconds or if all other [[Destroyer]]s are destroyed.
+  |concise description = Skill. Deals 100 fire damage to all Burning foes. The Great Destroyer is submerged in lava, gains +10 Health regeneration, and is immune to all damage. Lava Wave ends after 12 seconds or if all other Destroyers are destroyed.
+  }}
+Ooze Division: |-
+  {{skill infobox
+  | name = Ooze Division
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Monster
+  | energy = 15
+  | activation = 5
+  | recharge = 45
+  | description = [[Skill]]. Ooze loses half of its current Health and creates a duplicate.
+  | concise description = Skill. Ooze loses half of its current Health and creates a duplicate.
+  }}
+  
+  ==Related Skills==
+  *{{Skill icon|Ooze Combination}}
+Chomp: |-
+  {{skill infobox
+  | name = Chomp
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | elite = n
+  | energy = 10
+  | activation = 2
+  | recharge = 30
+  | description = Skill. Caster gains 500 Health after destroying target touched smaller creature.
+  | concise description = Touch Skill. Gain 500 Health. Destroy target smaller creature.
+  }}
+  
+  ==Related skills==
+  <!-- other skills which are have similar function to this skill -->
+  *{{skill icon|Vampiric Bite}}
+  *{{skill icon|Vampiric Touch}}
+Polymock Flare: |-
+  {{Skill infobox
+  | name = Polymock Flare
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Send out a Flare that strikes target foe for 120 damage if it hits.
+  | concise description = Spell. Projectile: deals 120 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Charr Flamecaller Form]]
+  *[[Fire Elemental Form]]
+  *[[Fire Imp Form]]
+  *[[Titan Form]]
+  *[[Ruby Djinn Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Flare}}
+Spirit Roar: |-
+  {{skill infobox
+  | name = Spirit Roar
+  | campaign = Eye of the North
+  | type = Shout
+  | recharge = 16
+  | special = Monster
+  | description = Shout. This shout deals 50 [[holy damage]] to [[nearby]] foes, and 25 more holy damage to affected foes that have an enchantment on them.
+  | concise description = Shout. Deals 50 holy damage to nearby foes, and 25 more holy damage for each enchantment on them.}}
+  
+  ==Notes==
+  *Used by the [[Nornbear]] and [[Savage Nornbear]].
+Unstable Ooze Explosion: |-
+  {{skill-stub}}
+  {{skill infobox
+  | name = Unstable Ooze Explosion
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Monster
+  | activation = 2
+  | description = [[Skill]]. [[Nearby]] foes take 133 damage when the unstable ooze explodes.
+  | concise description = Touch Skill. Deals 133 damage to nearby foes when unstable ooze explodes.
+  }}
+  ==Notes==
+  This skill is used by [[Volatile Ooze]]s and [[Hulking Volatile Ooze]]s in the [[Ooze Pit]].
+Ooze Combination: |-
+  {{skill infobox
+  | name = Ooze Combination
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | elite = n
+  | energy = 5
+  | activation = 2
+  | recharge = 15
+  | description = Skill. Combine with target touched ooze.
+  | concise description = Touch Skill. Combine with another Ooze.
+  }}
+  
+  ==Related Skills==
+  *{{Skill icon|Ooze Division}}
+Naga Shaman Form: "{{effect infobox\n\
+  | name = Naga Shaman Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Naga Shaman Polymock piece]].\n\
+  }}\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Lamentation\xC2\xA6Polymock Painful Bond\xC2\xA6Polymock Spirit Rift}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Naga Shaman Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Star Shine: |-
+  {{skill infobox
+  | name = Star Shine
+  | campaign = Factions
+  | profession = Monk
+  | type = Skill
+  | special = Celestial
+  | pve-only = y
+  | activation = 1
+  | description = Skill. Your entire [[party]] is healed to their maximum [[Health]]. All [[condition]]s and [[hex]]es are removed from your [[party]].
+  | concise description = Skill. Heals your entire party to their maximum Health and removes all conditions and hexes.}}
+  
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Monk]]s by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *Only [[recharge]]s after [[morale boost]]s.
+Polymock Eruption: |-
+  {{Skill infobox
+  | name = Polymock Eruption
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 30
+  | description = [[Spell]]. Cause an eruption at target foe's location. Target foe takes 400 damage and all of that foe's [[glyph]]s are [[disable]]d for 15 seconds.
+  | concise description = Spell. Deals 400 damage and disables all of target foe's glyphs (15 seconds).}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Stone Rain Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Eruption}}
+Polymock Smite: |-
+  {{Skill infobox
+  | name = Polymock Smite
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Target foe takes 120 damage.
+  | concise description = Spell. Deals 120 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Aloe Seed Form]]
+  *[[Charr Shaman Form]]
+  *[[Dolyak Rider Form]]
+  *[[Gaki Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Smite}}
+Fire Spout: |-
+  {{Effect-stub}}
+  {{Effect infobox
+  | name = Fire Spout
+  | campaign = Eye of the North 
+  | recharge = 10
+  | type = Environment effect
+  | description = [[Spell]]. A burst of flame shoots upward, inflicting 50 damage and setting target [[on fire]] for 6 seconds.
+  }}
+  [[Image:Fire Spout (interactive object).jpg|thumb|A Fire Spout in the [[Cathedral of Flames]]]]
+  
+  ==Related Skills==
+  *{{skill icon|Fire Dart}}
+  *{{skill icon|Fire Jet}}
+  *{{skill icon|Ice Spout}}
+  *{{skill icon|Poison Spout}}
+  
+  ==Notes==
+  * This is applied if walking into flame geysers in [[Cathedral of Flames]] (level 3).
+Consume Flames: |-
+  {{skill infobox
+  | name = Consume Flames
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 5
+  | activation = 10
+  | recharge = 5
+  | description = Spell. Decreases the flame progress bar by 15 points.
+  | concise description = Spell. Decreases the flame progress bar by 15 points.
+  }}
+  
+  == Notes ==
+  *This skill is only used by [[Arctic Nightmare|Arctic Nightmares]] in [[Bjora Marches]] during the quest [[Flames of the Bear Spirit]].
+  *If you have a relatively capable interrupter in your party, you can interrupt all of the Arctic Nightmares' Consume Flames during the quest. 
+  *The flame progress bar seems to be about 100 "points" long, so 15 points is about one seventh of the bar.
+Dolyak Rider Form: "{{effect infobox\n\
+  | name = Dolyak Rider Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Dolyak Rider Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Bane Signet\xC2\xA6Polymock Banish\xC2\xA6Polymock Smite}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Fire Jet: |-
+  {{effect infobox
+  | campaign = Eye of the North
+  | type = Spell
+  | recharge = 10
+  | duration = 5
+  | description = [[Spell]]. A burst of flame flies outward, inflicting 66 damage and setting target [[on fire]] for 5 seconds.
+  }}
+  
+  ==Related Skills==
+  *{{skill icon|Fire Dart}}
+  *{{skill icon|Fire Spout}}
+  *{{skill icon|Ice Jet}}
+  *{{skill icon|Poison Jet}}
+  
+  ==Notes==
+  * This is applied if walking into fire blown out by Fire traps in several dungeons like [[Bloodstone Caves]] or [[Oola's Lab]].
+Polymock Recurring Insecurity: |-
+  {{Skill infobox
+  | name = Polymock Recurring Insecurity
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Hex Spell]]. For 8 seconds, target foe takes 100 damage each second.
+  | concise description = Hex Spell. (8 seconds.) Deals 100 damage each second.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mirage Iboga Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Recurring Insecurity}}
+Polymock Immolate: |-
+  {{Skill infobox
+  | name = Polymock Immolate
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 10
+  | description = [[Spell]]. Target foe is set on fire for 20 seconds.
+  | concise description = Spell. Inflicts Burning condition (20 seconds). Burning causes -7 Health degeneration.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Fire Imp Form]]
+  
+  ==Notes==
+  *Burning causes 10 health degeneration in Polymock.
+  
+  ==Related skills==
+  *{{Skill icon|Immolate}}
+Berserk: |-
+  {{Skill infobox
+  | name = Berserk
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | adrenaline = 3
+  | recharge = 15
+  | description = Skill. For 10 seconds, all skills do double damage and randomly give the target one of the following conditions for 10 seconds: Cripple, Bleeding, Deep Wound, Weakness, or Dazed.
+  | concise description = Skill. (10 seconds.) All skills do double damage and inflict on of the following random conditions (10 seconds): Cripple, Bleeding, Deep Wound, Weakness, or Dazed.}}
+  
+  ==Notes==
+  * This skill is used by various [[:Category:Berserkers|Berserker]] creatures.
+  
+  ==Related skills==
+  *{{skill icon|Drunken Blow}}
+Order of the Lich: |-
+  {{skill infobox
+  | name = Order of the Lich
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 5
+  | activation = 1
+  | recharge = 12
+  | description = [[Spell]]. For 15 seconds, all of Zoldark's minions have +3 Health regeneration and steal 15 Health each time they successfully hit with an attack.
+  | concise description = Spell. (15 seconds.) All Minions of Zoldark have +3 Health regeneration and steal 15 Health each time they hit with an attack.}}
+  
+  ==Notes==
+  *Used by [[Zoldark the Unholy]] in [[Vloxen Excavations]].
+  *Used by [[Palawa Joko]] in the [[Norn Fighting Tournament]].
+Siege Devourer Swipe: |-
+  {{Skill infobox
+  | name = Siege Devourer Swipe
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Devourer
+  | energy = 5
+  | activation = 1
+  | recharge = 10
+  | description = [[Skill]]. All [[nearby]] [[foes]] are struck for 100 [[piercing damage]] and are [[knocked down]].
+  | concise description = Skill. Deals 100 piercing damage; causes knock-down. Affects foes near you.}}
+STAND UP!: |-
+  {{Skill infobox
+  | name = STAND UP!
+  | campaign = Eye of the North
+  | special = Brawling
+  | type = Shout
+  | description = [[Shout]]. When knocked out, use this Skill repeatedly to regain Energy. You must be at full energy after 10 seconds or else you will pass out!
+  | concise description = Shout. Use this skill repeatedly to gain Energy while knocked out. If you are not at full Energy within 10 seconds, you will pass out!
+  }}
+  
+  ==Notes==
+  *Passing out counts as a [[death]].
+  *To avoid passing out, you can click the button on your skillbar and use the keyboard to quickly fill your energy bar.
+Polymock Shock Arrow: |-
+  {{Skill infobox
+  | name = Polymock Shock Arrow
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 0.25
+  | recharge = 8
+  | description = [[Spell]]. Send out a Shock Arrow that flies swiftly toward target foe, striking for 150 damage if it hits. If target foe is using a [[glyph]], that foe takes 200 additional damage.
+  | concise description = Spell. Fast projectile: deals 150 damage. Deals 200 more damage if target foe is using a glyph.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mursaat Elementalist Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Shock Arrow}}
+Mergoyle Form: "{{effect infobox\n\
+  | name = Mergoyle Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Mergoyle Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Mergoyle Form.jpg|thumb|left|300px|Mergoyle Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Glyph Destabilization\xC2\xA6Polymock Mind Wreck\xC2\xA6Polymock Overload}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Mergoyle Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Polymock Glyph of Power: |-
+  {{Skill infobox
+  | name = Polymock Glyph of Power
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Glyph
+  | energy = 1
+  | activation = 1
+  | recharge = 10
+  | description = [[Glyph]]. If you are below 50% [[health]], your next [[spell]] that targets a foe deals 200 additional [[damage]]. If you are below 25% health, your next 2 spells are affected.
+  | concise description = Glyph. Your next spell that targets a foe deals +200 damage if you are below 50% Health. If you are below 25% Health, your next 2 spells are affected.}}
+  
+  ==Acquisition==
+  '''Polymock Glyph of Power''' is one of the five skills that is available to all [[Polymock]] pieces.
+  
+  ==Notes==
+  *The check for Health takes place when the glyph successfully activates.  Dropping below 25% while the Glyph is active will not make it affect a second spell.
+Polymock Calculated Risk: |-
+  {{Skill infobox
+  | name = Polymock Calculated Risk
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 30
+  | description = [[Hex Spell]]. For 15 seconds, target foe's spells take an additional 1 second to cast, but they deal 40 damage to you on each spell's completion.
+  | concise description = Hex Spell. (15 seconds.) Target foe's spells take +1 second to cast, but you take 40 damage each time that foe finishes casting.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mirage Iboga Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Calculated Risk}}
+Earth Elemental Form: "{{effect infobox\n\
+  | name = Earth Elemental Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Earth Elemental Polymock piece]].\n\
+  }}\n\n\
+  [[Image:Screenshot Earth Elemental Form.jpg|thumb|left|300px|Earth Elemental Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Earthquake\xC2\xA6Polymock Obsidian Flame\xC2\xA6Polymock Stone Daggers}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Earth Elemental Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Time Attack: |-
+  {{cleanup}}This is available for each of the group that has a [[title]] track in [[Eye of the North]] while affected by a [[blessing]]:
+  *[[Asuran Bodyguard|Asura]]
+  *[[Dwarven_Raider|Deldrimor]]
+  *[[Norn Hunting Party|Norn]]
+  *[[Vanguard Patrol|Ebon Vanguard]]
+  
+  Time Attack is a [[Blessing]] that has a chance to be granted after every 25 kills.
+  
+  [[Image:Time Attack Asura.jpg]][[Image:Time Attack Dwarf.jpg]][[Image:Time Attack Norn.jpg]][[Image:Time Attack Vanguard.jpg]]
+  
+  [[Normal Mode]]
+  ''If your party gets 10 kills in the next 150 seconds, you earn +200 reputation points''
+  
+  [[Hard Mode]]
+  ''If your party gets 10 kills in the next 200 seconds, you earn +300 reputation points''
+Diamondshard Mist: |-
+  {{Skill infobox
+  | name = Diamondshard Mist
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | energy = 5
+  | activation = 0.75
+  | recharge = 5
+  | description = Spell. The [[Remnant of Antiquities]] begins freezing the condensation within the air, focusing it into crystal shards.
+  | concise description = Spell. Condensation in the air freezes into glittering shards. While in this area, you move 4% slower.}}
+  
+  
+  ==Notes==
+  This spell causes the [[Diamondshard Mist (environment effect)|Diamondshard Mist]] effect in the areas it affects, after 10 seconds, the effect ends, causing [[Diamondshard Grave]].
+Lava Ground: |-
+  {{Skill infobox
+  |name = Lava Ground
+  |campaign = Eye of the North
+  |special = Monster
+  |type = Skill
+  |energy = 5
+  |activation = 3
+  |recharge = 60
+  |description = [[Skill]]. [[The Great Destroyer]] creates a giant blast that melts earth into lava.
+  |concise description = Skill. Creates a giant blast that melts earth into lava.
+  }}
+Raven Flight: |-
+  {{Skill infobox
+  | name = Raven Flight
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Stance
+  | recharge = 15
+  | pve-only = y
+  | description = [[Stance]]. For 5..15 seconds, you cannot be knocked down.
+  | concise description = [[Stance]]. (5..15 seconds.) You cannot be knocked-down.
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Norn rank]]
+  |var1 name = Duration
+  |var1 at0  = 5
+  |var1 at10 = 15
+  }}
+  
+  ==Notes==
+  *For acquisition and related information, see [[Raven Blessing]].
+The Way of Duty: |-
+  {{Environment effect infobox
+  | campaign = Eye of the North
+  | trigger = [[Gate of Duty]]
+  }}
+  [[Environment Effect]]. The gate before you remains closed. Its inscription reads: "Those who possess a strong sense of duty make certain to see any task through to the end. The way forward will open to those who show proof of duty."
+Vitality Transfer: |-
+  {{skill infobox
+  | name = Vitality Transfer
+  | campaign = Eye of the North
+  | type = Skill
+  | special = Monster
+  | activation=2
+  | description = [[Skill]]. Target ally is healed for 100 Health, and the nearest foe takes 100 damage.
+  | concise description = Skill. Heals target ally for 100; the nearest foe takes 100 damage.
+  }}
+  == Notes ==
+  This skill is used by [[G.O.L.E.M. 2.0]] when in defense mode.
+Brawling Uppercut: |-
+  {{Skill infobox
+  | name = Brawling Uppercut
+  | campaign = Eye of the North
+  | type = Melee Attack
+  | special = Brawling
+  | adrenaline = 10
+  | description = [[Melee Attack]]. You deliver an uppercut to your foe, dealing 80 damage. This attack cannot be [[block]]ed.
+  | concise description = Melee Attack. Deals 80 damage. Unblockable.
+  }}
+  
+  == Acquisition ==
+  Automatically equipped upon entry to zones requiring [[Brawling]].
+  
+  == Trivia ==
+  Animation appears very similar to the [[w:Shoryuken|Shoryuken]] (or Dragon Punch) used by Ryu (and others) of the [[w:Street_Fighter_%28series%29|Street Fighter]] video game series.
+Polymock Block: |-
+  {{Skill infobox
+  | name = Polymock Block
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Enchantment spell
+  | energy = 2
+  | activation = 0.25
+  | recharge = 12
+  | description = [[Enchantment Spell]]. For 2 seconds, the next enemy [[spell]] that targets you fails.
+  | concise description = Enchantment Spell. (2 seconds.) The next enemy spell that targets you fails.}}
+  
+  ==Acquisition==
+  '''Polymock Block''' is one of the five skills that is available to all [[Polymock]] pieces.
+  
+  ==Trivia==
+  *This skill uses the icon of [["Watch Yourself!"]], and is one of several Polymock skills that is named different than the icon's regular skill.
+Polymock Glyph Freeze: |-
+  {{Skill infobox
+  | name = Polymock Glyph Freeze
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Hex Spell]]. You cause a Glyph Freeze at target foe's location. Target foe is struck for 600 damage, and for 10 seconds, all glyphs cast by that foe take an additional 1 seconds to cast.
+  | concise description = Hex Spell. (10 seconds.) Initial effect: deals 600 damage. Target foe's glyphs take +1 second to cast.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Ice Elemental Form]]
+  
+  ==Related skills==
+  {{section-stub}}
+Polymock Guilt: |-
+  {{Skill infobox
+  | name = Polymock Guilt
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Hex Spell]]. For 6 seconds, the next time target foe casts a spell that targets you, the spell fails and that foe takes 600 damage.
+  | concise description = Hex Spell. (6 seconds.) The next time target foe casts a spell that targets you, the spell fails and that foe takes 600 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Wind Rider Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Guilt}}
+Paranoid Indignation: |-
+  {{skill infobox
+  | name = Paranoid Indignation
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | activation = 0.5
+  | recharge = 10
+  | description = [[Hex Spell]]. For 20 seconds, all of your non-zero [[Attribute]]s are lowered by 2.
+  | concise description = Hex Spell. (20 seconds.) -2 from your non-zero Attributes.
+  }}
+  
+  == Notes ==
+  * This skill is used by [[Paranoia Ettin]] and [[Eldritch Ettin]].
+Polymock Earthquake: |-
+  {{Skill infobox
+  | name = Polymock Earthquake
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. You invoke an Earthquake at target foe's location. Target foe is struck for 650 damage. If that foe is casting a spell, that spell is interrupted.
+  | concise description = Spell. Interrupts a spell. Deals 650 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dwarven Arcanist Form]]
+  *[[Earth Elemental Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Earthquake}}
+Polymock Painful Bond: |-
+  {{Skill infobox
+  | name = Polymock Painful Bond
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Hex Spell]]. For 10 seconds, this hex does nothing. When Painful Bond ends, target foe takes 80 damage for each second this hex was in affect.
+  | concise description = Hex Spell. (10 seconds.) End effect: deals 80 damage for each second this hex was in effect.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Naga Shaman Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Painful Bond}}
+  *{{Skill icon|Polymock Rising Bile}}
+Charging Spirit: |-
+  {{skill infobox
+  | name = Charging Spirit
+  | campaign = Eye of the North
+  | type = Stance
+  | recharge = 20
+  | special = Monster
+  | description = [[Stance]]. Run 25% faster for 5 seconds. The next attack that successfully hits deal +50 damage, cause this [[skill]] to end, and all [[adjacent]] foes are knocked down.
+  | concise description = Stance. (5 seconds.) You move 25% faster. Your next attack deals +50 damage and causes knock-down to all adjacent foes. Ends when you hit with an attack.}}
+  
+  ==Notes==
+  *Used by the [[Nornbear]] and [[Savage Nornbear]].
+Fire Elemental Form: "{{effect infobox\n\
+  | name = Fire Elemental Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Fire Elemental Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Fire Elemental Form.jpg|thumb|left|300px|Fire Elemental Form]]\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Fireball\xC2\xA6Polymock Flare\xC2\xA6Polymock Rodgort's Invocation}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Fire Elemental Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Call of Destruction: |-
+  {{Skill infobox
+  |name = Call of Destruction
+  |campaign = Eye of the North
+  |special = Monster
+  |type = Skill
+  |energy = 10
+  |activation = 2
+  |recharge = 60
+  |description = [[Skill]]. [[The Great Destroyer]] summons a group of [[Destroyer]]s.
+  |concise description = Skill. Summons a group of Destroyers.}}
+Polymock Ice Spear: |-
+  {{Skill infobox
+  | name = Polymock Ice Spear
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Send out an Ice Spear, striking target foe for 120 damage if it hits.
+  | concise description = Spell. Projectile: deals 120 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dredge Form]]
+  *[[Ice Elemental Form]]
+  *[[Ice Imp Form]]
+  *[[Kappa Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Ice Spear}}
+Poison Dart: |-
+  {{effect infobox
+  | campaign = Eye of the North
+  | type = Environment effect
+  | recharge = 5
+  | duration = 8
+  | description = [[Spell]]. A projectile flies outward, inflicting 33 damage and [[poison|Poisoning]] target for 8 seconds. 
+  }}
+  
+  ==Related Skills==
+  *{{skill icon|Poison Jet}}
+  *{{skill icon|Poison Spout}}
+  *{{skill icon|Fire Dart}}
+  *{{skill icon|Ice Dart}}
+  
+  ==Notes==
+  * This is applied when one walks near a [[Poison Trap]] in [[Vloxen Excavations]] or [[Heart of the Shiverpeaks]] (level 1) in [[GW:EN]].
+Polymock Mind Blast: |-
+  {{Skill infobox
+  | name = Polymock Mind Blast
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 4
+  | description = [[Spell]]. Target foe suffers 300 damage. If you have less Energy than target foe, you gain 8 Energy.
+  | concise description = Spell. Deals 300 damage. Gain 8 Energy if you have less Energy than target foe.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Charr Flamecaller Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Mind Blast}}
+Flame Call: |-
+  {{skill infobox
+  | name = Flame Call
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | activation = 4
+  | description = Skill. A signal horn sounds a warning that intruders have entered the temple.
+  | concise description = Skill. Sounds a signal horn, warning that intruders have entered the temple.
+  }}
+  
+  ==Notes==
+  * Summons a [[Charr Hunter Beast]].
+  * Used by [[Charr Sentry]]
+Strength of the Norn: |-
+  {{Effect infobox
+  | reputation = Norn
+  | campaign = Eye of the North
+  | campaign2 = Nightfall
+  | duration = 60 sec
+  | description = [[Blessing]]. For 60 seconds, you have +100 maximum [[Health]]. When Strength of the Norn ends, you gain 100 Health.
+  }}
+  
+  ==Notes==
+  *This blessing is acquired as a possible bonus from accumulating kills while under the blessing of [[Norn Hunting Party]].
+Ice Imp Form: "{{effect infobox\n\
+  | name = Ice Imp Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Ice Imp Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Ice Imp Form.jpg|thumb|left|300px|Ice Imp Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Ice Spear\xC2\xA6Polymock Icy Prison\xC2\xA6Polymock Mind Freeze}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Ice Imp Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Mount: |-
+  {{skill infobox
+  |name = Mount
+  |campaign = Eye of the North
+  |type = Skill
+  |activation = 4
+  |special = Monster
+  |description = [[Skill]]. You mount the [[Siege Devourer (npc)|siege devourer]]. You can command the siege devourer to move and to use its [[skill]]s.
+  | concise description = Skill. Mount the siege devourer. You can command it to move and use skills.}}
+  
+  ==Notes==
+  *[[Siege Devourer (npc)|Siege Devourers]] activate this skill when you talk to them and anwswer 'Yes'.
+  *Once this skill activates, characters will be under the [[Siege Devourer]] [[Form]].
+  *This skill will [[fail]] if you do not stay in [[adjacent]] range to the Siege Devourer.
+Polymock Rising Bile: |-
+  {{Skill infobox
+  | name = Polymock Rising Bile
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Hex Spell]]. For 10 seconds, this hex does nothing. When Rising Bile ends, target foe takes 80 damage for each second Rising Bile was in effect.
+  | concise description = Hex Spell. (10 seconds.) End effect: deals 80 damage for each second this hex was in effect.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Skale Form]]
+  *[[Bone Dragon Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Rising Bile}}
+  *{{Skill icon|Polymock Painful Bond}}
+Raven Talons: |-
+  {{Skill infobox
+  | name = Raven Talons
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Skill
+  | activation = 0.75
+  | recharge = 1
+  | pve-only = y
+  | description = [[Skill]]. Target touched foe begins [[Bleeding]] and is [[Crippled]] for 4..10 seconds.
+  | concise description = [[Touch]] [[Skill]]. Inflicts [[Bleeding]] and [[Crippled]] conditions (4..10 seconds).
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Norn rank]]
+  |var1 name = [[Bleeding]] and [[Crippled]] duration
+  |var1 at0  = 4
+  |var1 at10 = 10
+  }}
+  
+  ==Notes==
+  *For acquisition and related information, see [[Raven Blessing]].
+  
+  [[Category: Touch skills]]
+Animate Undead: |-
+  {{skill infobox
+  | name = Animate Undead
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | sacrifice = 5%
+  | energy = 5
+  | activation = 2
+  | recharge = 12
+  | description = [[Spell]]. All of [[Zoldark the Unholy|Zoldark]]'s [[Minion of Zoldark|minions]] are resurrected with 100% Health and 50% Energy.
+  | concise description = Spell. All Minions of Zoldark are resurrected with 100% Health and 50% Energy.}}
+  
+  ==Notes==
+  *Used by [[Zoldark the Unholy]] in [[Vloxen Excavations]].
+Polymock Searing Flames: |-
+  {{Skill infobox
+  | name = Polymock Searing Flames
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 4
+  | activation = 1
+  | recharge = 2
+  | description = [[Spell]]. Target foe is struck with Searing Flames. If that foe is already on fire, that foe takes 800 damage. Otherwise, that foe begins Burning for 5 seconds.
+  | concise description = Spell. Deals 800 damage if target foe is Burning. Otherwise, that foe begins Burning (5 seconds). Burning causes -7 Health degeneration.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Ruby Djinn Form]]
+  
+  ==Notes==
+  *Burning causes -10 health degeneration in Polymock.
+  
+  ==Related skills==
+  *{{Skill icon|Searing Flames}}
+Golem Strike: |-
+  {{skill infobox
+  | name = Golem Strike
+  | campaign = Eye of the North
+  | type = Melee Attack
+  | special = Monster
+  | adrenaline = 6
+  | description = [[Melee Attack]]. Target takes 180 damage and is [[Dazed]] for 3 seconds.
+  | concise description = Melee Attack. Deals 180 damage and inflicts Dazed condition (3 seconds).
+  }}
+  == Notes ==
+  This skill is used by [[G.O.L.E.M. 2.0]] when in melee mode.
+Diamondshard Grave: |-
+  {{Skill infobox
+  | name = Diamondshard Grave
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | description = Spell. Frozen condensation coalesces into spikes of ice, deals 140 [[damage]], and causes [[Bleeding]] for 10 seconds.
+  | concise description = Spell. Frozen condensation coalesces into spikes of ice, deals 140 damage, and inflicts the Bleeding condition (10 seconds).}}
+  
+  ==Notes==
+  *This effect is caused when the [[Diamondshard Mist (environment effect)|Diamondshard Mist]] effect ends.
+Mursaat Elementalist Form: "{{effect infobox\n\
+  | name = Mursaat Elementalist Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Mursaat Elementalist Polymock piece]].\n\
+  }}\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Lightning Strike\xC2\xA6Polymock Mind Shock\xC2\xA6Polymock Shock Arrow}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Mursaat Elementalist Polymock piece is selected as the active piece in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Dwarven Arcanist Form: "{{effect infobox\n\
+  | name = Dwarven Arcanist Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Dwarven Arcanist Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Earthquake\xC2\xA6Polymock Sandstorm\xC2\xA6Polymock Stone Daggers}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Extend Conditions: |-
+  {{Skill infobox
+  | name = Extend Conditions
+  | campaign = Nightfall
+  | profession = Mesmer
+  | attribute = Inspiration Magic
+  | type = Spell
+  | elite = y
+  | energy = 5
+  | activation = 0.25
+  | recharge = 5
+  | description = [[Elite]] [[Spell]]. All [[Condition]]s on target [[foe]] last 5..100% longer (maximum 30 seconds).
+  | concise description = Elite Spell. All conditions on target foe last 5..100% longer (maximum 30 seconds).
+  }}
+  
+  {{Skill progression
+  |attribute = [[Inspiration Magic]]
+  |var1 name = Longer [[duration]]<br />of [[Condition]]s %
+  |var1 at0 = 5
+  |var1 at15 = 100}}
+  
+  ==Acquisition==
+  '''[[Signet of Capture]]'''
+  * [[Neoli the Contagious]] ([[Marga Coast]])
+Crystal Snare: |-
+  {{skill infobox
+  | name = Crystal Snare
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Hex spell
+  | recharge = 5
+  | activation = 1/2
+  | description = [[Hex Spell]]. For 10 seconds, you move 50% slower. If this Hex is not removed before it expires, you take 100 damage.
+  | concise description = Hex Spell. (10 seconds.) You move 50% slower. You take 100 damage if this hex ends before it is removed.
+  }}
+  
+  ==Notes==
+  *This skill is used by [[Eldritch Ettin]] in [[Bloodstone Caves]], as well as by the [[Crystal Ettin]] in the same location.
+Polymock Fireball: |-
+  {{Skill infobox
+  | name = Polymock Fireball
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Send out a ball of fire that strikes target foe for 800 damage if it hits.
+  | concise description = Spell. Projectile: deals 800 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Charr Flamecaller Form]]
+  *[[Fire Elemental Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Fireball}}
+Bear Form: |-
+  {{Skill infobox
+  |name = Bear Form
+  |special = Monster
+  |campaign = Eye of the North
+  |energy = 10
+  |activation = 2
+  |recharge = 120
+  |type = Form
+  |description = [[Form]]. For 60 seconds, you assume the form of a bear. While in this form, your Health is increased by 250 and your attacks strike for 25% more damage.
+  |concise description = Form. (60 seconds.) Assume the form of a bear. While in this form, you have +250 Health and deal 25% more damage with attacks.}}
+  
+  ==Related skills==
+  *{{Skill icon|Ursan Blessing}} ([[Elite]])
+  
+  ==Notes==
+  *This is a skill used only by the [[Norn]]; player characters cannot obtain this skill.
+Sugar Rush: "{{effect infobox\n\
+  | name = Sugar Rush\n\
+  | type = Consumable effect\n\
+  | consumable = Red Bean Cake\n\
+  | consumable2 = Cr\xC3\xA8me Br\xC3\xBBl\xC3\xA9e\n\
+  | consumable3 = Mandragor Root Cake\n\
+  | consumable4 = Fruitcake\n\
+  | description = [[Enchantment Spell]]. For <span style=\"color: green; font-weight: bold;\">3, 5, 10</span> minutes you run 25% faster.\n\
+  }}\n\n\
+  ==Related skills==\n\
+  *{{Skill icon|Sugar Jolt}}\n\n\
+  ==Notes==\n\
+  A character receives this [[enchantment]] by eating/using one of the following:\n\
+  * [[Red Bean Cake]] (5 minutes)\n\
+  * [[Cr\xC3\xA8me Br\xC3\xBBl\xC3\xA9e]] (10 minutes)\n\
+  * [[Mandragor Root Cake]] (3 minutes)\n\
+  * [[Fruitcake]] (5 minutes)\n\n\
+  The effect ends if you leave town or change district."
+Rebel Yell: |-
+  {{effect infobox
+  |name = Rebel Yell
+  |campaign = Eye of the North
+  |title = Ebon Vanguard
+  |description = [[Title (skill type)|Title]]. You have +5..10 Armor vs [[Charr]]. You gain 25..100% more adrenaline when you hit [[Charr]]. You gain 2 energy when you kill a [[Charr]].
+  }}
+  
+  ==Progression==
+  {{Skill progression max10
+  |title track = Ebon Vanguard rank
+  |var1 name = + armor vs charr
+  |var1 at0  = 5
+  |var1 at10 = 10
+  |var2 name = % more adrenaline
+  |var2 at0  = 25
+  |var2 at10 = 100
+  }}
+  
+  ==Acquisition==
+  *Talk to [[Gedrel of Ascalon]] [Vanguard Herald] in [[Eye of the North (outpost)|Eye of the North]] after attaining the first rank of the [[Ebon Vanguard rank|Ebon Vanguard title]].
+  
+  ==Notes==
+  *This skill cannot be equipped on the skill bar. While a character displays the Ebon Vanguard title, this skill is applied as a buff to that character and all of their heroes.
+  {{Anomaly|When dealing with Charr in Ascalon, this affects only those you get xp from (hard mode).}}
+  
+  ==Trivia==
+  *This is either an allusion to the Billy Idol song "Rebel Yell", or a Confederate Battle Cry. See [[w:Rebel_yell_(disambiguation)|rebel yell]].
+  
+  *The icon shows [[Captain Langmar]].
+  
+  [[Category:Title effects]]
+Spirit Senses: |-
+  {{Skill infobox
+  | name = Spirit Senses
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Stance
+  | recharge = 75
+  | description = [[Stance]]. For 15 seconds, this creature cannot be [[Blinded]] or [[Weakened]], and its [[attack]]s are unblockable and steal 75 Health.
+  | concise description = Stance. (15 seconds.) You cannot be Blinded or Weakened; attacks are unblockable and steal 75 Health.}}
+  ==Notes==
+  *'''Spirit Senses''' is used by [[Savage Nornbear]].
+Rock Slide: |-
+  {{effect infobox
+  | name = Rock Slide
+  | campaign = Eye of the North
+  | type = Environment effect
+  | description = [[Spell]]. Creatures caught in this rock slide take 140 damage.
+  }}
+  
+  ==Related Skills==
+  *{{Skill icon|Avalanche (effect)}}
+  
+  ==Notes==
+  * This is applied in [[Verdant Cascades]], [[Vloxen Excavations]] (level 1) and [[Bloodstone Caves]] (level 3).
+  * Unlike most traps, [[Rock Slide]] only appears to trigger once.
+Tongue Lash: |-
+  {{skill infobox
+  | name = Tongue Lash
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Hex Spell
+  | energy = 5
+  | activation = 0.75
+  | recharge = 12
+  | description = Hex Spell. For 4 seconds, target touched foe suffers from -12 [[Health degeneration]] and has a 25% chance to miss with attacks.
+  | concise description = Touch Hex Spell. (4 seconds.) Causes -12 Health degeneration; 25% chance to miss.
+  }}
+  ==Related Skills==
+  *{{Skill icon|Tongue Whip}}
+  
+  ==Notes==
+  *Used by [[Ophil]] and [[Gokir]].
+  *This hex will causes the screen to distort and turn green.
+Blood Rage: |-
+  {{Skill infobox
+  | name = Blood Rage
+  | special = Monster
+  | type = Skill
+  | energy = 10
+  | activation = 0.25
+  | recharge = 30
+  | campaign = Eye of the North
+  | description = Skill. For 15 seconds, you attack 25% faster and deal 25% more damage with attacks, but cannot use non-attack skills.
+  | concise description = Skill. (15 seconds.) Attack 25% faster and deal 25% more damage with attacks. Disables non-attack skills.
+  }}
+  ==Notes==
+  *This skill is used by [[Grawl]].
+  {{bug|This skill can be reused immediately, rather than every 30 seconds as the skill denotes.}}
+Celestial Summoning: |-
+  {{skill infobox
+  | name = Celestial Summoning
+  | campaign = Factions
+  | type = Skill
+  | special = Celestial
+  | pve-only = y
+  | activation = 1
+  | description = Skill. [[Archemorus|Archemorous]] and [[Saint Viktor]] are summoned from the spirit realm.
+  | concise description = Skill. Archemorous and Saint Viktor are summoned from the spirit realm.
+  }}
+  
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Ritualist]]s, [[Paragon]]s, and [[Dervish]] by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *This skill will inflict at least 5 pulses of 200 [[damage]] to [[foe]]s within range and will give all [[party member]]s within range a level 5 [[Shield of Saint Viktor]] effect.
+  *The same target cannot be struck by more than one damage pulse.
+  *The range of [[Celestial Summoning]] is currently unknown.
+  *Only [[recharge]]s with [[morale boost]]s.
+  
+  {{bug|This skill will not queue properly.}}
+  [[Category:Research needed]]
+  [[Category:Paragon PvE-only skills]]
+  [[Category:Dervish PvE-only skills]]
+  [[Category:Ritualist PvE-only skills]]
+  [[Category:Celestial skills]]
+  [[Category:Factions skills]]
+Elemental Lord: |-
+  {{skill infobox
+  | name = Elemental Lord
+  | campaign = Factions
+  | profession = Elementalist
+  | attribute = Allegiance rank
+  | type = Enchantment Spell
+  | energy = 10
+  | activation = 1
+  | elite = n
+  | recharge = 45
+  | description=
+  [[Enchantment Spell]]. For 30..60 seconds, your elemental attributes are boosted by 1.
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Duration 
+  | var1 at0 = 30 
+  | var1 at12 = 60 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Related skills==
+  *{{skill icon|Awaken the Blood}}
+  *{{skill icon|Glyph of Elemental Power}}
+  
+  ==Notes==
+  *Stacks with [[Glyph of Elemental Power]].
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Elementalist PvE-only skills]]
+Vanguard Commendation: |-
+  {{blessing infobox
+  | name = Vanguard Commendation
+  | reputation = Ebon Vanguard
+  | campaign = Eye of the North
+  | type = Blessing
+  | npc = Ascalonian Refugee
+  | npc2 = Ebon Vanguard Scout
+  }}
+  [[Blessing]]. For 60 seconds, you have +4 [[Health regeneration]]. 
+  
+  ==Acquisition==
+  [[Eye of the North]]
+  *[[Charr Homelands]]
+  **[[Ascalonian Refugee]]s
+  **[[Ebon Vanguard Scout]]s
+Heart of the Norn: |-
+  {{effect infobox
+  |name = Heart of the Norn
+  |campaign = Eye of the North
+  |title = Norn
+  |type = Title
+  |description = [[Title (skill type)|Title]]. You have +50..100 maximum [[Health]] in [[Norn]] territory.
+  }}
+  
+  ==Progression==
+  {{Skill progression max10
+  |title track = Norn rank
+  |var1 name = + maximum Health
+  |var1 at0  = 50
+  |var1 at10 = 100
+  }}
+  
+  ==Acquisition==
+  *Talk to [[Tyr the Skaald]] the Norn Storyteller in [[Gunnar's Hold]] after attaining the first rank of the [[Norn rank|Norn title]].
+  
+  ==Notes==
+  *This buff is not equipped on the skill bar. Instead, it activates automatically while the character has the Norn Title Track selected in the title list of the [[Hero Panel]].
+  *This buff will affect each character's [[Hero]]es.
+  *This buff will show up on your [[Hero]]es when you activate it, but will not affect them until you exit a town or outpost.
+  *[[Henchmen]] will get this buff only when the party leader activates it.
+  *"Norn territory" is the [[Far Shiverpeaks]] region. It includes all [[explorable area]]s and [[dungeon]]s '''only''' during Norn missions. While not in Norn missions, dungeons count as [[Deldrimor]] territory.
+  *The art on this skill appears to be [[Jora]] wearing [[Warrior Obsidian armor]].
+  
+  [[Category:Title effects]]
+Powder Keg Explosion: |-
+  {{skill-stub}}
+  {{Skill infobox
+  | name = Powder Keg Explosion
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 15
+  | activation = 1
+  | recharge = 30
+  | description=[[Skill]]. Powder keg explodes in target's hand, knocking down that target and dealing 50 damage.
+  }}
+Polymock Lightning Orb: |-
+  {{Skill infobox
+  | name = Polymock Lightning Orb
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Send out a Lightning Orb that strikes target foe for 800 damage if it hits.
+  | concise description = Spell. Projectile: deals 800 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Gargoyle Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Lightning Orb}}
+Fire Imp Form: "{{effect infobox\n\
+  | name = Fire Imp Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Fire Imp Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Fire Imp Form.jpg|thumb|left|300px|Fire Imp Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Flare\xC2\xA6Polymock Immolate\xC2\xA6Polymock Meteor}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Fire Imp Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Firebomb: |-
+  {{Skill infobox
+  | name = Firebomb
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 
+  | activation = 0.25
+  | recharge = 3
+  | description = [[Skill]]. Launch a slow-moving [[firebomb]] at this foe. This skill cannot recharge slower than normal.
+  | concise description = Skill. Launch a slow-moving firebomb at this foe. This skill cannot recharge slower than normal.
+  }}
+  
+  ==Notes==
+  *This is a monster skill used by [[Ilsundur, Lord of Fire]], the boss-like foe at the end of the [[Catacombs of Kathandrax]].
+  *This skill launches a fire bomb [[projectile]] at the target and if it hits, it gives the target a [[Fire Bomb]] [[bundle]]. If it misses the target, the fire bomb bundle is left on the ground where it hit. In either case, the fire bomb will cause [[Firebomb Explosion]] after a set amount of time.
+  *Ilsundur also uses this skill against [[minion]]s, which will immediately drop the bundle.
+Shield of Fire: |-
+  {{Skill infobox
+  | name = Shield of Fire
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 
+  | activation = 0.75
+  | recharge = 20
+  | description = [[Skill]]. For 20 seconds, all damage dealt to this creature is inflicted upon the attacker as well. This skill cannot recharge slower than normal.
+  | concise description = Skill. (20 seconds.) Damage dealt to this creature is also inflicted upon the attacker. This skill cannot recharge slower than normal.
+  }}
+  
+  ==Notes==
+  * This skill is used by [[Ilsundur, Lord of Fire]], the end boss for [[Catacombs of Kathandrax]] and by [[Charr Effigy|Charr Effigies]].
+  * Health degeneration skills are an effective way to avoid the effects of this skill.
+  * Life stealing skills are also very effective in avoiding the effects of this skill.
+  
+  ==Related Skills==
+  *{{skill icon|Duncan's Defense}}
+  *{{skill icon|Pain Inverter}}
+Brawling Combo Punch: |-
+  {{Skill infobox
+  | name = Brawling Combo Punch
+  | campaign = Eye of the North
+  | special = Brawling
+  | type = Melee Attack
+  | recharge = 45
+  | description = [[Melee Attack]]. You attack twice, dealing 50 damage each time.
+  | concise description = Melee Attack. Attack twice for 50 damage each time.
+  }}
+Celestial Storm: |-
+  {{Skill infobox
+  | name = Celestial Storm
+  | campaign = Factions
+  | profession = Elementalist
+  | special = Celestial
+  | pve-only = y
+  | activation = 1
+  | type = Skill
+  | description = Skill. A celestial storm forms at target [[foe]]'s location for 15 seconds. All foes [[in the area]] take 40 [[damage]] each second.
+  | concise description = Skill. Deals 40 damage each second (15 seconds). Also hits foes in the area of target's initial location.}}
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] elementalists by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *The skill actually strikes for 40 damage four times every second, in effect striking for 160 damage per second. Additionally, the skill description suggests that the damage is armor ignoring, when, in fact, it is reduced by armor. Exactly 1 pulse per second inflicts [[Lightning damage]], exactly 1 pulse per second inflicts [[Cold damage]], and some of the pulses inflict [[Fire damage]], the other pulses inflict unknown types of [[Elemental damage]], presumedly [[Earth damage]].
+  *This skill is disabled after using it and you can't use it untill you kill a boss (like all Celestial skills).
+Gelatinous Corpse Consumption: |-
+  __NOTOC__{{skill infobox
+  | name = Gelatinous Corpse Consumption
+  | campaign = Eye of the North
+  | type = Skill
+  | special = monster
+  | energy = 5
+  | activation = 0.25
+  | recharge = 5
+  | description = [[Skill]]. Exploit target touched corpse to create 3 unstable oozes.
+  | concise description = Skill. Creates 3 unstable oozes. Exploits a fresh corpse.
+  }}
+  
+  == Notes ==
+  *This skill is used by [[Ooze Devourer]]s.
+Triple Shot: |-
+  {{skill infobox
+  | name = Triple Shot
+  | campaign = Factions
+  | profession = Ranger
+  | attribute = Allegiance rank
+  | type = Bow Attack
+  | energy = 10
+  | recharge = 10
+  | description=
+  [[Bow Attack]]. Shoot 3 arrows simultaneously at target [[foe]]. These arrows deal 48..25% less [[damage]].
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = [[Damage reduction]] 
+  | var1 at0 = 50 
+  | var1 at12 = 25 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  == Related skills ==
+  *{{skill icon|Dual Shot}}
+  *{{skill icon|Forked Arrow}}
+  
+  ==Notes==
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Ranger PvE-only skills]]
+Trample: |-
+  {{Skill infobox
+  | name = Trample
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | activation = 2
+  | recharge = 15
+  | description = [[Skill]]. Target touched foe and all adjacent foes are knocked down and struck for 80 damage.
+  | concise description = Touch Skill. Deals 80 damage; causes knock-down. Also hits adjacent foes.
+  }}
+  
+  ==Notes==
+  Creatures that are known to use this skill are:
+  * [[Modniir Priest]]
+  * [[Modniir Shaman]]
+  * [[Modniir Hunter]]
+  * [[Modniir Berserker]]
+  
+  ==Related skills==
+  *{{skill icon|Stampede}}
+Polymock Lightning Blast: |-
+  {{Skill infobox
+  | name = Polymock Lightning Blast
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Target foe is struck for 800 damage.
+  | concise description = Spell. Deals 800 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Smoke Wraith Form]]
+  
+  ==Related skills==
+  {{section-stub}}
+Polymock Smite Hex: |-
+  {{Skill infobox
+  | name = Polymock Smite Hex
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 30
+  | description = [[Spell]]. Remove the last hex placed upon you. If a hex is removed, your enemy takes 400 damage.
+  | concise description = Spell. Remove the last hex placed upon you. Removal effect: deals 400 damage to your foe.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Aloe Seed Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Smite Hex}}
+HYAHHHHH!: |-
+  {{Skill infobox
+  | name = HYAHHHHH!
+  | campaign = Eye of the North
+  | type = Stance
+  | special = Devourer
+  | energy = 5
+  | recharge = 1
+  | description = [[Stance]]. For 10 seconds, you move 11% faster. This [[skill]] ends if you use another skill or stop moving.  Use this skill up to 3 times to gain an additional 11% faster movement each time.
+  | concise description = Stance. (10 seconds.) You move 11% faster. Use this skill up to 3 times to gain an additional 11% faster movement each time. Ends if you use another skill or stop moving.}}
+  
+  ==Notes==
+  *If the duration of the 33% version expires, it is replaced with the 22% version, and if the duration of the 22% version expires, it is replaced with the 11% version.
+Polymock Mind Freeze: |-
+  {{Skill infobox
+  | name = Polymock Mind Freeze
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 4
+  | activation = 1
+  | recharge = 15
+  | description = [[Spell]]. Target foe suffers 400 damage. If you have more Energy than target foe, that foe suffers an additional 400 damage.
+  | concise description = Spell. Deals 400 damage. Deals 400 more damage if you have more Energy than target foe.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dredge Form]]
+  *[[Ice Imp Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Mind Freeze}}
+Mirage Iboga Form: "{{effect infobox\n\
+  | name = Mirage Iboga Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Mirage Iboga Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Mirage Iboga Form.jpg|thumb|left|300px|Mirage Iboga Form]]\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Calculated Risk\xC2\xA6Polymock Overload\xC2\xA6Polymock Recurring Insecurity}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Mirage Iboga Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Storm of Swords: |-
+  {{skill infobox
+  | name = Storm of Swords
+  | campaign = Factions
+  | profession = Warrior
+  | type = Skill
+  | special = Celestial
+  | pve-only = y
+  | activation = 1
+  | description = Skill. For 15 seconds, you and all [[adjacent]] [[allies]] deal 25 [[damage]] to all adjacent [[foe]]s each second.
+  | concise description = Skill. (15 seconds.) Affects you and all adjacent allies. Deals 25 damage to all adjacent foes each second.}}
+  
+  ==Acquisition==
+  This skill is temporarily acquired by [[Primary profession|primary]] [[Warrior]]s by talking to [[Kuunavang]] in [[Raisu Palace]], [[Imperial Sanctum]] or [[Raisu Palace (explorable area)]].
+  
+  ==Notes==
+  *Only [[recharge]]s after [[morale boost]]s.
+  *Very effective when combined with [[melee]] [[minion]]s and [[Star Strike]].
+  
+  ==Trivia==
+  *[[w:A Storm of Swords|A Storm of Swords]] is the name of the third book in the Song of Ice and Fire series by George R. R. Martin.
+Energy Channel: |-
+  {{skill infobox
+  | name = Energy Channel
+  | campaign = Eye of the North
+  | special = Blessing
+  | type = Blessing
+  | description = [[Blessing]]. For 60 seconds, you gain 5 [[Energy]] every time you kill a foe.}}
+  ==Notes==
+  *This blessing is acquired as a possible bonus from accumulating kills while under the blessing of [[Asuran Bodyguard]].
+Crystal Shield: |-
+  {{skill infobox
+  | name = Crystal Shield
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Enchantment Spell
+  | recharge = 10
+  | activation = 1/2
+  | description = [[Enchantment Spell]]. This creature conjures a shield that absorbs 250 damage.
+  | concise description = Enchantment Spell. The ettin conjures a shield that absorbs 250 damage. The ettin can cast spells but not attack.
+  }}
+  
+  == Notes ==
+  * This spell is used by [[Crystal Ettin]] and [[Eldritch Ettin]].
+  * Use [[Inspired Enchantment]] or [[Revealed Enchantment]] to remove this enchantment as it is a monster skill. Thus, it will not replace the skill and instantly recharge. This is useful for this spell's short recharge time.
+Signet of Deadly Corruption: |-
+  {{Skill infobox
+  | name=Signet of Deadly Corruption
+  | campaign=Eye of the North
+  | profession=Assassin
+  | attribute=Deadly Arts
+  | type=Signet
+  | activation=1
+  | recharge=12
+  | description = [[Signet]]. Must follow a [[dual attack]]. This attack {{sic}} deals 5..35 [[damage]] for each [[Condition]] on [[target]] [[foe]] (maximum 130 damage).
+  | concise description = [[Signet]]. Deals 5..35 [[damage]] (maximum 130) for each [[condition]] on target [[foe]]. <span style="color:gray;">Must follow a dual attack.</span>
+  | requires = dual
+  }}
+  
+  {{Skill progression
+  |attribute = [[Deadly Arts]]
+  |var1 name = [[Damage]] per [[condition]]
+  |var1 at0 = 5
+  |var1 at15 = 35}}
+  
+  ==Acquisition==
+  '''[[Skill trainer]]s'''
+  *[[Eye of the North]]
+  **[[Micah Fergson]] ([[Eye of the North (outpost)]])
+  
+  ==Related skills==
+  *{{Skill icon|Signet of Suffering}}
+Great Dwarf Weapon: |-
+  {{Skill infobox
+  | name = Great Dwarf Weapon
+  | energy = 10
+  | activation = 1
+  | recharge = 5
+  | campaign = Eye of the North
+  | attribute = Deldrimor rank
+  | type = Weapon Spell
+  | pve-only = y
+  | description = [[Weapon Spell]]. For 20 seconds, target other ally's weapon strikes for +10..20 damage and has a 20..40% chance to cause [[knock down]].
+  | concise description = [[Weapon Spell]].  (20 seconds.)  +10..20 weapon damage and 20..40% chance to cause [[knock-down]] with attacks.  <span style="color:gray;">Cannot self-target.</span>
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Deldrimor rank]]
+  |var1 name = + Damage
+  |var1 at0  = 10
+  |var1 at10 = 20
+  |var2 name = Knock down chance %
+  |var2 at0  = 20
+  |var2 at10 = 40
+  }}
+  
+  ==Acquisition==
+  *[[Attack on Jalis's Camp]] (From [[Orozar Highstone]] in [[Battledepths]])
+  
+  ==Notes==
+  * This skill combines very well with skills like [[Barrage]], a scythe attack, or [["By Ural's Hammer!"]].
+Fungal Explosion: |-
+  {{skill infobox
+  | name = Fungal Explosion
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | energy = 5
+  | activation = 3
+  | recharge = 10
+  | description = Skill. This plant spore explodes, causing Poison and Diseased to nearby foes; also spreads seeds for new fungus.
+  | concise description = Skill. The spore explodes, inflicts Poison and Disease conditions to nearby foes, and spreads seeds for new fungus.
+  }}
+  
+  ==Notes==
+  *Used by [[Fungal Spore]].
+  *This skill causes the Fungal Spore to be replaced with a [[Parasitic Growth]].
+The Way of Strength: |-
+  {{Environment effect infobox
+  | campaign = Eye of the North
+  | trigger = [[Gate of Strength]]
+  }}
+  [[Environment Effect]]. The gate before you remains closed. Its inscription reads: "Those who possess great strength can take destiny in hand and forge a weapon of unique design. The way forward will open to those who show proof of strength."
+Rolling Shift: |-
+  {{Skill infobox
+  | name = Rolling Shift
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Spell
+  | activation = 2
+  | recharge = 10
+  | description = [[Attack]]. Creature shifts form to attack.
+  | concise description = Attack. Shift forms to attack.}}
+  
+  ==Notes==
+  *Used by [[Disc of Chaos]].
+  *This skill changes the shape of the Disc of Chaos.
+Aloe Seed Form: "{{skill infobox\n\
+  | name = Aloe Seed Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Aloe Seed Polymock piece]].\n\
+  | concise description = Disguise. You are the Aloe Seed Piece.}}\n\
+  [[Image:Screenshot Aloe Seed Form.jpg|thumb|left|300px|Aloe Seed Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Bane Signet\xC2\xA6Polymock Smite\xC2\xA6Polymock Smite Hex}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the [[Aloe Seed Polymock piece]] is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Searing Breath: |-
+  {{Skill infobox
+  |name = Searing Breath
+  |campaign = Eye of the North
+  |special = Monster
+  |type = Skill
+  |energy = 5
+  |activation = 3
+  |recharge = 15
+  |description = [[Skill]]. [[The Great Destroyer]] breathes a cone of fire that hits foes for 80 fire damage and 40 more fire damage for each [[enchantment]] on them. All [[Destroyer]]s in the affected area are healed for 80 Health.
+  |concise description = Skill. A cone of fire deals 80 fire damage and 40 more fire damage for each enchantment on struck foes. All Destroyers in the cone's area are healed for 80.
+  }}
+Decipher Inscriptions: |-
+  {{skill infobox
+  | name = Decipher Inscriptions
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | activation = 5
+  | description = [[Skill]]. Applies extracted inscriptions to open a doorway.
+  | concise description = Skill. Deciphers Ancient Inscriptions.
+  }}
+  
+  ==Notes==
+  *This skill is used by [[Gadd]] during [[Finding Gadd]] and [[Finding the Bloodstone]].
+Unseen Aggression: |-
+  {{skill-stub}}
+  {{skill infobox
+  |name = Unseen Aggression
+  |type = Melee attack
+  |special = Monster
+  |campaign = Eye of the North
+  |description = [[Melee Attack]]. If this attack hits, it deals 225 [[damage]] and causes [[knock down]] {{sic}}.
+  | concise description = Melee Attack. Deals 225 damage and causes knock-down.
+  }}
+Gloat: |-
+  {{skill infobox
+  | name = Gloat
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Skill
+  | activation = 2
+  | recharge = 20
+  | description = [[Skill]]. After killing an enemy, all [[Charr]] within [[earshot]] gain 10 [[Energy]] and 5 [[adrenaline]].
+  | concise description = Skill. After killing an enemy, all Charr within earshot gain 10 Energy and 5 adrenaline.
+  }}
+  
+  == Notes ==
+  * This skill uses the same animation as the Tiger [[Hero (title)|Hero]] emote.
+  * This skill is only used by the [[Charr]] in [[Eye of The North]].
+Polymock Lightning Strike: |-
+  {{Skill infobox
+  | name = Polymock Lightning Strike
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 1
+  | activation = 1
+  | recharge = 1
+  | description = [[Spell]]. Strike target foe for 120 [[damage]].
+  | concise description = Spell. Deals 120 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Gargoyle Form]]
+  *[[Mursaat Elementalist Form]]
+  *[[Smoke Wraith Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Lightning Strike}}
+Raven Shriek: |-
+  {{Skill infobox
+  | name = Raven Shriek
+  | campaign = Eye of the North
+  | attribute = Norn rank
+  | type = Shout
+  | recharge = 20
+  | pve-only = y
+  | description = [[Shout]]. Remove [[Blind]]ness from all allies within earshot. Cause Blindness to nearby foes for 4..10 seconds.
+  | concise description = [[Shout]]. Removes [[Blind]]ness from allies in earshot. Inflicts [[Blind]]ness condition (4..10 seconds) to [[nearby]] enemies.
+  }}
+  
+  {{Skill progression max10
+  |title track = [[Norn rank]]
+  |var1 name = [[Blindness]] duration
+  |var1 at0  = 4
+  |var1 at10 = 10
+  }}
+  
+  ==Notes==
+  *For acquisition and related information, see [[Raven Blessing]].
+Polymock Spirit Rift: |-
+  {{Skill infobox
+  | name = Polymock Spirit Rift
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. Open a Spirit Rift at target foe's location. After 3 seconds, that foe is struck for 850 damage.
+  | concise description = Spell. Open a Spirit Rift at target foe's location. Deals 850 damage after 3 seconds.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Naga Shaman Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Spirit Rift}}
+Polymock Diversion: |-
+  {{Skill infobox
+  | name = Polymock Diversion
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 2
+  | activation = 1
+  | recharge = 10
+  | description = [[Hex Spell]]. For 6 seconds, the next time target foe uses a skill, that skill takes an additional 4 seconds to recharge.
+  | concise description = Hex Spell. (6 seconds.) The next time target foe uses a skill, that skill takes +4 seconds to recharge.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Skeletal Mage Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Diversion}}
+Brawling Straight Right: "{{Skill infobox\n\
+  | name = Brawling Straight Right\n\
+  | campaign = Eye of the North\n\
+  | special = Brawling\n\
+  | type = Melee Attack\n\
+  | recharge = 8\n\
+  | activation = \xC2\xBD\n\
+  | description = [[Melee Attack]]. If this attack hits, it deals 25 damage and [[interrupt]]s an action.\n\
+  | concise description = Melee Attack. Deals 25 damage; interrupts an action.\n\
+  }}"
+"\"Save Yourselves!\"": |-
+  {{skill infobox
+  | name = "Save Yourselves!"
+  | campaign = Factions
+  | profession = Warrior
+  | attribute = Allegiance rank
+  | type = Shout
+  | adrenaline = 8
+  | elite = n
+  | description=
+  [[Shout]]. For 3..6 seconds, all other [[party member]]s gain 100 [[armor]].
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Duration 
+  | var1 at0 = 3 
+  | var1 at12 = 6 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  *[[Guild Hall]]
+  **Faction Rewards NPC
+  
+  ==Notes==
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  {{DEFAULTSORT:Save Yourselves!}}
+  
+  [[Category:Warrior PvE-only skills]]
+Polymock Mind Shock: |-
+  {{Skill infobox
+  | name = Polymock Mind Shock
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 4
+  | activation = 1
+  | recharge = 10
+  | description = [[Spell]]. Target foe suffers 400 damage. If you have more Energy than target foe, that foe suffers an additional 400 damage.
+  | concise description = Spell. Deals 400 damage. Deals 400 more damage if you have more Energy than target foe.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Mursaat Elementalist Form]]
+  *[[Smoke Wraith Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Mind Shock}}
+Polymock Ice Shard Storm: |-
+  {{Skill infobox
+  | name = Polymock Ice Shard Storm
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 20
+  | description = [[Spell]]. Target foe begins [[Bleeding]] for 20 seconds.
+  | concise description = Spell. Inflicts Bleeding condition (20 seconds). Bleeding causes -3 Health degeneration.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Kappa Form]]
+  
+  ==Notes==
+  *Bleeding causes 10 health degeneration in Polymock.
+  
+  ==Related skills==
+  {{section-stub}}
+Aura of Holy Might: |-
+  {{Skill infobox
+  | name = Aura of Holy Might
+  | campaign = Factions
+  | profession = Dervish
+  | attribute = Allegiance rank
+  | type = Enchantment Spell
+  | energy = 10
+  | activation = 0.75
+  | recharge = 25
+  | elite = n
+  | description=
+  [[Enchantment Spell]]. All [[nearby]] [[foe]]s take 30..50 [[holy damage]]. For 20 seconds, you deal 20..32% more damage with your [[scythe]]. When this Enchantment ends, all nearby foes take 30..50 holy damage.
+  }}
+  
+  {{ Skill progression max12 
+  | title track = [[Allegiance rank]] 
+  | var1 name = Holy damage
+  | var1 at0 = 30 
+  | var1 at12 = 50 
+  | var2 name = +% Damage
+  | var2 at0 = 20 
+  | var2 at12 = 32 
+  }}
+  
+  ==Acquisition==
+  *[[House zu Heltzer]]
+  **[[Kurzick Bureaucrat]]
+  *[[Cavalon]]
+  **[[Luxon Scavenger]]
+  
+  ==Notes==
+  *This enchantment changes your type of damage to [[holy damage]], making it extremely effective in areas containing lots of [[undead]] (since [[holy damage]] does double the damage to [[undead]] creatures).
+  *The extra damage from this skill is calculated off of base damage, not final damage like [[Vow of Strength]].
+  *After reaching the first [[allegiance rank]], Kurzick/Luxon Supporter, level 20 characters may learn this skill from a Kurzick Bureaucrat or Luxon Scavenger for 3000 Faction.
+  
+  [[Category:Dervish PvE-only skills]]
+Polymock Frozen Armor: |-
+  {{Skill infobox
+  | name = Polymock Frozen Armor
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Enchantment spell
+  | energy = 2
+  | activation = 2
+  | recharge = 20
+  | description = [[Enchantment Spell]]. For 30 seconds, you gain 1,000 maximum [[Health]].
+  | concise description = Enchantment Spell. (30 seconds.) You have +1,000 [[Health]].}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Ice Elemental Form]]
+  
+  ==Related skills==
+  {{section-stub}}
+Destructive was Glaive: "#REDIRECT [[Destructive Was Glaive]]"
+Firebomb Explosion: |-
+  {{Skill infobox
+  | name = Firebomb Explosion
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Signet
+  | description = Signet. When the firebomb explodes, all [[nearby]] foes are struck for 200 [[fire damage]] and are [[burning|set on fire]] for 5 seconds.
+  | concise description = Signet. Affects nearby foes. Deals 200 fire damage and inflicts Burning condition (5 seconds).
+  }}
+  
+  ==Notes==
+  *This effect is caused when a [[Fire Bomb]] [[bundle]] explodes. Fire Bombs are created with the [[Firebomb]] skill, used by [[Ilsundur, Lord of Fire]], the final boss of the dungeon [[Catacombs of Kathandrax]].
+Smoke Wraith Form: "{{effect infobox\n\
+  | name = Smoke Wraith Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the Smoke Wraith Polymock piece.\n\
+  }}\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Lightning Blast\xC2\xA6Polymock Lightning Strike\xC2\xA6Polymock Mind Shock}}\n\n\
+  ==Notes==\n\
+  *This disguise is only available to NPC opponents in the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Infernal Rage: |-
+  {{skill infobox
+  | name = Infernal Rage
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Stance
+  | energy = 10
+  | recharge = 45
+  | description = [[Stance]]. For 45 seconds, this creature has +1,000 maximum Health and attacks 33% faster, and its melee attacks hit target and nearby foes.
+  | concise description = Stance. (45 seconds.) Your melee attacks hit nearby foes. You gain +1,000 maximum Health and attack 33% faster.
+  }}
+  
+  == Notes ==
+  * This skill is used by the [[Charr Prison Guard]]s in [[Warband of Brothers]].
+Asuran Flame Staff: |-
+  {{effect-stub}}
+  {{effect infobox
+  | campaign = Eye of the North
+  | bundle = Asura Flame Staff
+  | description = [[Skill]]. Use the Flame Staff to destroy spider webs and [[Spider Eggs|egg sacs.]]
+  }}
+  
+  ==Notes==
+  *This effect is obtained by holding the [[Asura Flame Staff]].
+Polymock Savannah Heat: |-
+  {{Skill infobox
+  | name = Polymock Savannah Heat
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 20
+  | description = [[Spell]]. You create Savannah Heat at target foe's location. For 5 seconds, that foe takes 100 damage each second and an additional 50 damage for each second this spell has been in effect.
+  | concise description = Spell. Deals 100 damage each second (5 seconds) at target foe's location. Deals 50 more damage for each second since casting this spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Titan Form]]
+  
+  ==Notes==
+  *This skill has a bug that will occasionally cause it to continue damaging your character after your piece dies, if it is not yet finished.  The massive amount of armor-ignoring damage it causes usually kills you, resulting in a draw.
+  
+  ==Related skills==
+  *{{Skill icon|Savannah Heat}}
+Dishonorable: |-
+  {{Skill infobox
+  | name = Dishonorable
+  | campaign = Core
+  | type = Hex spell
+  | special = Special
+  | description = [[Hex Spell]]. You are considered Dishonorable because teammates repeatedly reported you for leeching, or because you repeatedly abandoned your team in [[Random Arenas]], [[Alliance Battles]], or [[Competitive Mission]]s. You may not participate in [[PvP]] until this effect expires.
+  }}
+  == Notes ==
+  * [[Dishonorable]] is the effect of accumulating ten or more dishonor points on a player and lasts one minute for each dishonor point that player has. 
+  * Although this effect can only be bestowed while playing in Random Arenas, Alliance Battles or Competitive Missions, it prevents you from attending '''any''' PvP mission, including [[Heroes' Ascent]], [[Team Arenas]], [[Hero Battles]] and [[Guild Battle]]s
+  * Another way to obtain [[Dishonorable]] is by resigning twice from [[Rollerbeetle Races]]. Resigning can also mean being kicked off the server due to lag.
+  * Players that have this effect are noticed due to the [[hex]]'s distinctive purple downwards arrow on the health bar. This hex is only displayed in PvP outposts, and is currently the only hex in the game that is displayed while you are in a [[town]] or [[outpost]].
+  * Unlike most hexes, the dark ring does not appear near the lower section of a character.
+  * This effect was added as part of the [[Dishonorable Combatant System]] ([[Game updates/20070927|September, 27, 2007]].)
+  * There is no way to see how many dishonor points you have accumulated.
+Gargoyle Form: "{{effect infobox\n\
+  | name = Gargoyle Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Gargoyle Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Gargoyle Form.jpg|thumb|left|300px|Gargoyle Form]]\n\
+  {{clear}}\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Lightning Djinn's Haste\xC2\xA6Polymock Lightning Orb\xC2\xA6Polymock Lightning Strike}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Gargoyle Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Boss Bounty: |-
+  This is available for each of the group that has a [[title]] track in [[Eye of the North]] while affected by a [[blessing]]:
+  *[[Asuran Bodyguard|Asura]]
+  *[[Dwarven_Raider|Deldrimor]]
+  *[[Norn Hunting Party|Norn]]
+  *[[Vanguard Patrol|Ebon Vanguard]]
+  
+  {{bug|Occasionally known to be kept for two or more bosses, the bosses in succession  you kill will still give you the reward of 300 reputation points.}}
+  
+  
+  Boss Bounty is a [[Blessing]] that has a chance to be granted after every 25 kills.
+  
+  [[Image:Boss Bounty (Asura).png]][[Image:Dwarven Boss Bounty.jpg]][[Image:Boss Bounty Norn.jpg]][[Image:Boss Bounty Vanguard.jpg]]
+  
+  [[Normal Mode]]
+  ''Blessing. For 5 minutes, you earn +200 reputation for the next boss you kill.''
+  
+  [[Hard Mode]]
+  ''Blessing. For 10 minutes, you earn +300 reputation for the next boss you kill.''
+  
+  ==Trivia==
+  The Character in the Dwarven Boss Hunt Icon seems to be [[Dagnar Stonepate]] on his [[Ice Drake]]
+Stone Rain Form: "{{effect infobox\n\
+  | name = Stone Rain Form\n\
+  | campaign = Eye of the North\n\
+  | type = Disguise\n\
+  | description = [[Disguise]]. You are playing as the [[Stone Rain Polymock piece]].\n\
+  }}\n\
+  [[Image:Screenshot Stone Rain Form.jpg|thumb|left|300px|Stone Rain Form]]\n\
+  {{clear}}\n\n\
+  ==Skillbar==\n\
+  {{skill table|titlematch = Polymock Block\xC2\xA6Polymock Ether Signet\xC2\xA6Polymock Glyph of Concentration\xC2\xA6Polymock Glyph of Power\xC2\xA6Polymock Power Drain\xC2\xA6Polymock Eruption\xC2\xA6Polymock Stone Daggers\xC2\xA6Polymock Stoning}}\n\n\
+  ==Notes==\n\
+  *This disguise is applied when the Stone Rain Polymock piece is selected as the active piece the [[Polymock Coliseum]].\n\n\
+  ==See also==\n\
+  *[[Polymock]]\n\n\
+  [[Category:Polymock disguises]]"
+Polymock Backfire: |-
+  {{Skill infobox
+  | name = Polymock Backfire
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Hex Spell
+  | energy = 2
+  | activation = 2
+  | recharge = 30
+  | description = [[Hex Spell]]. For 15 seconds, every time target foe casts a spell, that foe takes 50 damage.
+  | concise description = Hex Spell. (15 seconds.) Deals 50 damage every time target foe casts a spell.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Skeletal Mage Form]]
+  *[[Wind Rider Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Backfire}}
+Tremor: |-
+  {{Skill infobox
+  | name = Tremor
+  | campaign = Eye of the North
+  | special = Monster
+  | type = Shout
+  | energy = 5
+  | recharge = 12
+  | description = Shout. All foes within earshot are knocked down for 4 seconds.
+  | concise description = Shout. Causes knock-down (4 seconds) to foes in earshot.}}
+  ==Notes==
+  *This skill is used by [[Destroyer Tremor]] creatures.
+Polymock Banish: |-
+  {{Skill infobox
+  | name = Polymock Banish
+  | campaign = Eye of the North
+  | special = Polymock
+  | type = Spell
+  | energy = 6
+  | activation = 1
+  | recharge = 10
+  | description = [[Spell]]. Target foe takes 800 damage.
+  | concise description = Spell. Deals 800 damage.}}
+  
+  ==Acquisition==
+  This skill is available in the following Polymock forms:
+  *[[Dolyak Rider Form]]
+  
+  ==Related skills==
+  *{{Skill icon|Banish}}

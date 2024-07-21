@@ -1,0 +1,392 @@
+<html>
+<head>
+  <title>Character - Regression tests</title>
+  <script src="util.js" type="text/javascript"></script>
+  <script src="slotset.js" type="text/javascript"></script>
+  <script src="base64codec.js" type="text/javascript"></script>
+  <script src="defs.js" type="text/javascript"></script>
+  <script src="character.js" type="text/javascript"></script>
+  <script src="character-anet.js" type="text/javascript"></script>
+  <script src="skill.js" type="text/javascript"></script>
+  <script src="item.js" type="text/javascript"></script>
+  <script src="data-skill.js" type="text/javascript"></script>
+  <script src="data-equip.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  var tests = [];
+  tests.push( {
+    name:"CharacterAttr.clone()",
+    enabled:true,
+    run:function() {
+      var pattr = new CharacterAttr(8, "Superior", true,
+        "name", "abbrev", "desc", true, true);
+      var pa2 = pattr.clone();
+      for (var p in pattr) {
+        if (pattr[p] != pa2[p]) return p;
+      }
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"CharacterAttr.rawValue()",
+    enabled:true,
+    run:function() {
+      var pattr = new CharacterAttr(8, "Superior", true,
+        "name", "abbrev", "desc", true, true);
+      if (pattr.rawValue() != 4) return "Rune & helm strip";
+      pattr.rune = "None";
+      pattr.headgear = false;
+      if (pattr.rawValue() != 8) return "No change";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"Character()",
+    enabled:true,
+    run:function() {
+      var p1 = new Character('one');
+      var val = p1.attrPoints();
+      if (val[0] != 200 || val[1] != 200) return "attribute points";
+      val = p1.health();
+      if (val[0] != 570 || val[1] != 570) return "health";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"optimize_i()",
+    enabled:true,
+    run:function() {
+      var cattr = new CharacterAttrCost;
+      var p1 = new Character('one');
+      p1.setPrimary('E');
+      p1.setSecondary('Me');
+      var pattrs = p1.pattrArray();
+      pattrs[0].value = 14;
+      pattrs[0].headgear = false;
+      pattrs[1].value = 1;
+      pattrs[1].headgear = true;
+      Character.prototype.autoHeadgear = false;
+      if (!p1.optimize_i(pattrs, cattr)) return "optimize w/o headgear";
+      if (cattr.attrPts != 97) return "Used attr points (no-hg)";
+      if (cattr.runes != 1) return "Runes used (no-hg)";
+      if (cattr.health != -45) return "Adjustment to health (no-hg)";
+      Character.prototype.autoHeadgear = true;
+      if (!p1.optimize_i(pattrs, cattr)) return "optimize with headgear";
+      if (cattr.attrPts != 98) return "Used attr points";
+      if (cattr.runes != 1) return "Runes used";
+      if (cattr.health != -10) return "Adjustment to health";
+      pattrs[0].value = 0;
+      pattrs[1].value = 0;
+      if (!p1.optimize_i(pattrs, cattr)) return "null cattr";
+      pattrs[0].value = 12;
+      pattrs[1].value = 6;
+      pattrs[4].value = 12;
+      pattrs[5].value = 4;
+      if (!p1.optimize_i(pattrs, cattr)) return "optimize 12,6,,,12,4";
+      //alert('[' + [cattr.attrPts,cattr.runes,cattr.health] + ']');
+      if (cattr.compare(new CharacterAttrCost(185,1,-10))) {
+        return "result 12,6,,12,4";
+      }
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"setName()",
+    enabled:true,
+    run:function() {
+      Character.prototype.anetNameFormat = true;
+      var p1 = new Character("one");
+      if (p1.name != 'One') return "Simple word";
+      p1.setName(" two three ");
+      if (p1.name != "Two Three") return "Two word, leading & trailing";
+      //alert(p1.toCode());
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"setAttrValue()",
+    enabled:true,
+    run:function() {
+      var p1 = new Character('one');
+      //alert(p1.attrPoints().concat(p1.health()));
+      var pattrs = p1.pattrArray();
+      p1.setAttrValue(pattrs[0].name, 15);
+      //alert(p1.attrPoints().concat(p1.health()));
+      if (p1.attrPoints()[0] != 103) return "Available attr points";
+      if (p1.health()[0] != 525) return "Remaining health";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"attrValueChoices()",
+    enabled:true,
+    run:function() {
+      var p1 = new Character('one');
+      var pattrs = p1.pattrArray();
+      //alert("about to calculate value choices");
+      var cattrs = p1.attrValueChoices(pattrs[0].name);
+      var alertChoices = function(cattrs) {
+        var out = "";
+        for (var i1 = 0; i1 < cattrs.length; ++i1) {
+          var cattr = cattrs[i1];
+          if (i1) out += '\n';
+          out += i1 + ": ";
+          if (cattr == null) {
+            out += 'null';
+          } else {
+            out += '[' + [cattr.attrPts,cattr.runes,cattr.health] + ']';
+          }
+        }
+        alert(out);
+      }
+      //alertChoices(cattrs);
+      if (cattrs[0] == null) return "Null zero attribute";
+      var cattr = new CharacterAttrCost(28,0,0); 
+      if (cattrs[8] == null || cattr.compare(cattrs[8])) return "Cost at 8";
+      cattr = new CharacterAttrCost(97,1,-85); 
+      if (cattrs[16] == null || cattr.compare(cattrs[16])) return "Cost at 16";
+      p1.setAttrValue(pattrs[0].name, 16);
+      p1.setAttrValue(pattrs[1].name, 15);
+      p1.setAttrValue(pattrs[2].name, 6);
+      p1.setAttrValue(pattrs[3].name, 3);
+      cattrs = p1.attrValueChoices(pattrs[1].name);
+      //alertChoices(cattrs);
+      cattr = new CharacterAttrCost(200,4,-340);
+      if (cattrs[15] == null || cattr.compare(cattrs[15])) return "Cost(2) at 15";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"setLevel()",
+    enabled:true,
+    run:function() {
+      var p1 = new Character('one');
+      var pattrs = p1.pattrArray();
+      p1.setAttrValue(pattrs[0].name, 16);
+      p1.setAttrValue(pattrs[1].name, 15);
+      p1.setAttrValue(pattrs[2].name, 6);
+
+      p1.setLevel(18, 0);
+      //alert(p1.attrPoints().concat(p1.health()));
+      pattrs = p1.pattrArray();
+      var av = pattrs[0].value + ", " +
+        pattrs[1].value + ", " +
+        pattrs[2].value;
+      //alert(av);
+      if (av != "16, 11, 6") return "Reduce attrs to level";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"primaryChoices()<br>secondaryChoices()",
+    enabled:true,
+    run:function() {
+      var p1 = new Character('one');
+      var vars = p1.primaryChoices().toString();
+      if (vars != 'A,D,E,Me,Mo,N,P,R,Rt,W') return "Ten primaries";
+      vars = p1.secondaryChoices().toString();
+      if (vars != 'D,E,Me,Mo,N,P,R,Rt,W') return "Default 9 secondaries";
+      p1.setSecondary('W');
+      vars = p1.secondaryChoices().toString();
+      if (vars != 'D,E,Me,Mo,N,P,R,Rt,W') return "After 2ndary change";
+      p1.setPrimary('N');
+      vars = p1.secondaryChoices().toString();
+      if (vars != 'A,D,E,Me,Mo,P,R,Rt,W') return "New primary";
+      p1.setPrimary('W');
+      vars = p1.secondaryChoices().toString();
+      if (vars != 'A,D,E,Me,Mo,N,P,R,Rt') return "Primary/Secondary swap";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"setPrimary()<br>setSecondary()",
+    enabled:true,
+    run:function() {
+      var alertAttrs = function(ch) {
+        var out = "";
+        var pattrs = ch.pattrArray();
+        for (var i1 = 0; i1 < pattrs.length; ++i1) {
+          var pattr = pattrs[i1];
+          out += pattr.name + ": " + pattr.value;
+          if (pattr.isPrimary) {
+            out += " (" + pattr.rune;
+            if (pattr.headgear) out += ", Helm";
+            out += ")";
+          }
+          out += "\n";
+        }
+        out += "Points " + p1.attrPoints() + "\n";
+        out += "Health " + p1.health();
+        alert(out);
+      }
+
+      var p1 = new Character("one");
+      p1.setPrimary('Me');
+      p1.setSecondary('E');
+      //alertAttrs(p1);
+      var pattrs = p1.pattrArray();
+      for (var i1 = 0; i1 < pattrs.length; ++i1) {
+        p1.setAttrValue(pattrs[i1].name, pattrs.length - i1);
+      }
+      p1.setAttrRune(pattrs[2].name, 'Major');
+      //alertAttrs(p1);
+      p1.setPrimary('N');
+      p1.setPrimary('E');
+      pattrs = p1.pattrArray();
+      //alertAttrs(p1);
+      if (pattrs[1].value != 4) return "Attribute moved from secondary";
+      p1.setSecondary('Me');
+      pattrs = p1.pattrArray();
+      //alertAttrs(p1);
+      if (pattrs[6].value != 6) return "Deruned secondary";
+      p1.setPrimary('Me');
+      pattrs = p1.pattrArray();
+      if (pattrs[2].value != 8 || pattrs[2].rune != 'Major') return "Restored rune";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"clone()<br>toCode()<br>parse()",
+    enabled:true,
+    run:function() {
+      var p1 = new Character('one');
+      var pattrs = p1.pattrArray();
+      for (var i1 = 0; i1 < pattrs.length; ++i1) {
+        p1.setAttrValue(pattrs[i1].name, i1 + 1);
+      }
+      var p2 = p1.clone('one');
+      if (p1.toCode() != p2.toCode()) return "Clone toCode";
+      p1.setName('First');
+      p1.setPrimary('E');
+      var val1 = p1.toCode();
+      if (val1 == p2.toCode()) return "Changed toCode";
+      //alert(p1.dumpAttrs() + val1);
+      p2 = Character.prototype.parse(val1);
+      var val2 = p2.toCode();
+      //alert("'" + val1 + "'\n'" + val2 + "'\n" + [p1.name, p2.name]);
+      if (val1 != val2) return "Parsed toCode";
+      if (p2.name != 'First') return "Parsed name";
+      return null;
+    }
+  } );
+  tests.push( {
+    name:"Speed test at 0 runes",
+    //enabled:true,
+    run:function() {
+      var num = 10;
+      var p1 = new Character('one');
+      var pattrs = p1.pattrArray();
+      var s1 = new Date();
+      for (var i1 = 0; i1 < num; ++i1) {
+        p1.cattrs = new Object; // clear cache, force recalc
+        for (var ia = 0; ia < pattrs.length; ++ia) {
+          var cattrs = p1.attrValueChoices(pattrs[ia].name);
+        }
+      }
+      var e1 = new Date();
+      return "Elapsed " + (e1 - s1);
+    }
+  } );
+  tests.push( {
+    name:"Speed test at 4 runes",
+    //enabled:true,
+    run:function() {
+      var num = 10;
+      var p1 = new Character('one');
+      var pattrs = p1.pattrArray();
+      p1.setAttrValue(pattrs[0].name, 3);
+      p1.setAttrValue(pattrs[1].name, 15);
+      p1.setAttrValue(pattrs[2].name, 6);
+      p1.setAttrValue(pattrs[3].name, 16);
+      var s1 = new Date();
+      for (var i1 = 0; i1 < num; ++i1) {
+        p1.cattrs = new Object; // clear cache, force recalc
+        for (var ia = 0; ia < pattrs.length; ++ia) {
+          var cattrs = p1.attrValueChoices(pattrs[ia].name);
+        }
+      }
+      var e1 = new Date();
+      return "Elapsed " + (e1 - s1);
+    }
+  } );
+
+
+  function getCheckbox(row) {
+    return row.childNodes[0].firstChild;
+  }
+  function getResultNode(row) {
+    return row.childNodes[3];
+  }
+
+  function init() {
+    loadSkills();
+    indexSkills();
+    loadItems();
+    enableTests(null);
+  }
+  function enableTests(enable) {
+    var rows = document.getElementById("results").rows;
+    for (var i1 = 1; i1 < rows.length; ++i1) {
+      var row = rows[i1];
+      var test = tests[i1 - 1];
+      var checkbox = getCheckbox(row);
+      //alert(i1 + '. checked: ' + checkbox.checked + '/' + test.enabled)
+      if (enable == null) {
+        checkbox.checked = test.enabled;
+      } else {
+        test.enabled = enable;
+        checkbox.checked = enable;
+      }
+    }
+  }
+  function runTests() {
+    var rows = document.getElementById("results").rows;
+    var testId = decodeQueryString(document.location).id;
+    for (var i1 = 1; i1 < rows.length; ++i1) {
+      var row = rows[i1];
+      var resultNode = getResultNode(row);
+      resultNode.innerHTML = 'pending...';
+    }
+    for (var i1 = 1; i1 < rows.length; ++i1) {
+      var row = rows[i1];
+      var test = tests[i1 - 1];
+      var resultNode = getResultNode(row);
+      resultNode.innerHTML = 'RUNNING...';
+      if (testId != null && testId != i1 || !test.enabled) {
+        resultNode.innerHTML = "<skipped>";
+      } else {
+        var testResult = test.run();
+        if (testResult == null) {
+          resultNode.innerHTML = "passed";
+        } else {
+          resultNode.innerHTML = "FAILED - " + testResult + " check";
+        }
+      }
+    }
+  }
+  </script>
+</head>
+<body onload="init()">
+  <h2>Tests</h2>
+  <table id="results" border="1">
+    <tr>
+      <td><input type='checkbox' onclick='enableTests(this.checked)'></td>
+      <td>#</td>
+      <td>Name</td>
+      <td>Result</td>
+    </tr>
+    <script type="text/javascript">
+    for (var i1 = 0; i1 < tests.length; ++i1) {
+      document.write("<tr><td><input type='checkbox'" + 
+                       " onchange='tests[" + i1 + "].enabled = this.checked'" +
+                       (tests[i1].enabled ? " checked='checked'" : "") +
+                       "></td>" +
+                     "<td>" + i1 + ".</td>" + 
+                     "<td>" + tests[i1].name + "</td>" +
+                     "<td>pending...</td></tr>");
+    }
+    </script>
+  </table>
+  <div><input type='button' value='Run tests' onclick='runTests()'></div>
+</body>
+</html>
+

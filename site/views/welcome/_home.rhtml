@@ -1,0 +1,34 @@
+<script type="text/javascript">
+<% paneRef = menuId + '_home' %>
+<%= paneRef %> = new Pane({
+  title: "Home",
+  id: "<%= paneRef %>"
+});
+PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
+</script>
+<div class="pane" id="<%= paneRef %>" style="display: none">
+<table class='pane'><tr><td class='paneContent'>
+  Welcome to GuildBuilds. A repository for saving, sharing, and 
+  editing GuildWars individual and team builds. 
+  <ul>
+    <li><a href="javascript:void(PaneSet.prototype.activate('<%= menuId %>','Builds'))">Builds</a> - search, view, and edit builds</li>
+    <li class='memberListItem'><a href="javascript:void(PaneSet.prototype.activate('<%= menuId %>','Groups'))">Groups</a> - form, join, or invite others to groups</li>
+    <li><a href="javascript:void(PaneSet.prototype.activate('<%= menuId %>','Data'))">Data</a> - raw data and data tools, not for causal users</li>
+    <li><a href="javascript:void(PaneSet.prototype.activate('<%= menuId %>','FAQ'))">FAQ</a> - frequently asked questions</li>
+  </ul>
+  <br>
+  <div style='font-size: 9pt'>
+  Browser compatibility:
+  </div>
+  <div style='font-size: 9pt; margin: 0px 0px 0px 10px'>
+  Firefox 2.0 - its all good<br/>
+  Internet Explorer 7 - quite usable, if a bit slow<br/>
+  Other - sorry for the ugliness and frustration you are about 
+  to experience.<br/>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <%= render :partial => "welcome/sidebar", :locals => { :menuId => menuId } %>
+  </div>
+</td></tr></table>
+</div>

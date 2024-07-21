@@ -1,0 +1,74 @@
+Barbed Spear
+Spear Attack 0 3 0 0
+If this attack hits, your target begins Bleeding for $bleeding$ seconds.
+bleeding 5 15
+
+Blazing Spear
+Spear Attack 0 7 0 0
+If this attack hits, it deals +$damage$ damage and sets target foe on fire for $burning$ seconds.
+damage 5 30
+burning 1 3
+
+Cruel Spear
+Spear Attack 0 7 0 0
+If this attack hits, you deal +$damage$ damage. If it hits a non-moving target, you inflict a Deep Wound for $deepwound$ seconds.
+damage 5 30
+deepwound 10
+
+Depleting Assault
+Spear Attack 0 3 0 0 
+If this attack hits, you deal +$damage$ damage. You are Weakened for 20 seconds.
+damage 10 40
+weakness 20
+
+Disrupting Throw
+Spear Attack 5 0 .5 10
+If this attack hits a foe suffering from a Condition, that foe is interrupted.
+condition-punish
+
+Harrier's Toss
+Spear Attack 10 0 .5 10
+If this attack hits, you deal +$damage$ damage. If this attack hits a moving foe, it deals an additional $damage-if$ damage.
+damage 5 20
+damage-if 5 30
+
+Merciless Spear
+Spear Attack 0 6 0 0 
+If this attack hits a foe with less than 50% Health, that foe suffers from a Deep Wound for $deepwound$ seconds.
+deepwound 5 20
+
+Mighty Spear
+Spear Attack 0 2 3 0
+Your spear moves three times faster. If it hits you deal +$damage$ damage.
+damage 10 40
+
+Spear of Lightning
+Spear Attack 5 0 0 2
+If this attack hits, it deals +$damage$ lightning damage. This attack has 25% armor penetration.
+damage 5 20
+
+Stunning Strike
+Elite Spear Attack 0 8 0 0
+If this attack hits, you deal +$damage$ damage. If it hits a foe suffering from a Condition that foe is also Dazed for $dazed$ seconds.
+damage 10 40
+dazed 5 15
+
+Unblockable Throw
+Spear Attack 0 7 3 0
+If this attack you deal +$damage$ damage. This attack cannot be "blocked."
+damage 10 40
+block-counter
+
+Vicious Attack
+Spear Attack 5 0 0 8
+If this attack hits, you deal +$damage$ damage. If you land a critical hit with this attack, target foe suffers from a Deep Wound for $deepwound$ seconds.
+damage 5 30
+deepwound 5 15
+
+Wild Throw
+Spear Attack 0 7 0 0
+If this attack hits, if deals +$damage$ damage, and any Stand being used by your target ends. This attack cannot be "blocked" or "evaded."
+damage 5 20
+block-counter
+evade-counter
+

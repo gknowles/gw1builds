@@ -1,0 +1,65 @@
+<html>
+<head>
+<% 
+skin = {}
+%>
+<script type='text/javascript'>
+  var data = <%= @json.to_json %>;
+  if (parent && parent.api) {
+    parent.api.impl.handler(data);
+  } else if (opener && opener.api) {
+    opener.api.impl.handler(data);
+  }
+</script>
+<style type="text/css">
+h2 {
+  border-style: solid;
+  border-width: 1px 0px 1px 1px;
+  border-color: #61AFDF #000000 #000000 #61AFDF;
+  background-image: url("../images/headerBG.png");
+  background-repeat: repeat-x;
+  background-color: #647FC7;
+  color: white;
+  text-align: left;
+  font-family: serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 4px 0px 4px;
+  margin: 0px;
+  line-height: 26px;
+}
+div.accountPane div.minwidth {
+  min-width: 350px;
+  max-width: 450px;
+  color: black;
+  background-color: #D6DEEC;
+  border: 2px solid;
+  border-color: #4e5a7e #2b334b #4e5a7e #2b334b;
+}
+div.accountPane div.section {
+  padding: 10px;
+}
+div.accountPane div.errpane {
+  background-color: mistyrose; 
+}
+</style>
+</head>
+<body>
+<div class='accountPane' style='
+  margin-left: 50%;
+  position: relative;
+  left: -200px;
+  top: 50px;
+  width: 400px;
+  max-width: 400px;
+  '>
+  <div class='minwidth'>
+    <h2>OpenID Processed</h2>
+    <div class='section'>
+    Your login has been processed (successfully we hope!), please close this 
+    window and return to the main GuildBuilds window to continue.
+    </div>
+  </div>
+</div>
+</body>
+</html>
