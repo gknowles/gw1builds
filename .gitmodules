@@ -1,0 +1,4 @@
+[submodule "vendor/gw1builds"]
+	path = vendor/gw1builds
+	url = https://github.com/gknowles/gw1builds.git
+	branch = gh-pages
