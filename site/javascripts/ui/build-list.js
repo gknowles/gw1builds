@@ -1,12 +1,18 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.build-list"); }
+build-list.js - gw1builds ui
+*/
 
 /**
  * DDBuildList - DragDrop policy that provides
  * - tooltip with skillbar of the toon
  * - delegated click function
  */
-var DDBuildList = dojo.mixin({}, DDPolicy, DDMixPartList, {
+var DDBuildList = DDPolicy;
+Object.assign(DDBuildList, DDMixPartList)
+Object.assign(DDBuildList, {
   ddPolicyName: 'DDBuildList',
   elemId: 'buildList',
   partType: 'build',
@@ -53,7 +59,7 @@ DDBuildList.drawPartDetail = function(bld) {
 DDBuildList.init = function() {
   initBuildSearch();
   this.initPartList();
-  
+
   // filter dropdown
   var dim = this.squery.filter.dimsByName['Viewer'];
   var key = 'all';

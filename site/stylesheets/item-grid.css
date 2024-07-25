@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+item-grid.css - gw1builds
+*/
+
 /* Item Grid */
 div.itemGrid {
   border: 0px solid;
@@ -23,32 +30,32 @@ div.itemGrid td.dim td {
   white-space: nowrap;
 }
 div.itemGrid td.dim td.option {
-  border-color: <%= skin[:enhBorder] %>;
-  background-color: <%= skin[:enhBG] %>;  
-  color: <%= skin[:enh] %>;
+  border-color: var(--enhBorder);
+  background-color: var(--enhBG);
+  color: var(--enh);
   cursor: pointer;
 }
 div.itemGrid td.dim td.none {
-  border-color: <%= skin[:enhBorder] %>;
-  background-color: <%= skin[:enhBG] %>;  
-  color: <%= skin[:weak] %>;
+  border-color: var(--enhBorder);
+  background-color: var(--enhBG);
+  color: var(--weak);
   cursor: pointer;
 }
 div.itemGrid td.dim td.none:hover,
 div.itemGrid td.dim td.option:hover {
-  border-color: <%= skin[:enhHoverBorder] %>;
-  background-color: <%= skin[:enhHoverBG] %>;
+  border-color: var(--enhHoverBorder);
+  background-color: var(--enhHoverBG);
 }
 div.itemGrid td.dim td.active {
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
   cursor: default;
 }
 div.itemGrid td.dim td.current {
-  border-color: <%= skin[:enhActiveBorder] %>;
-  background-color: <%= skin[:enhActiveBG] %>;  
-  color: <%= skin[:enhActive] %>;
+  border-color: var(--enhActiveBorder);
+  background-color: var(--enhActiveBG);
+  color: var(--enhActive);
   cursor: default;
 }
 

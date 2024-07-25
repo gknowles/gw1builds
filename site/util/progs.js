@@ -1,19 +1,25 @@
 
-/**
- * Calculates the value of an effect that varies with an
- * attribute.
- * 
- * @param   attr    value of attribute
- * @param   at0     value of effect when attr is 0
- * @param   at15    value of effect when attr is 15
- */
-function effectValue(attr, at0, at15, factor) {
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+progs.js - gw1builds util
+*/
+
+//===========================================================================
+// Calculates the value of an effect that varies with an attribute.
+function effectValue(
+  attr,   // value of attribute
+  at0,    // value of effect when attr is 0
+  at15,   // value of effect when attr is 15
+  factor
+) {
   factor = factor || 1;
   var val = Math.round( ( ((at15 - at0) / 15 * attr) + at0 ) );
   return Math.round(factor * val);
 }
 
-  
+//===========================================================================
 function clearValues() {
   var inputs = document.getElementById("inputs").elements;
   for (var i1 = 0; inputs.length > i1; ++i1) {
@@ -25,6 +31,7 @@ function clearValues() {
   } catch (e) {}
 }
 
+//===========================================================================
 function update() {
   var v0 = null, v1 = null;
   // count filled in points
@@ -48,6 +55,7 @@ function update() {
   }
 }
 
+//===========================================================================
 function findParms(pts) {
   var m, b0, b15, x1, y1, x2, y2;
   var r0, r15;
@@ -131,7 +139,7 @@ function findParms(pts) {
     matched += 1;
     out += ',  factor: ' + Math.round(100*of[0]);
   } else {
-    out += ',  factor: [' + Math.round(100*of[0]) + 
+    out += ',  factor: [' + Math.round(100*of[0]) +
       ' - ' + Math.round(100*of[1]) + ']';
   }
   out = {text: out}

@@ -1,3 +1,9 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+team-pane.css - gw1builds
+*/
 
 div.teamPane div.editDesc {
 }
@@ -6,7 +12,7 @@ div.teamPane div#buildList h2 button {
   display: none;
 }
 div.teamPane div.partList {
-	border: 0px none;
+  border: 0px none;
   width: 300px;
 }
 div.teamPane div.partList div.scroll {

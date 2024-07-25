@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+skillbar.css - gw1builds
+*/
+
 /* Skillbar */
 div.skillbar {
   border: 1px solid;
@@ -16,34 +23,34 @@ div.skillbar td {
   color: white;
 }
 div.skillbar td.empty {
-  border-color: <%= skin[:emptyBorder] %>;
-  background-color: <%= skin[:emptyBG] %>;
-  color: <%= skin[:empty] %>;
+  border-color: var(--emptyBorder);
+  background-color: var(--emptyBG);
+  color: var(--empty);
 }
 div.skillbar td.emptyAlt {
-  border-color: <%= skin[:emptyAltBorder] %>;
-  background-color: <%= skin[:emptyAltBG] %>;
-  color: <%= skin[:emptyAlt] %>;
+  border-color: var(--emptyAltBorder);
+  background-color: var(--emptyAltBG);
+  color: var(--emptyAlt);
   padding-left: 10px;
 }
 div.skillbar td.full {
-  border-color: <%= skin[:enhBorder] %>;
-  background-color: <%= skin[:enhBG] %>;
+  border-color: var(--enhBorder);
+  background-color: var(--enhBG);
   overflow: hidden;
 }
 div.skillbar td.fullAlt {
-  border-color: <%= skin[:altBorder] %>;
-  background-color: <%= skin[:altBG] %>;
+  border-color: var(--altBorder);
+  background-color: var(--altBG);
   overflow: hidden;
   padding-left: 10px;
 }
 div.skillbar tr.linked td.full {
   /* !!! Corresponding entry in hover-ie.js must match */
-  background-color: <%= skin[:enhHoverBG] %>;
+  background-color: var(--enhHoverBG);
 }
 div.skillbar tr.linked td.fullAlt {
   /* !!! Corresponding entry in hover-ie.js must match */
-  background-color: <%= skin[:altHoverBG] %>;
+  background-color: var(--altHoverBG);
 }
 
 
@@ -52,15 +59,15 @@ div.skillbar td div.drag {
 }
 div.skillbar span.attr {
   color: dimgray;
-  float: left; 
-  min-width: 2em; 
+  float: left;
+  min-width: 2em;
   text-align: center;
 }
 span.effectRange {
   border: 1px solid;
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
   padding: 0px 3px 0px 3px;
   margin: 0px 2px 0px 2px;
   text-align: center;

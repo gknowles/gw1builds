@@ -1,15 +1,18 @@
-/////////////////////////////////////////////////
-// Generic multidimensional filter
-/////////////////////////////////////////////////
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.search-filter"); }
+part.js - gw1builds ui
+
+Generic multidimensional filter
+*/
 
 function SearchDimension(disabled, name, propName, minSize, maxSize) {
   this.init(disabled, name, propName, minSize, maxSize);
 } // SearchDimension(...)
 
-SearchDimension.prototype.init = function(disabled/*=false*/, 
-  name, propName, minSize/*=6*/, maxSize/*=6*/) 
+SearchDimension.prototype.init = function(disabled/*=false*/,
+  name, propName, minSize/*=6*/, maxSize/*=6*/)
 {
   this.name = name;
   this.property = propName;
@@ -44,7 +47,7 @@ SearchDimension.prototype.importSelected = function(selected) {
 
 SearchDimension.prototype.clone = function(out) {
   if (out == null) {
-    out = new this.constructor(this.disabled, this.name, this.property, 
+    out = new this.constructor(this.disabled, this.name, this.property,
       this.minSize, this.maxSize);
   } else {
     out.name = this.name;
@@ -105,10 +108,10 @@ SearchDimension.prototype.getValueArray = function() {
   var valArray = [];
   for (var v in values) {
     var value = values[v];
-    var val = { text: (value[0] + ' (' + value[1] + ')'), 
+    var val = { text: (value[0] + ' (' + value[1] + ')'),
                 value: v,
                 key: value[0]
-              }; 
+              };
     valArray.push(val);
   }
   var cmp = this.compareValues;
@@ -139,7 +142,7 @@ SearchFilter.prototype.init = function(dims) {
     var dim = this.dims[i1];
     this.dimsByName[dim.name] = dim;
   }
-  this.matches = new Object; // values that matched 
+  this.matches = new Object; // values that matched
   this.searched = 0; // number of vals searched
   this.matched = 0; // number of vals matched
 } // SearchFilter.init(dims)
@@ -193,10 +196,10 @@ SearchFilter.prototype.clone = function(out) {
 
 /**
  * Update matches and all dimension values using objs
- * as the domain. Each object is filtered using the 
+ * as the domain. Each object is filtered using the
  * selected values of each dimension, then the dimension values
  * are recalculated from the set of matches. Keys of the filtered
- * objects are saved and used for matching objects against the 
+ * objects are saved and used for matching objects against the
  * filter as a whole.
  *
  * @param objs  hash of objects being searched
@@ -224,7 +227,7 @@ SearchFilter.prototype.updValues = function(objs) {
       if (obj) updValue(k, objs[k]);
     }
   }
-  
+
   function updValue(k, obj) {
     self.searched += 1;
     for (var i1 = 0; i1 < dims.length; ++i1) {
@@ -240,8 +243,8 @@ SearchFilter.prototype.updValues = function(objs) {
 } // SearchFilter.updValues(objs)
 
 /**
- * Get key from object equivalent to the keys used in the hash 
- * passed to updValues, and compare it with the keys of all matched 
+ * Get key from object equivalent to the keys used in the hash
+ * passed to updValues, and compare it with the keys of all matched
  * objects.
  */
 SearchFilter.prototype.include = function(obj) {
@@ -269,22 +272,22 @@ SearchQuery.prototype.resetPages = function() {
 } // SearchQuery.resetPages
 
 /**
- * Filters and sorts values into an array. The array includes both 
+ * Filters and sorts values into an array. The array includes both
  * section titles (strings) and skill objects. In addition the array
- * has 'matches' and 'count' properties that return the number of 
+ * has 'matches' and 'count' properties that return the number of
  * values in the filtered and source lists respectively.
- * 
+ *
  * filter is an object with method:
  *   include(val)
  * sort is an object with methods:
  *   compare(val1, val2)
  *   title(val)
- * 
+ *
  * @param   values  array or hash of skills to process
  * @param   filter  filter to use (null -> include all skills)
  * @param   sort    sortation to use
  * @return          array of Skill objects and titles
- *    two properties: count and matches                      
+ *    two properties: count and matches
  */
 SearchQuery.prototype.sortedArray = function(values, filter, sort) {
   var out = new Array;

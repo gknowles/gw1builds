@@ -1,48 +1,52 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+skin.css - gw1builds
+*/
+
 /* generic color definitions used through the rest of the css */
 
-<%
-skin.update( {
-  :pageBG => 'silver',
-  :paneBG => '#D6DEEC',
-  :paneInsetBG => '#607080',
-  :disabled => '#888888',
-  :weak => '#505050',
-  :weakBorder => '#d6deec whitesmoke whitesmoke #d6deec',
-  :weakBG => '#ecf5fb',
-  :std => 'black',
-  :stdBorder => '#4e5a7e #2b334b #4e5a7e #2b334b',
-  :stdBG => '#D6DEEC',
-  :stdHover => 'black',
-  :stdHoverBorder => 'grey black black grey',
-  :stdHoverBG => 'ecf5fb',
-  :stdActive => '#383838',
-  :stdActiveBorder => 'lightgrey black black lightgrey',
-  :stdActiveBG => 'white',
-  :enh => 'black',
-  :enhBorder => 'lightgrey black black lightgrey',
-  :enhBG => 'white',
-  :enhHover => 'forestgreen',
-  :enhHoverBorder => 'white grey grey white',
-  :enhHoverBG => '#DCEFFB',
-  :enhActive => 'white',
-  :enhActiveBorder => 'silver black black silver',
-  :enhActiveBG => 'gray',
-  :head => 'white',
-  :headBorder => '#61AFDF #000000 #000000 #61AFDF',
-  :headBG => '#647FC7',
-  :empty => 'darkgray',
-  :emptyBorder => 'gray darkgray darkgray gray',
-  :emptyBG => 'lightgrey',
-  :alt => '',
-  :altBorder => '#CBE7DC black black #CBE7DC',
-  :altBG => '#E0FFF3',
-  :altHoverBG => '#CBD2E7',
-  :emptyAlt => 'darkseagreen',
-  :emptyAltBorder => 'black slategray slategray black',
-  :emptyAltBG => '#A8BFBF',
-  :tip => 'black',
-  :tipBorder => 'gray darkgray darkgray gray',
-  :tipBG => 'whitesmoke',
-  :none => ''
-} )
-%>
+:root {
+  --pageBG: silver;
+  --paneBG: #D6DEEC;
+  --paneInsetBG: #607080;
+  --disabled: #888888;
+  --weak: #505050;
+  --weakBorder: #d6deec whitesmoke whitesmoke #d6deec;
+  --weakBG: #ecf5fb;
+  --std: black;
+  --stdBorder: #4e5a7e #2b334b #4e5a7e #2b334b;
+  --stdBG: #D6DEEC;
+  --stdHover: black;
+  --stdHoverBorder: grey black black grey;
+  --stdHoverBG: ecf5fb;
+  --stdActive: #383838;
+  --stdActiveBorder: lightgrey black black lightgrey;
+  --stdActiveBG: white;
+  --enh: black;
+  --enhBorder: lightgrey black black lightgrey;
+  --enhBG: white;
+  --enhHover: forestgreen;
+  --enhHoverBorder: white grey grey white;
+  --enhHoverBG: #DCEFFB;
+  --enhActive: white;
+  --enhActiveBorder: silver black black silver;
+  --enhActiveBG: gray;
+  --head: white;
+  --headBorder: #61AFDF #000000 #000000 #61AFDF;
+  --headBG: #647FC7;
+  --empty: darkgray;
+  --emptyBorder: gray darkgray darkgray gray;
+  --emptyBG: lightgrey;
+  --alt: inherit;
+  --altBorder: #CBE7DC black black #CBE7DC;
+  --altBG: #E0FFF3;
+  --altHoverBG: #CBD2E7;
+  --emptyAlt: darkseagreen;
+  --emptyAltBorder: black slategray slategray black;
+  --emptyAltBG: #A8BFBF;
+  --tip: black;
+  --tipBorder: gray darkgray darkgray gray;
+  --tipBG: whitesmoke;
+}

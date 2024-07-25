@@ -1,14 +1,21 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.skill-search"); }
+skill-search.js - gw1builds ui
+
+Common functions and variables
+*/
 
 /////////////////////////////////////////////////
 // Skill Dimension - Attribute
 /////////////////////////////////////////////////
-function SkillDimensionAttribute(disabled) { 
-  this.init(disabled, 'Attribute', 'attr'); 
+function SkillDimensionAttribute(disabled) {
+  this.init(disabled, 'Attribute', 'attr');
 }
-dojo.inherits(SkillDimensionAttribute, SearchDimension);
+Object.assign(SkillDimensionAttribute.prototype, SearchDimension);
 
+//===========================================================================
 SkillDimensionAttribute.prototype.compareValues = function(a,b) {
   if (a == b) return 0;
   // sort skills with no attribute to the bottom
@@ -16,7 +23,7 @@ SkillDimensionAttribute.prototype.compareValues = function(a,b) {
   if (b == ATTR_NO_ATTRIBUTE) return -1;
   if (a < b) return -1;
   return 1;
-} // SkillDimensionAttribute.compareValues(obj)
+}
 
 
 /////////////////////////////////////////////////
@@ -25,8 +32,9 @@ SkillDimensionAttribute.prototype.compareValues = function(a,b) {
 function SkillDimensionCategory(disabled) {
   this.init(disabled, 'Category', 'categories');
 }
-dojo.inherits(SkillDimensionCategory, SearchDimension);
+Object.assign(SkillDimensionCategory.prototype, SearchDimension);
 
+//===========================================================================
 SkillDimensionCategory.prototype.addObject = function(obj) {
   for (var val in obj.categories) {
     if (val in this.values) {
@@ -35,8 +43,9 @@ SkillDimensionCategory.prototype.addObject = function(obj) {
       this.values[val] = [val,1];
     }
   }
-} // SkillDimensionCategory.addObject(obj)
+}
 
+//===========================================================================
 SkillDimensionCategory.prototype.include = function(obj) {
   if (this.selectedValues == null) return true;
 
@@ -44,7 +53,7 @@ SkillDimensionCategory.prototype.include = function(obj) {
     if (val in this.selectedValues) return true;
   }
   return false;
-} // SkillDimensionCategory.include
+}
 
 
 /////////////////////////////////////////////////
@@ -53,8 +62,9 @@ SkillDimensionCategory.prototype.include = function(obj) {
 function SkillDimensionTag(disabled) {
   this.init(disabled, 'Tag', 'tags');
 }
-dojo.inherits(SkillDimensionTag, SearchDimension);
+Object.assign(SkillDimensionTag.prototype, SearchDimension);
 
+//===========================================================================
 SkillDimensionTag.prototype.addObject = function(obj) {
   for (var val in obj.tags) {
     if (val in this.values) {
@@ -63,8 +73,9 @@ SkillDimensionTag.prototype.addObject = function(obj) {
       this.values[val] = [val,1];
     }
   }
-} // SkillDimensionTag.addObject(obj)
+}
 
+//===========================================================================
 SkillDimensionTag.prototype.include = function(obj) {
   if (this.selectedValues == null) return true;
 
@@ -72,7 +83,7 @@ SkillDimensionTag.prototype.include = function(obj) {
     if (val in this.selectedValues) return true;
   }
   return false;
-} // SkillDimensionTag.include
+}
 
 
 /////////////////////////////////////////////////
@@ -81,8 +92,9 @@ SkillDimensionTag.prototype.include = function(obj) {
 function SkillDimensionProfession(disabled) {
   this.init(disabled, 'Profession', 'pro', 4, 12);
 }
-dojo.inherits(SkillDimensionProfession, SearchDimension);
+Object.assign(SkillDimensionProfession.prototype, SearchDimension);
 
+//===========================================================================
 SkillDimensionProfession.prototype.addObject = function(obj) {
   var val = obj.pro;
   if (val in this.values) {
@@ -91,26 +103,27 @@ SkillDimensionProfession.prototype.addObject = function(obj) {
     var disp = (val == '') ? '- common -' : g_pros[val].name;
     this.values[val] = [disp,1];
   }
-} // SkillDimensionProfession.addObject(obj)
+}
 
 
 /////////////////////////////////////////////////
 // Skill Dimension - Type
 /////////////////////////////////////////////////
-function SkillDimensionType(disabled) { 
-  this.init(disabled, 'Type', 'type'); 
+function SkillDimensionType(disabled) {
+  this.init(disabled, 'Type', 'type');
 }
-dojo.inherits(SkillDimensionType, SearchDimension);
+Object.assign(SkillDimensionType.prototype, SearchDimension);
 
+//===========================================================================
 SkillDimensionType.prototype.compareValues = function(a,b) {
   // sort by last word first so that attacks (Axe Attack, Spear Attack, ...)
-  // enchants, etc are grouped together 
+  // enchants, etc are grouped together
   var ta = a.split(' ').reverse().join(' ');
   var tb = b.split(' ').reverse().join(' ');
   if (ta < tb) return -1;
   if (ta > tb) return 1;
   return 0;
-} // SkillDimensionType.compareValues(obj)
+}
 
 
 /////////////////////////////////////////////////
@@ -119,8 +132,9 @@ SkillDimensionType.prototype.compareValues = function(a,b) {
 function SkillSearchFilter(dims) {
   this.init(dims);
 }
-dojo.inherits(SkillSearchFilter, SearchFilter);
+Object.assign(SkillSearchFilter.prototype, SearchFilter);
 
+//===========================================================================
 SkillSearchFilter.prototype.getKey = function(obj) {
   return obj.id;
 }
@@ -131,6 +145,7 @@ SkillSearchFilter.prototype.getKey = function(obj) {
 /////////////////////////////////////////////////
 var g_skillSearch = new SearchQuery;
 
+//===========================================================================
 function initSkillSearch() {
   var dims = [
     new SearchDimension(/*disabled=*/true, 'Name', 'name'),
@@ -157,19 +172,19 @@ function initSkillSearch() {
   }
   filter.updValues(g_skillsById);
   g_skillSearch.filter = filter;
-} // initSkillSearch()
+}
 
+//===========================================================================
 function editSkillSearch() {
   var filter = g_skillSearch.filter.clone();
   var dlgWgt = dijit.byId("dialog");
 
   var skills = DDSkillList.filteredSkills();
-  g_currentSearch = new SearchWindow('Skill Search', dlgWgt, filter, 
+  g_currentSearch = new SearchWindow('Skill Search', dlgWgt, filter,
     skills);
   g_currentSearch.filterChanged = function() {
     g_skillSearch.filter = g_currentSearch.filter;
     DDSkillList.chgFilter();
   }
   g_currentSearch.show();
-} // editSkillFilter()
-
+}

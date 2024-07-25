@@ -1,12 +1,18 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.skill-list"); }
+skill-list.js - gw1builds ui
+*/
 
 /**
  * DDSkillList - DragDrop policy that implements:
  *  - tooltip with full skill description
  *  - drag source for skill objects
  */
-var DDSkillList = dojo.mixin({}, DDPolicy, DDMixPartList, {
+var DDSkillList = Object.create(DDPolicy)
+Object.assign(DDSkillList, DDMixPartList)
+Object.assign(DDSkillList, {
   ddPolicyName: 'DDSkillList',
   elemId: 'skillList',
   partType: 'skill',
@@ -18,46 +24,52 @@ var DDSkillList = dojo.mixin({}, DDPolicy, DDMixPartList, {
   },
   squery: g_skillSearch,
   sorts: Skill.prototype.sorts,
-  
+
   viewModes: [
     { key: 'Icon', icon: 'view-icon.png', title: 'Icons only' },
     { key: 'List', icon: 'view-list.png', title: 'Simple List' },
     { key: 'Detail', icon: 'view-detail.png', title: 'Detailed List' }
   ],
   viewMode: 2,
-    ICON: 0, 
-    LIST: 1, 
+    ICON: 0,
+    LIST: 1,
     DETAIL: 2,
   proFilter: false,
   lastFilter: null,
-  
+
   sdEls: [] // skill detail list row element cache
-} );
+});
+
+//===========================================================================
 DDSkillList.drawTooltipBody = function(skill, obj) {
   // obj = { id:<skillId>, toon:<attrSource> }
   var res = {}
   res.side = this.viewMode == this.ICON ? 'b' : 'l';
   res.body = drawSkill(skill, obj.toon, {costs: true, desc: true} );
   return res;
-} // drawTooltipBody
+}
+
+//===========================================================================
 DDSkillList.drawDragBody = function(skill, obj) {
   // obj = { id:<skillId>, toon:<attrSource> }
   var attrSource = g_state.getTeam() ? null : g_state.getMember();
   var body = drawSkill(skill, attrSource, {icon: true} );
   obj.value = skill;
   return body;
-} // drawDragBody
+}
+
+//===========================================================================
 DDSkillList.drawPartDetail = function(skill) {
   var attrSource = g_state.getTeam() ? null : g_state.getMember();
   return drawSkill(g_skillsById[skill.id], attrSource,
     {icon: true, costs: 'cols'} );
-} // drawPartDetail
+}
 
-
+//===========================================================================
 DDSkillList.init = function() {
   initSkillSearch();
   this.initPartList();
-  
+
   // pro filter mode
   var proFilter = g_store.get(this.storeKeys.proFilter);
   if (proFilter != 'false') this.toggleProFilter();
@@ -86,13 +98,15 @@ DDSkillList.init = function() {
     el.title = this.drawSortTitle(key, priority);
   }
   this.squery.sort.push(this.sorts['Name']);
-} // init
+}
 
+//===========================================================================
 DDSkillList.updRoot = function(upd) {
   this.elems.matchesEl.innerHTML = 'Loading...';
   dojo.lang.setTimeout(updRoot, 1, upd || {keys: this.changeKeys} );
-} // updRoot
+}
 
+//===========================================================================
 DDSkillList.filteredSkills = function() {
   var skills = g_skillsById;
   var toon = this.proFilter ? g_state.getMember() : null;
@@ -107,17 +121,19 @@ DDSkillList.filteredSkills = function() {
     }
   }
   return skills;
-} // filteredSkills
+}
 
+//===========================================================================
 DDSkillList.chgView = function(id) {
   g_store.set(this.storeKeys.view, id);
   this.viewMode = id;
   var mode = this.viewModes[id];
   this.elems.viewEl.src = '../images/' + mode.icon;
   this.elems.viewEl.title = mode.title;
-  this.updRoot();  
-} // toggleView
+  this.updRoot();
+}
 
+//===========================================================================
 DDSkillList.popupView = function(baseEl) {
   var out = ["<div class='iconMenu'><table class='detail'>"];
   for (var i1 = 0; i1 < this.viewModes.length; ++i1) {
@@ -134,8 +150,9 @@ DDSkillList.popupView = function(baseEl) {
   out.push("</table></div>");
   out = out.join('');
   DDPopup.show(baseEl, out);
-} // popupView
+}
 
+//===========================================================================
 DDSkillList.toggleProFilter = function() {
   var mode = !this.proFilter;
   g_store.set(this.storeKeys.proFilter, mode ? 'true' : 'false');
@@ -147,8 +164,9 @@ DDSkillList.toggleProFilter = function() {
   if (g_state.getMember() != null) {
     this.updRoot( {keys: {skillFilter: true, skillSearch: true} } );
   }
-} // toggleProFilter
+}
 
+//===========================================================================
 DDSkillList.chgProFilter = function(val) {
   var team = g_state.getTeam();
   if (!team) return;
@@ -160,35 +178,40 @@ DDSkillList.chgProFilter = function(val) {
     g_state.setMember(toon);
     this.updRoot( {keys: {skillFilter: true, skillSearch: true} } );
   }
-} // chgProFilter
+}
 
+//===========================================================================
 DDSkillList.drawSortTitle = function(key, priority) {
   return "Sort by " + key + ' ' + ['first', 'second'][priority];
-} // drawSortTitle
+}
+
+//===========================================================================
 DDSkillList.drawSortBG = function(key, priority) {
   var sort = this.sorts[key];
   return 'url(../images/' + sort.icon + ')';
-} // drawSortBG
+}
 
+//===========================================================================
 DDSkillList.chgSort = function(key, priority) {
   var elems = this.elems;
   var el = elems['sort' + priority + 'El'];
   el.style.backgroundImage = this.drawSortBG(key, priority);
   el.title = this.drawSortTitle(key, priority);
-  
+
   g_store.set(this.storeKeys.sort + priority, key);
   this.squery.sort[priority] = this.sorts[key];
   this.squery.pages.current = 0;
   this.updRoot();
-} // chgSort
-  
+}
+
+//===========================================================================
 DDSkillList.popupSort = function(baseEl, priority) {
   var out = ["<div class='iconMenu'><table class='detail'>"];
   for (var key in this.sorts) {
     var sort = this.sorts[key];
     out.push("<tr><td",
-      " style='cursor: default' title=", 
-        jstring1(this.drawSortTitle(key, priority)), 
+      " style='cursor: default' title=",
+        jstring1(this.drawSortTitle(key, priority)),
       " onclick='DDSkillList.chgSort(", jstring2(key), ",", priority, ")'>",
       "<span class='menuIcon'",
       " style='background-image: ", this.drawSortBG(key, priority), "'>",
@@ -199,8 +222,9 @@ DDSkillList.popupSort = function(baseEl, priority) {
   out.push("</table></div>");
   out = out.join('');
   DDPopup.show(baseEl, out);
-} // popupSort
+}
 
+//===========================================================================
 DDSkillList.updWidget = function(upd, initOnly/*=false*/) {
   var elems = this.elems;
   var team = g_state.getTeam();
@@ -218,7 +242,7 @@ DDSkillList.updWidget = function(upd, initOnly/*=false*/) {
       }
     }
     setSelectValue(this.elems.proToonsEl, val, choices);
-    var dis = !elems.togProFilterEl.checked || 
+    var dis = !elems.togProFilterEl.checked ||
       elems.proToonsEl.length == 0;
     elems.proFilterEl.disabled = dis;
     elems.proToonsEl.disabled = dis;
@@ -229,17 +253,17 @@ DDSkillList.updWidget = function(upd, initOnly/*=false*/) {
     } else {
       elems.proFilterEl.value = '';
     }
-    
+
     this.squery.filter.updValues(this.filteredSkills());
   } // if member filter or roster changed
-  
+
   var curProFilter = this.proFilter ? this.elems.proFilterEl.value : '';
   if (upd.keys.skillSearch || this.lastFilter != curProFilter) {
     var skills = initOnly ? [] : this.filteredSkills();
     this.lastFilter = initOnly ? null : curProFilter;
     this.squery.values = this.squery.sortedArray(skills);
     this.elems.matchesEl.innerHTML = "Loading...";
-  
+
     DDSkillList.isLoaded = true;
     if (this.viewMode == this.ICON) {
       updSkillIconList(this.squery.values, null);
@@ -248,13 +272,13 @@ DDSkillList.updWidget = function(upd, initOnly/*=false*/) {
     } else { // must be this.DETAIL
       var method = dojo.render.html.ie ? updSkillDetailList_Draw :
         updSkillDetailList_Swap;
-      dojo.lang.setTimeout(method, 1, 
+      dojo.lang.setTimeout(method, 1,
         this.squery.values, null);
     }
   } // if filter changed
-} // updWidget
+}
 
-
+//===========================================================================
 function updSkillIconList(skills, attrSource, opts) {
   var out = ["<table class='icon'>"];
   var skillOpts = {icon: true, noname: true};
@@ -268,7 +292,7 @@ function updSkillIconList(skills, attrSource, opts) {
         drawSkillListHandlers(skill),
         ">");
       out.push(
-        drawSkillIcon(g_skillsById[skill.id], 
+        drawSkillIcon(g_skillsById[skill.id],
           attrSource ? attrSource.skillFilter(skill) : true)
       );
       out.push("</td>");
@@ -280,7 +304,7 @@ function updSkillIconList(skills, attrSource, opts) {
       if (pos) {
         out.push("</tr>");
       }
-      out.push("<tr><td class='sortGroup' colspan='", cols, "'>", 
+      out.push("<tr><td class='sortGroup' colspan='", cols, "'>",
         skill, "</td></tr>");
       pos = -1;
     }
@@ -302,27 +326,27 @@ function updSkillIconList(skills, attrSource, opts) {
     elems.matchesEl.innerHTML = "Loading...";
     dojo.lang.setTimeout(function(){
       setInnerHtml(elems.listEl, out);
-      elems.matchesEl.innerHTML = 
+      elems.matchesEl.innerHTML =
         skills.matches + " of " + skills.count;
-      },    
+      },
       1);
   } else {
     setInnerHtml(elems.listEl, out);
   }
-} // updSkillIconList
+}
 
-
+//===========================================================================
 function updSkillSimpleList(skills, attrSource) {
   var elems = DDSkillList.elems;
 
   var out = ["<table class='detail'>"];
   for (var i1 = 0; i1 < skills.length; ++i1) {
     var skill = skills[i1];
-    if (skill.name) { 
+    if (skill.name) {
       out.push("<tr><td",
         drawSkillListHandlers(skill),
         "><span class='partName",
-        (skill.elite ? ' elite' : ''), "'>", skill.name, 
+        (skill.elite ? ' elite' : ''), "'>", skill.name,
         "</span></td></tr>");
     } else {
       out.push("<tr><td class='sortGroup'>", skill, "</td></tr>");
@@ -332,17 +356,17 @@ function updSkillSimpleList(skills, attrSource) {
   out = out.join('');
 
   setInnerHtml(elems.listEl, out);
-  elems.matchesEl.innerHTML = 
+  elems.matchesEl.innerHTML =
     skills.matches + " of " + skills.count;
-} // updSkillSimpleList
+}
 
-
+//===========================================================================
 function updSkillDetailList_Draw(skills, attrSource) {
   var elems = DDSkillList.elems;
   var listEl = elems.listEl;
-    
+
   listEl.removeChild(listEl.firstChild);
-    
+
   // populate new table
   var out = ["<table class='detail'>"];
   for (var i1 = 0; i1 < skills.length; ++i1) {
@@ -355,29 +379,29 @@ function updSkillDetailList_Draw(skills, attrSource) {
     }
   } // for each skill
   out.push("</table>");
-  
+
   // swap in new list
   setInnerHtml(listEl, out.join(''));
-  elems.matchesEl.innerHTML = 
+  elems.matchesEl.innerHTML =
     skills.matches + " of " + skills.count;
-} // updSkillDetailList_Draw
+}
 
-
+//===========================================================================
 function updSkillDetailList_Swap(skills, attrSource) {
   var elems = DDSkillList.elems;
   var listEl = elems.listEl;
   var sds = DDSkillList.sdEls;
-  
+
   var newTbl = document.createElement('table');
-  newTbl.className = 'detail';  
+  newTbl.className = 'detail';
   var newEl = document.createElement('tbody');
   newTbl.appendChild(newEl);
-  
+
   var oldTbl = document.createElement('table');
   listEl.replaceChild(oldTbl, listEl.firstChild);
   var tmpEl = document.createElement('div');
   var el;
-    
+
   // populate new table
   for (var i1 = 0; i1 < skills.length; ++i1) {
     var skill = skills[i1];
@@ -399,33 +423,33 @@ function updSkillDetailList_Swap(skills, attrSource) {
     }
     newEl.appendChild(el);
   } // for each skill
-  
+
   // swap in new list
   replaceOldChild(listEl, newTbl, oldTbl);
 //  listEl.replaceChild(newEl, oldEl);
-  elems.matchesEl.innerHTML = 
+  elems.matchesEl.innerHTML =
     skills.matches + " of " + skills.count;
-} // updSkillDetailList_Swap
+}
 
+//===========================================================================
 function replaceOldChild(parent, newChild, oldChild) {
   parent.replaceChild(newChild, oldChild);
 }
 
-
+//===========================================================================
 function drawSkillDetailRow(skill, attrSource) {
-  var out = ["<td class='part detail'", 
+  var out = ["<td class='part detail'",
     drawSkillListHandlers(skill), ">",
     drawSkill(g_skillsById[skill.id], /*attrSource=*/attrSource,
       {icon: true, costs: 'cols'} ),
     "</td>"
   ];
   return out.join('');
-} // drawSkillDetailRow
+}
 
-
-
+//===========================================================================
 function drawSkillListHandlers(skill) {
-  var args = "(this,event,{id:" + skill.id + 
+  var args = "(this,event,{id:" + skill.id +
     ",toon: g_state.getMember()})'";
   var out = [
     " onMouseOver='DDSkillList.over", args,
@@ -433,9 +457,9 @@ function drawSkillListHandlers(skill) {
     " onMouseDown='DDSkillList.down", args
   ];
   return out.join('');
-} // drawSkillListHandlers
+}
 
+//===========================================================================
 function setInnerHtml(el, html) {
   el.innerHTML = html;
 }
-

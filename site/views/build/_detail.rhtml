@@ -1,0 +1,65 @@
+<script type="text/javascript">
+<% 
+paneRef = menuId + "_detail"
+tabId = paneRef + "_tab"
+%>
+<%= paneRef %> = new Pane({
+  title: "Detail",
+  id: "<%= paneRef %>",
+  
+  onload: function() { 
+    this.loadElems();
+    PaneSet.prototype.load("<%= tabId %>"); 
+  },
+  onprepare: function(child) {
+    if (g_state.getBuild().isTeam) {
+      updateClasses(this.divEl, 'team', null);
+    } else {
+      updateClasses(this.divEl, null, 'team');
+    }
+    var elems = this.elems.header;
+    var formEl = dojo.byId('stateActions');
+    elems.stateActionsEl.appendChild(formEl);
+    dojo.event.connect(formEl.fClose, 'onclick', this, 'close');
+    g_state.updBaseline();
+    PaneSet.prototype.updateAll("<%= tabId %>", {keys: {paneSet: true} } );
+    this.onupdate( {keys: {user: true, characters: true} } ); 
+    if (child == null) child = 'View';
+    PaneSet.prototype.activate("<%= tabId %>", child); 
+  },
+  onblur: function() {
+    if (g_state.isChanged()) {
+      var sure = confirm("Do you wish to abandon changes to '" + 
+        g_state.getBuild().fullName() + "' without saving?");
+      if (!sure) return false;        
+    } 
+    var rc = PaneSet.prototype.blur("<%= tabId %>"); 
+    if (rc !== false) {
+      dojo.byId('header_current').innerHTML = '';
+      var formEl = dojo.byId('stateActions');
+      dojo.event.disconnect(formEl.fClose, 'onclick', this, 'close');
+    }
+    return rc;
+  },
+  onupdate: function(upd) {
+    updObjInfo(upd);
+    PaneSet.prototype.update("<%= tabId %>", upd); 
+  },
+
+  close: function() {
+    PaneSet.prototype.activate('<%= menuId %>', 'Builds');
+  }
+} );
+PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
+</script>
+
+<div class="pane" id="<%= paneRef %>" style="display: none">
+<div class='pdiv-header'>
+  <span class="pvar-stateActions" style="float: right"></span>
+  <ul class="tabmenu" id="<%= tabId %>"></ul>
+</div>
+<%= render :partial => "build/team_view", :locals => { :menuId => tabId } %>
+<%= render :partial => "build/team_edit", :locals => { :menuId => tabId } %>
+<%= render :partial => "build/character_view", :locals => { :menuId => tabId } %>
+<%= render :partial => "build/character_edit", :locals => { :menuId => tabId } %>
+</div>

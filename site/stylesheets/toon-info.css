@@ -1,7 +1,13 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+toon-info.css - gw1builds
+*/
 
 div.toonInfo th,
-div.toonInfo td { 
-  color: <%= skin[:std] %>; 
+div.toonInfo td {
+  color: var(--std);
   font-size: 10pt;
 }
 
@@ -19,12 +25,12 @@ div.toonInfo div.toonPick input.pos {
   text-align: right;
   /* height: 22px; in adjust-ie */
   width: 30px;
-  border: 0px; 
+  border: 0px;
   padding: 3px 0px;
   position: relative;
   top: -22px; /* -23px in adjust-ie */
-  color: <%= skin[:std] %>;
-  background-color: <%= skin[:emptyBG] %>;
+  color: var(--std);
+  background-color: var(--emptyBG);
 }
 div.toonInfo div.toonPick input.name {
   width: 130px;

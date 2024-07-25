@@ -1,15 +1,21 @@
-<!-- named divs -->
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
+named_divs.rhtml - gw1builds view group
+-->
+
+<!-- named divs -->
 <div id="groupList"><form class='pvar-form'>
   <div class='minwidth'>
     <h2>Groups</h2>
     <div class="section pvar-input">
       <h3>Create Group</h3>
-      <input type="text" name="group[name]" 
+      <input type="text" name="group[name]"
         onkeydown='return enterSubmits(this, event)'
         size="20" maxlength='20'>
       <input type="button" name="submit" value="Create"
-        onclick="executeGroupListAction('Create', true, 
+        onclick="executeGroupListAction('Create', true,
           this.form['group[name]'].value)">
       <br/><br/>
     </div>
@@ -31,12 +37,12 @@
       <div class='insetTabPane'>
         <div style="display: none" class="section pvar-input">
           <h3>Invite User</h3>
-          <input type="text" name="user[name]" 
+          <input type="text" name="user[name]"
             onkeydown='return enterSubmits(this, event)'
             size="20">
           <input type="button" name="submit" value="Invite"
-            onclick="executeGroupListAction('Invite', true, 
-              SGroupList.memberSearch.values.groupName, 
+            onclick="executeGroupListAction('Invite', true,
+              SGroupList.memberSearch.values.groupName,
               this.form['user[name]'].value)">
           <br/><br/>
         </div>

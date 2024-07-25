@@ -1,0 +1,52 @@
+<script type="text/javascript">
+<% 
+paneRef = menuId + "_buildlist"
+%>
+<%= paneRef %> = new Pane({
+  title: "Builds",
+  id: "<%= paneRef %>",
+
+  onload: function() {
+    this.loadElems();
+  },
+  onprepare: function() { 
+    this.elems.main.listEl.appendChild(dojo.byId('buildList'));
+    DDBuildList.showPart = this.showPart;
+  },
+  onactive: function() {
+    DDBuildList.isLoaded = false;
+    DDBuildList.ensureListFormat( {owner: true, actions: true} );
+  },
+  onupdate: function(upd) {
+    if (hasUpdateKey(upd, {buildSearch: true, user: true} )) {
+      DDBuildList.query( {owner: true, actions: true} );
+    }
+  }, // onupdate
+  
+  showPart: function(bld, mode) {
+    bld = bld || new Build('New Team', null, true);
+    g_state.setBuild(bld);
+    if (mode == 'edit') {
+      PaneSet.prototype.activate('<%= menuId %>', 'Detail', 
+        bld.isTeam ? 'Edit' : 'Character Edit');
+    } else { // mode == 'view'
+      PaneSet.prototype.activate('<%= menuId %>', 'Detail', 
+        bld.isTeam ? 'View' : 'Character View');
+    }
+  }
+  
+} );
+PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
+</script>
+
+<div class="pane listPane" id="<%= paneRef %>" style="display: none">
+<table class='pane'><tr><td class='paneContent'>
+  <div class="pdiv-main">
+    <div class="pvar-list"></div>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <%= render :partial => "welcome/sidebar", :locals => { :menuId => menuId } %>
+  </div>
+</td></tr></table>
+</div>

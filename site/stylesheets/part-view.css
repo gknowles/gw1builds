@@ -1,7 +1,14 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+part-view.css - gw1builds
+*/
+
 div.normalView,
 div.exportView,
 div.codeView {
-  background-color: <%= skin[:enhBG] %>;
+  background-color: var(--enhBG);
 }
 div.normalView div.section,
 div.exportView div.section,
@@ -11,9 +18,9 @@ div.codeView div.section {
 div.normalView div.control,
 div.exportView div.control,
 div.codeView div.control {
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
 }
 
 div.normalView div.attr {
@@ -50,7 +57,7 @@ div.exportView div.control td {
 	vertical-align: top;
 }
 div.exportView label.disabled {
-	color: <%= skin[:disabled] %>;
+	color: var(--disabled);
 }
 div.exportView div.scroll {
   height: 435px;

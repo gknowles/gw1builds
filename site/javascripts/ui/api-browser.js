@@ -1,8 +1,12 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.api"); }
+api-browser.js - gw1builds ui
+*/
 
 /**
- * Defines the interface to the backend authentication and data 
+ * Defines the interface to the backend authentication and data
  * storage, primary goals are:
  * - single point of definition for enums, constants etc
  * - minimize number of round trips required
@@ -25,7 +29,7 @@ api.impl = {
     toons: {},
     teams: {}
   },
-  
+
   init: function() {
     var keys = g_store.getKeys();
     for (var k in keys) {
@@ -39,7 +43,7 @@ api.impl = {
       }
     }
   }, // init
-  
+
   query: function(handler, method, qs) {
     api.beforeQuery(handler, method);
     var url = this.urls[method];
@@ -53,10 +57,10 @@ api.impl = {
       postContent: qs
     });
     api.afterQuery(handler, method);
-    
+
     function metaHandler(type, data, impl) {
-      if (type == 'load' &&  
-        impl.responseText.substr(0, 11) != "Status: 500") 
+      if (type == 'load' &&
+        impl.responseText.substr(0, 11) != "Status: 500")
       {
         try {
           var jsonStr = impl.getResponseHeader('X-JSON');
@@ -81,8 +85,8 @@ api.impl = {
       var jsonStr = impl.getResponseHeader('X-JSON');
       if (jsonStr) doc.write(jsonStr + "<hr>");
       doc.close();
-    } // metaHandler(type, obj, impl)      
-      
+    } // metaHandler(type, obj, impl)
+
   }, // query(handler, method, qs)
 
   squeryArgs: function(scope, squery) {
@@ -95,13 +99,13 @@ api.impl = {
         qs.push(scope + "[sort]=" + encodeURIComponent(squery.sort.key));
       }
       if (squery.pages) {
-        qs.push(scope + "[page]=" + squery.pages.current, 
+        qs.push(scope + "[page]=" + squery.pages.current,
           scope + "[pageSize]=" + squery.pages.pageSize);
       }
     }
     return qs.join('&');
   }, // squeryArgs
-    
+
   squeryUpdate: function(squery, data) {
     if (squery != null) {
       var matches = {}
@@ -135,11 +139,11 @@ api.user = {
   current: function(handler) {
     api.impl.query(handler, 'api.user.current', '');
   }, // current
-  
+
  /**
   * Create a new account, user param is a hash with:
   *   name, pass, passCopy, email, emailCopy
-  * 
+  *
   * handler gets:
   * { result:, errors:, user: { id:, name: } }
   */
@@ -153,9 +157,9 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.signup', qs);
   }, // signup
-  
+
  /**
-  * Activate a created account so that it can be used. Generally 
+  * Activate a created account so that it can be used. Generally
   * used to verify the address by emailing the key needed to activate
   * the account.
   *
@@ -169,14 +173,14 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.activate', qs);
   }, // activate
-  
+
  /**
   * Login using an existing and activated account.
   *
   * handler gets:
   * { result:
   *     bad - name and/or password is bad
-  *     must_activate - name and password good, but the account needs 
+  *     must_activate - name and password good, but the account needs
   *       to be activated, user is not logged in
   *     ok - user has been logged in
   *   errors:
@@ -189,17 +193,17 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.login', qs);
   }, // login
-  
+
  /**
   * Logout
   *
   * handler gets:
   * { result: 'ok', user: { role: GUEST } }
-  */ 
+  */
   logout: function(handler) {
     api.impl.query(handler, 'api.user.logout', '');
   }, // logout
-  
+
  /**
   * Generate and email a new password for account with the given
   * email address.
@@ -213,7 +217,7 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.recoverActivation', qs);
   }, // recoverActivation
-  
+
  /**
   * Generate and email a new password for account with the given
   * email address.
@@ -227,7 +231,7 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.resetPassword', qs);
   }, // resetPassword
-  
+
   changePassword: function(handler, user) {
     var qs = ['user[password_old]=' + encodeURIComponent(user.passOld),
       'user[password]=' + encodeURIComponent(user.pass),
@@ -251,7 +255,7 @@ api.user = {
 api.group = {
   /**
    * handler gets:
-   * { result:, errors:, 
+   * { result:, errors:,
    *   group: { acctRev:, list: [groups] }
    *   member: { groupName:, groupRev:, list: [users] }
    * }
@@ -264,35 +268,35 @@ api.group = {
   list: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.list", handler, acctRev, groupName, groupRev);
   },
-  
+
   create: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.create", handler, acctRev, groupName, groupRev);
   }, // create
-  
+
   invite_user: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.invite_user", handler, 
+    this._execute("api.group.invite_user", handler,
       acctRev, groupName, groupRev, userName);
   }, // invite_user
-  
+
   promote_member: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.promote_member", handler, 
+    this._execute("api.group.promote_member", handler,
       acctRev, groupName, groupRev, userName);
   }, // promote_member
-  
+
   demote_member: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.demote_member", handler, 
+    this._execute("api.group.demote_member", handler,
       acctRev, groupName, groupRev, userName);
   }, // demote_member
-  
+
   kick_member: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.kick_member", handler, 
+    this._execute("api.group.kick_member", handler,
       acctRev, groupName, groupRev, userName);
   }, // kick_member
-  
+
   join: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.join", handler, acctRev, groupName, groupRev);
   }, // join
-  
+
   leave: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.leave", handler, acctRev, groupName, null);
   }, // leave
@@ -306,19 +310,19 @@ api.group = {
     qs = qs.join('&');
     api.impl.query(this._listShim(handler), func, qs);
   },
-  
+
   _unpackGroup: function(rgroup) {
     var group = new Group(rgroup.id, rgroup.name);
     group.groupRole = rgroup.groupRole;
     group.numMembers = rgroup.numMembers;
     return group;
   }, // _unpackGroup
-  
+
   _unpackUser: function(ruser) {
     var user = new User(ruser.name, ruser.groupRole, ruser.id);
     return user;
   }, // _unpackUser
-  
+
   _listShim: function(handler) {
     return function(data) {
       if (data.group) {
@@ -335,11 +339,11 @@ api.group = {
           list[i1] = raw;
         }
       }
-      
-      return handler(data);    
+
+      return handler(data);
     }
   } // _listShim
-  
+
 } // api.group.*
 
 
@@ -351,7 +355,7 @@ api.team = {
    * team.access.viewer // view group, '~your_name' for personal, or
    *                    //   single '~' for public
    */
-  
+
   /**
    * Gets a page of the list of visible teams.
    *
@@ -363,7 +367,7 @@ api.team = {
    *   squery.pages.count
    *
    * handler gets:
-   * { result:, errors:, 
+   * { result:, errors:,
    *   searched:, matched:, list: [teams],
    *   pages: { current:, count:, pageSize: } // current is 1 based
    * }
@@ -373,8 +377,8 @@ api.team = {
     api.impl.query(this._teamListShim(handler, squery),
       "api.team.list", qs);
   }, // list(handler)
-  
-  
+
+
   /**
    * Create a new team, fails if owner already has
    * a team of the same name (unless replace is true).
@@ -388,22 +392,22 @@ api.team = {
     if (replace) qs += '&replace=1';
     api.impl.query(this._teamShim(handler), 'api.team.create', qs);
   }, // create
-  
-  
+
+
   /**
-   * Updates an existing team, <team> must contain .access.owner 
+   * Updates an existing team, <team> must contain .access.owner
    * received from a previous query.
-   * 
+   *
    * handler gets:
    * { result:, errors:, team: }
-   */ 
+   */
   update: function(handler, team) {
     var qs = this._encodeTeam(team);
     api.impl.query(this._teamShim(handler), 'api.team.update', qs);
   }, // update
-  
+
   /**
-   * Delete an existing team, <team> must contain .access.owner 
+   * Delete an existing team, <team> must contain .access.owner
    * received from a previous query
    *
    * handler gets:
@@ -417,10 +421,10 @@ api.team = {
       'team[name]=' + encodeURIComponent(team.name)
     ];
     qs.push(api.impl.squeryArgs('team', squery));
-    api.impl.query(this._teamListShim(handler, squery), 
+    api.impl.query(this._teamListShim(handler, squery),
       'api.team.destroy', qs.join('&'));
   }, // destroy
-  
+
 
   _encodeTeam: function(team) {
     var qs = [
@@ -447,7 +451,7 @@ api.team = {
     } // for each slot
     return qs.join('&');
   }, // _encodeTeam
-    
+
   _unpackTeam: function(rteam) {
     var team = new Team(rteam.name, rteam.id, rteam.desc, rteam.size);
     var rtoons = rteam.list;
@@ -460,7 +464,7 @@ api.team = {
     team.access = rteam.access;
     return team;
   }, // _unpackTeam
-  
+
   _teamShim: function(handler) {
     return function(data) {
       if (data.team) {
@@ -469,7 +473,7 @@ api.team = {
       return handler(data);
     }
   }, // _teamShim(handler)
-  
+
   _teamListShim: function(handler, squery) {
     return function(data) {
       var list = data.list;
@@ -480,10 +484,10 @@ api.team = {
         }
       }
       api.impl.squeryUpdate(squery, data);
-      return handler(data);    
+      return handler(data);
     }
   } // _teamListShim
-  
+
 } // api.team.*
 
 
@@ -495,7 +499,7 @@ api.toon = {
    * toon.access.viewer // view group, '~your_name' for personal, or
    *                    //   single '~' for public
    */
-  
+
   /**
    * Gets a page of the list of visible characters.
    *
@@ -507,7 +511,7 @@ api.toon = {
    *   squery.pages.count
    *
    * handler gets:
-   * { result:, errors:, 
+   * { result:, errors:,
    *   searched:, matched:, list: [toons],
    *   pages: { current:, count:, pageSize: } // current is 1 based
    * }
@@ -517,8 +521,8 @@ api.toon = {
     api.impl.query(this._toonListShim(handler, squery),
       "api.toon.list", qs);
   }, // list(handler)
-  
-  
+
+
   /**
    * Create a new character, fails if owner already has
    * a character of the same name (unless replace is true).
@@ -539,15 +543,15 @@ api.toon = {
     qs = qs.join('&');
     api.impl.query(this._toonShim(handler), 'api.toon.create', qs);
   }, // create
-  
-  
+
+
   /**
-   * Updates an existing toon, <toon> must contain .access.owner 
+   * Updates an existing toon, <toon> must contain .access.owner
    * received from a previous query.
-   * 
+   *
    * handler gets:
    * { result:, errors:, toon: }
-   */ 
+   */
   update: function(handler, toon) {
     var qs = [
       'toon[owner]=' + encodeURIComponent(toon.access.owner),
@@ -558,9 +562,9 @@ api.toon = {
     ].join('&');
     api.impl.query(this._toonShim(handler), 'api.toon.update', qs);
   }, // update
-  
+
   /**
-   * Delete an existing toon, <toon> must contain .access.owner 
+   * Delete an existing toon, <toon> must contain .access.owner
    * received from a previous query
    *
    * handler gets:
@@ -574,11 +578,11 @@ api.toon = {
       'toon[name]=' + encodeURIComponent(toon.name)
     ];
     qs.push(api.impl.squeryArgs('toon', squery));
-    api.impl.query(this._toonListShim(handler, squery), 
+    api.impl.query(this._toonListShim(handler, squery),
       'api.toon.destroy', qs.join('&'));
   }, // destroy
-  
-  
+
+
   _unpackToon: function(rtoon) {
     var toon = Character.prototype.parse(rtoon.packed);
     toon.id = rtoon.id;
@@ -587,7 +591,7 @@ api.toon = {
     toon.access = rtoon.access;
     return toon;
   }, // _unpackToon
-  
+
   _toonShim: function(handler) {
     return function(data) {
       if (data.toon) {
@@ -596,7 +600,7 @@ api.toon = {
       return handler(data);
     }
   }, // _toonShim(handler)
-  
+
   _toonListShim: function(handler, squery) {
     return function(data) {
       var list = data.list;
@@ -607,8 +611,8 @@ api.toon = {
         }
       }
       api.impl.squeryUpdate(squery, data);
-      return handler(data);    
+      return handler(data);
     }
   } // _toonListShim
-  
+
 } // api.toon.*

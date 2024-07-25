@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# robots.yml
+
 # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use
 # the robots.txt file.
 

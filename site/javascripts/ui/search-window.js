@@ -1,3 +1,10 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+search-window.js - gw1builds ui
+*/
+
 /////////////////////////////////////////////////
 // Generic multidimensional search
 /////////////////////////////////////////////////
@@ -78,10 +85,10 @@ SearchWindow.prototype.drawDrilldown = function() {
       "<tr><td><select name='", listElName, "' size='6' multiple",
         " ondblclick='g_currentSearch.drilldownSelect(this,event)'></select></td></tr>",
       "<tr><td><button name='", selectElName, "' type='button'",
-          " onclick='g_currentSearch.drilldownSelect(this.form[\"", listElName, 
+          " onclick='g_currentSearch.drilldownSelect(this.form[\"", listElName,
             "\"],event)'>Select</button>",
         "<button name='", clearElName, "' type='button'",
-          " onclick='g_currentSearch.drilldownClear(this.form[\"", listElName, 
+          " onclick='g_currentSearch.drilldownClear(this.form[\"", listElName,
             "\"],event)'>Clear</button>",
         "</td></tr>",
       "</table></td>");
@@ -175,12 +182,12 @@ SearchWindow.prototype.drilldownClearAll = function() {
 } // drilldownClearAll()
 
 SearchWindow.prototype.drilldownOk = function() {
-  this.dlgWgt.hide(); 
+  this.dlgWgt.hide();
   this.filterChanged();
 } // drilldownOk()
 
 SearchWindow.prototype.drilldownCancel = function() {
-  this.dlgWgt.hide(); 
+  this.dlgWgt.hide();
 } // drilldownCancel()
 
 SearchWindow.prototype.updResults = function() {
@@ -189,7 +196,7 @@ SearchWindow.prototype.updResults = function() {
 
 SearchWindow.prototype.updDrilldown = function() {
   var matchEl = dojo.byId("searchMatches");
-  matchEl.innerHTML = this.filter.matched + " of " + 
+  matchEl.innerHTML = this.filter.matched + " of " +
     this.filter.searched;
 
   var dims = this.filter.dims;
@@ -199,7 +206,7 @@ SearchWindow.prototype.updDrilldown = function() {
     var dim = dims[i1];
     if (dim.disabled) continue;
 
-    fDrill[this.getDimClearElName(i1)].disabled = 
+    fDrill[this.getDimClearElName(i1)].disabled =
       (dim.selectedValues == null);
 
     var listElName = this.getDimListElName(i1);
@@ -216,7 +223,7 @@ SearchWindow.prototype.updDrilldown = function() {
 
 SearchWindow.prototype.show = function() {
 //  this.winEl.style.width = '640px';
-  var name = "<h2>" + this.name + " - " + 
+  var name = "<h2>" + this.name + " - " +
     "<span id='searchMatches' class='searchMatches'></span>" +
     "</h2>";
   showDialog(name, this.draw(), 'searchDialog');

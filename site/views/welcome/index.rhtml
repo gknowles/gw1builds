@@ -1,12 +1,14 @@
 <!--
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" 
-    "http://www.w3.org/TR/html4/loose.dtd">
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+index.rhtml - gw1builds view welcome
 -->
 <!-- Auto-generated <%= Time.now %> -->
 
 <html>
 <head>
-<% 
+<%
 menuId = 'topmenu'
 is_dev = ApplicationController.is_dev
 skin = {}
@@ -39,15 +41,15 @@ skin = {}
 var cssHover = {
   // part-list.css
   // div.partList table.detail tr:hover
-  partListTableTr: { backgroundColor: '<%= skin[:enhHoverBG] %>' },
+  partListTableTr: { backgroundColor: 'var(--enhHoverBG)' },
   // div#menuPopup div.partList table.detail tr:hover {
-  popupPartListTableTr: { backgroundColor: '<%= skin[:stdHoverBG] %>' },
-  
+  popupPartListTableTr: { backgroundColor: 'var(--stdHoverBG)' },
+
   // skillbar.css
   // div.skillbar tr.linked td.full
-  skillbarLinkedFull: { backgroundColor: '<%= skin[:enhHoverBG] %>' },
+  skillbarLinkedFull: { backgroundColor: 'var(--enhHoverBG)' },
   // div.skillbar tr.linked td.fullAlt
-  skillbarLinkedFullAlt: { backgroundColor: '<%= skin[:altHoverBG] %>' }
+  skillbarLinkedFullAlt: { backgroundColor: 'var(--altHoverBG)' }
 }
 </script>
 <%= javascript_include_tag 'model/data-skill', 'model/data-equip',
@@ -58,9 +60,9 @@ var cssHover = {
   }
 </script>
 <%= javascript_include_tag 'ui/util-pane' %>
-<%= 
-javascript_include_tag is_dev ? 
-  'dojo/dojo.js.uncompressed.js' : 'dojo/dojo.js' 
+<%=
+javascript_include_tag is_dev ?
+  'dojo/dojo.js.uncompressed.js' : 'dojo/dojo.js'
 %>
 <script type="text/javascript">
 //dojo.registerModulePath("model", "../../model");
@@ -111,29 +113,29 @@ dojo.require("dijit.Dialog");
   <div id="dragProxy" style='display: none'></div>
   <div id="dropIndicator" style='display: none'></div>
   <div id="dialog" dojoType='dialog' style='display: none'>
-    <div class="titlebar" 
-      onMouseDown="DDMove.down(this, event, 
+    <div class="titlebar"
+      onMouseDown="DDMove.down(this, event,
         {node: this.parentNode.parentNode})">Search</div>
     <div class="content"></div>
   </div>
-  <iframe id='hiddenIframe' name='hiddenIframe' 
+  <iframe id='hiddenIframe' name='hiddenIframe'
     style='display: none'></iframe>
-  
+
   <!-- initially hidden divs, all moved to visible parent later -->
   <div id="hidden" style='display: none'>
-        
+
     <form id="stateActions" class='stateActions'>
-      <button name="fSave" type="button" 
+      <button name="fSave" type="button"
         onclick="saveObj()">Save</button>
       <button name="fSaveAs" type="button"
         onclick="showDialog('Save As', drawObjSaveAs(), 'saveAsDialog')"
         >Save As...</button>
       <button name="fSaveMemberAs" type="button"
-        onclick="showDialog('Save Member As', 
-          drawObjSaveAs(g_state.dataTypes.TEAM_MEMBER), 
+        onclick="showDialog('Save Member As',
+          drawObjSaveAs(g_state.dataTypes.TEAM_MEMBER),
           'saveMemberAsDialog')"
         >Save Member As...</button>
-      <button name="fClose" type="button" 
+      <button name="fClose" type="button"
         onclick="">Close</button>
     </form>
     <%= render :partial => "user/named_divs" %>
@@ -141,6 +143,6 @@ dojo.require("dijit.Dialog");
     <%= render :partial => "skill/named_divs" %>
     <%= render :partial => "build/named_divs" %>
   </div> <!-- hidden divs -->
-    
+
 </body>
 </html>

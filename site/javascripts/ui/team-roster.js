@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.team-roster"); }
+team-roster.js - gw1builds ui
+*/
 
 var MAX_TEAM_SLOTS = 12;
 var MAX_TEAM_ALTERNATES = 4;
@@ -8,8 +12,8 @@ var MAX_TEAM_ALTERNATES = 4;
  * DDTeamSlot - DragDrop policy that implements:
  *  - drop target for toon and member slot objects
  */
-var DDTeamSlot = dojo.mixin({}, DDPolicy);
-dojo.mixin(DDTeamSlot, DDMixSlotDrop);
+var DDTeamSlot = Object.create(DDPolicy);
+Object.assign(DDTeamSlot, DDMixSlotDrop);
 DDTeamSlot.slotType = 'toon';
 DDTeamSlot.orientation = 'vertical';
 DDTeamSlot.maxSlots = MAX_TEAM_SLOTS;
@@ -23,8 +27,8 @@ DDTeamSlot.updSlotSet = function(upd, obj, dragObj) {
  * DDTeamSlotMember - DragDrop policy that provides
  * - drag source for toon and member slot
  */
-var DDTeamSlotMember = dojo.mixin({}, DDPolicy);
-dojo.mixin(DDTeamSlotMember, DDMixSlotReverseDrop);
+var DDTeamSlotMember = Object.create(DDPolicy);
+Object.assign(DDTeamSlotMember, DDMixSlotReverseDrop);
 DDTeamSlotMember.slotType = 'toon';
 
 DDTeamSlotMember.drawDrag = function(obj) {
@@ -43,13 +47,12 @@ DDTeamSlotMember.drawDrag = function(obj) {
 
 /**
  * DDTeamSlotGrid - DragDrop policy that provides:
- *  - tooltip with full character attribute description 
+ *  - tooltip with full character attribute description
  *  - show/hide of attrgrid
  */
-var DDTeamSlotGrid = dojo.mixin(
-  { lastToggleEl: null, lastToon: null }, 
-  DDToonAttrs);
-  
+var DDTeamSlotGrid = { lastToggleEl: null, lastToon: null };
+Object.assign(DDTeamSlotGrid, DDToonAttrs);
+
 DDTeamSlotGrid.drawTooltip = function(obj) {
   // obj = { id:<pos>, slotset:<Build> }
   obj.toon = obj.slotset.slotRefs()[obj.id].value;
@@ -124,7 +127,7 @@ function teamMemberMaximize(el, event, obj) {
 } // teamMemberMaximize
 function teamMemberClose(el, event, obj) {
   // obj = { id:<pos>, slotset:<Build> }
-  var upd = null;  
+  var upd = null;
   var slot = obj.slotset.slotRefs()[obj.id];
   if (slot.value) {
     if (slot.value == DDTeamSlotGrid.lastToon) {
@@ -149,18 +152,18 @@ var teamMemberShow = null; // function('view' or 'edit', toon)
 
 
 /**
- * DDTeamSlotSkill - DragDrop policy that provides tooltip 
+ * DDTeamSlotSkill - DragDrop policy that provides tooltip
  * with full skill description
  */
-var DDTeamSlotSkill = dojo.mixin({}, DDPolicy);
-dojo.mixin(DDTeamSlotSkill, DDMixSlotDrop);
-dojo.mixin(DDTeamSlotSkill, DDMixSlotReverseDrop);
+var DDTeamSlotSkill = Object.create(DDPolicy);
+Object.assign(DDTeamSlotSkill, DDMixSlotDrop);
+Object.assign(DDTeamSlotSkill, DDMixSlotReverseDrop);
 DDTeamSlotSkill.slotType = 'skill';
 DDTeamSlotSkill.orientation = 'horizontal';
 DDTeamSlotSkill.maxSlots = MAX_SKILL_SLOTS;
 DDTeamSlotSkill.maxAlts = MAX_SKILL_ALTERNATES;
 DDTeamSlotSkill.over = function(el, event, obj) {
-  // this function (DDTeamSlotSkill.over) is only here so we can 
+  // this function (DDTeamSlotSkill.over) is only here so we can
   // set a break point for debugging, it is completely unnecessary.
   DDPolicy.over.call(this, el, event, obj);
 }
@@ -195,7 +198,7 @@ DDTeamSlotSkill.rejectedDrop = function(obj, dragObj) {
   if (dragObj.type.skill) {
     var toon = obj.slotset;
     var skill = dragObj.value;
-    dojo.lang.setTimeout(alert, 1, toon.primary.name + '/' + 
+    dojo.lang.setTimeout(alert, 1, toon.primary.name + '/' +
       toon.secondary.name + " can't use [" + skill.name + "]");
   }
 };
@@ -264,21 +267,21 @@ function drawTeamRoster() {
       ' maxlength="20"' +
       ' onBlur="chgToonName(this.value,' + i1 + ')"' +
       ' title="This character\'s name" style="width: 130px;">';
-    var proSelect = 
+    var proSelect =
       '<select name="pPro1.' + i1 + '" onChange="chgToonPrimary(' +
         'getSelectValue(this),' + i1 + ')"></select>/' +
       '<select name="pPro2.' + i1 + '" onChange="chgToonSecondary(' +
         'getSelectValue(this),' + i1 + ')"></select>';
-    var lvlSelect = 
+    var lvlSelect =
       '<select name="pLevel.' + i1 + '" onChange="chgToonLevel(' +
         'getSelectValue(this),' + i1 + ')"></select>';
     var bonusSelect = '<select name="pBonusPoints.' + i1 + '"' +
       ' onchange="chgToonBonusPoints(' +
         'getSelectValue(this),' + i1 + ')"></select>';
-    var healthText = '<input type="text" name="pHealth.' + i1 + '"' + 
+    var healthText = '<input type="text" name="pHealth.' + i1 + '"' +
       ' maxlength="7" value="480/480" readonly size="7">';
 
-    // row 0, toon name 
+    // row 0, toon name
     out.push("<div style='width: 100%'>",
       "<a href='' class='smallButton sbClose' style='float: right'",
         " onclick='teamMemberClose", args, "; return false'",
@@ -317,12 +320,12 @@ function drawTeamRoster() {
       "</td>",
       "</tr></table>",
       "</div>");
-      
+
     // row 1, skillbar
     out.push("<div class='skillbar' style='text-align: left; clear: both'>",
       "<table style='width: 1%'><tr>");
     for (var i2 = 0; i2 < MAX_SKILL_SLOTS + MAX_SKILL_ALTERNATES; ++i2) {
-      var args2 = "(this,event,{id:" + i2 +  
+      var args2 = "(this,event,{id:" + i2 +
         ",slotset: " + toonKey + ", teamPos: " + i1 + "})";
       out.push("<td class='empty'",
           " onmouseover='DDTeamSlotSkill.over", args2, "'",
@@ -333,7 +336,7 @@ function drawTeamRoster() {
         drawSkillIcon(null, true, [
           "<a href='' class='smallButton sbClose'",
             " onclick='DDTeamSlotSkill.close", args2, "; return false'",
-          "></a>"].join('') ), 
+          "></a>"].join('') ),
         "</td>"
       );
     }
@@ -350,7 +353,7 @@ updTeamRoster.prototype.changeKeys = {
 };
 function updTeamRoster(upd) {
   if (!hasUpdateKey(upd, updTeamRoster.prototype.changeKeys)) return;
-  
+
   var team = upd.what || g_state.getTeam();
   var el = dojo.byId('teamRoster');
   var formEl = dojo.html.getParentByType(el, 'form');
@@ -379,11 +382,11 @@ function updTeamRoster(upd) {
     // empty slot left.
     var el = dojo.html.getElementsByClass('sbClose', sdivs[0])[0];
     el.style.display = (toon == null && numSlots == 1) ? 'none' : '';
-    
+
     if (toon == null) {
       // div 0, name
       // div 1, skillbar
-      var tds = sdivs[1].firstChild.rows[0].childNodes; 
+      var tds = sdivs[1].firstChild.rows[0].childNodes;
         // div/table/tr[0]/tds
       for (var i2 = 0; i2 < 8 + MAX_SKILL_ALTERNATES; ++i2) {
         var td = tds[i2];
@@ -397,10 +400,10 @@ function updTeamRoster(upd) {
 
     toon.teamPos = i1;
     var upd = {keys: toon.changeKeys, what: toon, pos: i1};
-    
+
     // div 0, professions, name
     updToonInfo(upd, formEl);
-    
+
     // div 1, skillbar
     updTeamRosterSkillbar(upd);
   } // for each toon slot
@@ -421,7 +424,7 @@ function updTeamRosterSkillbar(upd) {
   var toon = upd.what;
   var pos = upd.pos;
   if (!toon || pos == null) return;
-  
+
   var el = dojo.byId('teamRoster');
   var rows = el.lastChild.rows; // div/table/rows
   var td = rows[pos].firstChild;

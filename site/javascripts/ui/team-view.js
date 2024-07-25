@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.team-view"); }
+team-view.js - gw1builds ui
+*/
 
 /**
  * @team    team to draw
@@ -12,13 +16,13 @@ if (typeof dojo != 'undefined') { dojo.provide("ui.team-view"); }
 function updTeamView(el, team, fmt) {
   switch (fmt) {
     default:
-    case 'normal': 
+    case 'normal':
       el.innerHTML = drawTeamViewNormal(team);
       break;
-    case 'code': 
+    case 'code':
       el.innerHTML = drawTeamViewCode(team);
       break;
-    case 'export': 
+    case 'export':
       var formEl = dojo.html.getParentByType(
         dojo.byId('buildExport'), 'form');
       loadExportView(formEl);
@@ -35,10 +39,10 @@ function drawTeamViewNormal(team) {
   else if (vport > 750) cols = 3, coff = 1;
 
   var desc = ["<h2>Notes</h2>",
-    "<div class='section'><div class='partDesc'>", 
-    (team && team.desc) ? team.desc : "No notes", 
+    "<div class='section'><div class='partDesc'>",
+    (team && team.desc) ? team.desc : "No notes",
     "</div></div>"].join('');
-  
+
   var out = ["<div class='normalView'>"]
   if (coff == 0) out.push(desc);
   out.push("<table border='1' style='width: 100%'>",
@@ -52,7 +56,7 @@ function drawTeamViewNormal(team) {
     out.push("<td><h2>Member ", i1 + coff, "</h2>");
     out.push("<div class='section'>");
     if (toon) {
-      out.push(drawToon(toon, { pro: true, attrs: true, skills: true, 
+      out.push(drawToon(toon, { pro: true, attrs: true, skills: true,
         desc: true } ));
     } else {
       out.push("<div class='partDesc'>Empty slot</div>");
@@ -70,7 +74,7 @@ function drawTeamViewNormal(team) {
 
 
 function drawTeamViewCode(team) {
-  var inclNames = 
+  var inclNames =
     g_store.get(g_store.keys.CODE_INCLUDE_NAMES) == true;
   var slots = team ? team.slotRefs() : [];
   var out = ["<div class='codeView'>",
@@ -95,7 +99,7 @@ function drawTeamViewCode(team) {
     var slot = slots[i2];
     var toon = slot.value;
     out.push("<tr", (i2 % 4 < 2) ? " class='listBar'>" : '>',
-      "<td><span class='partName'>", 
+      "<td><span class='partName'>",
       team.makeBullet(slot.pos, slot.alt), ". ");
     if (!toon) {
       out.push("(Empty slot)</span></td><td colspan='6'></td>");
@@ -107,13 +111,13 @@ function drawTeamViewCode(team) {
           " value=", htmlstring2(toon.toAnet(!inclNames)),
           " onclick='dojo.html.selectInputText(this)'>",
         "</td><td title=", jstring1('Download skills of ' + toon.name),
-          ">", drawDownloadButton(toon.name, toon.toAnet(true)), 
+          ">", drawDownloadButton(toon.name, toon.toAnet(true)),
         "</td><td style='padding-right: 0px'>",
         "<input size='20' readonly",
           " value=", htmlstring2(toon.toAnetEquip(!inclNames)),
           " onclick='dojo.html.selectInputText(this)'>",
-        "</td><td title=", jstring1('Download equipment of ' + toon.name), 
-          ">", drawDownloadButton(toon.name, toon.toAnetEquip(true)), 
+        "</td><td title=", jstring1('Download equipment of ' + toon.name),
+          ">", drawDownloadButton(toon.name, toon.toAnetEquip(true)),
         "</td>"
       );
       // guildbuilds
@@ -209,7 +213,7 @@ function updExportView(form) {
   }
   g_store.set(g_store.keys.EXPORT_OPTIONS, toQueryString(args));
 
-  var out = [];    
+  var out = [];
   var team = g_state.getTeam();
   var slots;
   if (team) {
@@ -236,7 +240,7 @@ function updExportView(form) {
   for (var i1 = 0; i1 < slots.length; ++i1) {
     var slot = slots[i1];
     var toon = slot.value;
-    var bullet = slot.pos == null ? null : 
+    var bullet = slot.pos == null ? null :
       SlotSet.prototype.makeBullet(slot.pos, slot.alt);
     if (args.format == 'text') {
       if (i1) out.push('<br/>-----<br/>');
@@ -250,12 +254,12 @@ function updExportView(form) {
       var tmp = drawToonViewText(toon, args, /*bbcode=*/true);
       tmp = tmp.replace(/\n/g, '<br/>');
       out.push(tmp);
-      out.push('<br/>\n');              
+      out.push('<br/>\n');
     } else { // gwbbcode
       out.push(drawToonViewGwBBCode(toon, args));
       out.push('<br/>\n');
     }
-  }    
+  }
   var outEl = dojo.byId('buildExportContent');
   out = out.join('');
   outEl.innerHTML = out;
@@ -294,5 +298,5 @@ function drawViewTextWrap(pre) {
   out.push(pre.replace(/\n/g, '<br/>'));
   out.push("</div></div></div>");
   out = out.join('');
-  return out;    
+  return out;
 } // drawViewTextWrap

@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+menu.css - gw1builds
+*/
+
 /*
 topmenu
 tabmenu
@@ -70,7 +77,7 @@ ul.tabmenu li a {
 }
 ul.tabmenu a.active {
   color: black;
-  background-position: 0px 0px; 
+  background-position: 0px 0px;
 }
 ul.tabmenu a.active:hover {
   color: black;
@@ -79,23 +86,23 @@ ul.tabmenu a.active:hover {
 ul.tabmenu a:hover {
   color: gray;
   background-position: 0px 0px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 
 /* State actions */
-form.stateActions button { 
-  height: 22px; 
+form.stateActions button {
+  height: 22px;
 }
 
 
 /* Inset tab menus */
-div.insetTab { 
+div.insetTab {
   background-color: #607080;
 }
 div.insetTabPane {
-  border-top: 4px solid <%= skin[:headBG] %>;
-  background-color: <%= skin[:paneBG] %>;
+  border-top: 4px solid var(--headBG);
+  background-color: var(--paneBG);
 }
 ul.insetTab {
   display: block;
@@ -111,27 +118,27 @@ ul.insetTab li a {
   border: 1px solid;
   border-color: #607080 black black #607080;
   padding: 0px 4px;
-  color: <%= skin[:std] %>;
-  background-color: <%= skin[:stdBG] %>;
+  color: var(--std);
+  background-color: var(--stdBG);
   font-size: 9pt;
   text-align: center;
   text-decoration: none;
   line-height: 26px;
 }
 ul.insetTab a.active {
-  color: <%= skin[:head] %>;
-  background-color: <%= skin[:headBG] %>;
-  border-bottom-color: <%= skin[:headBG] %>; 
+  color: var(--head);
+  background-color: var(--headBG);
+  border-bottom-color: var(--headBG);
 }
 ul.insetTab a.active:hover {
-  color: <%= skin[:head] %>;
-  background-color: <%= skin[:headBG] %>;
+  color: var(--head);
+  background-color: var(--headBG);
   cursor: default;
 }
 ul.insetTab a:hover {
-	background-color: <%= skin[:enhBG] %>;
-	color: <%= skin[:enh] %>;
-  cursor: pointer; 
+	background-color: var(--enhBG);
+	color: var(--enh);
+  cursor: pointer;
 }
 
 
@@ -145,24 +152,24 @@ div.iconMenu .menuIcon {
 }
 div.iconMenu a.menuIcon {
   border: 1px solid;
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
 }
 div.iconMenu a.menuIcon:hover {
-  border-color: <%= skin[:stdHoverBorder] %>;
-  background-color: <%= skin[:stdHoverBG] %>;
-  color: <%= skin[:stdHover] %>;
+  border-color: var(--stdHoverBorder);
+  background-color: var(--stdHoverBG);
+  color: var(--stdHover);
 }
 div#menuPopup {
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  background-color: var(--stdBG);
+  color: var(--std);
 }
 div#menuPopup table.detail tr {
   cursor: default;
 }
 div#menuPopup table.detail tr:hover {
   /* !!! Corresponding entry in cssHover must match */
-  background-color: <%= skin[:stdHoverBG] %>;
+  background-color: var(--stdHoverBG);
 }
 

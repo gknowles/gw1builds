@@ -1,3 +1,9 @@
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+myaccount.rhtml - gw1builds view user
+-->
 <script type="text/javascript">
 <% paneRef = menuId + "_myaccount" %>
 <%= paneRef %> = new Pane({
@@ -6,9 +12,9 @@
   hidden: true,
 
   onload: function() { this.loadElems(); },
-  onprepare: function() { 
+  onprepare: function() {
     dojo.html.hide(this.elems.main.errpaneEl);
-    this.openDiv('main'); 
+    this.openDiv('main');
   },
   onactive: function() { this.focusDiv('main'); },
   onupdate: function(upd) {
@@ -17,7 +23,7 @@
       this.updateUser();
     }
   },
-  
+
   updateUser: function() {
     if (g_user.hasRole()) {
       dojo.byId('header_user').innerHTML = g_user.name;
@@ -27,7 +33,7 @@
       dojo.byId('header_user').innerHTML = "<br>";
     }
   }, // updateUser
-  
+
   chgEmail: function(form) {
     var email = form['email'].value;
     var user = {
@@ -37,7 +43,7 @@
     form['email'].value = '';
     form['emailCopy'].value = '';
     api.user.changeEmail(handler, user);
-    
+
     function handler(data) {
       var self = <%= paneRef %>;
       if (data.result == 'ok') {
@@ -50,7 +56,7 @@
       }
     }
   }
-  
+
 });
 PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
 

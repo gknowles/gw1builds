@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.account"); }
+account.js - gw1builds ui
+*/
 
 /////////////////////////////////////////////////
 // Account related functions
@@ -24,7 +28,7 @@ function drawAccountLogin() {
 function accountLogin(form) {
   var identity_url = form['openid_url'].value;
   api.user.login(handler, identity_url);
-  
+
   function handler(data) {
     if (data.result == 'ok') {
       return accountLoginSuccess(data);
@@ -54,7 +58,7 @@ function accountLogin(form) {
 function accountSignup(form) {
   var name = form['name'].value;
   api.user.signup(handler, new User(name));
-  
+
   function handler(data) {
     if (data.result == 'ok') return accountLoginSuccess(data);
 
@@ -75,6 +79,6 @@ function accountLoginSuccess(data) {
   g_user.name = data.user.name;
   g_user.role = data.user.role;
   groupListHandler(data);
-  hideDialog(); 
+  hideDialog();
   updRootAll( {keys: {user: true} } );
 } // accountLoginSuccess

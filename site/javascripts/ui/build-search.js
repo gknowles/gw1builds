@@ -1,15 +1,21 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.build-search"); }
+build-search.js - gw1builds ui
+*/
 
 /////////////////////////////////////////////////
 // BuildDimension
 /////////////////////////////////////////////////
-function BuildDimension(disabled, name, propName, minSize, maxSize) { 
-  this.init(disabled, name, propName, minSize, maxSize); 
+//===========================================================================
+function BuildDimension(disabled, name, propName, minSize, maxSize) {
+  this.init(disabled, name, propName, minSize, maxSize);
 }
-dojo.inherits(BuildDimension, SearchDimension);
+Object.assign(BuildDimension, SearchDimension);
 
-BuildDimension.prototype.getValueArray = function() {
+//===========================================================================
+BuildDimension.getValueArray = function() {
   var values = this.values;
   var vals = [];
   for (var v in values) {
@@ -22,27 +28,30 @@ BuildDimension.prototype.getValueArray = function() {
     function(a,b) { return cmp(a.key, b.key); }
   );
   return vals;
-} // BuildDimension.getValueArray
+}
 
 
 /////////////////////////////////////////////////
 // Build Dimension - Viewer
 /////////////////////////////////////////////////
+//===========================================================================
 function BuildDimensionViewer(disabled) {
   this.init(disabled, 'Viewer', 'access.viewer');
 }
-dojo.inherits(BuildDimensionViewer, BuildDimension);
+Object.assign(BuildDimensionViewer, BuildDimension);
 
 
 /////////////////////////////////////////////////
 // Build Filter
 /////////////////////////////////////////////////
+//===========================================================================
 function BuildSearchFilter(dims) {
   this.init(dims);
 }
-dojo.inherits(BuildSearchFilter, SearchFilter);
+Object.assign(BuildSearchFilter.prototype, SearchFilter.prototype);
 
-BuildSearchFilter.prototype.getKey = function(obj) {
+//===========================================================================
+BuildSearchFilter.getKey = function(obj) {
   return (obj.id);
 }
 
@@ -52,6 +61,7 @@ BuildSearchFilter.prototype.getKey = function(obj) {
 /////////////////////////////////////////////////
 var g_buildSearch = new SearchQuery(new BuildSearchFilter);
 
+//===========================================================================
 function initBuildSearch() {
   var dims = [];
   dims.push(new BuildDimension(/*disabled=*/false, 'Team', 'isTeam', 2, 2));
@@ -65,13 +75,14 @@ function initBuildSearch() {
   }
   filter.updValues({});
   g_buildSearch.filter = filter;
-} // initBuildSearch()
+}
 
+//===========================================================================
 function editBuildSearch() {
   var filter = g_buildSearch.filter.clone();
   var dlgWgt = dijit.byId("dialog");
 
-  g_currentSearch = new SearchWindow('Toon Search', dlgWgt, filter, 
+  g_currentSearch = new SearchWindow('Toon Search', dlgWgt, filter,
     {});
   g_currentSearch.filterChanged = function() {
     var data = g_buildSearch.filter.exportSelected();
@@ -81,5 +92,4 @@ function editBuildSearch() {
     updRoot( {keys: g_buildSearch.changeKeys} );
   }
   g_currentSearch.show();
-} // editBuildSearch()
-
+}

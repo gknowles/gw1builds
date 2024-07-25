@@ -1,6 +1,10 @@
-// Character info functions
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.toon-info"); }
+toon-info.js - gw1builds ui
+*/
+// Character info functions
 
 function initToonInfo(elems) {
   var form = elems.formEl;
@@ -29,12 +33,12 @@ function initToonInfo(elems) {
 function updToonInfo(upd, formEl) {
   // not a valid upd? exit
   if (upd == null || formEl == null) return;
-  
+
   var toon = upd.what || g_state.getMember();
   if (toon == null || !toon instanceof Character) return;
-  var pos = upd.pos;  
+  var pos = upd.pos;
   var keys = upd.keys;
-  
+
   var el;
   function field(name) {
     var fld = String(name);
@@ -42,7 +46,7 @@ function updToonInfo(upd, formEl) {
     el = formEl[fld];
     return el;
   }
-  
+
   if (keys.name && field('pName')) {
     el.value = toon.name;
   }
@@ -94,7 +98,7 @@ function updToonInfo(upd, formEl) {
   if (keys.headgearAttr && field('pManualHeadgear')) {
     el.checked = !Character.prototype.autoHeadgear;
   }
-  
+
   if (keys.level && field('pLevel')) {
     el.selectedIndex = toon.level;
   }
@@ -135,8 +139,8 @@ function importToon(val, memberPos) {
     toon = findAttrToon();
     Character.prototype.parse(val, toon, /*skipName=*/true);
     updRoot( {
-      keys: toon.changeKeys, 
-      what: toon, 
+      keys: toon.changeKeys,
+      what: toon,
       pos: g_state.teamPos(toon)
     } );
   }
@@ -233,8 +237,8 @@ function chgToonAutoHeadgear(val) {
 }
 
 function findChgToon(pos) {
-  return pos != null ? 
-    g_state.getTeam().slotRefs()[pos].value : 
+  return pos != null ?
+    g_state.getTeam().slotRefs()[pos].value :
     g_state.getMember();
 } // findChgToon
 

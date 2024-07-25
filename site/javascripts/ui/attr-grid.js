@@ -1,11 +1,15 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.attr-grid"); }
+attr-grid.js - gw1builds ui
+*/
 
 /**
  * DDAttr - DragDrop policy that provides tooltip with full
  * character attribute description
  */
-var DDAttr = dojo.mixin({}, DDPolicy);
+var DDAttr = DDPolicy;
 DDAttr.drawTooltip = function(obj) {
   var attrName = obj.name;
   for (var a in g_attrs) {
@@ -20,13 +24,13 @@ DDAttr.queryTooltip = function(attr, toon) {
   var pro = attr.pro ? g_pros[attr.pro].name : 'No Profession';
   var title = "<span class='partType' style='float: right'>" +
       "(" + pro +
-      (attr.isPrimary ? ' Primary' : '') + ")</span>" + 
+      (attr.isPrimary ? ' Primary' : '') + ")</span>" +
     "<b>" + attr.name + "</b>";
   return "<span class='partName'>" + title + "</span><br>" +
     "<div class='partDesc'>" + attr.desc + "</div>";
 }
 
-
+//===========================================================================
 function initAttrGrid() {
   var val = g_store.get(g_store.keys.TOON_AUTOADJUST);
   if (val != null) {
@@ -37,27 +41,27 @@ function initAttrGrid() {
   var el = dojo.byId('attrGrid');
   DDAttr.elems = loadVarElems(el);
   DDAttr.elems.gridEl.innerHTML = drawAttrGrid();
-} // initAttrGrid
+}
 
-
+//===========================================================================
 function drawAttrGrid() {
   var out = ["<table border=0 cellspacing=1 cellpadding=0>",
     "\n<tr>"];
-  
+
   out.push("<td class='head' colspan='1'><input style='float: left'",
     " type='checkbox' name='pManualHeadgear'",
     " onclick='chgToonAutoHeadgear(!this.checked)'",
     " title='Lock headgear so it is not automatically adjusted'");
   if (!Character.prototype.autoHeadgear) out.push(' checked');
   out.push(">&nbsp;<span>Headgear</span></td>");
-  
+
   out.push("<td class='head'><input style='float: right'",
     " type='checkbox' name='pManualRunes'",
     " onclick='chgToonAutoRunes(!this.checked)'",
     " title='Lock runes so they are not automatically adjusted'");
   if (!Character.prototype.autoRunes) out.push(' checked');
   out.push("><span>Rune</span></td>");
-  
+
   out.push("<td class='head' colspan='17'><span class='attrTotal'>",
     "Points: <b>",
     "<input name='pAttrPoints' size='7' readonly value='0/0'>",
@@ -71,11 +75,11 @@ function drawAttrGrid() {
 
     var chkattr = "<img class='checkmark' src='/images/checkmark.png'>" +
       "<span class='attr'>Wilderness Survival</span>"; // widest attr
-        
+
     // secondary prof attr - span 2 cols, no rune dropdown ftw.
     if (i1 > 4) {
       out.push(" class='attr' colspan='2'>", chkattr, "</td>");
-    } 
+    }
     // primary prof attr? two cells - name, rune
     else {
       // name
@@ -99,8 +103,9 @@ function drawAttrGrid() {
   out.push("</table>");
   out = out.join('');
   return out;
-} // drawAttrGrid()
+}
 
+//===========================================================================
 function drawAttrValueSelect() {
   var out = ["<table cellspacing='0' class='fill'><tr>"];
   //zomg loop for the level grid
@@ -109,9 +114,9 @@ function drawAttrValueSelect() {
   }
   out.push("</tr></table>");
   return out.join('');
-} // drawAttrGridRow()
+}
 
-
+//===========================================================================
 updAttrGrid.prototype.changeKeys = {
   headgearAttr: true,
   runes: true,
@@ -121,11 +126,11 @@ updAttrGrid.prototype.changeKeys = {
 function updAttrGrid(upd, compress) {
   var toon = upd.what || g_state.getMember();
   if (!toon) return;
-  
+
   if (upd.keys.desc) {
     DDAttr.elems.descEl.value = toon.desc;
   }
-  
+
   if (!hasUpdateKey(upd, updAttrGrid.prototype.changeKeys)) return;
   var el = DDAttr.elems.gridEl;
   var pattrs = toon.pattrArray();
@@ -143,7 +148,7 @@ function updAttrGrid(upd, compress) {
   g_store.set(g_store.keys.TOON_AUTOADJUST, [
     Character.prototype.autoHeadgear,
     Character.prototype.autoRunes].join());
-    
+
   // attr rows
   var a1 = 0; // attribute index
   var r1 = 1; // row index
@@ -154,23 +159,23 @@ function updAttrGrid(upd, compress) {
       continue;
     }
     row.style.display = '';
-    
+
     var pattr = pattrs[a1];
     a1 += 1;
     //alert(r1 + ': ' + a1 + ' - ' + pattr.name);
-    
+
     var td = row.childNodes[0];
     td.lastChild.innerHTML = compress ? pattr.abbrev : pattr.name;
     td.onmouseover = new Function('event',
       "DDAttr.over(this, event, {name: '" + pattr.name + "'})");
     // primary prof attr? two cells - name, runes
     if (pattr.isPrimary) {
-      td.firstChild.style.visibility = 
+      td.firstChild.style.visibility =
         pattr.headgear ? 'visible' : 'hidden';
       td.onclick = new Function('event',
         "chgToonHeadgear('" + pattr.name + "')");
       var sel = row.childNodes[1].firstChild;
-      sel.onchange = new Function('event', 
+      sel.onchange = new Function('event',
         "chgToonAttrRune('" + pattr.name + "'" +
           ", this.options[this.selectedIndex].value)");
       for (var i1 = 0; i1 < sel.options.length; ++i1) {
@@ -199,9 +204,9 @@ function updAttrGrid(upd, compress) {
       updAttrValueSelect(row.childNodes[1], toon, pattr.name);
     }
   } // for each attribute row
-} // updAttrGrid
+}
 
-
+//===========================================================================
 function updAttrValueSelect(el, toon, attrName) {
   var row = el.firstChild.rows[0]; // zeroth node is <script>
   var pts = toon.attrPoints();
@@ -224,7 +229,7 @@ function updAttrValueSelect(el, toon, attrName) {
       if (pattr.rawValue() == pattr.value) {
         node.title = 'Your rank in this attribute is ' + val + '.';
       } else {
-        node.title = 'Your rank in this attribute is normally ' + 
+        node.title = 'Your rank in this attribute is normally ' +
           pattr.rawValue() + ', but is currently modified to ' + val + '.';
       }
       node.className = 'lvl current';
@@ -232,7 +237,7 @@ function updAttrValueSelect(el, toon, attrName) {
       node.style.backgroundColor = '';
       node.onclick = '';
     }
-    // valid alternate pattr value. 
+    // valid alternate pattr value.
     //   what would be changed tip
     //   health change background image
     else {
@@ -242,7 +247,7 @@ function updAttrValueSelect(el, toon, attrName) {
       } else {
         title = 'Increasing ';
       }
-      title += 'from ' + 
+      title += 'from ' +
         pattr.value + ' to ' + val + ' would cause ';
       var results = [];
       var dif = // reversed because they are points used and we show avail
@@ -252,7 +257,7 @@ function updAttrValueSelect(el, toon, attrName) {
       dif = choices[val].runes - cattr.runes;
       if (dif > 0) results.push('+' + dif + ' runes');
       if (dif < 0) results.push(dif + ' runes');
-      dif = choices[val].health - cattr.health; 
+      dif = choices[val].health - cattr.health;
       if (dif > 0) results.push('+' + dif + ' health');
       if (dif < 0) results.push(dif + ' health');
       title += results.join(', ') + '.';
@@ -260,7 +265,7 @@ function updAttrValueSelect(el, toon, attrName) {
       node.className = 'lvl good';
       node.onclick = new Function("event",
         "chgToonAttrValue('" + pattr.name + "'," + val + ")");
-        
+
       // dif is change in health, set scaled background image
       var odif = dif;
       if (dif == 0) {
@@ -273,7 +278,7 @@ function updAttrValueSelect(el, toon, attrName) {
         } else {
           dif = -Math.round(1.96 * Math.sqrt(2 * -dif));
           if (dif > -8) dif = -8;
-        } 
+        }
       } else { // dif > 0
         node.style.backgroundImage = "url('images/attr-grid-health-gain.png')";
         if (dif >= 75) {
@@ -287,7 +292,7 @@ function updAttrValueSelect(el, toon, attrName) {
       }
       dif -= 2; // adjust for padding and border
       node.style.backgroundPosition = '0px ' + dif + 'px';
-      
+
       //continue;
       node.style.backgroundImage = '';
       dif = odif;

@@ -1,10 +1,14 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.slotset"); }
+slotset.js - gw1builds ui
+*/
 
 /**
  * Dervied policies must set:
  *  slotType     type of object in slotset, 'skill' or 'toon'
- *  orientation  'vertical' or 'horizontal' 
+ *  orientation  'vertical' or 'horizontal'
  *  maxSlots     maximum number of slots (alts aren't slots)
  *  maxAlts      maximum number of total alternates
  */
@@ -43,7 +47,7 @@ DDMixSlotDrop.acceptDrop = function(obj, dragObj) {
         this.lrIndicatorClass = this.lrSameIndicatorClass;
       }
       north = south = true;
-    } 
+    }
     // primary skill slot drag
     else if (dragSlot.alt == 0) {
       // 1. directly infront of another primary
@@ -94,7 +98,7 @@ DDMixSlotDrop.drop = function(obj, dragObj, side) {
       if (side == aSide) {
         slot = {pos: slot.pos, alt: slot.alt + 1};
       }
-    } 
+    }
     // primary skill slot drop?
     else if (dragSlot.alt == 0) {
       // on after edge? really wanted next slot, switch to it
@@ -104,7 +108,7 @@ DDMixSlotDrop.drop = function(obj, dragObj, side) {
       }
     }
     else {
-      // alt on before edge of primary? really wanted to append to 
+      // alt on before edge of primary? really wanted to append to
       //   prev alt list
       if (slot.alt == 0 && side == bSide) {
         slot = slots[obj.id - 1];
@@ -114,13 +118,13 @@ DDMixSlotDrop.drop = function(obj, dragObj, side) {
         slot = {pos: slot.pos, alt: slot.alt + 1};
       }
     }
-    ukeys = obj.slotset.moveSlot(slot.pos, slot.alt, 
-      dragSlot.pos, dragSlot.alt);  
+    ukeys = obj.slotset.moveSlot(slot.pos, slot.alt,
+      dragSlot.pos, dragSlot.alt);
   } else if (dragObj.type[this.slotType]) {
     ukeys = obj.slotset.setSlot(slot.pos, slot.alt, dragObj.value);
   }
-  if (ukeys && this.updSlotSet) { 
-    this.updSlotSet( {keys: ukeys, what: obj.slotset}, obj, dragObj); 
+  if (ukeys && this.updSlotSet) {
+    this.updSlotSet( {keys: ukeys, what: obj.slotset}, obj, dragObj);
   }
 } // DDMixSlotDrop.drop
 
@@ -142,8 +146,8 @@ var DDMixSlotReverseDrop = {
     } else if (obj.type.deleteAlt) {
       ukeys = dragObj.slotset.deleteAlt(dragObj.pos, dragObj.alt);
     }
-    if (ukeys && this.updSlotSet) { 
-      this.updSlotSet( {keys: ukeys, what: dragObj.slotset}, dragObj, obj); 
+    if (ukeys && this.updSlotSet) {
+      this.updSlotSet( {keys: ukeys, what: dragObj.slotset}, dragObj, obj);
     }
   } // reverseDrop
 } // DDMixSlotReverseDrop

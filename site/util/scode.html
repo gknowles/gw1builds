@@ -1,3 +1,10 @@
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+scode.html - gw1builds util
+-->
+
 <html>
 <head>
   <title>Decode Skill Template</title>
@@ -6,12 +13,12 @@
       font-size: 9pt;
     }
   </style>
-  <script type="text/javascript" 
+  <script type="text/javascript"
     src="../javascripts/model/base64codec.js"></script>
-  <script type="text/javascript" 
+  <script type="text/javascript"
     src="../javascripts/model/util.js"></script>
   <script type="text/javascript">
-  
+
 var g_pros = ['None',
   'Warrior',
   'Ranger',
@@ -62,7 +69,7 @@ g_attrs[32] = "Communing";
 g_attrs[33] = "Restoration Magic";
 g_attrs[34] = "Channeling Magic";
 g_attrs[35] = "Critical Strikes";
-g_attrs[36] = "Spawning Power";  
+g_attrs[36] = "Spawning Power";
 g_attrs[37] = "Spear Mastery";
 g_attrs[38] = "Command";
 g_attrs[39] = "Motivation";
@@ -72,7 +79,7 @@ g_attrs[42] = "Wind Prayers";
 g_attrs[43] = "Earth Prayers";
 g_attrs[44] = "Mysticism";
 
-function getPro(id) {                        
+function getPro(id) {
   return g_pros[id] || 'Unknown';
 }
 
@@ -99,7 +106,7 @@ function clearValues() {
     if (g_attrs[i1] == null) continue;
     choices.push( [i1, g_attrs[i1]] );
   }
-  choices.sort(function (a,b) { 
+  choices.sort(function (a,b) {
     if (a[1] < b[1]) return -1;
     if (a[1] > b[1]) return 1;
     return 0;
@@ -138,12 +145,12 @@ Toon.prototype.decode = function(val) {
     var val = codec.get(4);
     this.attrs[i1] = [id,val];
   }
-  
+
   this.skillFmt = codec.get(4);
   this.skills = [];
   for (var i1 = 0; i1 < 8; ++i1) {
     this.skills[i1] = codec.get(8 + this.skillFmt);
-  }  
+  }
 };
 Toon.prototype.encode = function() {
   var out = "";
@@ -165,7 +172,7 @@ Toon.prototype.encode = function() {
   }
   codec.put(0, 1);
   codec.putBoundary();
-  
+
   return codec.str;
 };
 
@@ -177,9 +184,9 @@ function decode() {
   var codec = new Base64Codec(tmpl);
   var toon = new Toon;
   var frm = document.forms['frm'];
-  
+
   // AS RAW BITS
-  document.getElementById('decode').innerHTML = 
+  document.getElementById('decode').innerHTML =
     Base64Codec.prototype.dumpBits(tmpl);
 
   // AS CHARACTER
@@ -194,13 +201,13 @@ function decode() {
   frm.pfmt.value = 4 + 2 * toon.proFmt;
   frm.afmt.value = 4 + toon.attrFmt;
   frm.sfmt.value = 8 + toon.skillFmt;
-  
+
   // professions
   frm.pro1.value = toon.pri;
   frm.pro2.value = toon.sec;
   setSelectValue(frm.pro1Name, toon.pri);
   setSelectValue(frm.pro2Name, toon.sec);
-  
+
   // attributes
   var attr, val;
   for (var i1 = 0; i1 < toon.attrs.length; ++i1) {
@@ -252,7 +259,7 @@ function encode() {
 </head>
 <body onload='clearValues()'>
   <label for="template">Skill Template:</label>
-  <input type="text" size="80" name="template" id="template" 
+  <input type="text" size="80" name="template" id="template"
     value="" onchange="decode()">
   <br>
   <input type="submit" value="Decode" onclick="decode()">
@@ -307,9 +314,9 @@ function writeAttrElements(pos) {
       " onchange='setAttr(" + pos + ", this.value)'></td>" +
     "<td><input name='aval." + pos + "' type='text' size='1' maxlength='2'></td>"
     );
-} 
+}
 
-</script>      
+</script>
     </table>
   </form>
   <br>

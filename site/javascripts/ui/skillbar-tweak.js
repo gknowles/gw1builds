@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.skillbar-tweak"); }
+skillbar-tweak.js - gw1builds ui
+*/
 
 var MAX_SKILL_SLOTS = 8;
 var MAX_SKILL_ALTERNATES = 4;
@@ -10,8 +14,8 @@ var MAX_SKILL_ALTERNATES = 4;
  *  - drag source for skillbar objects
  *  - drop target for skill and skillbar objects
  */
-var DDSkillSlot2 = dojo.mixin({}, DDPolicy);
-dojo.mixin(DDSkillSlot2, DDMixSlotDrop);
+var DDSkillSlot2 = Object.create(DDPolicy);
+Object.assign(DDSkillSlot2, DDMixSlotDrop)
 DDSkillSlot2.slotType = 'skill';
 DDSkillSlot2.orientation = 'vertical';
 DDSkillSlot2.maxSlots = MAX_SKILL_SLOTS;
@@ -39,9 +43,9 @@ DDSkillSlot2.rejectedDrop = function(obj, dragObj) {
     var toon = obj.slotset;
     var skill = dragObj.value;
     dojo.lang.setTimeout(function() {
-        alert(toon.primary.name + '/' + toon.secondary.name + 
+        alert(toon.primary.name + '/' + toon.secondary.name +
           " can't use [" + skill.name + "]");
-      }, 
+      },
       1);
   }
 };
@@ -55,7 +59,7 @@ DDSkillSlot2._setHoverClass = function(obj, highlight/*=true*/) {
   var curSkill = slots[obj.id] ? slots[obj.id].value : null;
   var linkedAttr = curSkill ? curSkill.attr : null;
   if (linkedAttr == ATTR_NO_ATTRIBUTE) {
-    // skills that aren't linked to an attr shouldn't be linked to 
+    // skills that aren't linked to an attr shouldn't be linked to
     // each other either
     linkedAttr = null;
   }
@@ -67,7 +71,7 @@ DDSkillSlot2._setHoverClass = function(obj, highlight/*=true*/) {
     var css = null;
     if (tdClass == 'full') css = cssHover.skillbarLinkedFull;
     else if (tdClass == 'fullAlt') css = cssHover.skillbarLinkedFullAlt;
-    
+
     if (i1 == obj.id) {
       if (highlight) {
         hoverOverStyle(td, css);
@@ -99,11 +103,11 @@ DDSkillSlot2.close = function(el, event, obj) {
 
 
 /**
- * DDSlotSkill - DragDrop policy that provides tooltip 
+ * DDSlotSkill - DragDrop policy that provides tooltip
  * with full skill description
  */
-var DDSlotSkill = dojo.mixin({}, DDPolicy);
-dojo.mixin(DDSlotSkill, DDMixSlotReverseDrop);
+var DDSlotSkill = Object.create(DDPolicy);
+Object.assign(DDSlotSkill, DDMixSlotReverseDrop);
 
 DDSlotSkill.updSlotSet = function(upd, obj, dragObj) {
   updRoot(upd);
@@ -130,10 +134,10 @@ DDSlotSkill.drawDrag = function(obj) {
 
 
 /**
- * DDSlotAttr - DragDrop policy that provides tooltip 
+ * DDSlotAttr - DragDrop policy that provides tooltip
  * with full character attribute description
  */
-var DDSlotAttr = dojo.mixin({}, DDPolicy);
+var DDSlotAttr = Object.create(DDPolicy);
 DDSlotAttr.drawTooltip = function(obj) {
   // obj = { id:<pos>, slotset:<Character> }
   var skill = obj.slotset.slotRefs()[obj.id].value;
@@ -145,7 +149,6 @@ DDSlotAttr.drawTooltip = function(obj) {
 
 /////////////////////////////////////////////////
 // Skillbar stuff, tweak style
-//
 /////////////////////////////////////////////////
 function initSkillbar() {
   var el = dojo.byId('skillbar');
@@ -167,7 +170,7 @@ function drawSkillbar() {
       " onMouseDown='DDSkillSlot2.down" + args + "'" +
       " onMouseUp='DDSkillSlot2.up" + args + "'" +
       ">";
-      
+
     // row 0, [close button, skill name]
     out += "<div>" +
       "<a href='' style='float: right; display: none'" +
@@ -182,7 +185,7 @@ function drawSkillbar() {
       ">" + drawSkill(null,null,{}) +
       "</div>" +
       "</div>";
-      
+
     // row 1, attr abbrev, effect names / values
     out += "<div style='display: none; text-align:left; clear:both'>" +
       "<span class='attr'" +
@@ -191,9 +194,9 @@ function drawSkillbar() {
       ">n/a</span>" +
       "<span></span><br>" +
       "</div>";
-    
+
     // row 2, attribute grid line
-    out += "<div style='display: none; clear: both' class='attrGrid'>" + 
+    out += "<div style='display: none; clear: both' class='attrGrid'>" +
       drawAttrValueSelect() + "</div>";
 
     out += "</td></tr>";
@@ -250,7 +253,7 @@ updSkillbar.prototype.changeKeys = {
 function updSkillbar(upd) {
   if (!hasUpdateKey(upd, updSkillbar.prototype.changeKeys)) return;
   var toon = upd.what || g_state.getMember();
-  
+
   var el = dojo.byId('skillbar');
   var rows = el.firstChild.rows; // div/table/rows
   var slots = toon.slotRefs();
@@ -262,7 +265,7 @@ function updSkillbar(upd) {
     var isAlternate = slots[i1].alt != 0;
     updFullAltClass(td, skill != null, isAlternate);
     dojo.html.show(rows[i1]);
-        
+
     if (skill == null) {
       // div 0, [close button, skill name]
       var btn = sdivs[0].childNodes[0];
@@ -313,7 +316,7 @@ function updSkillbar(upd) {
     div = sdivs[2];
     updAttrValueSelect(div, toon, skill.attr);
   } // for each skill
-  
+
   // hide unused slots
   for (; i1 < rows.length; ++i1) {
     dojo.html.hide(rows[i1]);
@@ -327,16 +330,16 @@ function drawSkillbarEffectRange(attrVal, effect, fullEffect) {
 
   var desc = ["<table class='effectRange'><tr class='linkedAttr'>"];
   for (var i1 = 0; i1 < fullEffect.length; ++i1) {
-    desc.push("<td", 
+    desc.push("<td",
       (i1 == attrVal) ? " class='effectValue'>" : '>',
-      i1, 
+      i1,
       "</td>");
   }
   desc.push("</tr><tr class='effectValue'>");
   for (var i1 = 0; i1 < fullEffect.length; ++i1) {
     desc.push("<td",
       (i1 == attrVal) ? " class='effectValue'>" : '>',
-      fullEffect[i1], 
+      fullEffect[i1],
       "</td>");
   }
   desc.push("</tr></table>");
@@ -344,7 +347,7 @@ function drawSkillbarEffectRange(attrVal, effect, fullEffect) {
   out.push("<span class='effectRange'",
     " onmouseover=\"DDPart.over(this,event,{",
       "name: ", jstring1(title), ", ",
-      "desc: ", jstring1(desc), 
+      "desc: ", jstring1(desc),
       "})\"",
     " onmouseout='DDPart.out(this,event)'",
     ">");
@@ -353,7 +356,7 @@ function drawSkillbarEffectRange(attrVal, effect, fullEffect) {
     (effect[1] ? effect[1] : '*'),
     "<span class='effectValue'>" + effect[2] + "</span>",
     effect[3],
-    effect[4] 
+    effect[4]
     ].join(' ');
   out.push(desc, "</span>");
   return out.join('');
@@ -370,11 +373,11 @@ function drawSkillbarFailureRange(attrVal, failure) {
   out += "<span class='effectRange'" +
     " onmouseover=\"DDPart.over(this,event,{" +
       "name: " + jstring1(title) + "," +
-      "desc: " + jstring1(desc) + 
+      "desc: " + jstring1(desc) +
       "})\"" +
     " onmouseout='DDPart.out(this,event)'" +
     ">";
-    
+
   if (attrVal <= failure) out += "<span class='skillFailure'>";
   out += "fail: ";
   var i3 = attrVal - 2;
@@ -393,7 +396,7 @@ function drawSkillbarFailureRange(attrVal, failure) {
   }
   out += desc.join(' ');
   if (attrVal <= failure) out += "</span>";
-  
+
   out += "</span>";
   return out;
 } // drawSkillbarFailureRange

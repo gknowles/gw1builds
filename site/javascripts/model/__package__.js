@@ -1,15 +1,20 @@
-dojo.require("model.util");
-dojo.require("model.base64codec");
-dojo.require("model.slotset");
-dojo.require("model.state");
-dojo.require("model.store");
-dojo.require("model.defs");
-dojo.require("model.item");
-dojo.require("model.skill");
-dojo.require("model.character");
-dojo.require("model.character-export");
-dojo.require("model.character-io");
-dojo.require("model.build");
-dojo.require("model.user");
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-dojo.provide("model.__package__");
+__package__.js - gw1builds model
+*/
+
+appendScriptToHead("util.js");
+appendScriptToHead("base64codec.js");
+appendScriptToHead("slotset.js");
+appendScriptToHead("state.js");
+appendScriptToHead("store.js");
+appendScriptToHead("defs.js");
+appendScriptToHead("item.js");
+appendScriptToHead("skill.js");
+appendScriptToHead("character.js");
+appendScriptToHead("character-export.js");
+appendScriptToHead("character-io.js");
+appendScriptToHead("build.js");
+appendScriptToHead("user.js");

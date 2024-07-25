@@ -1,6 +1,11 @@
-// Contants used by code to simulate :hover style under IE
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.hover-ie"); }
+hover-ie.js - gw1builds ui
+
+Contants used by code to simulate :hover style under IE
+*/
 
 cssHover.impl = {
   borderColor: {

@@ -1,19 +1,25 @@
-// Common functions and variables
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.misc"); }
+misc.js - gw1builds ui
+
+Common functions and variables
+*/
 
 var g_queryVals = parseQueryString(document.location.search);
 var g_skillFavorites = new Array(24);
 var g_user = null;
 var g_initLevel = 0;
 
+//============================================================================
 function init() {
   g_initLevel += 1;
   if (g_initLevel < 2) return;
   if (dojo.render.html.ie) {
     dojo.html.insertCssFile("stylesheets/adjust-ie.css");
-  }  
-  
+  }
+
   initAjax();
   initGroupList();
 
@@ -42,34 +48,31 @@ function init() {
   } // handler(data)
 }
 
-if (djConfig.disableFlashStorage != true && 
-  dojo.storage.manager.isInitialized() == false)
-{
-  dojo.event.connect(dojo.storage.manager, "loaded", init);
-} else {
-  g_initLevel = 1;
-}
-dojo.addOnLoad(init);
+g_initLevel = 1;
+window.addEventListener('load', init);
 
 
+//============================================================================
 function hasUpdateKey(upd, keys) {
   for (var k in keys) {
     if (upd.keys[k]) return true;
   }
   return false;
-} // hasUpdate
+}
 
+//============================================================================
 function updRoot(upd) {
   PaneSet.prototype.update('topmenu', upd);
   window.focus();
-} // updRoot(upd)
+}
 
+//============================================================================
 function updRootAll(upd) {
   PaneSet.prototype.updateAll('topmenu', upd);
   window.focus();
-} // updRootAll(upd)
+}
 
-
+//============================================================================
 function setFirstFocus(parentEl, select) {
   var focusEl = dojo.html.getElementsByClass('firstFocus', parentEl)[0];
   if (focusEl) {
@@ -78,11 +81,12 @@ function setFirstFocus(parentEl, select) {
       function() {
         focusEl.focus();
         if (select && focusEl.select) focusEl.select();
-      }, 
+      },
       100);
   }
-} // setFirstFocus
+}
 
+//============================================================================
 function enterSubmits(el, event) {
   event = dojo.event.browser.fixEvent(event, el);
   var key = event.key || event.keyCode;
@@ -94,16 +98,15 @@ function enterSubmits(el, event) {
     return false;
   }
   return true;
-} // enterSubmits
+}
 
 
-/**
- * Update the classes of an element with a set of adds and deletes
- *
- * @param el    element with classes to be updated
- * @param adds  classes to add, can be a string or array of strings
- * @param dels  classes to delete, string or array of strings
- */
+//============================================================================
+//  Update the classes of an element with a set of adds and deletes
+//
+//  @param el    element with classes to be updated
+//  @param adds  classes to add, can be a string or array of strings
+//  @param dels  classes to delete, string or array of strings
 function updateClasses(el, adds, dels) {
   var classArr = dojo.html.getClasses(el);
   var keys = {};
@@ -146,20 +149,18 @@ function updateClasses(el, adds, dels) {
   if (changed) {
     dojo.html.setClass(el, classArr.join(' '));
   }
-} // updateClasses
+}
 
-
-/**
- * <div insetTab>
- *   <ul insetTab>
- *     <li><a (this el)></a></li>
- *   </ul>
- *   <br style='clear: both'/>
- *   <div insetTabPane>
- *     blah
- *   </div>
- * </div>
- */
+//============================================================================
+//  <div insetTab>
+//    <ul insetTab>
+//      <li><a (this el)></a></li>
+//    </ul>
+//    <br style='clear: both'/>
+//    <div insetTabPane>
+//      blah
+//    </div>
+//  </div>
 function insetTabSelect(el, pos) {
   el.blur();
   var ulEl = el.parentNode.parentNode;
@@ -178,12 +179,13 @@ function insetTabSelect(el, pos) {
     }
   }
   setFirstFocus(paneEl);
-} // insetTabSelect
+}
 
 
 /////////////////////////////////////////////////
 // Ajax
 /////////////////////////////////////////////////
+//============================================================================
 function initAjax() {
   api.beforeQuery = function(handler, method) {
     dojo.html.addClass(dojo.byId('header'), 'waiting');
@@ -193,9 +195,9 @@ function initAjax() {
     //alertObject(obj);
   }
   api.impl.init();
-} // initAjax
+}
 
-
+//============================================================================
 function badResultAlert(data) {
   if (data.result != 'ok') {
     alert("REQUEST FAILED\n" + data.errors.join('\n'));
@@ -203,12 +205,13 @@ function badResultAlert(data) {
   } else {
     return false;
   }
-} // alertBadResult(data)
+}
 
 
 /////////////////////////////////////////////////
 // Load elems
 /////////////////////////////////////////////////
+//============================================================================
 function loadVarElems(baseEl) {
   var elems = {el: baseEl}
   var els = baseEl.getElementsByTagName('*');
@@ -224,6 +227,7 @@ function loadVarElems(baseEl) {
 /////////////////////////////////////////////////
 // Other weirdness
 /////////////////////////////////////////////////
+//============================================================================
 function drawDownloadButton(fname, content) {
   var out = ["<a href='' class='smallButton sbDownload' onclick='",
       "api.misc.download(", jstring2(fname), ',', jstring2(content), ");",

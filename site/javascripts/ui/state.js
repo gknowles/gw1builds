@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.state"); }
+state.js - gw1builds ui
+*/
 
 function updObjInfo(upd) {
   var formEl = dojo.byId('stateActions');
@@ -9,14 +13,14 @@ function updObjInfo(upd) {
     if (obj.access) {
       obj.access.role = groupAccess(obj.access.owner);
     }
-    formEl.fSave.style.display = 
+    formEl.fSave.style.display =
       (obj.access && obj.access.role >= User.EDITOR) ? '' : 'none';
     formEl.fSaveAs.style.display = isMember ? '' : 'none';
-    formEl.fSaveMemberAs.style.display = 
+    formEl.fSaveMemberAs.style.display =
       (isMember && obj.isTeam) ? '' : 'none';
   } // upd.user
   if (upd.keys.characters) {
-    formEl.fSave.style.display = 
+    formEl.fSave.style.display =
       (obj.access && obj.access.role >= User.EDITOR) ? '' : 'none';
     dojo.byId('header_current').innerHTML = obj.fullName();
   } // upd.characters
@@ -40,7 +44,7 @@ function drawObjSaveAs(what) {
       if (toon == null) toon = slot.value;
       var bullet = obj.makeBullet(slot.pos, slot.alt);
       out.push("<option value='", bullet, "'",
-        slot.value == toon ? ' selected' : '', ">", 
+        slot.value == toon ? ' selected' : '', ">",
         bullet, '. ', slot.value.name, "</option>");
     }
     out.push("</select><br>As...<br>");
@@ -169,10 +173,10 @@ function saveObjAs(form) {
       }
       dijit.byId('dialog').hide();
       return;
-    } 
-    
+    }
+
     if (data.result == 'exists') {
-      var repl = confirm("'" + newName + 
+      var repl = confirm("'" + newName +
         "' already exists. Do you want to replace it?");
       if (repl) {
         obj.setName(newName);
@@ -180,7 +184,7 @@ function saveObjAs(form) {
         obj.setName(oldName);
       }
     } else { // assume json.result == 'bad'
-      var errEl = dojo.html.getElementsByClass('errorExplaination', 
+      var errEl = dojo.html.getElementsByClass('errorExplaination',
         form, 'div')[0];
       errEl.innerHTML = Pane.prototype.formatErrors(
         data.errors, null);

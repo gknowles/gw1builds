@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.toon"); }
+toon.js - gw1builds ui
+*/
 
 /**
  * param [toon-object]
@@ -40,7 +44,7 @@ function drawToon(toon, draw) {
       var pattr = pattrs[i1];
       if (pattr.value == 0) continue;
       found = true;
-      var className = pattr.isPrimary ? 
+      var className = pattr.isPrimary ?
         pattr.isPrimaryAttr ? 'primaryAttr' : 'primary'
         : 'secondary';
       out.push("<tr class='", className, "'>",
@@ -69,10 +73,10 @@ function drawToon(toon, draw) {
       for (var alt = 0; alt < slots[i1].length; ++alt) {
         var skill = slots[i1][alt];
         if (alt && skill == null) continue;
-        out.push("<tr><td class='detail ",  
+        out.push("<tr><td class='detail ",
           "'><div class='", alt ? "fullAlt" : "full", "'",
           " style='clear: both'>",
-          drawSkill(skill, null, {icon:true}), 
+          drawSkill(skill, null, {icon:true}),
           "</div></td></tr>");
       }
     }
@@ -80,9 +84,9 @@ function drawToon(toon, draw) {
   }
   if (draw.exports) {
     var exps = [
-      ['Anet Skill', toon.toAnet(draw.skipName), 
+      ['Anet Skill', toon.toAnet(draw.skipName),
         toon.name + '.txt', toon.toAnet(/*skipName=*/true)],
-      ['Anet Equip', toon.toAnetEquip(draw.skipName), 
+      ['Anet Equip', toon.toAnetEquip(draw.skipName),
         toon.name + '.txt', toon.toAnetEquip(/*skipName=*/true)],
       ['GuildBuilds', toon.toCode()],
       ['gwBBCode', toon.toGwBBCode()]
@@ -116,10 +120,10 @@ function drawToon(toon, draw) {
 // Drag & Drop
 /////////////////////////////////////////////////
 /**
- * DDToonAttrs - DragDrop policy that provides tooltip with 
+ * DDToonAttrs - DragDrop policy that provides tooltip with
  * the attributes of the toon
  */
-var DDToonAttrs = dojo.mixin({}, DDPolicy);
+var DDToonAttrs = Object.create(DDPolicy);
 DDToonAttrs.drawTooltip = function(obj) {
   // obj = { toon:<toon> }
   var toon = obj.toon;

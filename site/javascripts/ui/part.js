@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.part"); }
+part.js - gw1builds ui
+*/
 
 /////////////////////////////////////////////////
 // Alternate Factory
@@ -15,14 +19,14 @@ function drawAlternateFactory() {
   return out.join('');
 } // drawAlternateFactory()
 
-var DDAltFactory = dojo.mixin({}, DDPolicy);
+var DDAltFactory = DDPolicy;
 DDAltFactory.drawDrag = function(obj) {
   obj.type = {newAlt: true};
   return "<span class='emptyAlt'>Alternate</div>";
 };
 DDAltFactory.acceptDrop = function(obj, dragObj) {
   // our own drag? skip it, otherwise, because its aliased,
-  // we'd be setting the the persistent dragObj.type and not 
+  // we'd be setting the the persistent dragObj.type and not
   // just our temporary one.
   if (dragObj.srcEl == obj.srcEl) return null;
   obj.type = {deleteAlt: true};
@@ -48,7 +52,7 @@ function drawEmptyFactory() {
   return out.join('');
 } // drawEmptyFactory();
 
-var DDEmpty = dojo.mixin({}, DDPolicy);
+var DDEmpty = DDPolicy;
 DDEmpty.drawDrag = function(obj) {
   obj.type = {empty: true};
   return "<div class='empty'>Empty</div>";
@@ -93,7 +97,7 @@ DataPager.draw = function() {
  * page handler is passed as a string so that a Function can be
  * created without a closure. Although I'm not sure why we should
  * care that much about it...
- * 
+ *
  * @param el            pager base element
  * @param pages         {:current, :count} // current is 1 based
  * @param handlerName   name of function to handle page changes
@@ -134,8 +138,8 @@ DataPager.update = function(el, pages, handlerName) {
       spans[i1].style.display = 'none';
     } else {
       spans[i1].style.display = '';
-      if (i1 != 0 && i1 != 1 && 
-        i1 != deltas.length + 2 && i1 != deltas.length + 3) 
+      if (i1 != 0 && i1 != 1 &&
+        i1 != deltas.length + 2 && i1 != deltas.length + 3)
       {
         spans[i1].innerHTML = vals[i1];
       }
@@ -149,11 +153,11 @@ DataPager.update = function(el, pages, handlerName) {
 /////////////////////////////////////////////////
 // DDPart - Simple part tooltip policy
 /////////////////////////////////////////////////
-var DDPart = dojo.mixin({}, DDPolicy);
+var DDPart = DDPolicy;
 DDPart.drawTooltip = function(obj) {
   var res = { side: 't', align: 'l', width: 'auto' }
   var out = ["<span class='partName'>", obj.name, "</span>",
-    "<div class='partDesc' style='white-space: nowrap'>", obj.desc, 
+    "<div class='partDesc' style='white-space: nowrap'>", obj.desc,
     "</div>"];
   res.body = out.join('');
   return res;

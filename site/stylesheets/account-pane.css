@@ -1,3 +1,9 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+account-pane.css - gw1builds
+*/
 
 div.accountPane {
 }
@@ -12,23 +18,23 @@ div#dialog div.accountPane div.content {
   padding: 0px;
 }
 div#dialog div.accountPane div.minwidth {
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
 }
 
 div.accountPane div.minwidth {
   border: 2px solid;
-  border-color: <%= skin[:enhBorder] %>;
-  background-color: <%= skin[:enhBG] %>;
-  color: <%= skin[:enh] %>;
+  border-color: var(--enhBorder);
+  background-color: var(--enhBG);
+  color: var(--enh);
   min-width: 350px;
   max-width: 450px;
   /* width: 350px in adjust-ie.css */
 }
 
 div.accountPane div.errpane {
-  background-color: mistyrose; 
+  background-color: mistyrose;
 }
 
 div.accountPane div.section {

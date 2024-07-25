@@ -1,11 +1,15 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.util-pane"); }
+util-pane.js - gw1builds ui
+*/
 
 /////////////////////////////////////////////////
 // tabs and tab panes
 /////////////////////////////////////////////////
 // PaneSet {
-//   menuId: id of pane list, string must be unique, but visual element 
+//   menuId: id of pane list, string must be unique, but visual element
 //     doesn't have to exist
 //   menuEl: element containing selection tabs, may be null
 //   defaultPaneTitle: title of initially selected pane
@@ -23,7 +27,7 @@ if (typeof dojo != 'undefined') { dojo.provide("ui.util-pane"); }
 //  onprepare: called when tab selected, but before shown
 //  onactive: called when tab selected, after made visible
 //  onblur: called when tab deselected
-//  onupdate(options): called when data has changed, options is hash of 
+//  onupdate(options): called when data has changed, options is hash of
 //    what changed
 //  pos: pos in containing PaneSet
 //
@@ -52,7 +56,7 @@ PaneSet.prototype.getPaneSet = function(menuId, autoCreate/*=false*/) {
       throw new Error("PaneSet(" + menuId + ") not defined");
     }
   }
-  return paneSet;  
+  return paneSet;
 } // PaneSet.prototype.getPaneSet(menuId)
 
 PaneSet.prototype.addPane = function(menuId, pane) {
@@ -64,7 +68,7 @@ PaneSet.prototype.addPane = function(menuId, pane) {
 
 PaneSet.prototype.load = function(menuId) {
   var paneSet = this.getPaneSet(menuId);
-  
+
   // set each pane el from id
   for (var i1 = 0; i1 < paneSet.panes.length; ++i1) {
     var pane = paneSet.panes[i1];
@@ -72,19 +76,19 @@ PaneSet.prototype.load = function(menuId) {
     pane.tabId = paneSet.menuId + '.' + i1;
   }
 
-  // build tabs  
+  // build tabs
   paneSet.drawTabs();
 } // PaneSet.prototype.load(menuId, defaultPaneTitle)
 
 
 /**
  * Selects pane by calling its onprepare function, setting it to visible, and
- * finally calling its onactive function. The tabs are also updated. The full 
- * cycle is: <current pane>.onblur, hide <current pane>, update tabs menu, 
+ * finally calling its onactive function. The tabs are also updated. The full
+ * cycle is: <current pane>.onblur, hide <current pane>, update tabs menu,
  * <new pane>.onprepare, show <new pane>, <new pane>.onactive
- * 
+ *
  * @param menuId    id of PaneSet you're selecting a pane for
- * @param sel       (optional) 
+ * @param sel       (optional)
  *   null       reactivate most recently activated
  *   number     ordinal of pane in the pane set
  *   string     title of pane in the pane set
@@ -140,7 +144,7 @@ PaneSet.prototype.activate = function(menuId, sel, appdata) {
       dojo.html.hide(pane.divEl);
       dojo.html.removeClass(pane.tabEl, "active");
       pane._active = false;
-      // violently yank div from document so there's some 
+      // violently yank div from document so there's some
       // determinism in firefox's reflow sequence
       //var parEl = pane.divEl.parentNode;
       //var tmpEl = document.createElement('div');
@@ -235,7 +239,7 @@ Pane.prototype.loadElems = function() {
       }
     }
     if (section == null) continue;
-    
+
     this.elems[section] = new Object;
     section = this.elems[section];
     section.el = node;
@@ -246,8 +250,8 @@ Pane.prototype.loadElems = function() {
         section.formEl = el;
         continue;
       }
-      if (el.tagName == 'DIV' && 
-        /\berrorExplaination\b/.test(el.className)) 
+      if (el.tagName == 'DIV' &&
+        /\berrorExplaination\b/.test(el.className))
       {
         section.errorsEl = el;
         continue;
@@ -308,7 +312,7 @@ PaneSet.prototype.drawTabs = function() {
     if (pane.link_to) {
       html += "href='" + pane.link_to + "' ";
     } else {
-      html += "href='javascript:void PaneSet.prototype.activate(\"" + 
+      html += "href='javascript:void PaneSet.prototype.activate(\"" +
         this.menuId + "\"," + i1 + ")' ";
     }
     html += ">" + pane.title + "</a></li>\n";
@@ -318,7 +322,7 @@ PaneSet.prototype.drawTabs = function() {
     var el = this.menuEl;
     // This little hide/show dance is to force firefox to reflow
     // the menu, otherwise a 'float: right' menu may show dead space
-    // if the menu has become narrower. It would self corrects on the 
+    // if the menu has become narrower. It would self corrects on the
     // next reflow, but that could be a while.
     el.style.display = 'none';
     el.innerHTML = html;

@@ -1,3 +1,9 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+group-pane.css - gw1builds
+*/
 
 div.groupPane {
 }
@@ -11,9 +17,9 @@ div.groupPane div#memberList {
 
 div.groupPane div.minwidth {
   border: 2px solid;
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
 }
 
 div.groupPane h2.title {
@@ -23,14 +29,14 @@ div.groupPane h2.title {
   text-align: center;
 }
 div.groupPane div.section {
-  background-color: <%= skin[:stdBG] %>;
+  background-color: var(--stdBG);
   border-bottom: 2px solid;
   padding-left: 10px;
 }
 
 div.groupPane div.list {
-  background-color: <%= skin[:enhBG] %>;
-  border-color: <%= skin[:enhBorder] %>;
+  background-color: var(--enhBG);
+  border-color: var(--enhBorder);
   border-bottom: 2px solid;
 	padding-left: 10px;
 }

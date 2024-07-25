@@ -1,6 +1,13 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+part-list.css - gw1builds
+*/
+
 /* Part List */
 div.partList {
-  background-color: <%= skin[:stdBG] %>;
+  background-color: var(--stdBG);
   border: 1px solid;
 }
 
@@ -18,7 +25,7 @@ div.partList div.toonPick select {
 }
 div.partList div.toonPick input {
   width: 42px;
-  border: 0px; 
+  border: 0px;
   padding: 2px 0px 2px 2px;
   position: relative;
   top: -18px; /* -20px in adjust-ie */
@@ -34,16 +41,16 @@ div.partList div.scroll {
   height: 525px;
   border: 2px solid;
   border-color: black black black black;
-  background-color: <%= skin[:enhBG] %>;
-  color: <%= skin[:weak] %>;
+  background-color: var(--enhBG);
+  color: var(--weak);
   overflow: auto;
   position: static;
 
   /* special IE (strict-mode) rule to make room for scrollbar */
   /* since we're making space for it anyway, let's force the scroll
-     bar in there since it looks better then the empty space 
+     bar in there since it looks better then the empty space
   <!--[if IE]>
-  overflow-y: scroll; 
+  overflow-y: scroll;
   overflow-x: hidden;
   padding-right: 16px;
   <![endif]-->
@@ -59,16 +66,16 @@ div.partList table.icon {
 }
 div.partList table.detail tr:hover {
   /* !!! Corresponding entry in cssHover must match */
-  background-color: <%= skin[:enhHoverBG] %>;
+  background-color: var(--enhHoverBG);
 }
 div.partList td.part {
   height: 20px;
-  padding: 0px; 
+  padding: 0px;
   cursor: move;
   -moz-user-select: none;
 }
 div.partList td.detail {
-  padding: 0px 3px 0px 1px; 
+  padding: 0px 3px 0px 1px;
 }
 div.partList td.sortGroup {
   border: 0px solid;
@@ -78,8 +85,8 @@ div.partList td.sortGroup {
   font-size: 10pt;
   font-style: normal;
   text-align: center;
-  background-color: <%= skin[:enhBG] %>;
-  color: <%= skin[:enh] %>;
+  background-color: var(--enhBG);
+  color: var(--enh);
   cursor: default;
   -moz-user-select: none;
 }
@@ -102,16 +109,16 @@ div.partList span.partType {
 }
 
 div.partList div.fullAlt {
-  background-color: <%= skin[:altBG] %>;
+  background-color: var(--altBG);
   padding-left: .7em;
 }
 
 div.dataPager span {
   border: 1px solid;
   padding: 0px 5px;
-  border-color: <%= skin[:stdBorder] %>;
-	background-color: <%= skin[:stdBG] %>;
-	color: <%= skin[:std] %>; 
+  border-color: var(--stdBorder);
+	background-color: var(--stdBG);
+	color: var(--std);
   font-size: 10pt;
   cursor: pointer;
 }
@@ -119,10 +126,10 @@ div.dataPager span.first {}
 div.dataPager span.prev {}
 div.dataPager span.next {}
 div.dataPager span.last {}
-div.dataPager span:hover { 
-	border-color: <%= skin[:stdHoverBorder] %>;
-	background-color: <%= skin[:stdHoverBG] %>;
-	color: <%= skin[:stdHover] %>; 
+div.dataPager span:hover {
+	border-color: var(--stdHoverBorder);
+	background-color: var(--stdHoverBG);
+	color: var(--stdHover);
 }
 div.dataPager span.current {
   text-align: center;
@@ -130,7 +137,7 @@ div.dataPager span.current {
   cursor: default;
 }
 div.dataPager span.current:hover {
-  border-color: <%= skin[:stdBorder] %>;
-	background-color: <%= skin[:stdBG] %>;
-	color: <%= skin[:std] %>; 
+  border-color: var(--stdBorder);
+	background-color: var(--stdBG);
+	color: var(--std);
 }

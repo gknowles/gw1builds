@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+attr-grid.css - gw1builds
+*/
+
 /* Attribute Grid */
 div.attrGrid {
   border: 1px solid;
@@ -10,9 +17,9 @@ div#attrGrid div.editDesc {
 div.attrGrid td.lvl {
   border: 1px solid;
 	padding: 0px 2px 0px 2px;
-  border-color: <%= skin[:enhBorder] %>;
-  background-color: <%= skin[:enhBG] %>;  
-  color: <%= skin[:enh] %>;
+  border-color: var(--enhBorder);
+  background-color: var(--enhBG);
+  color: var(--enh);
 	text-align: center;
   width: 14px;
   font-size: 10pt;
@@ -24,25 +31,25 @@ div.attrGrid td.good {
   cursor: pointer;
 }
 div.attrGrid td.good:hover {
-  border-color: <%= skin[:enhHoverBorder] %>;
-  color: <%= skin[:enhHover] %>;
+  border-color: var(--enhHoverBorder);
+  color: var(--enhHover);
 }
 div.attrGrid td.current {
-  border-color: <%= skin[:enhActiveBorder] %>;
-  background-color: <%= skin[:enhActiveBG] %>;
-  color: <%= skin[:enhActive] %>;
+  border-color: var(--enhActiveBorder);
+  background-color: var(--enhActiveBG);
+  color: var(--enhActive);
 }
 div.attrGrid td.bad {
-  border-color: <%= skin[:emptyBorder] %>;
-  background-color: <%= skin[:emptyBG] %>;
-  color: <%= skin[:empty] %>;
+  border-color: var(--emptyBorder);
+  background-color: var(--emptyBG);
+  color: var(--empty);
 }
 div.attrGrid td.attr {
   border: 1px solid;
   padding: 0px 1px 0px 1px;
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;  
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
   font-weight: normal;
   font-size: 9pt;
   font-family: sans-serif;
@@ -54,13 +61,13 @@ div.attrGrid td.primary {
   cursor: pointer;
 }
 div.attrGrid td.primary:hover {
-	color: <%= skin[:stdHover] %>;
-	border-color: <%= skin[:stdHoverBorder] %>;
-  background-color: <%= skin[:stdHoverBG] %>;
+	color: var(--stdHover);
+	border-color: var(--stdHoverBorder);
+  background-color: var(--stdHoverBG);
 }
 div.attrGrid td.attr img.checkmark {
-  width: 20px; 
-  height: 15px; 
+  width: 20px;
+  height: 15px;
   margin-right: 6px;
   background-color: transparent;
 }
@@ -80,7 +87,7 @@ div.attrGrid span.attrTotal {
   float: right;
   clear: right;
   font-weight: normal;
-  color: <%= skin[:head] %>;
+  color: var(--head);
   padding-right: 4px;
 }
 div.attrGrid b input {
@@ -88,7 +95,7 @@ div.attrGrid b input {
 	font-family: sans-serif;
 	background-color: transparent;
 	border: 0px solid;
-	color: <%= skin[:head] %>;
+	color: var(--head);
 	cursor: default;
 }
 div.attrGrid table.fill {

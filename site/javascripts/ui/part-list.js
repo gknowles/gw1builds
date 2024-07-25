@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.part-list"); }
+part-list.js - gw1builds ui
+*/
 
 /**
  * DDMixPartList - DragDrop policy that provides
@@ -11,9 +15,9 @@ var DDMixPartList = {
   ddPolicyName: 'DDSkillList',
   elemId: 'skillList',
   partType: 'skill',
-  storeKeys: { 
+  storeKeys: {
     filter: g_store.keys.SKILL_SEARCH_FILTER,
-    sort: g_store.keys.SKILL_LIST_SORT 
+    sort: g_store.keys.SKILL_LIST_SORT
   },
   squery: null, // SearchQuery
   sorts: {}, // { name: { key:, desc:, group: }, ... }
@@ -70,12 +74,12 @@ DDMixPartList.edit = function(el, event, obj) {
 DDMixPartList.destroy = function(el, event, obj) {
   // obj = { id:<id> }
   var part = this.squery.filter.matches[obj.id];
-  if (confirm("Deleting '" + part.fullName() + 
-    "'. Are you sure?")) 
+  if (confirm("Deleting '" + part.fullName() +
+    "'. Are you sure?"))
   {
     api[this.partType].destroy(handler, part, this.squery);
   }
-  
+
   var self = this;
   function handler(data) {
     if (badResultAlert(data)) return;
@@ -95,7 +99,7 @@ DDMixPartList.initPartList = function() {
   this.elems = elems;
   var squery = this.squery;
   var sorts = this.sorts;
- 
+
   // Sort dropdown
   var key = g_store.get(this.storeKeys.sort);
   squery.sort = sorts[key];
@@ -113,9 +117,9 @@ DDMixPartList.initPartList = function() {
     }
     elems.sortEl.value = key;
   }
-  
-    
-  this.changeKey = this.partType + 'Search'; 
+
+
+  this.changeKey = this.partType + 'Search';
   this.changeKeys = {};
   this.changeKeys[this.changeKey] = true;
   this.updWidget( {keys: this.changeKeys}, /*initOnly=*/true );
@@ -160,7 +164,7 @@ DDMixPartList.ensureListFormat = function(opts) {
 /**
  * Updates matchesEl and listEl with data returned from
  * api[partType].list
- * 
+ *
  * this.squery  parts and paging as returned from api[partType].list()
  * this.opts    hash of things to include
  *   actions - view, edit, and delete links
@@ -169,9 +173,9 @@ DDMixPartList.ensureListFormat = function(opts) {
  */
 DDMixPartList.updWidget = function(upd) {
   if (!hasUpdateKey(upd, this.changeKeys)) return;
-  
+
   this.isLoaded = true;
-  
+
   var opts = this.opts;
   var elems = this.elems;
   var squery = this.squery;
@@ -179,7 +183,7 @@ DDMixPartList.updWidget = function(upd) {
     elems.matchesEl.innerHTML = squery.filter.matched + " matches";
   }
   var parts = squery.values;
-  
+
   var out = ["<div>", DataPager.draw(), "</div>",
     "<div style='clear: both' class='scroll' onselectstart='return false'>",
     "<table class='detail' cellspacing='0'>"];
@@ -196,7 +200,7 @@ DDMixPartList.updWidget = function(upd) {
     if (detail == null) continue;
     var self = this;
     function ddCall(fn) {
-      return self.ddPolicyName + '.' + fn + 
+      return self.ddPolicyName + '.' + fn +
         "(this,event,{id:" + part.id + "})";
     }
     out.push("<tr",
@@ -207,13 +211,13 @@ DDMixPartList.updWidget = function(upd) {
         " onMouseUp='", ddCall('up'), "'");
     }
     out.push(">");
-    
-    var tdAttrs = opts.actions ? 
-      "class='part detail action' onclick='" + ddCall('view') + "'" : 
+
+    var tdAttrs = opts.actions ?
+      "class='part detail action' onclick='" + ddCall('view') + "'" :
       "class='part detail'";
     if (opts.owner) {
-      out.push("<td ", tdAttrs, "><span class='partName'>", 
-        part.access ? part.access.owner : '', 
+      out.push("<td ", tdAttrs, "><span class='partName'>",
+        part.access ? part.access.owner : '',
         "</span></td>");
     }
     out.push("<td style='width: 100%' ", tdAttrs, ">",
@@ -223,7 +227,7 @@ DDMixPartList.updWidget = function(upd) {
       if (!hasEdit) out.push("<td ", tdAttrs, "></td><td ", tdAttrs, "></td>");
       else {
         out.push("<td class='part detail'>");
-        out.push("<button type='button' class='action' onclick='", ddCall('edit'), 
+        out.push("<button type='button' class='action' onclick='", ddCall('edit'),
           "'>Edit</button>");
         out.push("</td>");
         out.push("<td class='part detail'>");
@@ -237,7 +241,7 @@ DDMixPartList.updWidget = function(upd) {
   out.push("</table></div>");
   out = out.join('');
   elems.listEl.innerHTML = out;
-  DataPager.update(elems.listEl.firstChild, squery.pages, 
+  DataPager.update(elems.listEl.firstChild, squery.pages,
     this.ddPolicyName + '.query');
 } // updWidget
 
@@ -248,9 +252,9 @@ DDMixPartList.query = function(page, opts) {
 
   this.elems.matchesEl.innerHTML = "Loading...";
   if (opts) this.opts = opts;
-   
+
   api[this.partType].list(handler, this.squery);
-  
+
   var self = this;
   function handler(data) {
     if (badResultAlert(data)) return;

@@ -1,5 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" 
-    "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+test.html - gw1builds util
+-->
+
 <html>
 <head>
 <style type="text/css">
@@ -8,9 +13,9 @@
 </style>
 <script type='text/javascript'>
 function updateH2() {
-  document.getElementById('head').innerHTML = 
+  document.getElementById('head').innerHTML =
     'Changed Header - ' + String(new Date());
-    
+
   var el = document.getElementById('hiddenIframe');
   try {
     el.src = 'file://c|jects/gwdata/homepage/';
@@ -26,7 +31,7 @@ function updateH2() {
 document.write(String(new Date()));
 </script>
 <hr>
-<h2 id='head' 
+<h2 id='head'
   onclick="document.getElementById('hiddenIframe').src = 'test_frame.html'"
   >Header to change</h2>
 <iframe id='hiddenIframe' style='display: none'></iframe>

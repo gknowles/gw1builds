@@ -1,6 +1,11 @@
-// Common functions and variables
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.skill"); }
+item-grid.js - gw1builds ui
+
+Common functions and variables
+*/
 
 /////////////////////////////////////////////////
 // Skill icon style functions
@@ -26,7 +31,7 @@ function drawSkillIcon(skill, enabled, content) {
     out.push(" empty' style='background-position: ",
       drawSkillIconOffset(0), "'");
   } else {
-    out.push("' style='background-position: ", 
+    out.push("' style='background-position: ",
       drawSkillIconOffset(skill.id), "'");
   }
   if (!enabled) out.push(" style='opacity: .6'");
@@ -42,7 +47,7 @@ function drawSkillIconOffset(id, width) {
   return x + 'px ' + y + 'px';
 } // drawSkillIconOffset
 
-
+//===========================================================================
 function drawProIcon(pro, enabled) {
   var out = ["<img class='partIcon'"];
   if (pro == null) {
@@ -55,17 +60,15 @@ function drawProIcon(pro, enabled) {
   return out.join('');
 } // drawProIcon(pro, enabled)
 
-
-/**
- * param [skill-object]
- * param [attrSource object]
- * param [what to draw 
- *   icon
- *   attr - abbreviation of attribute line to which skill belongs 
- *   costs (true) - cost, activation, etc
- *         (cols) - cost, etc in fixed width columns
- *   desc - text description of skill
- */
+//===========================================================================
+//  param [skill-object]
+//  param [attrSource object]
+//  param [what to draw
+//    icon
+//    attr - abbreviation of attribute line to which skill belongs
+//    costs (true) - cost, activation, etc
+//          (cols) - cost, etc in fixed width columns
+//    desc - text description of skill
 function drawSkill(skill, toon, draw) {
   var out = [];
 
@@ -73,19 +76,19 @@ function drawSkill(skill, toon, draw) {
   if (!skill) {
     return "<span class='skill'>" + drawSkillIcon(null, true) + "</span>";
   }
-  
+
   if (draw.costs == true || draw.desc) {
     skill = skill.customized(toon);
   }
-  
+
   out.push("<span class='skill'>");
   if (draw.costs) {
     out.push("<span class='skillIcons'>");
-    if (skill.upkeep) { 
+    if (skill.upkeep) {
       out.push("<span class='upkeep'>", skill.upkeep, "</span>");
     }
     if (skill.enCost) {
-      var isAdj = draw.costs != 'cols' && 
+      var isAdj = draw.costs != 'cols' &&
         skill.enCostAdjusted != skill.enCost;
       out.push("<span class='enCost");
       if (skill.exhaustion) out.push(" exhaustion");
@@ -93,35 +96,35 @@ function drawSkill(skill, toon, draw) {
       out.push("'>");
       out.push(skill.enCost);
       if (isAdj) {
-        out.push(" <b class='adjSkillProp'>", skill.enCostAdjusted, 
+        out.push(" <b class='adjSkillProp'>", skill.enCostAdjusted,
           "</b>");
       }
-      out.push("</span>"); 
-    } else if (skill.adCost) { 
-      out.push("<span class='adCost'>", skill.adCost, "</span>"); 
-    } else if (draw.costs == 'cols') { 
+      out.push("</span>");
+    } else if (skill.adCost) {
+      out.push("<span class='adCost'>", skill.adCost, "</span>");
+    } else if (draw.costs == 'cols') {
       out.push("<span class='noCost'></span>");
     }
-    if (skill.activation) { 
-      var isAdj = draw.costs != 'cols' && 
+    if (skill.activation) {
+      var isAdj = draw.costs != 'cols' &&
         skill.activationAdjusted != skill.activation;
       out.push("<span class='activation");
       if (isAdj) out.push(" adjusted");
       out.push("'>");
       out.push(changeDec(skill.activation));
       if (isAdj) {
-        out.push(" <b class='adjSkillProp'>", 
+        out.push(" <b class='adjSkillProp'>",
           Number(skill.activationAdjusted).toFixed(2),'</b>');
       }
-      out.push("</span>"); 
-    } else if (draw.costs == 'cols')  { 
-      out.push("<span class='noActivation'></span>"); 
+      out.push("</span>");
+    } else if (draw.costs == 'cols')  {
+      out.push("<span class='noActivation'></span>");
     }
-    if (skill.recharge) { 
+    if (skill.recharge) {
       out.push("<span class='recharge'>", changeDec(skill.recharge),
-        "</span>"); 
-    } else if (draw.costs == 'cols')  { 
-      out.push("<span class='noRecharge'></span>"); 
+        "</span>");
+    } else if (draw.costs == 'cols')  {
+      out.push("<span class='noRecharge'></span>");
     }
     out.push("</span>");
   } // if costs
@@ -141,7 +144,7 @@ function drawSkill(skill, toon, draw) {
   }
   if (!draw.noname) {
     if (draw.icon) out.push('&nbsp;');
-    out.push("<span class='partName", (skill.elite ? " elite" : ""), 
+    out.push("<span class='partName", (skill.elite ? " elite" : ""),
       "'>", skill.name, "</span>");
   }
   if (draw.desc) {
@@ -156,11 +159,10 @@ function drawSkill(skill, toon, draw) {
 /////////////////////////////////////////////////
 // Drag & Drop
 /////////////////////////////////////////////////
-/**
- * DDSkill - DragDrop policy that provides tooltip with full
- * skill description
- */
-var DDSkill = dojo.mixin({}, DDPolicy);
+
+//===========================================================================
+// DDSkill - DragDrop policy that provides tooltip with full skill description
+var DDSkill = DDPolicy;
 DDSkill.drawTooltip = function(obj) {
   // obj = { id:<skillId>, toon:<attrSource> }
   var body = null;

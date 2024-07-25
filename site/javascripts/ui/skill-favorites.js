@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.skill-favorites"); }
+skill-favorites.js - gw1builds ui
+*/
 
 /**
  * DDSkillFav - DragDrop policy that implements:
@@ -7,7 +11,9 @@ if (typeof dojo != 'undefined') { dojo.provide("ui.skill-favorites"); }
  *  - drag source for skillFav and skill objects
  *  - drop target for skillFav and skill objects
  */
-var DDSkillFav = dojo.mixin({}, DDSkill);
+var DDSkillFav = Object.create(DDSkill);
+
+//===========================================================================
 DDSkillFav.drawTooltip = function(obj) {
   // obj = { id:<slot>, toon:<Character> }
   var skill = g_skillFavorites[obj.id];
@@ -15,6 +21,8 @@ DDSkillFav.drawTooltip = function(obj) {
   var body = drawSkill(skill, obj.toon, {costs: true, desc: true});
   return body;
 };
+
+//===========================================================================
 DDSkillFav.drawDrag = function(obj) {
   // obj = { id:<slot>, toon:<Character> }
   var body = null;
@@ -26,6 +34,8 @@ DDSkillFav.drawDrag = function(obj) {
   }
   return body;
 };
+
+//===========================================================================
 DDSkillFav.acceptDrop = function(obj, dragObj) {
   // obj = { id:<slot>, toon:<Character> }
   if (dragObj.type.empty) {
@@ -37,6 +47,8 @@ DDSkillFav.acceptDrop = function(obj, dragObj) {
   }
   return null;
 };
+
+//===========================================================================
 DDSkillFav.drop = function(obj, dragObj) {
   // obj = { id:<slot>, toon:<Character> }
   if (dragObj.type.empty) {
@@ -52,6 +64,8 @@ DDSkillFav.drop = function(obj, dragObj) {
   }
   updRoot( {keys: {skillFavorites: true} } );
 };
+
+//===========================================================================
 DDSkillFav.reverseDrop = function(obj, dragObj) {
   // dragObj = { id:<slot>, toon:<Character> }
   if (obj.type.empty) {
@@ -59,6 +73,8 @@ DDSkillFav.reverseDrop = function(obj, dragObj) {
   updRoot( {keys: {skillFavorites: true} } );
   }
 };
+
+//===========================================================================
 DDSkillFav.acceptReverseDrop = function(obj, dragObj) {
   // dragObj = { id:<slot>, toon:<Character> }
   if (obj.type.empty) {
@@ -72,6 +88,7 @@ DDSkillFav.acceptReverseDrop = function(obj, dragObj) {
 // Skill favorites stuff
 //
 /////////////////////////////////////////////////
+//===========================================================================
 function drawSkillFavorites() {
   var out = "<table align='center' onselectstart='return false'>";
   var height = g_skillFavorites.length / 2;
@@ -90,9 +107,9 @@ function drawSkillFavorites() {
   }
   out += "</table>";
   return out;
-} // drawSkillFavorites()
+}
 
-
+//===========================================================================
 function initSkillFavorites(el) {
   g_skillFavorites = new Array(30);
   var favs = [];
@@ -108,23 +125,25 @@ function initSkillFavorites(el) {
   elems.efactEl.innerHTML = drawEmptyFactory();
   if (elems.afactEl) elems.afact.innerHTML = drawAlternateFactory();
   elems.favsEl.innerHTML = drawSkillFavorites();
-} // initSkillFavorites()
+}
 
-
+//===========================================================================
 updSkillFavorites.prototype.changeKeys = {
   skillFilter: true,
   skillFavorites: true
 };
+
+//===========================================================================
 function updSkillFavorites(upd, attrSource) {
   if (!hasUpdateKey(upd, updSkillFavorites.prototype.changeKeys)) return;
-  
+
   var el = dojo.byId('skillFavorites');
   var kids = el.childNodes;
   for (var i1 = kids.length - 1; i1 >= 0; --i1) {
     el = kids[i1];
     if (dojo.html.hasClass(el, 'skillFavorites')) break;
   }
-  
+
   // update browser storage
   var val = '';
   for (var i1 = 0; i1 < g_skillFavorites.length; ++i1) {
@@ -140,7 +159,7 @@ function updSkillFavorites(upd, attrSource) {
   // update UI
   var tbl = el.firstChild;
   if (tbl == null || tbl.rows == null) return;
-  var rows = tbl.rows; 
+  var rows = tbl.rows;
   for (var i1 = 0; i1 < rows.length; ++i1) {
     var row = rows[i1]; // tr[i1]
     for (var i2 = 0; i2 < 2; ++i2) {
@@ -157,4 +176,4 @@ function updSkillFavorites(upd, attrSource) {
       updSkillIcon(img, skill, enabled);
     }
   }
-} // updSkillFavorites
+}

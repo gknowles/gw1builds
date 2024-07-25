@@ -1,5 +1,11 @@
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+logout.rhtml - gw1builds view user
+-->
 <script type="text/javascript">
-<% 
+<%
 paneRef = menuId + "_logout"
 %>
 <%= paneRef %> = new Pane({
@@ -14,7 +20,7 @@ paneRef = menuId + "_logout"
   onupdate: function(upd) {
     if (upd.keys.user) { this.hidden = !g_user.hasRole(); }
   },
-  
+
   handlers: {
     logout: function(data) {
       var self = <%= paneRef %>;
@@ -29,10 +35,10 @@ paneRef = menuId + "_logout"
       } else { // assumed data.result == 'bad'
         elems.main.errorsEl.innerHTML = self.formatErrors(
           data.errors, "logout");
-      } 
+      }
     }
   }
-  
+
 });
 PaneSet.prototype.addPane("<%= menuId %>", <%= paneRef %>);
 

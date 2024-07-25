@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+global.css - gw1builds
+*/
+
 /*
 header
 topmenu
@@ -9,9 +16,9 @@ misc
 */
 
 a { color: blue; text-decoration: none; }
-body { 
-  color: black; 
-  background-color: <%= skin[:pageBG] %>;
+body {
+  color: black;
+  background-color: var(--pageBG);
 }
 form { display: inline; }
 td {
@@ -23,12 +30,12 @@ td {
 textarea {
 	border: 1px solid;
 	padding: 4px;
-	color: <%= skin[:enh] %>;
-	background-color: <%= skin[:enhBG] %>;
-	border-color: <%= skin[:emptyBorder] %>;
+	color: var(--enh);
+	background-color: var(--enhBG);
+	border-color: var(--emptyBorder);
 }
 button {
-/* Silly IE fix, by default it adds left and right margins to buttons 
+/* Silly IE fix, by default it adds left and right margins to buttons
    that get larger as the text gets longer. Making for very long buttons
    with large wasted space
   */
@@ -86,7 +93,7 @@ td.paneSidebar {
 div.sidebar {
 /*
   width: 120px;
-  height: 600px; 
+  height: 600px;
   background-color: beige;
 */
 }
@@ -97,7 +104,7 @@ div#dropIndicator {
   z-index: 199;
   padding: 0px;
   margin: 0px;
-  
+
   /* IE7 refused to draw a 0 height div without these */
   font-size: 0px;
   line-height: 0;
@@ -105,9 +112,9 @@ div#dropIndicator {
 
 div#dragProxy {
   border: 1px solid;
-  border-color: <%= skin[:enhBorder] %>;
-  background-color: <%= skin[:enhBG] %>;
-  color: <%= skin[:enh] %>;
+  border-color: var(--enhBorder);
+  background-color: var(--enhBG);
+  color: var(--enh);
   font-weight: normal;
   padding: 1px 10px 1px 1px;
   position: absolute;
@@ -120,22 +127,22 @@ div#dragProxy {
   z-index: 200;
 }
 
-*.rejectDrop { 
+*.rejectDrop {
   border: 1px solid !important;
-  border-color: red !important; 
+  border-color: red !important;
 }
-*.acceptDrop { 
+*.acceptDrop {
   border: 1px solid !important;
-  border-color: lime !important; 
+  border-color: lime !important;
 }
 
 
 /* Popup Styles */
 div#tipPopup {
   border: 2px solid;
-  border-color: <%= skin[:tipBorder] %>;
-  background-color: <%= skin[:tipBG] %>;
-  color: <%= skin[:tip] %>;
+  border-color: var(--tipBorder);
+  background-color: var(--tipBG);
+  color: var(--tip);
   position: absolute;
   width: 300px;
   top: 0px;
@@ -152,19 +159,19 @@ div#menuPopup {
   top: 0px;
   left: 0px;
   z-index: 400;
-  border-color: <%= skin[:tipBorder] %>;
-  background-color: <%= skin[:tipBG] %>;
-  color: <%= skin[:tip] %>;
+  border-color: var(--tipBorder);
+  background-color: var(--tipBG);
+  color: var(--tip);
 }
 
 /* Common */
 td.head {
   border: 1px solid;
-  border-color: <%= skin[:headBorder] %>;
+  border-color: var(--headBorder);
   background-image: url("../images/headerBG.png");
   background-repeat: repeat-x;
-  background-color: <%= skin[:headBG] %>;
-  color: <%= skin[:head] %>;
+  background-color: var(--headBG);
+  color: var(--head);
   text-align: left;
   font-weight: bold;
   padding: 0px 4px 0px 4px;
@@ -178,11 +185,11 @@ h1 {
 h2 {
   border-style: solid;
   border-width: 1px 0px 1px 1px;
-  border-color: <%= skin[:headBorder] %>;
+  border-color: var(--headBorder);
   background-image: url("../images/headerBG.png");
   background-repeat: repeat-x;
-  background-color: <%= skin[:headBG] %>;
-  color: <%= skin[:head] %>;
+  background-color: var(--headBG);
+  color: var(--head);
   text-align: left;
   font-family: serif;
   font-size: 16px;
@@ -234,9 +241,9 @@ table.fill {
 /* Miscellaneous */
 div.editPane,
 div.viewPane {
-  background-color: <%= skin[:emptyBG] %>;
+  background-color: var(--emptyBG);
   border: 1px solid;
-  border-color: <%= skin[:emptyBorder] %>;
+  border-color: var(--emptyBorder);
   padding: 0px;
 }
 
@@ -293,7 +300,7 @@ div.emptyFactory {
   cursor: move;
 }
 span.emptyAlt {
-  color: <%= skin[:emptyAlt] %>;
+  color: var(--emptyAlt);
 }
 
 .memberBlock { display: none; }

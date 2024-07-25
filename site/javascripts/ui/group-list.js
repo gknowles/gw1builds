@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.group-list"); }
+group-list.js - gw1builds ui
+*/
 
 var SGroupList = {}
 SGroupList.search = new SearchQuery(null, Group.prototype.sorts['Role']);
@@ -36,7 +40,7 @@ function updGroupList() {
     if (group.name) {
       out.push(drawGroupRow(group));
     } else {
-      out.push("<tr class='sortGroup'><td colspan='3'>", group, 
+      out.push("<tr class='sortGroup'><td colspan='3'>", group,
         "</td></tr>\n");
     }
   }
@@ -49,7 +53,7 @@ function updMemberList() {
   SGroupList.memberSearch.changed = false;
   var elems = SGroupList.elems.member;
   var groupName = SGroupList.memberSearch.values.groupName;
-  
+
   var groups = SGroupList.search.values;
   for (var i1 = 0; i1 < groups.length; ++i1) {
     var group = groups[i1];
@@ -76,18 +80,18 @@ function updMemberList() {
     if (member.name) {
       out.push(drawMemberRow(group, member));
     } else {
-      out.push("<tr class='sortGroup'><td colspan='3'>", member, 
+      out.push("<tr class='sortGroup'><td colspan='3'>", member,
         "</td></tr>\n");
     }
   }
   out.push("</table>");
   elems.listEl.innerHTML = out.join('');
-  
+
   var events = SGroupList.memberSearch.events;
   out = ["<table>"];
   for (var i1 = 0; i1 < events.length; ++i1) {
     var event = events[i1];
-    out.push("<tr><td>", dojo.date.strftime(event.created_at, '%F'), 
+    out.push("<tr><td>", dojo.date.strftime(event.created_at, '%F'),
       "</td><td>", event.event, "</td></tr>");
   }
   out.push("</table>");
@@ -128,11 +132,11 @@ function drawMemberRow(group, member) {
       actions.push('Reject');
     }
   }
-  
+
   out += "<td>";
   for (var i1 = 0; i1 < actions.length; ++i1) {
     out += "&nbsp;<a href=\"javascript:executeGroupListAction('" +
-      actions[i1] + "',true," + jstring1(group.name) + "," + 
+      actions[i1] + "',true," + jstring1(group.name) + "," +
       jstring1(member.name) + ")\">" + actions[i1] + "</a>";
   }
 
@@ -174,14 +178,14 @@ function clearMemberList() {
 SGroupList.actions = {
   // title   action[0]        groups[1] members[2] errmsg[3]
   List:    ['list',           'load',   'load',    'list' ],
-  
+
   Promote: ['promote_member', null,     'load',    'promotion' ],
   Demote:  ['demote_member',  'update', 'load',    'demotion' ],
   Leave:   ['leave',          'load',   'clear',   'departure' ],
   Kick:    ['kick_member',    'update', 'load',    'member kick' ],
   Accept:  ['join',           'update', 'load',    'acceptance' ],
   Reject:  ['leave',          'load',   'clear',   'rejection' ],
-  
+
   Create:  ['create',         'load',   null,      'group creation' ],
   Invite:  ['invite_user',    null,     'load',    'invitation' ]
 }
@@ -193,7 +197,7 @@ function executeGroupListAction(name, inclGroups, groupName, userName) {
     alert("Unknown group list action '" + name + "'");
     return;
   }
-  
+
   var args = [handler];
   args.push(inclGroups ? SGroupList.search.values.acctRev : null);
   if (groupName) {
@@ -202,7 +206,7 @@ function executeGroupListAction(name, inclGroups, groupName, userName) {
       SGroupList.memberSearch.values.groupRev : 0);
   }
   args.push(userName);
-  
+
   api.group[action[0]].apply(api.group, args);
 
   function handler(data) {

@@ -1,8 +1,12 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.api-rails"); }
+api-rails.js - gw1builds ui
+*/
 
 /**
- * Defines the interface to the backend authentication and data 
+ * Defines the interface to the backend authentication and data
  * storage, primary goals are:
  * - single point of definition for enums, constants etc
  * - minimize number of round trips required
@@ -47,7 +51,7 @@ api.impl = {
   init: function() {
     api.impl.urls = apiUrls();
   }, // init
-  
+
   query: function(handler, method, qs) {
     api.beforeQuery(handler, method);
     var url = this.urls[method] || method;
@@ -61,10 +65,10 @@ api.impl = {
       postContent: qs
     });
     api.afterQuery(handler, method);
-    
+
     function metaHandler(type, data, impl) {
-      if (type == 'load' &&  
-        impl.responseText.substr(0, 11) != "Status: 500") 
+      if (type == 'load' &&
+        impl.responseText.substr(0, 11) != "Status: 500")
       {
         try {
           var jsonStr = impl.responseText;
@@ -89,8 +93,8 @@ api.impl = {
       var jsonStr = impl.getResponseHeader('X-JSON');
       if (jsonStr) doc.write(jsonStr + "<hr>");
       doc.close();
-    } // metaHandler(type, obj, impl)      
-      
+    } // metaHandler(type, obj, impl)
+
   }, // query(handler, method, qs)
 
   squeryArgs: function(scope, squery) {
@@ -103,13 +107,13 @@ api.impl = {
         qs.push(scope + "[sort]=" + encodeURIComponent(squery.sort.key));
       }
       if (squery.pages) {
-        qs.push(scope + "[page]=" + squery.pages.current, 
+        qs.push(scope + "[page]=" + squery.pages.current,
           scope + "[pageSize]=" + squery.pages.pageSize);
       }
     }
     return qs.join('&');
   }, // squeryArgs
-    
+
   squeryUpdate: function(squery, data) {
     if (squery != null) {
       var matches = {}
@@ -141,10 +145,10 @@ api.user = {
   * { result: 'ok', user: { id:, name:, role: }
   */
   current: function(handler) {
-    api.impl.query(api.group._listShim(handler), 
+    api.impl.query(api.group._listShim(handler),
       'api.user.current', '');
   }, // current
-  
+
  /**
   * Login using an existing and activated account.
   *
@@ -163,7 +167,7 @@ api.user = {
     ].join('&');
     api.impl.handler = api.group._listShim(handler);
     api.impl.query(loginHandler, 'api.user.login', qs);
-    
+
     // receives either 'bad' or 'check_id'
     function loginHandler(data) {
       if (data.result != 'check_id') return api.impl.handler(data);
@@ -171,11 +175,11 @@ api.user = {
       el.src = data.checkid_url;
     }
   }, // login
-  
+
  /**
   * Create a new account, user param is a hash with:
   *   name, pass, passCopy, email, emailCopy
-  * 
+  *
   * handler gets:
   * { result:, errors:, user: { id:, name: } }
   */
@@ -185,24 +189,24 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.signup', qs);
   }, // signup
-  
+
  /**
   * Logout
   *
   * handler gets:
   * { result: 'ok', user: { role: GUEST } }
-  */ 
+  */
   logout: function(handler) {
     api.impl.query(handler, 'api.user.logout', '');
   } // logout
-  
+
 } // api.user.*
 
 
 api.group = {
   /**
    * handler gets:
-   * { result:, errors:, 
+   * { result:, errors:,
    *   group: { acctRev:, list: [groups] }
    *   member: { groupName:, groupRev:, list: [users] }
    * }
@@ -215,35 +219,35 @@ api.group = {
   list: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.list", handler, acctRev, groupName, groupRev);
   },
-  
+
   create: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.create", handler, acctRev, groupName, groupRev);
   }, // create
-  
+
   invite_user: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.invite_user", handler, 
+    this._execute("api.group.invite_user", handler,
       acctRev, groupName, groupRev, userName);
   }, // invite_user
-  
+
   promote_member: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.promote_member", handler, 
+    this._execute("api.group.promote_member", handler,
       acctRev, groupName, groupRev, userName);
   }, // promote_member
-  
+
   demote_member: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.demote_member", handler, 
+    this._execute("api.group.demote_member", handler,
       acctRev, groupName, groupRev, userName);
   }, // demote_member
-  
+
   kick_member: function(handler, acctRev, groupName, groupRev, userName) {
-    this._execute("api.group.kick_member", handler, 
+    this._execute("api.group.kick_member", handler,
       acctRev, groupName, groupRev, userName);
   }, // kick_member
-  
+
   join: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.join", handler, acctRev, groupName, groupRev);
   }, // join
-  
+
   leave: function(handler, acctRev, groupName, groupRev) {
     this._execute("api.group.leave", handler, acctRev, groupName, null);
   }, // leave
@@ -257,19 +261,19 @@ api.group = {
     qs = qs.join('&');
     api.impl.query(this._listShim(handler), func, qs);
   },
-  
+
   _unpackGroup: function(rgroup) {
     var group = new Group(rgroup.id, rgroup.name);
     group.groupRole = rgroup.groupRole;
     group.numMembers = rgroup.numMembers;
     return group;
   }, // _unpackGroup
-  
+
   _unpackUser: function(ruser) {
     var user = new User(ruser.name, ruser.groupRole, ruser.id);
     return user;
   }, // _unpackUser
-  
+
   _listShim: function(handler) {
     return function(data) {
       if (data.group) {
@@ -291,11 +295,11 @@ api.group = {
           events[i1].created_at = raw;
         }
       }
-      
-      return handler(data);    
+
+      return handler(data);
     }
   } // _listShim
-  
+
 } // api.group.*
 
 
@@ -307,7 +311,7 @@ api.build = {
    * build.access.viewer // view group, '~your_name' for personal, or
    *                     //   single '~' for public
    */
-  
+
   /**
    * Gets a page of the list of visible teams.
    *
@@ -319,7 +323,7 @@ api.build = {
    *   squery.pages.count
    *
    * handler gets:
-   * { result:, errors:, 
+   * { result:, errors:,
    *   searched:, matched:, list: [builds],
    *   pages: { current:, count:, pageSize: } // current is 1 based
    * }
@@ -329,8 +333,8 @@ api.build = {
     api.impl.query(this._buildListShim(handler, squery),
       "api.build.list", qs);
   }, // list(handler)
-  
-  
+
+
   /**
    * Create a new team, fails if owner already has
    * a team of the same name (unless replace is true).
@@ -344,22 +348,22 @@ api.build = {
     if (replace) qs += '&replace=1';
     api.impl.query(this._buildShim(handler), 'api.build.create', qs);
   }, // create
-  
-  
+
+
   /**
-   * Updates an existing team, <team> must contain .access.owner 
+   * Updates an existing team, <team> must contain .access.owner
    * received from a previous query.
-   * 
+   *
    * handler gets:
    * { result:, errors:, team: }
-   */ 
+   */
   update: function(handler, team) {
     var qs = this._encodeBuild(team);
     api.impl.query(this._buildShim(handler), 'api.build.update', qs);
   }, // update
-  
+
   /**
-   * Delete an existing team, <team> must contain .access.owner 
+   * Delete an existing team, <team> must contain .access.owner
    * received from a previous query
    *
    * handler gets:
@@ -373,10 +377,10 @@ api.build = {
       'build[name]=' + encodeURIComponent(team.name)
     ];
     qs.push(api.impl.squeryArgs('build', squery));
-    api.impl.query(this._buildListShim(handler, squery), 
+    api.impl.query(this._buildListShim(handler, squery),
       'api.build.destroy', qs.join('&'));
   }, // destroy
-  
+
 
   _encodeBuild: function(bld) {
     var qs = [
@@ -406,9 +410,9 @@ api.build = {
     } // for each slot
     return qs.join('&');
   }, // _encodeBuild
-    
+
   _unpackBuild: function(rb) {
-    var b = new Build(rb.name, rb.id, 
+    var b = new Build(rb.name, rb.id,
       rb.isTeam, rb.isPve, rb.type, rb.desc, rb.size);
     var rtoons = rb.list;
     for (var i1 = 0; i1 < rtoons.length; ++i1) {
@@ -420,7 +424,7 @@ api.build = {
     b.access = rb.access;
     return b;
   }, // _unpackBuild
-  
+
   _unpackToon: function(rtoon) {
     var toon = Character.prototype.parse(rtoon.packed);
     toon.id = rtoon.id;
@@ -428,7 +432,7 @@ api.build = {
     toon.desc = rtoon.desc;
     return toon;
   }, // _unpackToon
-  
+
   _buildShim: function(handler) {
     return function(data) {
       if (data.team) {
@@ -437,7 +441,7 @@ api.build = {
       return handler(data);
     }
   }, // _buildShim(handler)
-  
+
   _buildListShim: function(handler, squery) {
     return function(data) {
       var list = data.list;
@@ -448,10 +452,10 @@ api.build = {
         }
       }
       api.impl.squeryUpdate(squery, data);
-      return handler(data);    
+      return handler(data);
     }
   } // _buildListShim
-  
+
 } // api.build.*
 
 

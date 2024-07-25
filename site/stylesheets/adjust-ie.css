@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+adjust-ie.css - gw1builds
+*/
+
 /* menu.css */
 ul.tabmenu li a {
   height: 24px;
@@ -34,7 +41,7 @@ div.partList div.toonPick input {
 
 /* toon-info.css */
 div.toonInfo div.toonPick select {
-  width: 177px; 
+  width: 177px;
 }
 div.toonInfo div.toonPick input.pos {
   height: 22px;

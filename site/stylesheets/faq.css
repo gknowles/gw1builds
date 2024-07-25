@@ -1,13 +1,19 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+faq.css - gw1builds
+*/
 
 div.faqPane div.minwidth {
   min-width: 350px;
   max-width: 600px;
   /* width: 350px in adjust-ie.css */
-  color: <%= skin[:enh] %>;
-  background-color: <%= skin[:enhBG] %>;
+  color: var(--enh);
+  background-color: var(--enhBG);
   border-style: solid;
   border-width: 0px 2px 2px 2px;
-  border-color: <%= skin[:enhBorder] %>;
+  border-color: var(--enhBorder);
 }
 div.faqPane div.scroll {
   height: 570px;
@@ -18,7 +24,7 @@ div.faqPane h3 {
   font-weight: bold;
 }
 div.faqPane div.section {
-  background-color: <%= skin[:enhBG] %>;
+  background-color: var(--enhBG);
   padding: 0px 10px;
 }
 

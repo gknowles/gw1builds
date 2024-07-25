@@ -1,5 +1,9 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("ui.toon-view"); }
+toon-view.js - gw1builds ui
+*/
 
 /**
  * @toon    toon to draw
@@ -11,13 +15,13 @@ if (typeof dojo != 'undefined') { dojo.provide("ui.toon-view"); }
 function updToonView(el, toon, fmt) {
   switch (fmt) {
     default:
-    case 'normal': 
+    case 'normal':
       el.innerHTML = drawToonViewNormal(toon);
       break;
-    case 'code': 
+    case 'code':
       el.innerHTML = drawToonViewCode(toon);
       break;
-    case 'export': 
+    case 'export':
       var formEl = dojo.html.getParentByType(
         dojo.byId('buildExport'), 'form');
       loadExportView(formEl);
@@ -41,8 +45,8 @@ function drawToonViewNormal(toon) {
     "</div>",
     "<h2>Notes</h2>",
     "<div class='section'>",
-    "<div class='partDesc'>", 
-    (toon && toon.desc) ? toon.desc : "No notes", 
+    "<div class='partDesc'>",
+    (toon && toon.desc) ? toon.desc : "No notes",
     "</div></div>",
     "</div>"
     ];
@@ -51,7 +55,7 @@ function drawToonViewNormal(toon) {
 
 
 function drawToonViewCode(toon) {
-  var inclNames = 
+  var inclNames =
     g_store.get(g_store.keys.CODE_INCLUDE_NAMES) == true;
   var out = ["<div class='codeView'>",
     "<h2>Skill and Equipment Codes</h2>",
@@ -62,7 +66,7 @@ function drawToonViewCode(toon) {
     "</div>",
     "<div class='section'>"];
   if (toon) {
-    out.push(drawToon(toon, 
+    out.push(drawToon(toon,
       { noname: true, exports: true, skipName: !inclNames } ));
   } else {
     out.push("<div class='partName'>(Empty slot)</div>");
@@ -79,7 +83,7 @@ function drawToonViewText(toon, args, bbcode/*=false*/) {
     N: '#4ECB75', P: '#DD8213', R: '#89B83F', Rt: '#03F2F2', W: '#E2BC6A',
     '': 'silver' }
   if (!toon) return "(Empty slot)\n";
-  var out = [toon.typeName(/*inclLevel=*/toon.level != 20), 
+  var out = [toon.typeName(/*inclLevel=*/toon.level != 20),
     ' ', toon.name, '\n'];
   if (args.code) {
     out.push('Skill: ', toon.toAnet(/*skipName=*/true), '\n');
@@ -113,7 +117,7 @@ function drawToonViewText(toon, args, bbcode/*=false*/) {
         }
         out.push('[b]');
         if (args.links && skill) {
-          out.push('[url=', 
+          out.push('[url=',
             encodeURI('http://wiki.guildwars.com/wiki/' + skill.name),
             ']');
         }

@@ -1,3 +1,10 @@
+/**
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+part.css - gw1builds
+*/
+
 /* Skill Description and Name Spans for coloring */
 span.skill {
   border: 0px;
@@ -8,7 +15,7 @@ div.partIcon {
   padding: 0px;
   background-image: url(../images/skills/skill-tiles-28.png);
   width: 28px;
-  height: 28px; 
+  height: 28px;
 
   /* IE7 refuses to draw a short div without these */
   font-size: 0px;
@@ -27,7 +34,7 @@ div#tipPopup span.partName {
 span.partName {
   white-space: nowrap;
   padding: 0;
-  color: <%= skin[:enh] %>;
+  color: var(--enh);
   vertical-align: top;
   -moz-user-select: none;
   font-size: 9pt;
@@ -37,7 +44,7 @@ span.partName span.skillFailure {
   text-transform: uppercase;
 }
 span.partName span.partType {
-  color: <%= skin[:weak] %>;
+  color: var(--weak);
 }
 span.partType {
   margin-right: 0.5em;
@@ -70,13 +77,13 @@ span.elite {
 div.effects {
   border: 1px solid;
   padding: 1px 4px 4px 4px;
-  border-color: <%= skin[:stdBorder] %>;
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+  border-color: var(--stdBorder);
+  background-color: var(--stdBG);
+  color: var(--std);
   text-align: right;
 }
 div.partDesc {
-  color: <%= skin[:enh] %>;
+  color: var(--enh);
   clear: both;
   padding: 3px 0px 0px 0px;
 }
@@ -90,24 +97,24 @@ table.effectRange {
   border-collapse: collapse;
 }
 div.partDesc tr.linkedAttr td,
-div.partDesc tr.effectValue td { 
+div.partDesc tr.effectValue td {
   padding: 1px 3px;
   text-align: right;
 }
-div.partDesc tr.linkedAttr { 
-  background-color: <%= skin[:stdHoverBG] %>;
-  color: <%= skin[:stdHover] %>;
+div.partDesc tr.linkedAttr {
+  background-color: var(--stdHoverBG);
+  color: var(--stdHover);
 }
-div.partDesc tr.linkedAttr td.effectValue { 
+div.partDesc tr.linkedAttr td.effectValue {
   font-weight: bold;
 }
-div.partDesc tr.effectValue { 
-  background-color: <%= skin[:stdBG] %>;
-  color: <%= skin[:std] %>;
+div.partDesc tr.effectValue {
+  background-color: var(--stdBG);
+  color: var(--std);
 }
-div.partDesc tr.effectValue td.effectValue { 
-	color: green; 
-	font-weight: bold; 
+div.partDesc tr.effectValue td.effectValue {
+	color: green;
+	font-weight: bold;
 }
 
 div.editDesc textarea {
@@ -139,7 +146,7 @@ span.skillIcons {
   font-family: MS Sans Serif, sans-serif;
   padding: 0px;
   margin: 0px;
-  color: <%= skin[:weak] %>;
+  color: var(--weak);
   -moz-user-select: none;
 }
 span.skillIcons span.upkeep {
@@ -155,10 +162,10 @@ span.skillIcons span.enCost {
   background-image: url('../images/skill-enCost.png');
   width: 16px;
 }
-span.skillIcons span.enCost.adjusted { 
+span.skillIcons span.enCost.adjusted {
   width: auto;
   min-width: 16px;
-  color: gray; 
+  color: gray;
 }
 span.skillIcons span.enCost.exhaustion {
   background-image: url('../images/skill-exhaustion.png');
@@ -171,8 +178,8 @@ span.skillIcons span.activation {
   background-image: url('../images/skill-activation.png');
   width: 12px;
 }
-span.skillIcons span.activation.adjusted { 
-  width: auto; 
+span.skillIcons span.activation.adjusted {
+  width: auto;
   min-width: 12px;
   color: gray;
 }

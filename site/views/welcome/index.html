@@ -1,0 +1,168 @@
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+index.rhtml - gw1builds view welcome
+-->
+
+<html>
+<head>
+<title>GuildBuilds</title>
+<link rel="icon" href="../../favicon.ico"/>
+<link rel="stylesheet" href="../../stylesheets/skin.css"/>
+<link rel="stylesheet" href="../../stylesheets/global.css"/>
+<link rel="stylesheet" href="../../stylesheets/menu.css"/>
+<link rel="stylesheet" href="../../stylesheets/faq.css"/>
+<link rel="stylesheet" href="../../stylesheets/data.css"/>
+<link rel="stylesheet" href="../../stylesheets/dialogs.css"/>
+<link rel="stylesheet" href="../../stylesheets/toon-info.css"/>
+<link rel="stylesheet" href="../../stylesheets/attr-grid.css"/>
+<link rel="stylesheet" href="../../stylesheets/item-grid.css"/>
+<link rel="stylesheet" href="../../stylesheets/part.css"/>
+<link rel="stylesheet" href="../../stylesheets/part-list.css"/>
+<link rel="stylesheet" href="../../stylesheets/part-view.css"/>
+<link rel="stylesheet" href="../../stylesheets/skillbar.css"/>
+<link rel="stylesheet" href="../../stylesheets/skill-favorites.css"/>
+<link rel="stylesheet" href="../../stylesheets/roster.css"/>
+<link rel="stylesheet" href="../../stylesheets/account-pane.css"/>
+<link rel="stylesheet" href="../../stylesheets/group-pane.css"/>
+<link rel="stylesheet" href="../../stylesheets/list-pane.css"/>
+<link rel="stylesheet" href="../../stylesheets/toon-pane.css"/>
+<link rel="stylesheet" href="../../stylesheets/team-pane.css"/>
+<script src="../../javascripts/util/util.js"></script>
+<script type="text/javascript">
+var cssHover = {
+  // part-list.css
+  // div.partList table.detail tr:hover
+  partListTableTr: { backgroundColor: 'var(--enhHoverBG)' },
+  // div#menuPopup div.partList table.detail tr:hover {
+  popupPartListTableTr: { backgroundColor: 'var(--stdHoverBG)' },
+
+  // skillbar.css
+  // div.skillbar tr.linked td.full
+  skillbarLinkedFull: { backgroundColor: 'var(--enhHoverBG)' },
+  // div.skillbar tr.linked td.fullAlt
+  skillbarLinkedFullAlt: { backgroundColor: 'var(--altHoverBG)' }
+}
+</script>
+<script src="../../javascripts/model/data-skill.js"></script>
+<script src="../../javascripts/model/data-equip.js"></script>
+<script src="../../images/skills/skill-tiles-pos.js"></script>
+
+<script src="../../javascripts/model/util.js"></script>
+<script src="../../javascripts/model/base64codec.js"></script>
+<script src="../../javascripts/model/slotset.js"></script>
+<script src="../../javascripts/model/state.js"></script>
+<script src="../../javascripts/model/store.js"></script>
+<script src="../../javascripts/model/defs.js"></script>
+<script src="../../javascripts/model/item.js"></script>
+<script src="../../javascripts/model/skill.js"></script>
+<script src="../../javascripts/model/character.js"></script>
+<script src="../../javascripts/model/character-export.js"></script>
+<script src="../../javascripts/model/character-io.js"></script>
+<script src="../../javascripts/model/build.js"></script>
+<script src="../../javascripts/model/user.js"></script>
+
+<script src="../../javascripts/ui/misc.js"></script>
+<script src="../../javascripts/ui/api-rails.js"></script>
+<script src="../../javascripts/ui/util-pane.js"></script>
+<script src="../../javascripts/ui/hover-ie.js"></script>
+<script src="../../javascripts/ui/util-dragdrop.js"></script>
+<script src="../../javascripts/ui/util-popup.js"></script>
+<script src="../../javascripts/ui/search-filter.js"></script>
+<script src="../../javascripts/ui/search-window.js"></script>
+<script src="../../javascripts/ui/account.js"></script>
+<script src="../../javascripts/ui/group-list.js"></script>
+<script src="../../javascripts/ui/attr-grid.js"></script>
+<script src="../../javascripts/ui/item-grid.js"></script>
+<script src="../../javascripts/ui/part.js"></script>
+<script src="../../javascripts/ui/part-list.js"></script>
+<script src="../../javascripts/ui/state.js"></script>
+<script src="../../javascripts/ui/slotset.js"></script>
+<script src="../../javascripts/ui/skill.js"></script>
+<script src="../../javascripts/ui/skill-search.js"></script>
+<script src="../../javascripts/ui/skill-list.js"></script>
+<script src="../../javascripts/ui/skillbar-tweak.js"></script>
+<script src="../../javascripts/ui/skill-favorites.js"></script>
+<script src="../../javascripts/ui/build-info.js"></script>
+<script src="../../javascripts/ui/build-search.js"></script>
+<script src="../../javascripts/ui/build-list.js"></script>
+<script src="../../javascripts/ui/toon.js"></script>
+<script src="../../javascripts/ui/toon-info.js"></script>
+<script src="../../javascripts/ui/toon-view.js"></script>
+<script src="../../javascripts/ui/team.js"></script>
+<script src="../../javascripts/ui/team-roster.js"></script>
+<script src="../../javascripts/ui/team-view.js"></script>
+
+<script src="_urls.js"></script>
+</head>
+
+<body>
+  <div id="header">
+    <div style="float: right">
+      <ul id="topmenu"></ul>
+      <div class='ready user' id="header_user"></div>
+      <div class='waiting'>Waiting...</div>
+    </div>
+    <h1>Gw1Builds Designer</h1>
+    <span style='font-size: 9pt; vertical-align: top; margin-left: 20px'>
+      <a href='https://github.com/gknowles/gw1builds/issues'>[Issues]</a>&nbsp;
+      <a href='http://www.pvxwiki.com'>[PvX Wiki]</a>&nbsp;
+      <a href='http://wiki.guildwars.com'>[GW Wiki]</a>
+    </span>
+    <div class='current' id="header_current"></div>
+  </div>
+
+  <div id="content" style="clear: both">
+    <script>
+      includeHtmlFragment('views/welcome/_home.html')
+      includeHtmlFragment('views/welcome/_faq.html')
+      includeHtmlFragment('views/welcome/_build.html')
+      includeHtmlFragment('views/group/_list.html')
+      includeHtmlFragment('views/welcome/_data.html')
+      includeHtmlFragment('views/user/_login.html')
+      includeHtmlFragment('views/user/_logout.html')
+    </script>
+  </div>
+
+  <div id="tipPopup" style='display: none'></div>
+  <div id="menuPopup" style='display: none'
+    onclick='DDPopup.hide()'></div>
+  <div id="dragProxy" style='display: none'></div>
+  <div id="dropIndicator" style='display: none'></div>
+  <div id="dialog" dojoType='dialog' style='display: none'>
+    <div class="titlebar"
+      onMouseDown="DDMove.down(this, event,
+        {node: this.parentNode.parentNode})">Search</div>
+    <div class="content"></div>
+  </div>
+  <iframe id='hiddenIframe' name='hiddenIframe'
+    style='display: none'></iframe>
+
+  <!-- initially hidden divs, all moved to visible parent later -->
+  <div id="hidden" style='display: none'>
+
+    <form id="stateActions" class='stateActions'>
+      <button name="fSave" type="button"
+        onclick="saveObj()">Save</button>
+      <button name="fSaveAs" type="button"
+        onclick="showDialog('Save As', drawObjSaveAs(), 'saveAsDialog')"
+        >Save As...</button>
+      <button name="fSaveMemberAs" type="button"
+        onclick="showDialog('Save Member As',
+          drawObjSaveAs(g_state.dataTypes.TEAM_MEMBER),
+          'saveMemberAsDialog')"
+        >Save Member As...</button>
+      <button name="fClose" type="button"
+        onclick="">Close</button>
+    </form>
+    <script>
+      includeHtmlFragment('views/user/_named_divs.html')
+      includeHtmlFragment('views/group/_named_divs.html')
+      includeHtmlFragment('views/skill/_named_divs.html')
+      includeHtmlFragment('views/build/_named_divs.html')
+    </script>
+  </div> <!-- hidden divs -->
+
+</body>
+</html>

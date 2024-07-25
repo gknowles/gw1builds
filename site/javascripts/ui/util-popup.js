@@ -1,5 +1,12 @@
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+util-popup.js - gw1builds ui
+*/
+
 /////////////////////////////////////////////////
-// Support for 
+// Support for
 //   Popup menus
 //   Dialogs
 /////////////////////////////////////////////////
@@ -13,7 +20,7 @@ function showDialog(title, body, className) {
   var contentEl = dojo.html.getElementsByClass(
     "content", dlg.containerNode)[0];
   dlg.containerNode.className = className ? className : '';
-  titleEl.innerHTML = /[<>]/.test(title) ? 
+  titleEl.innerHTML = /[<>]/.test(title) ?
     title : ("<h2>" + title + "</h2>");
   if (dojo.dom.isNode(body)) {
     contentEl.innerHTML = '';
@@ -33,11 +40,11 @@ function hideDialog() {
 
 var DDPopup = {
   popEl: null,
-  
+
   getEl: function() {
     return this.popEl || (this.popEl = dojo.byId('menuPopup'));
   },
-  
+
   show: function(baseEl, body, className) {
     baseEl.blur();
     var popEl = this.getEl();
@@ -50,14 +57,14 @@ var DDPopup = {
     }
     showBy(popEl, baseEl, 'b');
     setFirstFocus(popEl);
-    dojo.event.connect('before', document, 'onmousedown', 
+    dojo.event.connect('before', document, 'onmousedown',
       this, '_mouseHandler');
   }, // show
 
   hide: function() {
     var popEl = this.getEl();
     dojo.html.hide(popEl);
-    dojo.event.disconnect('before', document, 'onmousedown', 
+    dojo.event.disconnect('before', document, 'onmousedown',
       this, '_mouseHandler');
   }, // hide
 

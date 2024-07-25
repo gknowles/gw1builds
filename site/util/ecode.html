@@ -1,3 +1,10 @@
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+ecode.html - gw1builds util
+-->
+
 <html>
 <head>
   <title>Decode Equipment Template</title>
@@ -6,9 +13,9 @@
       font-size: 9pt;
     }
   </style>
-  <script type="text/javascript" 
+  <script type="text/javascript"
     src="../javascripts/model/base64codec.js"></script>
-  <script type="text/javascript" 
+  <script type="text/javascript"
     src="../javascripts/model/util.js"></script>
   <script type="text/javascript">
 
@@ -70,7 +77,7 @@ Toon.prototype.encode = function() {
     }
   }
   codec.putBoundary();
-  
+
   return codec.str;
 };
 
@@ -81,7 +88,7 @@ function decode() {
   var recodeEl = document.getElementById('recode');
   var tmpl = trim(document.getElementById("template").value);
   var frm = document.forms['frm'];
-  
+
   // AS RAW BITS
   outEl.innerHTML = Base64Codec.prototype.dumpBits(tmpl);
 
@@ -93,7 +100,7 @@ function decode() {
     recode = "<span style='color: red'>" + recode + "</span>";
   }
   recodeEl.innerHTML = "<p>Recode: " + recode + "</p>";
-  
+
   // items
   frm.width.value = toon.itemFmt;
   frm.uwidth.value = toon.modFmt;
@@ -141,7 +148,7 @@ function encode() {
 </head>
 <body>
   <label for="template">Equipment Template:</label>
-  <input type="text" size="80" name="template" id="template" 
+  <input type="text" size="80" name="template" id="template"
     value="" onchange="decode()">
   <br>
   <input type="submit" value="Decode" onclick="decode(); return false">
@@ -149,7 +156,7 @@ function encode() {
   <br>
   <div id='decode'><br/></div>
   <form name='frm'>
-    Bits (Items, Upgrades): 
+    Bits (Items, Upgrades):
     <input type='text' size='1' name='width'>
     <input type='text' size='1' name='uwidth'>
     <table>

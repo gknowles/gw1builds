@@ -1,5 +1,11 @@
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+list.rhtml - gw1builds view group
+-->
 <script type="text/javascript">
-<% 
+<%
 paneRef = menuId + "_group"
 %>
 <%= paneRef %> = new Pane({
@@ -15,8 +21,8 @@ paneRef = menuId + "_group"
     executeGroupListAction('List', true);
   },
   onupdate: function(upd) {
-    if (upd.keys.user) { 
-      this.hidden = !g_user.hasRole(); 
+    if (upd.keys.user) {
+      this.hidden = !g_user.hasRole();
       SGroupList.search.values.acctRev = 0;
       SGroupList.memberSearch.values.groupRev = 0;
     }
