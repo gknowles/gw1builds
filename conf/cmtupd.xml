@@ -34,7 +34,6 @@ and '} respectively.
     <Group>
       <File regex=".*\.cpp"/>
       <File regex=".*\.h"/>
-      <Exclude regex="libs/core/hash_crc32c\.cpp"/>
       <Exclude regex=".*\.g.cpp"/>
       <Exclude regex=".*\.g.h"/>
       <Var name="Prefix" value="// "/>
@@ -44,14 +43,14 @@ and '} respectively.
       <File regex=".*\.html"/>
       <File regex=".*\.js"/>
       <Exclude regex="web/srv/vendor/.*"/>
+      <Exclude regex="site/vendor/.*"/>
       <File regex=".*\.adoc"/>
       <File regex=".*\.md"/>
       <File regex=".*\.natvis"/> <!-- xml -->
       <File regex=".*\.xml"/>
       <File regex=".*\.xml\.sample"/>
       <File regex=".*\.xsd"/>
-      <Exclude regex="tools/docgen/schema\.xsd"/>
-      <Exclude regex="tools/xsdgen/schema\.xsd"/>
+      <Exclude regex=".*\.g.xsd"/>
       <Var name="Prefix" value=""/>
     </Group>
     <Group>
