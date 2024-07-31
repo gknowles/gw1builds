@@ -1,6 +1,11 @@
-// Builds 'N Stuff user/group definitions
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.user"); }
+user.js - gw1builds model
+
+User/group definitions
+*/
 
 /////////////////////////////////////////////////
 // User represents a user with associated name, role, etc
@@ -19,8 +24,8 @@ User.prototype.ADMIN = User.ADMIN = 3;
 /////////////////////////////////////////////////
 // User
 // In addition to name and role, a user may contain
-// a groups[] array, representing the groups they're a 
-// member of. If present, each of these groups will 
+// a groups[] array, representing the groups they're a
+// member of. If present, each of these groups will
 // have a groupRole property in addition to the normal
 // Group stuff.
 /////////////////////////////////////////////////
@@ -88,9 +93,9 @@ User.prototype.sorts["Role"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
-  group:function(val) { 
-    return ['Invitees', 'Members', 'Editors', 'Administrators'][val.role]; 
+  },
+  group:function(val) {
+    return ['Invitees', 'Members', 'Editors', 'Administrators'][val.role];
   }
 };
 User.prototype.sorts["Name"] = {
@@ -100,15 +105,15 @@ User.prototype.sorts["Name"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(val) { return null; }
 };
 
 /////////////////////////////////////////////////
 // Group
 // In addition to name and role, a user may contain
-// a members[] array, representing the groups they're a 
-// member of. If present, each of these groups will 
+// a members[] array, representing the groups they're a
+// member of. If present, each of these groups will
 // have a groupRole property in addition to the normal
 // Group stuff.
 /////////////////////////////////////////////////
@@ -134,9 +139,9 @@ Group.prototype.sorts["Role"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
-  group:function(val) { 
-    return ['Invitees', 'Members', 'Editors', 'Administrators'][val.groupRole]; 
+  },
+  group:function(val) {
+    return ['Invitees', 'Members', 'Editors', 'Administrators'][val.groupRole];
   }
 };
 Group.prototype.sorts["Name"] = {
@@ -146,6 +151,6 @@ Group.prototype.sorts["Name"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(val) { return null; }
 };

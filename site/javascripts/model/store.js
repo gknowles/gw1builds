@@ -1,6 +1,11 @@
-// Generate client side data storage
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.store"); }
+store.js - gw1builds model
+
+Client side data storage
+*/
 
 /////////////////////////////////////////////////
 // Static Data
@@ -37,7 +42,7 @@ Store.prototype.set = function(key, val) {
 
 Store.prototype.getKeys = function() {
   return dojox.storage.getKeys();
-}  
+}
 
 Store.prototype.remove = function(key) {
   dojox.storage.remove(key);

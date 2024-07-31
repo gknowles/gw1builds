@@ -1,6 +1,11 @@
-// Builds 'N Stuff item and upgrade definitions
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.item"); }
+item.js - gw1builds model
+
+Item and upgrade definitions
+*/
 
 /////////////////////////////////////////////////
 // Globals
@@ -44,14 +49,14 @@ Item.prototype.colors = {
 ItemUpgrade.prototype.slots = [
   'base', 'color', 'prefix', 'suffix', 'inside' ];
 ItemUpgrade.prototype.slotNames = {
-  prefix:  { 
-    armor: 'Insignia', axe: 'Axe Haft', 
-    bow: 'Bow String', daggers: 'Dagger Tang', 
+  prefix:  {
+    armor: 'Insignia', axe: 'Axe Haft',
+    bow: 'Bow String', daggers: 'Dagger Tang',
     hammer: 'Hammer Haft', scythe: 'Scythe Snathe',
     spear: 'Spearhead', sword: 'Sword Hilt',
     staff: 'Staff Head'
   },
-  suffix:  { 
+  suffix:  {
     armor: 'Rune', axe:  'Axe Grip',
     bow: 'Bow Grip', daggers: 'Dagger Handle',
     hammer: 'Hammer Grip', scythe: 'Scythe Grip',
@@ -61,14 +66,14 @@ ItemUpgrade.prototype.slotNames = {
   },
   inside: {
     axe: 'Inscription', bow: 'Inscription',
-    daggers: 'Inscription', hammer: 'Inscription', 
+    daggers: 'Inscription', hammer: 'Inscription',
     scythe: 'Inscription', spear: 'Inscription',
     sword: 'Inscription', staff: 'Inscription',
     wand: 'Inscription', shield: 'Inscription',
     focus: 'Inscription'
   }
 }
-  
+
 g_itemEffects = [];
 g_itemBases = [];
 g_itemUpgrades = [];
@@ -116,7 +121,7 @@ ItemEffect.prototype.desc = function(where, dtype) {
   if (where != null) {
     if (this.value == null) return null;
     if (this.where && where != this.where) return null;
-  } 
+  }
   if (this.dtype) {
     out.push(dtype || this.dtype, ' Dmg: ');
   }
@@ -140,8 +145,8 @@ ItemEffect.prototype.desc = function(where, dtype) {
   if (this.stacking != null) {
     out.push(this.stacking ? ' (Stacking)' : ' (Non-stacking)');
   }
-    
-  return out.join(''); 
+
+  return out.join('');
 } // desc
 
 ItemEffect.prototype.compare = function(a,b) {
@@ -171,7 +176,7 @@ function ItemBase(name, id, pro, type, where, effect_ids) {
   this.name = name || '';
   this.id = id;
   this.pro = pro;
-  this.type = type; // 
+  this.type = type; //
   this.where = where; //
   ItemEffect.prototype.addEffects(this, effect_ids);
   // find req for non-armor
@@ -263,7 +268,7 @@ function ItemUpgrade(name, id, pro, where, for_mask, effect_ids) {
   this.where = where;
   this.for_mask = for_mask; // bitwise-or of type codes upgrade can attach to
   ItemEffect.prototype.addEffects(this, effect_ids);
-  if (this.where == 'suffix' && 
+  if (this.where == 'suffix' &&
     (Item.prototype.typeCodes['armor'] & this.for_mask) != 0)
   {
     ItemEffect.prototype.rollupAttr(this);
@@ -274,10 +279,10 @@ ItemUpgrade.prototype.getArray = function(where, pro, type) {
   var out = [];
   for (var i1 = 0; i1 < g_itemUpgrades.length; ++i1) {
     var upg = g_itemUpgrades[i1];
-    if (upg && 
-      (!upg.pro || upg.pro == pro) && 
+    if (upg &&
+      (!upg.pro || upg.pro == pro) &&
       upg.where == where &&
-      (upg.for_mask & type) != 0) 
+      (upg.for_mask & type) != 0)
     {
       out.push(upg);
     }
@@ -310,7 +315,7 @@ ItemUpgrade.prototype.desc = function(where, dtype) {
     } else { // where == 'suffix'
       name = pname + ' of ' + name;
     }
-  } 
+  }
   var out = [name];
   for (var i2 = 0; i2 < this.effects.length; ++i2) {
     var effect = this.effects[i2];
@@ -333,7 +338,7 @@ function Item(base, color, prefix, suffix, inside) {
 } // Item
 
 Item.prototype.clone = function() {
-  var n = new Item(this.base, this.color, 
+  var n = new Item(this.base, this.color,
     this.prefix, this.suffix, this.inside);
   return n;
 } // Item.clone
@@ -342,7 +347,7 @@ Item.prototype.setPart = function(part, uslot) {
   switch (uslot) {
   case 'base': return this.setBase(part);
   case 'color': return this.setColor(part);
-  default: 
+  default:
     if (part && part.where != uslot) {
       alert("'" + part.name + "' can't be used as " + uslot);
       return null;
@@ -491,7 +496,7 @@ Item.prototype.armorRune = function(name) {
     Item.prototype.runesByName = {}
     for (var i1 = 0; i1 < g_itemUpgrades.length; ++i1) {
       var upg = g_itemUpgrades[i1];
-      if (upg && upg.where == 'suffix' && 
+      if (upg && upg.where == 'suffix' &&
         (upg.for_mask & Item.prototype.typeCodes['armor']) != 0)
       {
         Item.prototype.runesByName[upg.name] = upg;

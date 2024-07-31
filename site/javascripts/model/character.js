@@ -1,11 +1,14 @@
-// Guild Wars character data objects
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.character"); }
+character.js - gw1builds model
+*/
 
 /////////////////////////////////////////////////
 // Character - represents an in game character
 // with associated professions, skills, etc
-// 
+//
 // Global Options
 //   .autoRunes
 //   .autoHeadgear
@@ -17,7 +20,7 @@ if (typeof dojo != 'undefined') { dojo.provide("model.character"); }
 //   parse(str, toon/*=new Character*/, skipName/*=false*/)
 //     -- see character-io.js
 //   clone(newName)
-// 
+//
 // Commands
 //   setName(name)
 //   setLevel(level, bonusPts)
@@ -50,7 +53,7 @@ if (typeof dojo != 'undefined') { dojo.provide("model.character"); }
 //   slotPrimes() - current skillbar slots, simple array, alternates excluded
 //   slots() - array of arrays, containing the primary and alternates
 //     for each skill slot
-//   slotRefs() - skill slots returned as array of objects of the form 
+//   slotRefs() - skill slots returned as array of objects of the form
 //     {pos:, alt:, value:}
 //   slotValue(pos, alt) - skill at a specific slot
 //   toAnet()
@@ -61,7 +64,7 @@ if (typeof dojo != 'undefined') { dojo.provide("model.character"); }
 //   validAttr(attrName)
 //   effectiveAttr(attrName) - required for attrSource
 //   skillFilter(skillObj) - required for attrSource
-// 
+//
 // Static Data
 //   levelHealth
 //   levelAttrPts
@@ -69,10 +72,11 @@ if (typeof dojo != 'undefined') { dojo.provide("model.character"); }
 //   attrCost.highAttr(pts)
 //   runeTypes
 //   changeKeys
+//
 /////////////////////////////////////////////////
-// Set functions (and optimize()) return a hash of what has been changed 
-// or null if the requested change was invalid. Possible keys in the 
-// hash are: 
+// Set functions (and optimize()) return a hash of what has been changed
+// or null if the requested change was invalid. Possible keys in the
+// hash are:
 //   name
 //   desc
 //   level
@@ -108,10 +112,10 @@ delete Character.prototype.deleteSlot;
 // Global Options
 /////////////////////////////////////////////////
 // change runes with attr values are set
-Character.prototype.autoRunes = true; 
+Character.prototype.autoRunes = true;
 
 // change headgear when attr values are set
-Character.prototype.autoHeadgear = true; 
+Character.prototype.autoHeadgear = true;
 
 // ensure there is always exactly one trailing empty
 // alternate skill for the last skill slot
@@ -138,8 +142,8 @@ Character.prototype.relaxedNameChars =
 // 012345678901234567890123456789012345678901234567890123456789012
   " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 Character.prototype.relaxedNameMaxLength = 30;
-  
-  
+
+
 // health per level
 Character.prototype.levelHealth = [
 // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
@@ -154,7 +158,7 @@ Character.prototype.levelAttrPts = [
 
 // array of attribute points required for attribute of given level
 Character.prototype.attrCost = [
-// 0 1 2 3  4  5  6  7  8  9 10 11 12 
+// 0 1 2 3  4  5  6  7  8  9 10 11 12
    0,1,3,6,10,15,21,28,37,48,61,77,97
 ];
 Character.prototype.attrCost.highAttr = function(pts) {
@@ -202,8 +206,8 @@ Character.prototype.changeKeys = {
 /**
  * Construct data for a specific attribute of a char
  */
-function CharacterAttr(value, rune, headgear, 
-  id, name, abbrev, desc, isPrimary, isPrimaryAttr) 
+function CharacterAttr(value, rune, headgear,
+  id, name, abbrev, desc, isPrimary, isPrimaryAttr)
 {
   this.value = value; // effective value, after headgear and runes
                       //   headgear/runes are not included if !isPrimary
@@ -222,15 +226,15 @@ function CharacterAttr(value, rune, headgear,
 
 CharacterAttr.prototype.rawValue = function() {
   if (this.isPrimary) {
-    return this.value - Character.prototype.runeTypes[this.rune][0] 
+    return this.value - Character.prototype.runeTypes[this.rune][0]
       - this.headgear;
   }
   return this.value;
 } // rawValue()
 
 CharacterAttr.prototype.clone = function() {
-  return new CharacterAttr(this.value, this.rune, this.headgear, 
-    this.id, this.name, this.abbrev, this.desc, 
+  return new CharacterAttr(this.value, this.rune, this.headgear,
+    this.id, this.name, this.abbrev, this.desc,
     this.isPrimary, this.isPrimaryAttr);
 } // clone()
 
@@ -258,7 +262,7 @@ CharacterAttrCost.prototype.copyTo = function(out) {
 
 /**
  * Compare two cattr objects
- * 
+ *
  * @param   c2  CharacterAttrCost to compare with
  * @return      result of comparison, an integer <0, 0, or >0
  */
@@ -269,10 +273,10 @@ CharacterAttrCost.prototype.compare = function(c2) {
 } // CharacterAttrCost.compare(c2)
 
 /**
- * Compare two cattr objects, and set the second to be equal 
- * to the first if it was greater. Used when searching for 
+ * Compare two cattr objects, and set the second to be equal
+ * to the first if it was greater. Used when searching for
  * a new best.
- * 
+ *
  * @param   c2  (in/out) CharacterAttrCost to compare (and maybe update)
  * @return      was c2 updated to be equal to c1?
  */
@@ -306,7 +310,7 @@ CharacterAttrCost.prototype.addAttr = function(pattr) {
     if (raw < 0 || raw > 12) return false;
     // has rune? increment num runes used
     if (runeBonus) {
-      this.runes += 1; 
+      this.runes += 1;
       // didn't leave room for vigor? take away 40 health (50 - implied vitae)
       if (this.runes == 5) this.health += -40;
       this.health += runeType[1];
@@ -340,7 +344,7 @@ function Character(name) {
   this.desc = '';
   // this.primary = Profession // not null
   // this.secondary = Profession // not null
-  // this.slots // array of prime+alts skill ref arrays 
+  // this.slots // array of prime+alts skill ref arrays
   //   with array property for each profession
   // this.pattrs = {"attrName":CharacterAttr, ...}
   // this.cattrs = {"attrName":CharacterAttrCost[17], ...}
@@ -363,7 +367,7 @@ function Character(name) {
   // init skill slots
   SlotSet.call(this, 8, 'skillArray', 7);
   // holds skills of unselected professions when switching back and forth
-  this.offSlots = {} 
+  this.offSlots = {}
   for (var p in g_pros) {
     this.offSlots[p] = [];
   }
@@ -376,8 +380,8 @@ function Character(name) {
     var isPrimary = (p == this.primary.abbrev);
     for (var a in pro.attrs) {
       var ainfo = pro.attrs[a];
-      this.pattrs[a] = new CharacterAttr(0, 'None', false, 
-        ainfo.id, a, ainfo.abbrev, ainfo.desc, 
+      this.pattrs[a] = new CharacterAttr(0, 'None', false,
+        ainfo.id, a, ainfo.abbrev, ainfo.desc,
         isPrimary, ainfo.isPrimary);
     }
   }
@@ -410,7 +414,7 @@ function Character(name) {
   // init items
   var slots = Item.prototype.slots;
   // holds armor of unselected professions when switching back and forth
-  this.offItems = {} 
+  this.offItems = {}
   for (var p in g_pros) {
     this.offItems[p] = {};
     for (var i1 = 0, l = slots.length; i1 < l; ++i1) {
@@ -421,11 +425,11 @@ function Character(name) {
       case 'hands':
       case 'chest':
       case 'legs':
-        item.setRune(item.armorRune('Vitae'), 
+        item.setRune(item.armorRune('Vitae'),
           slot, g_pros[p]);
         break;
       case 'feet':
-        item.setRune(item.armorRune('Superior Vigor'), 
+        item.setRune(item.armorRune('Superior Vigor'),
           slot, g_pros[p]);
         break;
       }
@@ -439,7 +443,7 @@ function Character(name) {
 
 /**
  * Duplicate a character object, but with a new name
- * 
+ *
  * @param   name  name of new character
  * @return  Character object
  */
@@ -455,7 +459,7 @@ Character.prototype.dumpAttrs = function() {
   var pattrs = this.pattrArray();
   for (var i1 = 0; i1 < pattrs.length; ++i1) {
     var pattr = pattrs[i1];
-    out += pattr.name + ': ' + pattr.rawValue() + ',' + 
+    out += pattr.name + ': ' + pattr.rawValue() + ',' +
       pattr.rune + ',' + pattr.headgear + '\n';
   }
   return out;
@@ -466,9 +470,9 @@ Character.prototype.dumpAttrs = function() {
 // Commands
 /////////////////////////////////////////////////
 /**
- * Set name. Automaticly converts it to a valid GW character 
+ * Set name. Automaticly converts it to a valid GW character
  * name if it isn't one.
- * 
+ *
  * @param   name    new character name
  */
 Character.prototype.setName = function(name) {
@@ -539,8 +543,8 @@ Character.prototype.toAnetName = function(name) {
 
 /**
  * Converts a name into a legal relaxed format name, relaxed
- * format allows any combination of upper- and lowercase letters 
- * and numbers. Spaces may appear as long as they appear singlely 
+ * format allows any combination of upper- and lowercase letters
+ * and numbers. Spaces may appear as long as they appear singlely
  * and are not leading or trailing
  *
  * @param name    name to translate
@@ -554,23 +558,23 @@ Character.prototype.toRelaxedName = function(name) {
     var ch = n.charAt(i1);
     // not an allowed character? skip
     if (this.relaxedNameChars.indexOf(ch) == -1) continue;
-  
+
     // name (and any pending space) max length? done
     if (out.length >= this.relaxedNameMaxLength) break;
-  
+
     out += ch;
   }
-  return out;  
+  return out;
 } // toRelaxedName
 
 
 /**
  * Set level and number of bonus attr points
- * 
+ *
  *  - calculates total attribute points
  *  - adjusts attributes down if mandated by reduced attr points
  *  - clears attribute choices cache
- * 
+ *
  * @param   level     character level
  * @param   bonusPts  number of points from quests [0, 15, 30]
  */
@@ -601,11 +605,11 @@ Character.prototype.setLevel = function(level, bonusPts) {
     ret.attrBonusPts = true;
     this.attrBonusPts = bonusPts;
   }
-  this.attrTotalPts = this.levelAttrPts[this.level] + 
+  this.attrTotalPts = this.levelAttrPts[this.level] +
     this.attrBonusPts;
 
-  // total attr points changed? 
-  //   - recalculate attr points 
+  // total attr points changed?
+  //   - recalculate attr points
   //   - adjust down attributes if needed
   //   - clear attr choices cache
   if (!oldTotal || oldTotal != this.attrTotalPts) {
@@ -622,13 +626,13 @@ Character.prototype.setLevel = function(level, bonusPts) {
 
 /**
  * Set the primary profession
- * 
+ *
  * - change secondary to old primary if it conflicts with new primary
  * - adjust attribute values of new primary
  * - save selected skills of old primary
  * - update skillbar with selected skills of new primary
  * - clear attribute choices cache
- * 
+ *
  * @param abbrev  abbrev of new primary profession
  */
 Character.prototype.setPrimary = function(abbrev) {
@@ -681,7 +685,7 @@ Character.prototype.setPrimary = function(abbrev) {
 
   // adjust items
   this._swapProItems(oldPri.abbrev, this.primary.abbrev);
-  
+
   // clear attribute choices cache
   this.cattrs = new Object;
 
@@ -691,12 +695,12 @@ Character.prototype.setPrimary = function(abbrev) {
 
 /**
  * Set the secondary profession
- * 
+ *
  * - adjust attribute values and highs of new secondary
  * - save selected skills of old secondary
  * - update skillbar with selected skills of new secondary
  * - clear attribute choices cache
- * 
+ *
  * @param abbrev  abbrev of new secondary profession
  */
 Character.prototype.setSecondary = function(abbrev) {
@@ -784,7 +788,7 @@ Character.prototype.setItem = function(part, slot, uslot) {
     }
   } // if uslot == base
   else if (uslot == 'suffix' &&
-    item.typeKeys[item.base.type] == 'armor') 
+    item.typeKeys[item.base.type] == 'armor')
   {
     if (item[uslot] && item[uslot].attrName) {
       ret1 = this._setAttrRune(item[uslot].attrName, 'None');
@@ -800,15 +804,15 @@ Character.prototype.setItem = function(part, slot, uslot) {
   return ret;
 } // setItem
 
- 
+
 /**
  * Set attribute to receive headgear bonus. This must be an attribute
  * of the primary profession or 'None' for no headgear bonus
- * 
+ *
  * - sets headgear
  * - adjusts low/value/high range for affected attributes
  * - clear attribute choices cache
- * 
+ *
  * @param   name  name of attribute
  */
 Character.prototype.setHeadgearAttr = function(name) {
@@ -826,11 +830,11 @@ Character.prototype.setHeadgearAttr = function(name) {
 
 
 /**
- * Set the value of an attribute. 
- * 
+ * Set the value of an attribute.
+ *
  * - adjusts the overall attribute point usage
  * - clear effected part of attribute choices cache
- * 
+ *
  * @param   name        attribute to set
  * @param   val         new value of the attribute
  * @param   noOptimize  don't optimize, even if autoHeadgear/Runes is set
@@ -862,7 +866,7 @@ Character.prototype.setAttrValue = function(name, val, noOptimize) {
     }
   }
   if (val > maxval || val < minval) {
-    alert("Attempt to set " + name + " to " + val + " must be " + 
+    alert("Attempt to set " + name + " to " + val + " must be " +
       minval + ".." + maxval);
     return null;
   }
@@ -889,7 +893,7 @@ Character.prototype.setAttrValue = function(name, val, noOptimize) {
     // TODO: check secondary attr skillAdjust
     ret.skillAdjust = true;
   }
-  
+
   // clear effected attribute choices
   for (var a in this.cattrs) {
     if (a != name) {
@@ -903,11 +907,11 @@ Character.prototype.setAttrValue = function(name, val, noOptimize) {
 
 /**
  * Set the rune for an attribute of the primary profession
- * 
+ *
  * - sets rune
  * - adjusts value for related attribute
  * - clear attributes choices cache
- * 
+ *
  * @param name  attribute of rune to set
  * @param val   name or attr bonus from Character.prototype.runeTypes
  */
@@ -922,7 +926,7 @@ Character.prototype.setAttrRune = function(name, val) {
 
 /**
  * Set, or empty, slot in skillbar
- * 
+ *
  * @param pos     position in skillbar [0,7] to set
  * @param alt     (optional) 0 or ordinal of alternate for pos
  * @param skill   skill object or null
@@ -940,24 +944,24 @@ Character.prototype.setSlot = function(pos, alt, skill) {
   }
 
   var ret = this.superclass.setSlot.call(this, pos, alt, skill);
-  
-  // changed a prime to non-null? remove any conflicting primaries 
+
+  // changed a prime to non-null? remove any conflicting primaries
   if (skill && alt == 0 && ret.skillArray) {
     var slots = this.slots();
-    // remove duplicates (unless skill allows multiple) 
+    // remove duplicates (unless skill allows multiple)
     // or 2nd elite
     for (var i1 = 0; i1 < slots.length; ++i1) {
       if (i1 == pos) continue;
       var s0 = slots[i1][0];
       if (s0 == null) continue;
-      if (s0.name == skill.name && !s0.allowMultiple || 
-        s0.elite && skill.elite) 
+      if (s0.name == skill.name && !s0.allowMultiple ||
+        s0.elite && skill.elite)
       {
         slots[i1][0] = null;
       }
     } // for each slot
   } // if alt == 0
-  
+
   return ret;
 } // setSlot(pos, [alt], skill)
 
@@ -966,7 +970,7 @@ Character.prototype.setSlot = function(pos, alt, skill) {
  * Updates headgear and runes for best health first and fewest
  * attribute points second. Changes are limited by the .autoRunes
  * and .autoHeadgear settings.
- * 
+ *
  * @return  change hash, or null if impossible combination of attributes
  */
 Character.prototype.optimize = function() {
@@ -996,7 +1000,7 @@ Character.prototype.optimize = function() {
 /////////////////////////////////////////////////
 /**
  * Get type code for character, such as E/Me20
- * 
+ *
  * @return  type code
  */
 Character.prototype.typeName = function(inclLevel/*=true*/) {
@@ -1024,7 +1028,7 @@ Character.prototype.fullName = function() {
  * Get attribute points used and total. Returns a two element array:
  *   arr[0] is the number of unused attribute points
  *   arr[1] is the total attribute points that can be used
- * 
+ *
  * @return  array of unused and total attribute points
  */
 Character.prototype.attrPoints = function() {
@@ -1037,7 +1041,7 @@ Character.prototype.attrPoints = function() {
  * level. Returns a two element array:
  *   arr[0] is the adjusted health
  *   arr[1] is the base health for character of this level + superior vigor
- * 
+ *
  * @return  array of adjusted and base health
  */
 Character.prototype.health = function() {
@@ -1048,7 +1052,7 @@ Character.prototype.health = function() {
 
 /**
  * Get attribute name of current headgear
- * 
+ *
  * @return  attribute name
  */
 Character.prototype.headgearAttr = function() {
@@ -1060,9 +1064,9 @@ Character.prototype.headgearAttr = function() {
 
 
 /**
- * Get attribute info for a specific named attribute, must be valid for 
+ * Get attribute info for a specific named attribute, must be valid for
  * the current professions
- * 
+ *
  * @param   name  name of attribute
  * @return        CharacterAttr object for named attribute
  */
@@ -1079,18 +1083,18 @@ Character.prototype.pattr = function(name) {
 
 /**
  * Get array of CharacterAttr objects for each attribute of the current
- * primary and secondary professions. The primary attribute is first, 
- * followed by the other attributes of the primary profession by name, 
+ * primary and secondary professions. The primary attribute is first,
+ * followed by the other attributes of the primary profession by name,
  * finally followed by the attributes of the secondary profession, also
  * sorted by name.
- * 
+ *
  * @param   secondaryFirst  if true secondary profession attrs come first
  * @param   byRank          if true attrs come highest rank first, instead
  *                            of by name
  * @return                  array of CharacterAttrs
  */
-Character.prototype.pattrArray = function(secondaryFirst/*=false*/, 
-  byRank/*=false*/) 
+Character.prototype.pattrArray = function(secondaryFirst/*=false*/,
+  byRank/*=false*/)
 {
   var out = new Array;
   var other = new Array;
@@ -1113,10 +1117,10 @@ Character.prototype.pattrArray = function(secondaryFirst/*=false*/,
     }
   }
 
-  var cmpFn = function(a,b) { 
+  var cmpFn = function(a,b) {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
-    return 0; 
+    return 0;
   };
   other.sort(cmpFn);
   secs.sort(cmpFn);
@@ -1138,7 +1142,7 @@ Character.prototype.pattrArray = function(secondaryFirst/*=false*/,
 
 /**
  * Get array of names of potential primary professions
- * 
+ *
  * @return  array of primary profession names
  */
 Character.prototype.primaryChoices = function() {
@@ -1153,7 +1157,7 @@ Character.prototype.primaryChoices = function() {
 
 /**
  * Get array of names of potential secondary professions
- * 
+ *
  * @return  array of secondary profession names
  */
 Character.prototype.secondaryChoices = function() {
@@ -1169,13 +1173,13 @@ Character.prototype.secondaryChoices = function() {
 /**
  * Get array of what the health and used attribute points would be
  * for each of the potential values of an attribute
- * 
+ *
  * @return  array of cattrs, may have nulls for impossible values
  */
 Character.prototype.attrValueChoices = function(attrName) {
   // auto mode inconsistent with cache? clear cache
-  if (this.cautoRunes != this.autoRunes || 
-    this.cautoHeadgear != this.autoHeadgear) 
+  if (this.cautoRunes != this.autoRunes ||
+    this.cautoHeadgear != this.autoHeadgear)
   {
     this.cautoRunes = this.autoRunes;
     this.cautoHeadgear = this.autoHeadgear;
@@ -1230,7 +1234,7 @@ Character.prototype.attrValueChoices = function(attrName) {
 
 /**
  * Check if attribute is valid for current pri/sec professions
- * 
+ *
  * @param   name  attribute to be checked
  * @return        is valid?
  */
@@ -1245,9 +1249,9 @@ Character.prototype.validAttr = function(name) {
 
 
 /**
- * Check if skills based on a particular attribute are valid 
+ * Check if skills based on a particular attribute are valid
  * for current pri/sec professions
- * 
+ *
  * @param   name  attribute to be checked
  * @return        is valid?
  */
@@ -1261,10 +1265,10 @@ Character.prototype.validSkillAttr = function(name) {
 
 /**
  * Part of the attrSource interface
- * 
+ *
  * Get effective attribute value. Handles requests for attribute
  * levels from all professions
- * 
+ *
  * @param   name    name of attribute whose value is sought
  */
 Character.prototype.effectiveAttr = function(name) {
@@ -1275,9 +1279,9 @@ Character.prototype.effectiveAttr = function(name) {
 
 /**
  * Part of the attrSource interface
- * 
+ *
  * Filter skills not appropriate for this character
- * 
+ *
  * @param   skill   Skill object to test
  * @return          skill should be included?
  */
@@ -1299,9 +1303,9 @@ Character.prototype.skillFilter = function(s) {
 /////////////////////////////////////////////////
 /**
  * Internal function
- * 
- * Updates the headgear and runes settings in pattrs for best health 
- * first and fewest attribute points second. Changes are limited by 
+ *
+ * Updates the headgear and runes settings in pattrs for best health
+ * first and fewest attribute points second. Changes are limited by
  * the .autoRunes and .autoHeadgear settings.
  *
  * @param   pattrs    (in/out) array of CharacterAttr objects
@@ -1324,7 +1328,7 @@ Character.prototype.optimize_i = function(basePattrs, cattrBest) {
     var pattr = basePattrs[i1];
     if (pattr.isPrimary) pattrs.push(basePattrs[i1]);
   }
-  
+
   pattrs.sort(function (a,b) { return b.value - a.value; });
 
   // calculate score for invariant secondary attributes
@@ -1342,13 +1346,13 @@ Character.prototype.optimize_i = function(basePattrs, cattrBest) {
   cattrBest.health = -1000;
 
   // only check headgear options if autoHeadgear
-  // is enabled and there is a non-zero primary profession 
+  // is enabled and there is a non-zero primary profession
   // attribute
-  var checkHeadgear = false; 
+  var checkHeadgear = false;
 
-  // headgear adjustments allowed? 
+  // headgear adjustments allowed?
   if (this.autoHeadgear) {
-    // clear headgear and check if there's a reason to consider 
+    // clear headgear and check if there's a reason to consider
     //   headgear (has a non-zero attribute of primary profession)
     for (var i1 = 0; i1 < pattrs.length; ++i1) {
       var pattr = pattrs[i1];
@@ -1397,14 +1401,14 @@ Character.prototype.optimize_i = function(basePattrs, cattrBest) {
 
 /**
  * Internal function
- * 
- * Updates the runes settings in pattrs for best health first and 
- * fewest attribute points second. Changes are limited by the .autoRunes 
+ *
+ * Updates the runes settings in pattrs for best health first and
+ * fewest attribute points second. Changes are limited by the .autoRunes
  * setting.
  *
  * @param   pattrs      (in/out) array of CharacterAttr objects
  * @param   cattrBest   (in/out) cost of best combination found so far
- * @param   cattrFixed  cost of invariant 2ndary attributes      
+ * @param   cattrFixed  cost of invariant 2ndary attributes
  * @return              was a new best found?
  */
 Character.prototype.optimizeRunes_i = function(pattrs, cattrBest, cattrFixed) {
@@ -1430,13 +1434,13 @@ Character.prototype.optimizeRunes_i = function(pattrs, cattrBest, cattrFixed) {
 
 /**
  * Internal function
- * 
+ *
  * Loops through all possible runes for attribute at the requested
- * position and recursively calls itself to process the next position, 
+ * position and recursively calls itself to process the next position,
  * ultimately processing all rune combinations on current and following
  * attributes, returning the overall best combination.
- * 
- * Updates the runes settings in pattrs for best health first and 
+ *
+ * Updates the runes settings in pattrs for best health first and
  * fewest attribute points second.
  *
  * @param   pattrs      (in/out) CharacterAttrs of primary profession
@@ -1446,7 +1450,7 @@ Character.prototype.optimizeRunes_i = function(pattrs, cattrBest, cattrFixed) {
  * @return              was a new best found?
  */
 Character.prototype.optimizeRunesStep_i = function(
-  pattrs, cattrBest, pos, cattrParent) 
+  pattrs, cattrBest, pos, cattrParent)
 {
   // no more attributes? no more runes possible, score
   if (pos == pattrs.length) {
@@ -1491,13 +1495,13 @@ Character.prototype.optimizeRunesStep_i = function(
 
 /**
  * Internal function
- * 
+ *
  * Loops through all possible runes for attribute at the requested
- * position and recursively calls itself to process the next position, 
+ * position and recursively calls itself to process the next position,
  * ultimately processing all rune combinations on current and following
  * attributes, returning the overall best combination.
- * 
- * Updates the runes settings in pattrs for best health first and 
+ *
+ * Updates the runes settings in pattrs for best health first and
  * fewest attribute points second.
  *
  * @return      CharacterAttrCost of resulting combination
@@ -1520,7 +1524,7 @@ Character.prototype.scoreRunes_i = function(pattrs) {
 
 /**
  * Internal function
- * 
+ *
  * @param to    array of CharacterAttr objects to update
  * @param from  array with rune and headgear settings to copy
  */
@@ -1552,11 +1556,11 @@ Character.prototype.copyAttrArrayMods_i = function(to, from) {
  *
  * Set attribute to receive headgear bonus. This must be an attribute
  * of the primary profession or 'None' for no headgear bonus
- * 
+ *
  * - sets headgear
  * - adjusts low/value/high range for affected attributes
  * - clear attribute choices cache
- * 
+ *
  * @param   name  name of attribute
  */
 Character.prototype._setHeadgearAttr = function(name) {
@@ -1597,11 +1601,11 @@ Character.prototype._setHeadgearAttr = function(name) {
  * Internal function
  *
  * Set the rune for an attribute of the primary profession
- * 
+ *
  * - sets rune
  * - adjusts value for related attribute
  * - clear attributes choices cache
- * 
+ *
  * @param name  attribute of rune to set
  * @param val   name or attr bonus from Character.prototype.runeTypes
  */
@@ -1656,7 +1660,7 @@ Character.prototype._setAttrRune = function(name, val) {
 
 /**
  * Internal function
- * 
+ *
  * Updates runes on armor items to matched selected attribute runes
  */
 Character.prototype._updateItems = function() {
@@ -1680,14 +1684,14 @@ Character.prototype._updateItems = function() {
       var rune = Item.prototype.armorRune(pattr.rune + ' ' + pattr.name);
       newRunes[a] = rune;
     }
-  } // 
-  
+  } //
+
   var vitae = Item.prototype.armorRune('Vitae'),
     vminor = Item.prototype.armorRune('Minor Vigor'),
     vmajor = Item.prototype.armorRune('Major Vigor'),
     vsup = Item.prototype.armorRune('Superior Vigor');
   var vitaes = [], vminors = [], vmajors = [], vsups = [];
-  // update or remove item attr runes  
+  // update or remove item attr runes
   for (var pos = 0; pos < 5; ++pos) {
     var slot = Item.prototype.slots[pos];
     var item = this.items[slot];
@@ -1701,7 +1705,7 @@ Character.prototype._updateItems = function() {
         vmajors.push(slot);
       } else if (item.suffix == vsup) {
         vsups.push(slot);
-      } 
+      }
       continue;
     }
     var n = newRunes[item.suffix.attrName];
@@ -1719,10 +1723,10 @@ Character.prototype._updateItems = function() {
       }
     }
   } // update or remove
-  
+
   // combined free slots
   vitaes = vitaes.concat(vminors, vmajors, vsups);
-  
+
   // add new attr runes
   for (var a in newRunes) {
     var slot = vitaes.shift();
@@ -1730,7 +1734,7 @@ Character.prototype._updateItems = function() {
     item.setRune(newRunes[a], slot, this.primary);
     ret.items = true;
   }
-  
+
   // make last vitae a vigor
   if (vitaes.length && items[vitaes[vitaes.length - 1]] == vitae) {
     var slot = vitaes.pop();
@@ -1738,18 +1742,18 @@ Character.prototype._updateItems = function() {
     item.setRune(vsup, slot, this.primary);
     ret.items = true;
   }
-  
+
   return ret;
 } // _updateItems
 
 
 /**
  * Internal function
- * 
+ *
  * Swaps out all skills associated with one profession from the skill
  * bar and swaps in skills that were previously selected under a
  * different profession
- * 
+ *
  * @param   oldab   abbrev of profession whose skills are being removed
  * @param   newab   abbrev of pro whose skills are to be brought in
  */
@@ -1790,17 +1794,17 @@ Character.prototype.swapProSkills_i = function(oldab, newab) {
       }
       slot[0] = newSkills[inew];
       inew += 1;
-    } 
+    }
   }
 } // swapProSkills_i(oldab, newab)
 
 
 /**
  * Internal function
- * 
- * Swaps out all armor associated with one profession and swaps in 
+ *
+ * Swaps out all armor associated with one profession and swaps in
  * armor that was previously selected under a different profession
- * 
+ *
  * @param   oldab   abbrev of profession whose armor is being removed
  * @param   newab   abbrev of pro whose armor is to be brought in
  */
@@ -1813,13 +1817,13 @@ Character.prototype._swapProItems = function(oldab, newab) {
 
 /**
  * Internal function
- * 
- * Adjusts attributes down to bring them into compliance with the 
+ *
+ * Adjusts attributes down to bring them into compliance with the
  * overall number of attribute points. Available attribute points
- * is recalculated. No changes are made if the total cost of the 
+ * is recalculated. No changes are made if the total cost of the
  * attributes is less or equal to the total attribute points.
- * 
- * @param   changePrimaryFirst   
+ *
+ * @param   changePrimaryFirst
  *   true  - adjust attributes of primary before considering secondary ones
  *   false - prefer keeping primary attributes unchanged
  */
@@ -1866,13 +1870,13 @@ Character.prototype.demoteAttrs_i = function(pro) {
 
 /**
  * Internal function
- * 
- * When autoTrailingAlternate is true, ensures that a single trailing empty 
- * alternate skill is attached to the last skill slot. If multiple empty 
+ *
+ * When autoTrailingAlternate is true, ensures that a single trailing empty
+ * alternate skill is attached to the last skill slot. If multiple empty
  * alts are on the end all but one of them are removed.
  */
 Character.prototype.ensureTrailingAlternate_i = function() {
-  // auto trailing alternates and we removed an alt from the 
+  // auto trailing alternates and we removed an alt from the
   //   last skill slot? ensure it has single trailing empty alt
   if (!this.autoTrailingAlternate) return;
   var slot = this.slots[this.slots.length - 1];
@@ -1888,7 +1892,7 @@ Character.prototype.ensureTrailingAlternate_i = function() {
 
 /////////////////////////////////////////////////
 // Character sorts
-// 
+//
 // A character sort is any object with:
 //   - compare(Character,Character) method, returns -1,0, or 1
 //   - title(s) method, returns category under which character falls
@@ -1903,13 +1907,13 @@ Character.prototype.sorts["Name"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(s) { return null; }
 };
 Character.prototype.sorts["Profession"] = {
   key:"profession",
   desc:"Sorted by profession.",
-  compare:function(a,b) { 
+  compare:function(a,b) {
     var an = a.primary.name;
     var bn = b.primary.name;
     if (an < bn) return -1;
@@ -1917,7 +1921,7 @@ Character.prototype.sorts["Profession"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(s) { return s.primary.name; }
 };
 

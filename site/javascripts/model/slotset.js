@@ -1,6 +1,11 @@
-// Slots for objects with alternates
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.slotset"); }
+slotset.js - gw1builds model
+
+Slots for objects with alternatives
+*/
 
 /////////////////////////////////////////////////
 // Global Options
@@ -86,7 +91,7 @@ function SlotSet(numSlots, changeKey, maxAlts) {
 /////////////////////////////////////////////////
 /**
  * Set, or empty, a slot
- * 
+ *
  * @param pos   position of slot to set
  * @param alt   (optional) 0 or ordinal of alternate for pos
  * @param val   value or null to store in slot
@@ -98,11 +103,11 @@ SlotSet.prototype.setSlot = function(pos, alt, val) {
     val = alt;
     alt = 0;
   }
-  if (pos < 0 || pos >= slots.length || 
-    alt < 0 || alt > this._slotMaxAlts) 
+  if (pos < 0 || pos >= slots.length ||
+    alt < 0 || alt > this._slotMaxAlts)
   {
-    alert("setSlot: Invalid position " + pos + "/" + alt + 
-      ", must be 0-" + (slots.length - 1) + 
+    alert("setSlot: Invalid position " + pos + "/" + alt +
+      ", must be 0-" + (slots.length - 1) +
       "/0-" + this._slotMaxAlts);
     return null;
   }
@@ -129,7 +134,7 @@ SlotSet.prototype.setSlot = function(pos, alt, val) {
   }
   slots[pos][alt] = val;
   this._ensureTrailingAlt();
-  
+
   return this._changed;
 } // setSlot(pos, [alt], val)
 
@@ -146,7 +151,7 @@ SlotSet.prototype.insertSlot = function(pos/*, val, ...altN*/) {
   var slots = this.slots();
   var vals;
   if (pos < 0 || pos > slots.length) {
-    alert("insertSlot: Invalid position " + pos + 
+    alert("insertSlot: Invalid position " + pos +
       ", must be 0-" + slots.length);
     return null;
   }
@@ -172,7 +177,7 @@ SlotSet.prototype.insertSlot = function(pos/*, val, ...altN*/) {
 SlotSet.prototype.deleteSlot = function(pos/*, val, ...altN*/) {
   var slots = this.slots();
   if (pos < 0 || pos >= slots.length) {
-    alert("deleteSlot: Invalid position " + pos + 
+    alert("deleteSlot: Invalid position " + pos +
       ", must be 0-" + (slots.length - 1));
     return null;
   }
@@ -182,7 +187,7 @@ SlotSet.prototype.deleteSlot = function(pos/*, val, ...altN*/) {
 
 
 /**
- * Move slot from one position to another. Can be used to reorder 
+ * Move slot from one position to another. Can be used to reorder
  * the slots. Slides other slots down the bar to make room.
  *
  * @param pos
@@ -196,7 +201,7 @@ SlotSet.prototype.moveSlot = function(pos, alt, fromPos, fromAlt) {
   var numSlots = slots.length;
   // target location can be first to one past the end
   //   if pos is end+1, alt must be 0
-  if (pos < 0 || alt < 0 || 
+  if (pos < 0 || alt < 0 ||
     pos < numSlots && alt > slots[pos].length ||
     pos == numSlots && alt > 0 ||
     pos > numSlots)
@@ -206,7 +211,7 @@ SlotSet.prototype.moveSlot = function(pos, alt, fromPos, fromAlt) {
     return null;
   }
   // from location must exist
-  if (fromPos < 0 || fromAlt < 0 || 
+  if (fromPos < 0 || fromAlt < 0 ||
     fromPos >= numSlots || fromAlt >= slots[fromPos].length)
   {
     alert('moveSlot: Invalid from slot ' +
@@ -222,7 +227,7 @@ SlotSet.prototype.moveSlot = function(pos, alt, fromPos, fromAlt) {
   if (pos == fromPos && alt == fromAlt) {
     return {};
   }
-  
+
   // reordering a prime and its alternates
   if (pos == fromPos) {
     var slot = slots[pos];
@@ -252,13 +257,13 @@ SlotSet.prototype.moveSlot = function(pos, alt, fromPos, fromAlt) {
     } else {
       slots.splice(pos, 0, tmp);
     }
-  } 
+  }
   // alternate move
   else {
     var tmp = slots[fromPos].splice(fromAlt, 1)[0];
     slots[pos].splice(alt, 0, tmp);
   }
-  
+
   this._ensureTrailingAlt();
   return this._changed;
 } // moveSlot(pos, alt, fromPos, fromAlt)
@@ -277,7 +282,7 @@ SlotSet.prototype.insertAlt = function(pos, alt, val) {
   var ret = {}
   var slots = this.slots();
   if (pos < 0 || alt <= 0 ||
-    pos >= slots.length || alt > slots[pos].length) 
+    pos >= slots.length || alt > slots[pos].length)
   {
     alert('insertAlt: Invalid target ' +
       '(' + pos + '/' + alt + ')');
@@ -287,7 +292,7 @@ SlotSet.prototype.insertAlt = function(pos, alt, val) {
   slots[pos].splice(alt, 0, null);
   if (val == null) {
     ret = this._changed;
-  } 
+  }
   // wanted more then an empty? set it, if it fails remove the
   // null alt that was added
   else {
@@ -311,7 +316,7 @@ SlotSet.prototype.insertAlt = function(pos, alt, val) {
 SlotSet.prototype.deleteAlt = function(pos, alt) {
   var slots = this.slots();
   if (pos < 0 || alt < 0 ||
-    pos >= slots.length || alt >= slots[pos].length) 
+    pos >= slots.length || alt >= slots[pos].length)
   {
     alert('deleteAlt: Invalid alternate ' +
       '(' + pos + '/' + alt + ')');
@@ -325,7 +330,7 @@ SlotSet.prototype.deleteAlt = function(pos, alt) {
 /**
  * Append an alternate to the end of a slot, or to the last slot
  * if a specific slot isn't specified
- * 
+ *
  * @param pos   (optional) position of slot to set, defaults to last slot
  * @param val   value or null to store in slot
  * @return      changed hash, or null if invalid
@@ -337,7 +342,7 @@ SlotSet.prototype.appendAlt = function(pos, val) {
     pos = slots.length - 1;
   }
   if (pos < 0 || pos >= slots.length) {
-    alert("appendAlt: Invalid position " + pos + 
+    alert("appendAlt: Invalid position " + pos +
       ", must be 0-" + (slots.length - 1));
     return null;
   }
@@ -375,7 +380,7 @@ SlotSet.prototype.countAlts = function() {
 
 /**
  * Return array of current slots, alternates are excluded
- * 
+ *
  * @return  array of primes
  */
 SlotSet.prototype.slotPrimes = function() {
@@ -389,10 +394,10 @@ SlotSet.prototype.slotPrimes = function() {
 
 
 /**
- * Return current skills and alternates. An array of arrays is 
+ * Return current skills and alternates. An array of arrays is
  * returned, one array for each slot. Each slot array has the main
  * skill at 0 and the alternates at 1,2,etc.
- * 
+ *
  * @return  skill slot arrays
  */
 SlotSet.prototype.slots = function() {
@@ -401,10 +406,10 @@ SlotSet.prototype.slots = function() {
 
 
 /**
- * Return current skills and alternates. An array of hashes is 
+ * Return current skills and alternates. An array of hashes is
  * returned, one element for each value. The elements are of the
  * form {pos:, alt:, value:}, in pos,alt order.
- * 
+ *
  * @param  inclNulls    defaults to true
  * @return  slot value refs
  */
@@ -430,11 +435,11 @@ SlotSet.prototype.slotValue = function(pos, alt) {
     alt = alt || 0;
   }
   var slots = this.slots();
-  if (pos < 0 || pos >= slots.length || 
-    alt < 0 || alt > this._slotMaxAlts) 
+  if (pos < 0 || pos >= slots.length ||
+    alt < 0 || alt > this._slotMaxAlts)
   {
-    alert("slotValue: Invalid position " + pos + "/" + alt + 
-      ", must be 0-" + (slots.length - 1) + 
+    alert("slotValue: Invalid position " + pos + "/" + alt +
+      ", must be 0-" + (slots.length - 1) +
       "/0-" + this._slotMaxAlts);
     return null;
   }
@@ -447,13 +452,13 @@ SlotSet.prototype.slotValue = function(pos, alt) {
 /////////////////////////////////////////////////
 /**
  * Internal function
- * 
- * When autoTrailingAlt is true, ensures that a single trailing empty 
- * alternate is attached to the last slot. If multiple empty alts are 
+ *
+ * When autoTrailingAlt is true, ensures that a single trailing empty
+ * alternate is attached to the last slot. If multiple empty alts are
  * on the end all but one of them are removed.
  */
 SlotSet.prototype._ensureTrailingAlt = function() {
-  // auto trailing alternates and we removed an alt from the 
+  // auto trailing alternates and we removed an alt from the
   //   last skill slot? ensure it has single trailing empty alt
   if (!this.autoTrailingAlt) return;
   var slots = this.slots();

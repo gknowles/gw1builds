@@ -1,13 +1,18 @@
-// state data objects
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.state"); }
+state.js - gw1builds model
+
+State data objects
+*/
 
 /////////////////////////////////////////////////
 // State - holds information about a specific object being edited
-// 
+//
 // Structors
 //   State()
-// 
+//
 // Commands
 //   setMember(toon) - toon must be a member of the build
 //   setBuild(bld)
@@ -19,7 +24,7 @@ if (typeof dojo != 'undefined') { dojo.provide("model.state"); }
 //   getTeam() - returns the build or null if its a standalone
 //   isChanged() - compare current value with baseline
 //   teamPos(toon) - position in team slotRefs array
-// 
+//
 // Static Data
 //   dataTypes
 /////////////////////////////////////////////////
@@ -129,7 +134,7 @@ State.prototype.isChanged = function() {
     this.build.isTeam != b.isTeam ||
     this.build.isPve != b.isPve ||
     this.build.type != b.type ||
-    toons.length != b.toons.length) 
+    toons.length != b.toons.length)
   {
     return true;
   }

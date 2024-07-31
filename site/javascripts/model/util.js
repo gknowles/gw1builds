@@ -1,11 +1,14 @@
-// utilities
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.util"); }
+util.js - gw1builds model
+*/
 
 /**
  * Extracts parameters from a location object and returns them as
  * a hash. Most commonly used for parse document.location
- * 
+ *
  * @param   location  object containing parameters
  * @return            hash of parameters
  */
@@ -23,12 +26,12 @@ function parseQueryString(qs) {
 }
 
 /**
- * Builds a query string from a hash of parameter key/value pairs. 
+ * Builds a query string from a hash of parameter key/value pairs.
  * The returned string is in the form:
  *   key1=apple&key2=orange
- * 
+ *
  * @param   params  hash of parameters
- * @return          query string 
+ * @return          query string
  */
 function toQueryString(params) {
   var out = new String;
@@ -52,11 +55,11 @@ function isArray(val) {
 function changeDec(num) {
   var newNum = (Math.round(parseFloat(num) * 4) / 4);
   var newDec = newNum - parseInt(newNum.toString().split(".")[0]);
-  
+
   if (newDec) {
     var vulgars = new Array("", "&frac14;", "&frac12;", "&frac34;");
     var wholeNum = newNum.toString().split(".")[0];
-    newNum = ((wholeNum > 0) ? wholeNum + "" : "") + 
+    newNum = ((wholeNum > 0) ? wholeNum + "" : "") +
       vulgars[parseInt(newDec * 4)];
   }
   return newNum;
@@ -66,12 +69,12 @@ function changeDec(num) {
 function changeDec2(num) {
   var newNum = (Math.round(parseFloat(num) * 4) / 4);
   var newDec = newNum - parseInt(newNum.toString().split(".")[0]);
-  
+
   if (newDec) {
-    var vulgars = new Array("", 
+    var vulgars = new Array("",
       String.fromCharCode(0xbc), String.fromCharCode(0xbd), String.fromCharCode(0xbe));
     var wholeNum = newNum.toString().split(".")[0];
-    newNum = ((wholeNum > 0) ? wholeNum + "" : "") + 
+    newNum = ((wholeNum > 0) ? wholeNum + "" : "") +
       vulgars[parseInt(newDec * 4)];
   }
   return newNum;
@@ -79,9 +82,9 @@ function changeDec2(num) {
 
 
 /**
- * Clone all objects in an array and return them in a new array. All 
+ * Clone all objects in an array and return them in a new array. All
  * Objects in the source array must have a clone method.
- * 
+ *
  * @param   a   source array
  * @return      array of cloned objects
  */
@@ -95,8 +98,8 @@ function cloneArray(a) {
 
 
 /**
- * Shallow compare of object properties, returns true if all 
- * properties of a and b are equal (==) to the corresponding 
+ * Shallow compare of object properties, returns true if all
+ * properties of a and b are equal (==) to the corresponding
  * properties in the other.
  */
 function equalProperties(a, b) {
@@ -112,7 +115,7 @@ function equalProperties(a, b) {
 
 /**
  * Do alerts displaying properties of object, up to 20 per alert
- * 
+ *
  * @param   obj   object whose properties are to be shown in alert(s)
  */
 function alertObject(obj) {
@@ -138,7 +141,7 @@ function alertObject(obj) {
 
 
 function htmlstring2(str) {
-  return '"' + 
+  return '"' +
    String(str).replace(/&/g, '&amp;').replace(/\"/g, '&quot;') +
    '"';
 }
@@ -155,7 +158,7 @@ function trim(str) {
 function getCheckedOption(form, name) {
   var opt = form[name];
   if (opt.length == null) return opt;
-  
+
   for (var i1 = 0; i1 < opt.length; ++i1) {
     if (opt[i1].checked) {
       return opt[i1];

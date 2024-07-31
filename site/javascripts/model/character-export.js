@@ -1,11 +1,14 @@
-// Guild Wars character data objects
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.character-export"); }
+character-export.js - gw1builds model
+*/
 
 /////////////////////////////////////////////////
 // Character - represents an in game character
 // with associated professions, skills, etc
-// 
+//
 // Queries
 //   toGwBBCode()
 /////////////////////////////////////////////////
@@ -14,7 +17,7 @@ if (typeof dojo != 'undefined') { dojo.provide("model.character-export"); }
 // Queries
 /////////////////////////////////////////////////
 /**
- * Convert to gwBBCode formatted Skill Template string. 
+ * Convert to gwBBCode formatted Skill Template string.
  */
 Character.prototype.toGwBBCode = function(args/*=false*/) {
   args = args || {desc: true};
@@ -29,7 +32,7 @@ Character.prototype.toGwBBCode = function(args/*=false*/) {
   for (var i1 = 0; i1 < pattrs.length; ++i1) {
     var pattr = pattrs[i1];
     if (pattr.value == 0) continue;
-    out.push(' ', pattr.name.split(' ').join(''), '=', 
+    out.push(' ', pattr.name.split(' ').join(''), '=',
       pattr.rawValue());
     if (pattr.headgear) out.push('+1');
     if (pattr.rune != 'None') {
@@ -44,6 +47,6 @@ Character.prototype.toGwBBCode = function(args/*=false*/) {
     else out.push('[no skill]');
   }
   out.push('[/build]');
-  
+
   return out.join('');
 } // toGwBBCode()

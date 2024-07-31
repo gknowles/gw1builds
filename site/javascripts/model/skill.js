@@ -1,21 +1,26 @@
-// Guild Wars skill data objects
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.skill"); }
+skill.js - gw1builds model
+
+Skill data objects
+*/
 
 /////////////////////////////////////////////////
-// Skill represents an in game skill with cost, recharge, 
+// Skill represents an in game skill with cost, recharge,
 // description, progressions, etc
 //
 // css styles used:
 //   effectValue - param value based on effective attribute value
 //   skillFailure - failure chance warning when effective attribute is
 //                  below the threshold
-//   adjSkillProp - skill property, such as enCost or activation, that has 
+//   adjSkillProp - skill property, such as enCost or activation, that has
 //                  been adjusted from its base value
 /////////////////////////////////////////////////
 
 
-// Whether customized skill properties should include adjustments for 
+// Whether customized skill properties should include adjustments for
 // expertise, fastcasting, etc
 //   0  base value only
 //   1  adjusted value only
@@ -58,12 +63,12 @@ function Profession(name, id, abbrev, campaign, desc, attrs) {
 
 Profession.prototype.sortKeys = function() {
   if (Profession.prototype._sortKeys) return Profession.prototype._sortKeys;
-  
+
   var pros = [];
   for (var pro in g_pros) {
     pros.push(g_pros[pro]);
   }
-  pros.sort(function(a,b) { 
+  pros.sort(function(a,b) {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
@@ -76,7 +81,7 @@ Profession.prototype.sortKeys = function() {
   keys[null] = i1;
   keys[''] = i1;
   Profession.prototype._sortKeys = keys;
-  
+
   return keys;
 } // Attribute.sortKeys
 
@@ -95,7 +100,7 @@ function Attribute(name, id, abbrev, isPrimary, skillAdjust, desc, pro) {
 
 Attribute.prototype.sortKeys = function() {
   if (Attribute.prototype._sortKeys) return Attribute.prototype._sortKeys;
-  
+
   var attrs = [];
   for (var attr in g_attrs) {
     attrs.push(g_attrs[attr]);
@@ -119,18 +124,18 @@ Attribute.prototype.sortKeys = function() {
   keys[null] = i1;
   keys[''] = i1;
   Attribute.prototype._sortKeys = keys;
-  
+
   return keys;
 } // Attribute.sortKeys
 
 /**
  * Skill constructor
  */
-function Skill(name, id, campaign, pro, attrName, 
-  elite, multiple, monster, pve, type, 
-  enCost, adCost, activation, recharge, upkeep, 
+function Skill(name, id, campaign, pro, attrName,
+  elite, multiple, monster, pve, type,
+  enCost, adCost, activation, recharge, upkeep,
   exhaustion, failure,
-  desc, tags, progressions) 
+  desc, tags, progressions)
 {
   this.name = name;
   this.id = id;
@@ -150,14 +155,14 @@ function Skill(name, id, campaign, pro, attrName,
   this.exhaustion = exhaustion;
   this.failure = failure;
   this.rawDesc = desc;
-  this.tags = tags; 
+  this.tags = tags;
   this.progs = progressions;
   this.desc = null;
 }
 
 /**
  * Default compare function for sorting skills
- * 
+ *
  * @param right   other Skill object to compare with
  * @return        -1, 0, or 1
  */
@@ -176,7 +181,7 @@ Skill.prototype.compare = function(right) {
  * Creates customized skill data based on an attribute
  * source such as a character. Specifying a null attrSource
  * results in generic ranges being shown in the description
- * 
+ *
  * @param   attrSource    attribute values use to customize
  * @return                Skill object with customized values
  */
@@ -206,8 +211,8 @@ Skill.prototype.customized = function(attrSource, noRanges/*=false*/) {
   out.progs = this.progs;
 
   if (attrSource) {
-    if (this.type.substr(-5) == "Spell" || 
-      this.type.substr(-6) == 'Signet') 
+    if (this.type.substr(-5) == "Spell" ||
+      this.type.substr(-6) == 'Signet')
     {
       var a = attrSource.effectiveAttr("Fast Casting");
       out.activationAdjusted = out.activation * Math.pow(2, -a/15);
@@ -234,7 +239,7 @@ Skill.prototype.customized = function(attrSource, noRanges/*=false*/) {
  * Returns an array of effect values for each variable effect
  * that the skill has. This is intended to be use for making
  * graphs of attribute value vs. effect value.
- * 
+ *
  * g_skillsByName["Edge of Extinction"].progressionArray(12,14) returns
  * an array equivalent to:
  *   out[0] = [43,45,48];
@@ -243,11 +248,11 @@ Skill.prototype.customized = function(attrSource, noRanges/*=false*/) {
  *   out[1].title = "Duration";
  *   out[2] = [8,9,9];
  *   out[2].title = "Level";
- * 
+ *
  * NOTE: For values < 0 or null is returned
- * 
+ *
  * @param   low   min attribute to graph
- * @param   high  max attr value to graph 
+ * @param   high  max attr value to graph
  * @return        progressions
  */
 Skill.prototype.progressionArray = function(low, high) {
@@ -261,7 +266,7 @@ Skill.prototype.progressionArray = function(low, high) {
     for (; i2 < 0 && i2 <= high; ++i2) a.push(null);
     for (; i2 <= high; ++i2) {
       var val = this.effectValue(i2, prog[1], prog[2]);
-      if (prog[3]) val *= prog[3]; 
+      if (prog[3]) val *= prog[3];
       a.push(val);
     }
     out.push(a);
@@ -290,7 +295,7 @@ Skill.prototype.linkage = function() {
 /**
  * Calculates the value of an effect that varies with an
  * attribute.
- * 
+ *
  * @param   attr    value of attribute
  * @param   at0     value of effect when attr is 0
  * @param   at15    value of effect when attr is 15
@@ -303,23 +308,23 @@ Skill.prototype.effectValue = function(attr, at0, at15) {
 /**
  * Filters, customizes, and sorts skills into an array. The array
  * includes both section titles (strings) and skill objects. In addition
- * there is a 'matches' and 'count' property that return the number of 
+ * there is a 'matches' and 'count' property that return the number of
  * skills in the filtered and source lists respectively.
- * 
+ *
  * filter is an object with method:
  *   include(Skill)
  * sort is an object with methods:
  *   compare(Skill1, Skill2)
  *   group(Skill)
- * 
+ *
  * @param   skills      hash of skills to process (null -> g_skillsById)
  * @param   filter      filter to use (null -> include all skills)
  * @param   sort        sortation to use
  * @param   attrSource  source of customization attrs (null -> generic info)
  * @return              array of Skill objects and titles
  */
-Skill.prototype.customizedArray = 
-  function(skills, filter, sort, attrSource) 
+Skill.prototype.customizedArray =
+  function(skills, filter, sort, attrSource)
 {
   var out = new Array;
   out.count = 0;
@@ -367,8 +372,8 @@ Skill.prototype.customizedArray =
 /////////////////////////////////////////////////
 /**
  * Internal method
- * 
- * if attrSource is non-null the description will be customized to 
+ *
+ * if attrSource is non-null the description will be customized to
  * the results of calling attrSource.effectiveAttr(attr)
  */
 Skill.prototype.desc_i = function(attrSource, forExport/*=false*/) {
@@ -376,7 +381,7 @@ Skill.prototype.desc_i = function(attrSource, forExport/*=false*/) {
   var eclose = "</span>";
   var ropen = '';
   var rclose = '';
-  
+
   var out = [];
   if (this.elite) out.push("Elite ");
   out.push(this.type, ". ");
@@ -393,20 +398,20 @@ Skill.prototype.desc_i = function(attrSource, forExport/*=false*/) {
       // its an attribute based range
       var low = vals[0];
       var high = this.effectValue(16, vals[0], vals[1]);
-      if (attrSource == null) { 
+      if (attrSource == null) {
         // (LOW..HIGH)
         out.push(eopen, ropen, low, "..", high, rclose, eclose);
-        continue; 
+        continue;
       }
       var attr = null;
       if (attrSource.effectiveAttr != null) {
         attr = attrSource.effectiveAttr(this.attr);
       }
-      if (attr == null) { 
+      if (attr == null) {
         // (low..UNKNOWN..high)
-        out.push(ropen, low, "..", eopen, "UNKNOWN", eclose, "..", high, 
+        out.push(ropen, low, "..", eopen, "UNKNOWN", eclose, "..", high,
           rclose);
-        continue; 
+        continue;
       }
       // we have a specific attribute value
       var effect = this.effectValue(attr, vals[0], vals[1]);
@@ -414,17 +419,17 @@ Skill.prototype.desc_i = function(attrSource, forExport/*=false*/) {
         out.push(eopen, effect, eclose);
         continue;
       }
-      if (effect == low) { 
+      if (effect == low) {
         // (VAL..high)
         out.push(ropen, eopen, effect, eclose, "..", high, rclose);
-        continue; 
+        continue;
       }
       // (low..
       out.push(ropen, low, "..");
-      if (effect == high) { 
+      if (effect == high) {
         // VAL)
         out.push(eopen, effect, eclose, rclose);
-        continue; 
+        continue;
       }
       if (low < high && effect < high || low > high && effect > high) {
         // VAL..high)
@@ -448,7 +453,7 @@ Skill.prototype.desc_i = function(attrSource, forExport/*=false*/) {
       if (attr <= this.failure) {
         loudFail = true;
       }
-    } 
+    }
     if (loudFail) {
       out.push("<span class='skillFailure'>");
     } else {
@@ -458,7 +463,7 @@ Skill.prototype.desc_i = function(attrSource, forExport/*=false*/) {
     out.push("</span>");
   } else {
     if (!forExport) {
-      out.push(" <span class='linkedAttr'>(Attrib: ", 
+      out.push(" <span class='linkedAttr'>(Attrib: ",
         this.linkage(), ")</span>");
     }
   }
@@ -486,7 +491,7 @@ var g_skillsById = {}; // by id
 var g_skillTags = new Object; // by name
 
 /**
- * Called after skills are loaded, creates required 
+ * Called after skills are loaded, creates required
  * cross references
  */
 function indexSkills() {
@@ -499,7 +504,7 @@ function indexSkills() {
       filters[e][name] = true;
     }
   }
-  
+
   for (var id in g_skillsById) {
     var skill = g_skillsById[id];
     skill.categories = {}
@@ -515,7 +520,7 @@ function indexSkills() {
 
 /////////////////////////////////////////////////
 // Skill sorts
-// 
+//
 // A skill sort is any object with:
 //   - compare(Skill,Skill) method, returns -1,0, or 1
 //   - group(Skill) method, returns grouping under which skill falls
@@ -536,11 +541,11 @@ Skill.prototype.sorts["Name"] = {
 Skill.prototype.sorts["Profession"] = {
   icon: "skill-profession.png",
   desc: "Profession sorted the way Cloud likes it, not like the stupid in game one",
-  compare: function(a,b) { 
+  compare: function(a,b) {
     if (a.pro < b.pro) return -1;
     if (a.pro > b.pro) return 1;
     return 0;
-  }, 
+  },
   group: function(s) {
     if (s.pro == "") {
       return "Common Skills";
@@ -561,7 +566,7 @@ Skill.prototype.sorts["Attribute"] = {
       return 1;
     }
     return 0;
-  }, 
+  },
   group: function(s) { return s.attr; }
 };
 Skill.prototype.sorts["Type"] = {
@@ -573,7 +578,7 @@ Skill.prototype.sorts["Type"] = {
     if (ta < tb) return -1;
     if (ta > tb) return 1;
     return 0;
-  }, 
+  },
   group: function(s) { return s.type; }
 };
 Skill.prototype.sorts["Cost"] = {
@@ -646,7 +651,7 @@ Skill.prototype.sorts["PvE Only"] = {
 
 /////////////////////////////////////////////////
 // Skill filters
-// 
+//
 // A skill filter is any object with:
 //   - include(Skill) method, returns true to include skill
 //   - desc property, description of what the filter includes
@@ -655,7 +660,7 @@ Skill.prototype.sorts["PvE Only"] = {
  * SkillFilter constructor. A skill filter with a prototype
  * include() method that works with effect sets, used with
  * the xml defined skill filters
- * 
+ *
  * @param name    name of filter
  * @param tags    hash of tags included in filter
  */

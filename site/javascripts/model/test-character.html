@@ -1,3 +1,11 @@
+<!DOCTYPE HTML>
+<!--
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
+
+test-character.html - gw1builds model
+-->
+
 <html>
 <head>
   <title>Character - Regression tests</title>
@@ -11,7 +19,7 @@
   <script src="item.js" type="text/javascript"></script>
   <script src="data-skill.js" type="text/javascript"></script>
   <script src="data-equip.js" type="text/javascript"></script>
-  <script type="text/javascript">
+  <script>
   var tests = [];
   tests.push( {
     name:"CharacterAttr.clone()",
@@ -140,9 +148,9 @@
       }
       //alertChoices(cattrs);
       if (cattrs[0] == null) return "Null zero attribute";
-      var cattr = new CharacterAttrCost(28,0,0); 
+      var cattr = new CharacterAttrCost(28,0,0);
       if (cattrs[8] == null || cattr.compare(cattrs[8])) return "Cost at 8";
-      cattr = new CharacterAttrCost(97,1,-85); 
+      cattr = new CharacterAttrCost(97,1,-85);
       if (cattrs[16] == null || cattr.compare(cattrs[16])) return "Cost at 16";
       p1.setAttrValue(pattrs[0].name, 16);
       p1.setAttrValue(pattrs[1].name, 15);
@@ -376,11 +384,11 @@
     </tr>
     <script type="text/javascript">
     for (var i1 = 0; i1 < tests.length; ++i1) {
-      document.write("<tr><td><input type='checkbox'" + 
+      document.write("<tr><td><input type='checkbox'" +
                        " onchange='tests[" + i1 + "].enabled = this.checked'" +
                        (tests[i1].enabled ? " checked='checked'" : "") +
                        "></td>" +
-                     "<td>" + i1 + ".</td>" + 
+                     "<td>" + i1 + ".</td>" +
                      "<td>" + tests[i1].name + "</td>" +
                      "<td>pending...</td></tr>");
     }

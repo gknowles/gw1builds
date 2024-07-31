@@ -1,6 +1,11 @@
-// Builds 'N Stuff build definition
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.build"); }
+build.js - gw1builds model
+
+Build definition
+*/
 
 /////////////////////////////////////////////////
 // Build
@@ -30,9 +35,9 @@ Build.prototype.superclass = SlotSet.prototype;
 
 
 /**
- * Set name. Automaticly converts it to a valid GW character 
+ * Set name. Automaticly converts it to a valid GW character
  * name if it isn't one.
- * 
+ *
  * @param   name    new character name
  */
 Build.prototype.setName = function(name) {
@@ -56,7 +61,7 @@ Build.prototype.fullName = function() {
 
 /////////////////////////////////////////////////
 // Build sorts
-// 
+//
 // A build sort is any object with:
 //   - compare(Build,Build) method, returns -1,0, or 1
 //   - title(s) method, returns category under which team falls
@@ -71,7 +76,7 @@ Build.prototype.sorts["Name"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(s) { return null; }
 };
 Build.prototype.sorts["Owner"] = {
@@ -85,7 +90,7 @@ Build.prototype.sorts["Owner"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(s) { return null; }
 };
 Build.prototype.sorts["Category"] = {
@@ -104,6 +109,6 @@ Build.prototype.sorts["Category"] = {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
-  }, 
+  },
   group:function(s) { return null; }
 };

@@ -6,7 +6,7 @@ __package__.js - gw1builds ui
 */
 
 appendScriptToHead("misc.js");
-appendScriptToHead("api-rails.js");
+appendScriptToHead("api-browser.js");
 appendScriptToHead("util-pane.js");
 appendScriptToHead("hover-ie.js");
 appendScriptToHead("util-dragdrop.js");

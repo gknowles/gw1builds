@@ -1,9 +1,12 @@
-// base64codec
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.base64codec"); }
+base64codec.js - gw1builds model
+*/
 
 /////////////////////////////////////////////////
-// bit encoding into base64 anet format (wish it was 
+// bit encoding into base64 anet format (wish it was
 // url safe base64 a la section 4 of rfc3548)
 /////////////////////////////////////////////////
 function Base64Codec(str) {
@@ -15,7 +18,7 @@ function Base64Codec(str) {
   this.gnext = 0;
 }
 Base64Codec.prototype.BASE64_BITS = 6;
-Base64Codec.prototype.base64 = 
+Base64Codec.prototype.base64 =
 //           1         2         3         4         5         6
 // 0123456789012345678901234567890123456789012345678901234567890123
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -29,12 +32,12 @@ Base64Codec.prototype.base64 =
  * +-+-+-+-+-+-+ +-+-+-+-+-+-+
  * |1|0|X|X|X|X| | | | |4|3|2|
  * +-+-+-+-+-+-+ +-+-+-+-+-+-+
- * The X's represent the old data and the blanks are initialized 
+ * The X's represent the old data and the blanks are initialized
  * to zero.
- * 
+ *
  * When a set of 6 bits is filled it is translated into a character
  * using the base64 table above and added to the string.
- * 
+ *
  * @param val   number to be encoded
  * @param bits  magnatude of number in bits
  */
@@ -105,7 +108,7 @@ Base64Codec.prototype.get = function(reqbits) {
       bits -= avail;
     }
     if (this.gnext >= this.str.length) {
-      val = 0; 
+      val = 0;
     } else {
       val = this.base64.indexOf(this.str.charAt(this.gnext));
       this.gnext += 1;

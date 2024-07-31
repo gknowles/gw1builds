@@ -1,6 +1,9 @@
-// Guild Wars character data objects
+/*
+Copyright Glen Knowles 2006.
+Distributed under the Boost Software License, Version 1.0.
 
-if (typeof dojo != 'undefined') { dojo.provide("model.character-io"); }
+character-io.js - gw1builds model
+*/
 
 /////////////////////////////////////////////////
 // Commands
@@ -20,7 +23,7 @@ if (typeof dojo != 'undefined') { dojo.provide("model.character-io"); }
 /**
  * Creates a character object from string representation
  * created by the toCode() or toAnetXXX() functions
- * 
+ *
  * @param   source  string encoded character
  * @return          Character object
  */
@@ -136,7 +139,7 @@ Character.prototype.parse = function(source, toon, skipName/*=false*/) {
 /**
  * Creates/updates a character object from Anet Skill Template
  * string representation
- * 
+ *
  * @param   source  string encoded character
  * @return          Character object
  */
@@ -189,7 +192,7 @@ Character.prototype.parseAnet = function(source, toon) {
   }
   // tail
   codec.get(1); // get meaningless trailing null
-  
+
   // done
   return p;
 } // parseAnet
@@ -198,7 +201,7 @@ Character.prototype.parseAnet = function(source, toon) {
 /**
  * Creates/updates a character object from Anet Equipment Template
  * string representation
- * 
+ *
  * @param   source  string encoded character
  * @return          Character object
  */
@@ -223,7 +226,7 @@ Character.prototype.parseAnetEquip = function(source, toon) {
 /**
  * Creates a string representation of a character object. Suitable
  * for use as a url parameter.
- * 
+ *
  * Information included:
  *  - name (optional)
  *  - primary and secondary professions
@@ -231,7 +234,7 @@ Character.prototype.parseAnetEquip = function(source, toon) {
  *  - helm
  *  - runes
  *  - skills
- * 
+ *
  * @param  skipName  don't include name in encoded string?
  * @return           string representation
  */
@@ -239,7 +242,7 @@ Character.prototype.toCode = function(skipName/*=false*/) {
   //alert('toCode:\n' + this.dumpAttrs());
   var codec = new Base64Codec();
   // version
-  codec.put(8, 4);  
+  codec.put(8, 4);
   // professions
   var size = 4; // size of profession id
   codec.put(size - 4, 2);
@@ -317,20 +320,20 @@ Character.prototype.toCode = function(skipName/*=false*/) {
  * ----------------------------------------------
  * Format of encoded string
  *
- * 4 bits - always 0, assumed to indicate the version and that this is a 
+ * 4 bits - always 0, assumed to indicate the version and that this is a
  *     Skill Template.
  * 2 bits - size of profession codes.
  * (4 + size) bits - Primary profession (see table below)
  * (4 + size) bits - Secondary profession (see table below)
  * 4 bits - The number of attributes specified in the template
- * 4 bits - Size of attribute codes. All attribute codes are the same size, 
- *     and the size (in bits) is equal to 4 plus this number. For example, 
+ * 4 bits - Size of attribute codes. All attribute codes are the same size,
+ *     and the size (in bits) is equal to 4 plus this number. For example,
  *     if the size is 2, each of the attribute codes will be 6 bits.
  * Sequence of attribute codes and values
  *   (4 + size) bits - attribute code (see table below)
- *   4 bits - value of attribute, this is 1 - 12, and does not take into 
+ *   4 bits - value of attribute, this is 1 - 12, and does not take into
  *       account runes, headgear, etc.
- * 4 bits - Size of the skill codes. This works in the same way as the 
+ * 4 bits - Size of the skill codes. This works in the same way as the
  *     attribute size, except that each skill code is (8 + size) bits.
  * Sequence of exactly 8 skill codes
  *   (8 + size) bits - skill code (see table below)
@@ -382,7 +385,7 @@ Character.prototype.toAnet = function(skipName/*=false*/) {
     codec.put(skill ? skill.id : 0, size);
   }
   codec.put(0, 1); // single meaningless trailing null, we do it because
-                   // anet does it. 
+                   // anet does it.
   // done
   codec.putBoundary();
   if (skipName) return codec.str;
@@ -475,7 +478,7 @@ Character.prototype._unpackItemsAnet = function(codec) {
  *
  * Packs items into anet equipment template
  *
- * @param codec   output bit stream 
+ * @param codec   output bit stream
  */
 Character.prototype._packItemsAnet = function(codec) {
   var mods = {prefix: true, suffix: true, inside: true}
