@@ -38,7 +38,7 @@ function initAttrGrid() {
     Character.prototype.autoHeadgear = (vals[0] == 'true');
     Character.prototype.autoRunes = (vals[1] == 'true');
   }
-  var el = dojo.byId('attrGrid');
+  var el = document.getElementById('attrGrid');
   DDAttr.elems = loadVarElems(el);
   DDAttr.elems.gridEl.innerHTML = drawAttrGrid();
 }

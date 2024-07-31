@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <!--
 Copyright Glen Knowles 2006.
 Distributed under the Boost Software License, Version 1.0.
@@ -26,11 +27,11 @@ myaccount.rhtml - gw1builds view user
 
   updateUser: function() {
     if (g_user.hasRole()) {
-      dojo.byId('header_user').innerHTML = g_user.name;
+      document.getElementById('header_user').innerHTML = g_user.name;
       dojo.html.addClass(document.body, 'member');
     } else {
       dojo.html.removeClass(document.body, 'member');
-      dojo.byId('header_user').innerHTML = "<br>";
+      document.getElementById('header_user').innerHTML = "<br>";
     }
   }, // updateUser
 

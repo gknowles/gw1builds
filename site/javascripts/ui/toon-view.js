@@ -23,7 +23,7 @@ function updToonView(el, toon, fmt) {
       break;
     case 'export':
       var formEl = dojo.html.getParentByType(
-        dojo.byId('buildExport'), 'form');
+        document.getElementById('buildExport'), 'form');
       loadExportView(formEl);
       break;
   }

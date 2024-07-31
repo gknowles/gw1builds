@@ -15,8 +15,8 @@ SGroupList.memberSearch.values.groupRev = 0;
 SGroupList.elems = { group:{}, member:{} }
 
 function initGroupList() {
-  SGroupList.elems.group = loadVarElems(dojo.byId('groupList'));
-  SGroupList.elems.member = loadVarElems(dojo.byId('memberList'));
+  SGroupList.elems.group = loadVarElems(document.getElementById('groupList'));
+  SGroupList.elems.member = loadVarElems(document.getElementById('memberList'));
 } // initGroupList
 
 

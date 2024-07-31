@@ -10,7 +10,7 @@ account.js - gw1builds ui
 /////////////////////////////////////////////////
 
 function drawAccountLogin() {
-  var el = dojo.byId('accountLogin').cloneNode(true);
+  var el = document.getElementById('accountLogin').cloneNode(true);
   el.removeAttribute('id');
   var pane = new Pane({divEl: el});
   pane.loadElems();

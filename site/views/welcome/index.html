@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <!--
 Copyright Glen Knowles 2006.
 Distributed under the Boost Software License, Version 1.0.
@@ -29,7 +30,6 @@ index.rhtml - gw1builds view welcome
 <link rel="stylesheet" href="../../stylesheets/list-pane.css"/>
 <link rel="stylesheet" href="../../stylesheets/toon-pane.css"/>
 <link rel="stylesheet" href="../../stylesheets/team-pane.css"/>
-<script src="../../javascripts/util/util.js"></script>
 <script type="text/javascript">
 var cssHover = {
   // part-list.css
@@ -45,6 +45,7 @@ var cssHover = {
   skillbarLinkedFullAlt: { backgroundColor: 'var(--altHoverBG)' }
 }
 </script>
+<script src="../../javascripts/util/util.js"></script>
 <script src="../../javascripts/model/data-skill.js"></script>
 <script src="../../javascripts/model/data-equip.js"></script>
 <script src="../../images/skills/skill-tiles-pos.js"></script>
@@ -94,10 +95,29 @@ var cssHover = {
 <script src="../../javascripts/ui/team-roster.js"></script>
 <script src="../../javascripts/ui/team-view.js"></script>
 
-<script src="_urls.js"></script>
+<script src="urls.js"></script>
 </head>
 
 <body>
+  <template id='sidebar'>
+    <div class='pvar-sidebar sidebar'>
+      <!-- views/welcome/sidebar.html -->
+      <div style='text-align: center'>
+      <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+      </div>
+    </div>
+  </template>
+  <script>
+    class SidebarPane extends HTMLElement {
+      constructor() {
+        super();
+        let shadow = this.attachShadow({mode: 'open'})
+        shadow.innerHtml = document.getElementById('sidebar').content
+      }
+    }
+    customElements.define('sidebar-pane', SidebarPane)
+  </script>
+
   <div id="header">
     <div style="float: right">
       <ul id="topmenu"></ul>
@@ -115,14 +135,884 @@ var cssHover = {
 
   <div id="content" style="clear: both">
     <script>
-      includeHtmlFragment('views/welcome/_home.html')
-      includeHtmlFragment('views/welcome/_faq.html')
-      includeHtmlFragment('views/welcome/_build.html')
-      includeHtmlFragment('views/group/_list.html')
-      includeHtmlFragment('views/welcome/_data.html')
-      includeHtmlFragment('views/user/_login.html')
-      includeHtmlFragment('views/user/_logout.html')
+      let opts = { menuId: ['topmenu'] }
     </script>
+    <!-- views/welcome/home.html -->
+<div class="pane" id="topmenu_home" style="display: none">
+<script>
+opts.pane = new Pane({
+  title: "Home",
+  id: "topmenu_home"
+});
+PaneSet.prototype.addPane("topmenu", opts.pane);
+
+function activateHome(name) {
+  let id = closest('div').id
+  PaneSet.prototype.activate(id, name)
+}
+</script>
+<table class='pane'><tr><td class='paneContent'>
+  Welcome to GuildBuilds. A repository for saving, sharing, and
+  editing GuildWars individual and team builds.
+  <ul>
+    <li><a href="javascript:void(activateHome('Builds'))">Builds</a>
+      - search, view, and edit builds</li>
+    <li class='memberListItem'>
+      <a href="javascript:void(activateHome('Groups'))">Groups</a>
+      - form, join, or invite others to groups</li>
+    <li><a href="javascript:void(activateHome('Data'))">Data</a>
+      - raw data and data tools, not for causal users</li>
+    <li><a href="javascript:void(activateHome('FAQ'))">FAQ</a>
+      - frequently asked questions</li>
+  </ul>
+  <br>
+  <div style='font-size: 9pt'>
+  Browser compatibility:
+  </div>
+  <div style='font-size: 9pt; margin: 0px 0px 0px 10px'>
+  Firefox 2.0 - its all good<br/>
+  Internet Explorer 7 - quite usable, if a bit slow<br/>
+  Other - sorry for the ugliness and frustration you are about
+  to experience.<br/>
+  </div>
+</td><td class='paneSidebar'>
+  <sidebar-pane/>
+</td></tr></table>
+</div>
+
+    <!-- views/welcome/faq.html -->
+<div class="pane faqPane" id="topmenu_faq" style="display: none">
+<script>
+opts.pane = new Pane({
+  title: "FAQ",
+  id: "topmenu_faq"
+});
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+<table class='pane'><tr><td class='paneContent'>
+  <div class='minwidth'>
+    <h2>Frequently Asked Questions</h2>
+    <div class='scroll'>
+      <h3>Why OpenID?</h3>
+      <div class='section'>
+      <p>Since some kind of login was needed the choices were either to implement
+      captcha or email verification signup, recover lost passwords and email, track
+      activated status, and various other details that are easy to mess up. With
+      OpenID you have the option to use stronger security anything that would've
+      been supported here and there wasn't much of a UI required.</p>
+      <p>That's all good for the site, but what about you? Creating a random
+      OpenID so you have an account here is about the same amount of work as
+      creating an email address for email verification would be. And on the plus
+      side you can set it up so you never need to type in a password. Go to
+      <a href='http://openid.net'>openid.net</a> to find out more, there is nothing
+      to fear but fear itself!</p>
+      </div>
+      <h3>How do groups work?</h3>
+      <div class='section'>
+      <p>Groups allow you to share builds with select people. When you
+      save a build you set the ownership and visibility. By default you are the
+      owner, but you can also make any group in which you are an editor or admin
+      the owner. When a group owns a build, any editor or admin in that
+      gruop can edit it, otherwise it is a private build, and only you can edit
+      it. Setting the visibility allows other people to see the build; and, if
+      set to a group, any member of that group can see it.</p>
+
+      <p>Joining groups is by invitation only. An admin of that group must
+      explicitly invite you, after which you can either accept or reject the
+      invitation.</p>
+
+      <p>Quick breakdown of roles within a group:
+      <ul>
+      <li><b>Invited</b> - invited to the group but has not yet accepted. Can view
+      the group roster and history, but can't edit or view any of the builds
+      that belong to the group.</li>
+      <li><b>Member</b> - can view roster, history, and any of the builds owned by
+      the group.</li>
+      <li><b>Editor</b> - is a member, and edits group owned builds.</li>
+      <li><b>Administrator</b> - is an editor, and invites, kicks, promotes, or
+      demotes group members, editors, and other admins.</li>
+      </ul>
+      </div>
+      <h3>What if I find an error in a skill?</h3>
+      <div class='section'>
+      <p>Go and fix it on the <a href='http://wiki.guildwars.com'>GW Wiki</a>
+      and it should show up here in a day or two, if its been correct on the wiki
+      for a few days and is still wrong here, please report it on the GuildBuilds
+      forum and we'll see what we can do.</p>
+      </div>
+    </div>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+    <!-- views/welcome/build.html -->
+<div class="pane" id="topmenu_build" style="display: none">
+  <div style="display:none; height: 25px">
+    <ul class="tabmenu" id="topmenu_build_tab"></ul>
+  </div>
+  <script>
+    PaneSet.prototype.addPane(
+      "topmenu",
+      new Pane({
+        title: "Builds",
+        id: "topmenu_build",
+
+        onload: function() { PaneSet.prototype.load("topmenu_build_tab"); },
+        onprepare: function() {
+          PaneSet.prototype.activate(opts.tabId, "Builds");
+        },
+        onblur: function() { return PaneSet.prototype.blur("topmenu_build_tab"); },
+        onupdate: function(upd) {
+          PaneSet.prototype.update("topmenu_build_tab", upd);
+        }
+      })
+    );
+  </script>
+
+    <!-- views/build/list.html -->
+<script>
+opts.pane = new Pane({
+  title: "Builds",
+  id: "topmenu_build_tab_buildlist",
+
+  onload: function() {
+    this.loadElems();
+  },
+  onprepare: function() {
+    this.elems.main.listEl.appendChild(document.getElementById('buildList'));
+    DDBuildList.showPart = this.showPart;
+  },
+  onactive: function() {
+    DDBuildList.isLoaded = false;
+    DDBuildList.ensureListFormat( {owner: true, actions: true} );
+  },
+  onupdate: function(upd) {
+    if (hasUpdateKey(upd, {buildSearch: true, user: true} )) {
+      DDBuildList.query( {owner: true, actions: true} );
+    }
+  }, // onupdate
+
+  showPart: function(bld, mode) {
+    bld = bld || new Build('New Team', null, true);
+    g_state.setBuild(bld);
+    if (mode == 'edit') {
+      PaneSet.prototype.activate("topmenu_build_tab", 'Detail',
+        bld.isTeam ? 'Edit' : 'Character Edit');
+    } else { // mode == 'view'
+      PaneSet.prototype.activate("topmenu_build_tab", 'Detail',
+        bld.isTeam ? 'View' : 'Character View');
+    }
+  }
+
+} );
+PaneSet.prototype.addPane("topmenu_build_tab", opts.pane);
+</script>
+<div id="topmenu_build_tab_buildlist" class="pane listPane"
+    style="display: none">
+<table class='pane'><tr><td class='paneContent'>
+  <div class="pdiv-main">
+    <div class="pvar-list"></div>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+    <!-- views/build/detail.html -->
+<script type="text/javascript">
+opts.pane = new Pane({
+  title: "Detail",
+  id: "topmenu_build_tab_detail",
+
+  onload: function() {
+    this.loadElems();
+    PaneSet.prototype.load("topmenu_build_tab_detail_tab");
+  },
+  onprepare: function(child) {
+    if (g_state.getBuild().isTeam) {
+      updateClasses(this.divEl, 'team', null);
+    } else {
+      updateClasses(this.divEl, null, 'team');
+    }
+    var elems = this.elems.header;
+    var formEl = document.getElementById('stateActions');
+    elems.stateActionsEl.appendChild(formEl);
+    dojo.event.connect(formEl.fClose, 'onclick', this, 'close');
+    g_state.updBaseline();
+    PaneSet.prototype.updateAll(
+      "topmenu_build_tab_detail_tab",
+      {keys: {paneSet: true} }
+    );
+    this.onupdate( {keys: {user: true, characters: true} } );
+    if (child == null) child = 'View';
+    PaneSet.prototype.activate("topmenu_build_tab_detail_tab", child);
+  },
+  onblur: function() {
+    if (g_state.isChanged()) {
+      var sure = confirm("Do you wish to abandon changes to '" +
+        g_state.getBuild().fullName() + "' without saving?");
+      if (!sure) return false;
+    }
+    var rc = PaneSet.prototype.blur("topmenu_build_tab_detail_tab");
+    if (rc !== false) {
+      document.getElementById('header_current').innerHTML = '';
+      var formEl = document.getElementById('stateActions');
+      dojo.event.disconnect(formEl.fClose, 'onclick', this, 'close');
+    }
+    return rc;
+  },
+  onupdate: function(upd) {
+    updObjInfo(upd);
+    PaneSet.prototype.update("topmenu_build_tab_detail_tab", upd);
+  },
+
+  close: function() {
+    PaneSet.prototype.activate('topmenu_build_tab', 'Builds');
+  }
+} );
+PaneSet.prototype.addPane("topmenu_build_tab", opts.pane);
+</script>
+
+<div class="pane" id="topmenu_build_tab_detail" style="display: none">
+<div class='pdiv-header'>
+  <span class="pvar-stateActions" style="float: right"></span>
+  <ul class="tabmenu" id="topmenu_build_tab_detail_tab"></ul>
+</div>
+
+<!-- views/build/team_view.html -->
+<script>
+opts.pane = new Pane({
+  title: "View",
+  id: "topmenu_teamview",
+
+  onload: function() { this.loadElems(); },
+
+  onprepare: function() {
+    this.elems.main.viewExportEl.appendChild(document.getElementById('buildExport'));
+    this.onupdate( {keys: Character.prototype.changeKeys} );
+  },
+
+  onupdate: function(upd) {
+    var team = g_state.getTeam();
+    this.hidden = (team == null);
+    if (upd.keys.paneSet) return;
+    var rules = [
+      {el: 'viewNormalEl', code: 'normal'},
+      {el: 'viewCodeEl', code: 'code'},
+      {el: 'viewExportEl', code: 'export'}
+    ];
+    for (var i1 = 0; rules.length > i1; ++i1) {
+      var rule = rules[i1];
+      updTeamView(this.elems.main[rule.el], team, rule.code);
+    }
+  } // onupdate
+} );
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+
+<div id="topmenu_teamview" class="pane teamPame viewPane"
+  style="clear: both; display: none">
+<!-- this comment (or anything else) is required between the
+div above and table below to prevent IE from 'bouncing' -->
+<table class='pane'><tr><td class='paneContent'>
+  <div class='pdiv-main'>
+    <form>
+    <div class='insetTab'>
+      <ul class="insetTab">
+        <li><a href='' class="active" onclick="insetTabSelect(this, 0); return false">Normal</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 1); return false">Codes</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 2); return false">Export</a></li>
+      </ul>
+      <br style="clear: both">
+      <div class="pvar-viewNormal insetTabPane"></div>
+      <div class="pvar-viewCode insetTabPane" style='display: none'></div>
+      <div class="pvar-viewExport insetTabPane" style='display: none'></div>
+    </div> <!-- tab container -->
+    </form>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+<!-- views/build/team_edit.html -->
+<script>
+opts.pane = new Pane({
+  title: "Edit",
+  id: "topmenu_teamedit",
+
+  onload: function() {
+    this.loadElems();
+  },
+
+  onprepare: function() {
+    this.elems.edit.el.style.visibility = 'visible';
+    teamMemberShow = this.showMember;
+  },
+
+  onactive: function() {
+    DDTeamSlotGrid.reattachGrid();
+    this.elems.edit.skillFavoritesEl.appendChild(document.getElementById('skillFavorites'));
+    this.elems.edit.skillListEl.appendChild(document.getElementById('skillList'));
+    DDBuildList.ensureListFormat( {owner: true, drag: true, noteam: true} );
+    this.elems.edit.toonListEl.appendChild(document.getElementById('buildList'));
+    DDBuildList.showPart = null;
+    this.elems.edit.rosterEl.appendChild(document.getElementById('teamRoster'));
+    this.onupdate( { keys:{
+      teamDesc: true,
+      teamRoster: true,
+      attrValueChoices: true,
+      skillFavorites: true
+    } } );
+    DDSkillList.ensureListFormat();
+  },
+
+  onblur: function() {
+    var el = this.elems.edit.el;
+    el.style.visibility = 'hidden';
+    var parEl = el.parentNode;
+    var tmpEl = document.createElement('div');
+    tmpEl.style.backgroundColor = 'lightgrey';
+    tmpEl.style.height = el.offsetHeight + 'px';
+    tmpEl.style.width = el.offsetWidth + 'px';
+    parEl.replaceChild(tmpEl, el);
+    parEl.replaceChild(el, tmpEl);
+  },
+
+  onupdate: function(upd) {
+    var team = g_state.getTeam();
+    var obj = upd.what || team;
+    this.hidden = (team == null);
+    if (upd.keys.paneSet) return;
+    if (hasUpdateKey(upd, {teamDesc: true} )) {
+      this.elems.edit.formEl.pDesc.value = obj.desc;
+    }
+    updBuildInfo(upd, this.elems.edit.formEl);
+    updToonInfo(upd, this.elems.edit.formEl);
+    updTeamRosterSkillbar(upd);
+    updAttrGrid(upd, /*compress=*/true);
+    DDItemGrid.update(upd, /*compress=*/true);
+    DDSkillList.updWidget(upd);
+    if (hasUpdateKey(upd, {buildSearch: true, user: true} )) {
+      DDBuildList.query( {owner: true, drag: true, noteam: true} );
+    }
+    updSkillFavorites(upd, null);
+    updTeamRoster(upd);
+  }, // update()
+
+  showMember: function(mode, toon) {
+    g_state.setMember(toon ? toon : new Character('New Character'));
+    if (mode == 'edit') {
+      PaneSet.prototype.activate('topmenu', 'Character Edit');
+    } else { // mode == 'view'
+      PaneSet.prototype.activate('topmenu', 'Character View');
+    }
+  }
+
+} );
+
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+
+<div id="topmenu_teamedit" class="pane teamPane editPane"
+    style="clear: both; display: none">
+<!-- this comment (or anything else) is required between the
+div above and table below to prevent IE from 'bouncing' -->
+<table class='pane'><tr><td class='paneContent'>
+  <div class="pdiv-edit">
+    <form>
+    <table class='inset' cellspacing='0' cellpadding='0'><tr><td valign='top'>
+    <div class='partList'><div class="insetTab">
+      <ul class="insetTab">
+        <li><a href='' class="active" onclick="insetTabSelect(this, 0); return false">Skills</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 1); return false">Characters</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 2); return false">Notes</a></li>
+      </ul>
+      <br style="clear: both">
+      <div class='insetTabPane'>
+        <div class="pvar-skillList"></div>
+      </div>
+      <div class="insetTabPane" style='display: none'>
+        <div class="pvar-toonList"></div>
+      </div>
+      <div class="insetTabPane" style='display: none'>
+        <div class="editDesc">
+          <h2>Team Notes</h2>
+          <textarea class='firstFocus'
+            rows='30'
+            style='width: 100%; height: 100%'
+            name="pDesc" onchange="chgTeamDesc(this.value)"></textarea>
+        </div>
+      </div>
+    </div></div> <!-- tab container -->
+    </td><td valign='top'>
+    <div class='pvar-skillFavorites'></div>
+    </td><td valign='top'>
+      <div style='text-align: right; width: 100%'>
+        <b>Type:</b>&nbsp;
+        <input type='checkbox' name='bPve'
+          onChange='chgBuildPve(this.checked)'>PvE
+        <select name="bType" onChange="chgBuildType(getSelectValue(this))"></select>
+      </div>
+      <div class="pvar-roster"></div>
+    </td></tr></table>
+    </form>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+<!-- views/build/character_view.html -->
+<script type="text/javascript">
+opts.pane = new Pane({
+  title: "Character View",
+  id: "topmenu_charview",
+
+  onload: function() { this.loadElems(); },
+
+  onprepare: function() {
+    this.elems.main.viewExportEl.appendChild(document.getElementById('buildExport'));
+    this.onupdate( {keys: Character.prototype.changeKeys} );
+  },
+
+  onupdate: function(upd) {
+    this.hidden = g_state.getBuild().isTeam;
+    if (upd.keys.paneSet) return;
+    var rules = [
+      {el: 'viewNormalEl', code: 'normal'},
+      {el: 'viewCodeEl', code: 'code'},
+      {el: 'viewExportEl', code: 'export'}
+    ];
+    for (var i1 = 0; rules.length > i1; ++i1) {
+      var rule = rules[i1];
+      updToonView(this.elems.main[rule.el], g_state.getMember(), rule.code);
+    }
+  } // onupdate
+} );
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+
+<div class="pane toonPane viewPane" id="topmenu_charview"
+    style="clear: both; display: none">
+<!-- this comment (or anything else) is required between the
+div above and table below to prevent IE from 'bouncing' -->
+<table class='pane'><tr><td class='paneContent'>
+  <div class='pdiv-main'>
+    <form>
+    <div class='insetTab'>
+      <span class='withTabs'>
+        <input type='text' size='40' name='pImport'>
+        <button type='button' title='Import Anet or GB template code'
+          onclick="importToon(this.form.pImport.value);
+            this.form.pImport.value = '';"
+          >Import</button>
+      </span>
+      <ul class='insetTab'>
+        <li><a href='' class="active" onclick="insetTabSelect(this, 0); return false">Normal</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 1); return false">Codes</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 2); return false">Export</a></li>
+      </ul>
+      <br style="clear: both">
+      <div class="pvar-viewNormal insetTabPane"></div>
+      <div class="pvar-viewCode insetTabPane" style='display: none'></div>
+      <div class="pvar-viewExport insetTabPane" style='display: none'></div>
+    </div> <!-- tab container -->
+    </form>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+<!-- views/build/character_edit.html -->
+<script type="text/javascript">
+opts.pane = new Pane({
+  title: "Character Edit",
+  id: "topmenu_charedit",
+
+  isSkillbarOpen: false,
+  isToonDetailOpen: true,
+
+  onload: function() {
+    this.loadElems();
+    this.elems.edit.toonInfoEl.appendChild(document.getElementById('toonInfo'));
+    initToonInfo(this.elems.edit);
+    if (this.isSkillbarOpen !=
+      (g_store.get(g_store.keys.SKILLBAR_MODE) == 'tweak'))
+    {
+      this.toggleSkillbar(this.elems.edit.skillbar2ModeEl);
+    }
+    if (this.isToonDetailOpen !=
+      (g_store.get(g_store.keys.TOON_DETAIL_OPEN) != 'false'))
+    {
+      this.toggleToonDetail(this.elems.edit.toonDetailOpenEl);
+    }
+  },
+
+  onprepare: function() {
+    this.elems.edit.el.style.visibility = 'visible';
+    if (g_state.getMember() == null) {
+      var team = g_state.getTeam();
+      var slots = team.slotRefs(false);
+      if (slots.length == 0) {
+        slots = team.slots();
+        if (slots.length == 0) team.insertSlot(0, null);
+        var toon = new Character('New Character');
+        toon.teamPos = 0;
+        team.setSlot(0, toon);
+        slots = team.slotRefs(false);
+      }
+      g_state.setMember(slots[0].value);
+    }
+    this.elems.edit.toonInfoEl.appendChild(document.getElementById('toonInfo'));
+    var gridEl = document.getElementById('attrGrid');
+    gridEl.style.display = '';
+    this.elems.edit.toonDetailEl.appendChild(gridEl);
+    this.elems.edit.skillListEl.appendChild(document.getElementById('skillList'));
+    this.elems.edit.skillFavoritesEl.appendChild(
+      document.getElementById('skillFavorites'));
+    this.elems.edit.skillbarEl.appendChild(document.getElementById('skillbar'));
+  },
+
+  onactive: function() {
+    this.onupdate( {keys: Character.prototype.changeKeys} );
+    DDSkillList.ensureListFormat();
+  },
+
+  onblur: function() {
+    var el = this.elems.edit.el;
+    el.style.visibility = 'hidden';
+    var parEl = el.parentNode;
+    var tmpEl = document.createElement('div');
+    tmpEl.style.backgroundColor = 'lightgrey';
+    tmpEl.style.height = el.offsetHeight + 'px';
+    tmpEl.style.width = el.offsetWidth + 'px';
+    parEl.replaceChild(tmpEl, el);
+    parEl.replaceChild(el, tmpEl);
+  },
+
+  onupdate: function(upd) {
+    if (upd.keys.paneSet) {
+      return;
+    }
+    updBuildInfo(upd, this.elems.edit.formEl);
+    updToonInfo(upd, this.elems.edit.formEl);
+    updAttrGrid(upd);
+    DDItemGrid.update(upd);
+    updSkillbar(upd);
+    DDSkillList.updWidget(upd);
+    updSkillFavorites(upd, /*attrSource=*/g_state.getMember());
+  }, // update()
+
+  toggleToonDetail: function(openEl) {
+    var divEl = this.elems.edit.toonDetailEl;
+    if (this.isToonDetailOpen) {
+      openEl.src = '/images/toggle-closed.png';
+      openEl.onmouseover = new Function("event",
+        "DDToonAttrs.over(this, event, {toon: g_state.getMember()})");
+      divEl.style.display = 'none';
+      this.isToonDetailOpen = false;
+    } else {
+      openEl.src = '/images/toggle-open.png';
+      openEl.onmouseover = null;
+      divEl.style.display = '';
+      this.isToonDetailOpen = true;
+    }
+    g_store.set(g_store.keys.TOON_DETAIL_OPEN, String(this.isToonDetailOpen));
+  }, // toggleAttrGrid(openEl)
+
+  toggleSkillbar: function(openEl) {
+    var sb2 = this.elems.edit.skillbar2El;
+    if (this.isSkillbarOpen) {
+      openEl.src = '/images/toggle-closed.png';
+      setSkillbarMode( {basic: true} );
+      this.isSkillbarOpen = false;
+    } else {
+      openEl.src = '/images/toggle-open.png';
+      setSkillbarMode( {tweak: true} );
+      this.isSkillbarOpen = true;
+    }
+  } // toggleSkillbar(openEl)
+
+} );
+
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+<div class="pane toonPane editPane" id="topmenu_charedit"
+  style="clear: both; display: none">
+<!-- this comment (or anything else) is required between the
+div above and table below to prevent IE from 'bouncing' -->
+<table class='pane' cellspacing='0'><tr><td class='paneContent'>
+  <div class="pdiv-edit">
+    <form>
+    <h2>
+      <span class='withTabs'>
+        <input type='text' size='40' name='pImport2'>
+        <button type='button' title='Import Anet or GB template code'
+          onclick="importToon(this.form.pImport2.value);
+            this.form.pImport2.value = '';"
+          >Import</button>
+      </span>
+      <img class="pvar-toonDetailOpen openClose"
+      src="/images/toggle-open.png"
+      onclick="<%= paneRef %>.toggleToonDetail(this)"
+      onmouseout="DDToonAttrs.out(this, event)">
+      Character
+    </h2>
+    <div class="pvar-toonInfo"></div>
+    <div class="pvar-toonDetail toonDetail"></div>
+    <table class='inset' cellspacing='0' cellpadding='0'><tr><td valign='top'>
+    <div class="pvar-skillList"></div>
+    </td><td valign='top'>
+    <div class="pvar-skillFavorites"></div>
+    </td><td valign='top'>
+    <div class="skillbar">
+      <h2>
+        <span style='float: right'>
+          &nbsp;
+          <button type='button' title="Add alternate skill slot"
+            onclick="chgToonAppendAlt()"
+            >+ Alt</button>
+        </span>
+        <img class="pvar-skillbar2Mode openClose"
+          src="/images/toggle-closed.png"
+          onclick="<%= paneRef %>.toggleSkillbar(this)">
+        Skillbar
+      </h2>
+      <div style='clear: both' class="pvar-skillbar"></div>
+    </div>
+    </td></tr></table>
+    </form>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+</div>
+
+  <script>
+    opts.menuId.shift()
+  </script>
+</div>
+
+    <!-- views/group/list.html -->
+<script type="text/javascript">
+opts.pane = new Pane({
+  title: "Groups",
+  id: "topmenu_group",
+  hidden: true,
+
+  onload: function() { this.loadElems(); },
+  onactive: function() {
+    this.elems.main.groupListEl.appendChild(document.getElementById('groupList'));
+    this.elems.main.memberListEl.appendChild(document.getElementById('memberList'));
+    clearMemberList();
+    executeGroupListAction('List', true);
+  },
+  onupdate: function(upd) {
+    if (upd.keys.user) {
+      this.hidden = !g_user.hasRole();
+      SGroupList.search.values.acctRev = 0;
+      SGroupList.memberSearch.values.groupRev = 0;
+    }
+  }
+} );
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+
+<div class="pane groupPane" id="topmenu_group" style="display: none">
+<table class='pane'><tr><td class='paneContent'>
+  <div class="pdiv-main">
+    <table><tr>
+      <td style='vertical-align: top'><div class='pvar-groupList'></div></td>
+      <td style='vertical-align: top'><div class='pvar-memberList'></div></td>
+    </tr></table>
+  </div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+    <!-- views/welcome/data.html -->
+<div class="pane dataPane" id="topmenu_data" style="display: none">
+<script>
+PaneSet.prototype.addPane(
+  opts.menuId[0],
+  new Pane({
+    title: "Data",
+    id: "topmenu_data"
+  })
+);
+</script>
+<table class='pane'><tr><td class='paneContent'>
+<div class="insetTab">
+  <ul class="insetTab">
+    <li><a href='' onclick="insetTabSelect(this, 0); return false"
+      class="active" >Raw Data</a></li>
+    <li><a href='' onclick="insetTabSelect(this, 1); return false"
+      >Skill Codec</a></li>
+    <li><a href='' onclick="insetTabSelect(this, 2); return false"
+      >Equipment Codec</a></li>
+    <li><a href='' onclick="insetTabSelect(this, 3); return false"
+      >Progressions</a></li>
+  </ul>
+  <br style="clear: both">
+  <div class="insetTabPane">
+    <table cellspacing='10'><tr><td valign='top'>
+      <a href='data/professions.yml.txt' target='dataFrame'>Professions</a><br>
+      <a href='data/skills.yml.txt' target='dataFrame'>Skills</a><br>
+    </td><td valign='top'>
+      <a href='data/filters.yml.txt' target='dataFrame'>Filters</a><br>
+      <a href='data/tags.yml.txt' target='dataFrame'>Tags</a><br>
+      <a href='data/tagdefs.yml.txt' target='dataFrame'>TagDefs</a><br>
+    </td><td valign='top'>
+      <a href='data/armor.yml.txt' target='dataFrame'>Armor</a><br>
+      <a href='data/weapons.yml.txt' target='dataFrame'>Weapons</a><br>
+    </td><td valign='top'>
+      <a href='data/gwshack.yml.txt' target='dataFrame'>gwShack</a><br>
+      <a href='data/gwshack-diff.html' target='dataFrame'>gwShack Diff</a><br>
+    </td></tr></table>
+    <div style='padding: 0px' class='section'>
+      <iframe name='dataFrame' frameborder='0' height='500px' width='100%'>
+      </iframe>
+    </div>
+  </div>
+  <div class='insetTabPane' style='display: none'>
+    <div style='padding: 0px' class='section'>
+      <iframe src='util/scode.html' frameborder='0' height='570px' width='100%'>
+      </iframe>
+    </div>
+  </div>
+  <div class='insetTabPane' style='display: none'>
+    <div style='padding: 0px' class='section'>
+      <iframe src='util/ecode.html' frameborder='0' height='570px' width='100%'>
+      </iframe>
+    </div>
+  </div>
+  <div class='insetTabPane' style='display: none'>
+    <div style='padding: 0px' class='section'>
+      <iframe src='util/progs.html' frameborder='0' height='570px' width='100%'>
+      </iframe>
+    </div>
+  </div>
+</div>
+</td><td class='paneSidebar'>
+  <div class='pvar-sidebar sidebar'>
+    <!-- views/welcome/sidebar.html -->
+    <div style='text-align: center'>
+    <!--  <br/>Ads?<br/>Who<br/>Needs<br/>'Em!  -->
+    </div>
+  </div>
+</td></tr></table>
+</div>
+
+    <!-- views/user/login.html -->
+<script type="text/javascript">
+<!--
+opts.pane = new Pane({
+  title: "Login",
+  link_to: 'javascript:showDialog("<h2>OpenID Login<\/h2>"' +
+    ', drawAccountLogin(), "accountPane")',
+  hidden: false,
+
+  onprepare: function() {
+    showDialog('<h2>Login<\/h2>', drawAccountLogin(), 'accountPane');
+    return false;
+  },
+  onupdate: function(upd) {
+    if (upd.keys.user) { this.hidden = g_user.hasRole(); }
+  }
+});
+PaneSet.prototype.addPane("topmenu", opts.pane);
+-->
+</script>
+
+    <!-- views/user/logout.html -->
+<script type="text/javascript">
+opts.pane = new Pane({
+  title: "Logout",
+  id: "topmenu_logout",
+  hidden: true,
+
+  onload: function() { this.loadElems(); },
+  onactive: function() {
+    api.user.logout(this.handlers.logout);
+  },
+  onupdate: function(upd) {
+    if (upd.keys.user) { this.hidden = !g_user.hasRole(); }
+  },
+
+  handlers: {
+    pane: opts.pane,
+    logout: function(data) {
+      var self = this.pane;
+      var elems = self.elems;
+      if (data.result == 'ok') {
+        g_user.id = data.user.id;
+        g_user.name = data.user.name;
+        g_user.role = data.user.role;
+        clearGroupList();
+        updRootAll( {keys: {user: true} } );
+        PaneSet.prototype.activate("topmenu", "Home");
+      } else { // assumed data.result == 'bad'
+        elems.main.errorsEl.innerHTML = self.formatErrors(
+          data.errors, "logout");
+      }
+    }
+  }
+
+});
+PaneSet.prototype.addPane("topmenu", opts.pane);
+</script>
+
+<div class="pane" id="topmenu_logout" style="display: none">
+  <div class="pdiv-main">
+    <form>
+      <div class="errorExplaination"></div>
+      Logging out...
+    </form>
+  </div>
+</div>
+
   </div>
 
   <div id="tipPopup" style='display: none'></div>
@@ -156,12 +1046,328 @@ var cssHover = {
       <button name="fClose" type="button"
         onclick="">Close</button>
     </form>
-    <script>
-      includeHtmlFragment('views/user/_named_divs.html')
-      includeHtmlFragment('views/group/_named_divs.html')
-      includeHtmlFragment('views/skill/_named_divs.html')
-      includeHtmlFragment('views/build/_named_divs.html')
-    </script>
+
+<!-- views/user/named_divs.html -->
+<div id='accountLogin' class='minwidth'>
+  <div class='pdiv-login'><form>
+  <div class='errpane section errorExplaination' style='display: none'></div>
+  <div class="section">
+    <table><tr><td>
+      <div style='text-align: right'>
+        <a target='_blank' href='http://iwantmyopenid.org/about/openid'
+          >What is OpenID?</a>
+      </div>
+      <label>OpenID:
+        <input class='openid_login firstFocus'
+          onkeydown='return enterSubmits(this, event)'
+          type='text' name='openid_url'
+          size='40'>
+      </label>
+    </td></tr><tr><td>
+      <p class='pvar-setup' style='display: none'>You need to login to
+      your OpenID provider and/or mark this site as trusted to continue.
+      Your provider says you can do that
+      <a target='_blank' class='pvar-setupUrl'>here</a>
+      [opens new window], then come back and try again.</p>
+    </td></tr><tr><td>
+      <br/>
+      <span style='float: right'>
+      <input type='button' name='submit' value='Login'
+        onclick='accountLogin(this.form)'>
+      <input type='button' value='Cancel'
+        onclick="hideDialog()">
+      </span>
+    </td></tr></table>
+  </div>
+  </form></div>
+
+  <div class="pdiv-signup" style="display: none"><form>
+  <div class="errorExplaination errpane section" style='display: none'></div>
+  <div class='section'>
+    <p>Congratulations, you have been authenticated successfully!
+    Now you just have to pick out a name to use while you're here.</p>
+    <p>Please select a user name for this site.</p>
+    Name: <input class='firstFocus' type="text" name="name"
+      onkeydown='return enterSubmits(this, event)'
+      size="20" maxlength='19'><br/>
+    <br/>
+    <span style='float: right'>
+      <input type="button" name="submit" value='Signup'
+        onclick="accountSignup(this.form)">
+      <input type="button" value='Cancel'
+        onclick="hideDialog()">
+    </span>
+    <br/>
+  </div>
+  </form></div>
+</div>
+
+<!-- views/group/named_divs.html -->
+<div id="groupList"><form class='pvar-form'>
+  <div class='minwidth'>
+    <h2>Groups</h2>
+    <div class="section pvar-input">
+      <h3>Create Group</h3>
+      <input type="text" name="group[name]"
+        onkeydown='return enterSubmits(this, event)'
+        size="20" maxlength='20'>
+      <input type="button" name="submit" value="Create"
+        onclick="executeGroupListAction('Create', true,
+          this.form['group[name]'].value)">
+      <br/><br/>
+    </div>
+    <h2>Group List</h2>
+    <div class="pvar-list list">
+      No groups
+    </div>
+  </div>
+</form></div>
+<div id="memberList"><form class='pvar-form'>
+  <div class='minwidth'>
+    <h2 class='pvar-title title'>(None)</h2>
+    <div class='insetTab'>
+      <ul class="insetTab">
+        <li><a href='' class="active" onclick="insetTabSelect(this, 0); return false">Roster</a></li>
+        <li><a href='' onclick="insetTabSelect(this, 1); return false">History</a></li>
+      </ul>
+      <br style="clear: both">
+      <div class='insetTabPane'>
+        <div style="display: none" class="section pvar-input">
+          <h3>Invite User</h3>
+          <input type="text" name="user[name]"
+            onkeydown='return enterSubmits(this, event)'
+            size="20">
+          <input type="button" name="submit" value="Invite"
+            onclick="executeGroupListAction('Invite', true,
+              SGroupList.memberSearch.values.groupName,
+              this.form['user[name]'].value)">
+          <br/><br/>
+        </div>
+        <h2>Member List</h2>
+        <div class="pvar-list list">
+          No group selected
+        </div>
+      </div> <!-- roster tab -->
+      <div class="insetTabPane" style='display: none'>
+        <h2>History</h2>
+        <div class='pvar-history list'>
+          No group selected
+        </div>
+      </div> <!-- history tab -->
+    </div> <!-- tab container -->
+  </div>
+</form></div>
+
+<!-- views/skill/named_divs.html -->
+<div id='skillList' class="partList">
+  <h2>
+    <select class='pvar-view' style='float: right'
+      onchange='DDSkillList.chgView(getSelectValue(this))'
+      ></select>
+    Skill List - <span class="pvar-matches partMatches">Loading...</span>
+  </h2>
+  <div class="filters">
+    <div class='iconMenu' style='float: right; margin: 5px 5px 5px 0px'>
+      <a href="" class="pvar-sort1 menuIcon"
+        onclick="DDSkillList.popupSort(this, /*priority=*/1); return false"
+      ></a>
+    </div>
+    <div class='iconMenu' style='float: right; margin: 5px 0px'>
+      <a href="" class="pvar-sort0 menuIcon"
+        onclick="DDSkillList.popupSort(this, /*priority=*/0); return false"
+      ></a>
+    </div>
+    <span style='font-size: 9pt/26px; float: right; margin: 5px 0px'
+      >Sort:&nbsp;</span>
+    <table><tr><td>
+      <input class="pvar-togProFilter" type='checkbox'
+        onclick="DDSkillList.toggleProFilter(!this.checked)"
+        title="Filter skills not allowed for current character">
+    </td><td>
+      <div class='toonPick'>
+        <select class="proToons pvar-proToons" disabled
+          onClick="DDSkillList.chgProFilter(getSelectValue(this))"></select
+          ><br/><input class="proFilter pvar-proFilter" type="text"
+          readonly disabled
+          value="X/X"
+          >
+      </div>
+    </td><td>
+      <button type='button' onclick="editSkillSearch()"
+        >Change Filter...</button>
+    </td></tr></table>
+  </div>
+  <div style='clear: both' class='pvar-list scroll'
+    onselectstart='return false'
+    ><table></table>
+  </div>
+</div>
+
+<div id='skillFavorites' class="skillFavorites">
+  <div class="pvar-efact emptyFactory"></div>
+  <!-- <div class="alternateFactory"></div> -->
+  <h2>Skills</h2>
+  <div class='pvar-favs skillFavorites'></div>
+</div>
+
+<!-- views/build/named_divs.html -->
+<div id="buildList" class="partList">
+  <h2>
+    <button type='button' title="Create new team"
+      style='float: right; white-space: nowrap'
+      onclick="DDBuildList.showPart(null, 'edit')">
+      + Team
+    </button>
+    <button type='button' title="Create new character"
+      style='float: right; white-space: nowrap'
+      onclick="DDBuildList.showPart(new Build('New Character', null, false), 'edit')">
+      + Character
+    </button>
+    Build List - <span class="pvar-matches partMatches">0 matches</span>
+  </h2>
+  <div class="filters">
+    <div>
+      <select class="pvar-sort" name="sort"
+        style='float: right; margin: 5px'
+        onchange="DDBuildList.chgSort(getSelectValue(this))"></select>
+      <span style='font-size: 9pt/26px; float: right; margin: 5px 0px'
+        >Sort:&nbsp;</span>
+      <span style='font-size: 9pt/26px; float: left; margin: 5px 0px 5px 5px'
+        >Filter:&nbsp;</span>
+      <select class="pvar-filter" name="filter"
+        style='float: left; margin: 5px'
+        onchange="DDBuildList.chgFilterKey(getSelectValue(this))"></select>
+      <button type='button' onclick="editBuildSearch()"
+        >Change Filter...</button>
+    </div>
+  </div>
+  <div style='clear: both' class="pvar-list"></div>
+</div>
+
+<div id="buildExport" class='exportView'>
+  <div class='section control'>
+    <table style='margin-left: auto; margin-right: auto'><tr>
+      <th class='what'>What</th>
+      <th></th>
+      <th>Format</th>
+      <th></th>
+      <th colspan='2'>Options</th>
+    </tr>
+    <tr><td class='what'>
+      <input type='radio' name='xWhat' value='team' checked
+        onclick='updExportView(this.form)'>Full Team<br>
+      <input type='radio' name='xWhat' value='toon'
+        onclick='updExportView(this.form)'>Member<br>
+      <select style='margin-left: 20px' name='xMember'
+        onclick='updExportView(this.form)'></select>
+    </td><td style='padding: 0px 20px'>
+    </td><td>
+      <input type='radio' name='xFormat' value='text' checked
+        onclick='updExportView(this.form)'>Plain Text<br>
+      <input type='radio' name='xFormat' value='bbcode'
+        onclick='updExportView(this.form)'>BBCode<br>
+      <input type='radio' name='xFormat' value='gwbbcode'
+        onclick='updExportView(this.form)'>gwBBCode
+    </td><td style='padding: 0px 20px'>
+    </td><td>
+      <label><input type='checkbox' name='xCode'
+        onclick='updExportView(this.form)'>Codes</label><br>
+      <label><input type='checkbox' name='xDesc'
+        onclick='updExportView(this.form)'>Notes</label><br>
+      <label><input type='checkbox' name='xSkDesc'
+        onclick='updExportView(this.form)'>Skill descriptions</label>
+    </td><td>
+      <label><input type='checkbox' name='xColor'
+        onclick='updExportView(this.form)'>Color</label><br>
+      <label><input type='checkbox' name='xLinks'
+        onclick='updExportView(this.form)'>Links to GWW</label><br>
+      <label><input type='checkbox' name='xPickup'
+        onclick='updExportView(this.form)'>Pickup</label>
+    </td>
+    </tr></table>
+  </div>
+  <div class='section'>
+    <span class='partType'>(Double-click on text to select all)</span>
+    <div id='buildExportContent' class='scroll partDesc'
+      ondblclick='dojo.html.selection.selectElementChildren(this)'>
+    </div>
+  </div>
+</div>
+
+<div id="teamRoster" class="roster"></div>
+
+<div id='toonInfo' class='toonInfo'>
+  <table class="inset"><tr>
+    <th class="soloBlock">Category</th>
+    <th>Profession</th>
+    <th class="teamBlock">Name</th>
+    <th>Level (+attrs)</th>
+    <th>Health</th>
+  </tr><tr style='vertical-align: top'><td class='soloBlock'>
+    <input type='checkbox' name='bPve'
+      onChange='chgBuildPve(this.checked)'>PvE
+    <select name="bType" onChange="chgBuildType(getSelectValue(this))"></select>
+  </td><td>
+    <select name="pPro1" onChange="chgToonPrimary(getSelectValue(this))"></select>
+    <select name="pPro2" onChange="chgToonSecondary(getSelectValue(this))"></select>
+  </td><td class="teamBlock">
+    <div class='toonPick'>
+      <select name="pToons"
+        onChange="chgToon(getSelectValue(this))"></select
+      ><br/><input class="pos" name="pPos" type="text" value='1. ' readonly
+      ><input class="name" name="pName" type="text"
+        maxlength='20'
+        onBlur="chgToonName(this.value)"
+        title="Name of character">
+    </div>
+  </td><td>
+    <select name="pLevel" onChange="chgToonLevel(getSelectValue(this))"></select>
+    &nbsp;(<select name="pBonusPoints"
+      onchange="chgToonBonusPoints(getSelectValue(this))"></select>)
+  </td><td>
+    <input type="text" name="pHealth" maxlength="7"
+      value="480/480" readonly size="7">
+  </td></tr></table>
+</div>
+
+<div id='attrGrid' class="insetTab">
+  <span class='withTabs'>
+    <input type='text' size='25' name='pImport'>
+    <button type='button' title='Import Anet or GB template code'
+      onclick="importToon(this.form.pImport.value);
+        this.form.pImport.value = '';"
+      >Import</button>
+  </span>
+  <ul class="insetTab">
+    <li><a href='' class="active" onclick="insetTabSelect(this, 0); return false">Attributes</a></li>
+    <li><a href='' onclick="insetTabSelect(this, 1); return false">Equipment</a></li>
+    <li><a href='' onclick="insetTabSelect(this, 2); return false">Notes</a></li>
+  </ul>
+  <br style="clear: both">
+  <div class="insetTabPane">
+    <div class="pvar-grid attrGrid"></div>
+  </div>
+  <div class="insetTabPane" style='display: none'>
+    <div class="pvar-item itemGrid">
+      <table border='0'><tr>
+        <td class='dim'><div class='pvar-toonBom clip'></div></td>
+        <td class='dim'><div class='pvar-itemBom clip'></div></td>
+        <td class='dim'><div class='pvar-partList scroll'></div></td>
+      </tr></table>
+    </div>
+  </div>
+  <div class="insetTabPane" style='display: none'>
+    <div class="editDesc">
+      <textarea class='pvar-desc firstFocus'
+        style='width: 100%'
+        rows='10' cols='80'
+        onchange="chgToonDesc(this.value)"></textarea>
+    </div>
+  </div>
+</div>
+
+<div id="skillbar" class="skillbar"></div>
+
   </div> <!-- hidden divs -->
 
 </body>

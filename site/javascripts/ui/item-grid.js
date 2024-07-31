@@ -46,7 +46,7 @@ var DDItemGrid = {
 
 //===========================================================================
 DDItemGrid.init = function() {
-  var el = dojo.byId('attrGrid');
+  var el = document.getElementById('attrGrid');
   DDItem.elems = loadVarElems(el);
 }
 

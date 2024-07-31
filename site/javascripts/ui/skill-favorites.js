@@ -121,7 +121,7 @@ function initSkillFavorites(el) {
     var skill = g_skillsById[favs[i1]];
     g_skillFavorites[i1] = skill;
   }
-  var elems = loadVarElems(dojo.byId('skillFavorites'));
+  var elems = loadVarElems(document.getElementById('skillFavorites'));
   elems.efactEl.innerHTML = drawEmptyFactory();
   if (elems.afactEl) elems.afact.innerHTML = drawAlternateFactory();
   elems.favsEl.innerHTML = drawSkillFavorites();
@@ -137,7 +137,7 @@ updSkillFavorites.prototype.changeKeys = {
 function updSkillFavorites(upd, attrSource) {
   if (!hasUpdateKey(upd, updSkillFavorites.prototype.changeKeys)) return;
 
-  var el = dojo.byId('skillFavorites');
+  var el = document.getElementById('skillFavorites');
   var kids = el.childNodes;
   for (var i1 = kids.length - 1; i1 >= 0; --i1) {
     el = kids[i1];

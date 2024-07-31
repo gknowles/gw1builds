@@ -60,10 +60,10 @@ DDTeamSlotGrid.drawTooltip = function(obj) {
 } // drawTooltip
 DDTeamSlotGrid.click = function(el, event, obj) {
   // obj = { id:<pos>, slotset:<Build> }
-  var gridEl = dojo.byId('attrGrid');
+  var gridEl = document.getElementById('attrGrid');
   if (this.lastToggleEl) {
     var hide = (el == this.lastToggleEl);
-    dojo.byId('hidden').appendChild(gridEl);
+    document.getElementById('hidden').appendChild(gridEl);
     this.lastToggleEl.src = '/images/toggle-closed.png';
     this.lastToggleEl = null;
     this.lastToon = null;
@@ -80,10 +80,10 @@ DDTeamSlotGrid.click = function(el, event, obj) {
   parentEl.appendChild(gridEl);
 } // DDTeamSlotGrid.click
 DDTeamSlotGrid.reattachGrid = function() {
-  var gridEl = dojo.byId('attrGrid');
+  var gridEl = document.getElementById('attrGrid');
   var el = this.lastToggleEl;
   if (!el) {
-    dojo.byId('hidden').appendChild(gridEl);
+    document.getElementById('hidden').appendChild(gridEl);
     return;
   }
   var parentEl = dojo.html.getParentByType(el, 'tr');
@@ -131,7 +131,7 @@ function teamMemberClose(el, event, obj) {
   var slot = obj.slotset.slotRefs()[obj.id];
   if (slot.value) {
     if (slot.value == DDTeamSlotGrid.lastToon) {
-      dojo.byId('attrGrid').style.display = 'none';
+      document.getElementById('attrGrid').style.display = 'none';
       if (DDTeamSlotGrid.lastToggleEl) {
         DDTeamSlotGrid.lastToggleEl.src = '/images/toggle-closed.png';
         DDTeamSlotGrid.lastToggleEl = null;
@@ -220,7 +220,7 @@ DDTeamSlotSkill.close = function(el, event, obj) {
 //
 /////////////////////////////////////////////////
 function initTeamRoster() {
-  var el = dojo.byId('teamRoster');
+  var el = document.getElementById('teamRoster');
   el.innerHTML = drawTeamRoster();
 }
 
@@ -355,7 +355,7 @@ function updTeamRoster(upd) {
   if (!hasUpdateKey(upd, updTeamRoster.prototype.changeKeys)) return;
 
   var team = upd.what || g_state.getTeam();
-  var el = dojo.byId('teamRoster');
+  var el = document.getElementById('teamRoster');
   var formEl = dojo.html.getParentByType(el, 'form');
   var rows = el.lastChild.rows; // div/table/rows
   var slots = team.slotRefs();
@@ -425,7 +425,7 @@ function updTeamRosterSkillbar(upd) {
   var pos = upd.pos;
   if (!toon || pos == null) return;
 
-  var el = dojo.byId('teamRoster');
+  var el = document.getElementById('teamRoster');
   var rows = el.lastChild.rows; // div/table/rows
   var td = rows[pos].firstChild;
   var sdivs = td.childNodes; // tr[i1]/td/divs[1]

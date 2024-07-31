@@ -333,7 +333,7 @@ PaneSet.prototype.drawTabs = function() {
     // set each pane tabEl from id
     for (var i1 = 0; i1 < this.panes.length; ++i1) {
       var pane = this.panes[i1];
-      pane.tabEl = dojo.byId(pane.tabId);
+      pane.tabEl = document.getElementById(pane.tabId);
     }
     if (this.pane && this.pane.tabEl) {
       dojo.html.addClass(this.pane.tabEl, 'active');

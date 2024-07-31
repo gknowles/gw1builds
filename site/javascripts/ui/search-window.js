@@ -195,7 +195,7 @@ SearchWindow.prototype.updResults = function() {
 } // updResults()
 
 SearchWindow.prototype.updDrilldown = function() {
-  var matchEl = dojo.byId("searchMatches");
+  var matchEl = document.getElementById("searchMatches");
   matchEl.innerHTML = this.filter.matched + " of " +
     this.filter.searched;
 

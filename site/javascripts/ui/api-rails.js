@@ -171,7 +171,7 @@ api.user = {
     // receives either 'bad' or 'check_id'
     function loginHandler(data) {
       if (data.result != 'check_id') return api.impl.handler(data);
-      var el = dojo.byId('hiddenIframe');
+      var el = document.getElementById('hiddenIframe');
       el.src = data.checkid_url;
     }
   }, // login
@@ -468,7 +468,7 @@ api.misc = {
     ];
     var method = 'api.misc.download';
     var url = api.impl.urls[method] || method;
-    var el = dojo.byId('hiddenIframe');
+    var el = document.getElementById('hiddenIframe');
     el.src = url + '?' + qs.join('&');
   }
 } // api.misc.*

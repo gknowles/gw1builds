@@ -2,7 +2,7 @@
 Copyright Glen Knowles 2006.
 Distributed under the Boost Software License, Version 1.0.
 
-urls_js.rhtml - gw1builds view welcome
+urls.js - gw1builds view welcome
 */
 
 function apiUrls() {

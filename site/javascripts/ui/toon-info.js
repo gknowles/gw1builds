@@ -248,7 +248,7 @@ function findAttrToon() {
 } // findAttrToon
 
 function isTeamRoster() {
-  var gridEl = dojo.byId('attrGrid');
+  var gridEl = document.getElementById('attrGrid');
   var tr = dojo.html.getParentByType(gridEl, 'tr');
   return (tr && dojo.html.hasClass(tr, 'toonslot'));
 }

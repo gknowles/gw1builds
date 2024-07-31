@@ -24,7 +24,7 @@ function updTeamView(el, team, fmt) {
       break;
     case 'export':
       var formEl = dojo.html.getParentByType(
-        dojo.byId('buildExport'), 'form');
+        document.getElementById('buildExport'), 'form');
       loadExportView(formEl);
       break;
   }
@@ -260,7 +260,7 @@ function updExportView(form) {
       out.push('<br/>\n');
     }
   }
-  var outEl = dojo.byId('buildExportContent');
+  var outEl = document.getElementById('buildExportContent');
   out = out.join('');
   outEl.innerHTML = out;
 } // updExportContent

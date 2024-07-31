@@ -95,7 +95,7 @@ DDMixPartList._showPart = function(el, event, obj, action) {
 
 
 DDMixPartList.initPartList = function() {
-  var elems = loadVarElems(dojo.byId(this.elemId));
+  var elems = loadVarElems(document.getElementById(this.elemId));
   this.elems = elems;
   var squery = this.squery;
   var sorts = this.sorts;

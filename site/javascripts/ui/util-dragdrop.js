@@ -165,7 +165,7 @@ var DDManager = {
     this.dragObj = obj;
     //console.log('drag start: ',[obj.id,obj.slot]);
     if (typeof htmlOrEl == 'string') { // drag a proxy around
-      this.dragEl = dojo.byId(this._proxyElId);
+      this.dragEl = document.getElementById(this._proxyElId);
       this.dragEl.innerHTML = htmlOrEl;
       this.isProxyEl = true;
     } else { // direct element drag
@@ -400,7 +400,7 @@ var DDManager = {
   _positionIndicator: function(side) {
     var indEl = this.dropIndicatorEl;
     if (indEl == null) {
-      indEl = dojo.byId('dropIndicator');
+      indEl = document.getElementById('dropIndicator');
       this.dropIndicatorEl = indEl;
     }
     this._hoverSide = side;
@@ -438,7 +438,7 @@ var DDManager = {
   // param element to position it neat
   // param HTML to fill tooltip
   _tooltip: function(baseEl, body, side, align, width) {
-  	var tipEl = dojo.byId("tipPopup");
+  	var tipEl = document.getElementById("tipPopup");
   	// dismissal or drag in progress? hide tips
     if (baseEl == null || body == null) {
       dojo.html.hide(tipEl);

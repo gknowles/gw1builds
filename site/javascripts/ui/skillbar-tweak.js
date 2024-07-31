@@ -151,7 +151,7 @@ DDSlotAttr.drawTooltip = function(obj) {
 // Skillbar stuff, tweak style
 /////////////////////////////////////////////////
 function initSkillbar() {
-  var el = dojo.byId('skillbar');
+  var el = document.getElementById('skillbar');
   el.innerHTML = drawSkillbar();
 } // initSkillbar()
 
@@ -217,7 +217,7 @@ function drawSkillbar() {
  */
 function setSkillbarMode(mode) {
   DDSkillSlot2.viewMode = mode;
-  var el = dojo.byId('skillbar');
+  var el = document.getElementById('skillbar');
   var rows = el.firstChild.rows; // div/table/rows
   for (var i1 = 0; i1 < rows.length; ++i1) {
     var td = rows[i1].firstChild;
@@ -254,7 +254,7 @@ function updSkillbar(upd) {
   if (!hasUpdateKey(upd, updSkillbar.prototype.changeKeys)) return;
   var toon = upd.what || g_state.getMember();
 
-  var el = dojo.byId('skillbar');
+  var el = document.getElementById('skillbar');
   var rows = el.firstChild.rows; // div/table/rows
   var slots = toon.slotRefs();
   var numSlots = Math.min(slots.length, rows.length);

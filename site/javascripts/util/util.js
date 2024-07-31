@@ -7,7 +7,7 @@ util.js - gw1builds util
 
 // This script is at <base>/javascripts/util/util.js, so resolve src relative
 // to <base>.
-var appRoot = new URL(document.currentScript.src, document.URL)
+let appRoot = new URL(document.currentScript.src, document.URL)
 appRoot = new URL('../..', appRoot)
 
 //===========================================================================
@@ -44,4 +44,27 @@ function appendScriptToHead(src) {
     url = new URL(src, url)
     script.src = url
     document.head.appendChild(script)
+}
+
+//===========================================================================
+// Generates html elements from array of elems, where each elem object has:
+//  name: element name
+//  props: properties (named values or functions) of element
+//  kids: array of elems to become child elements
+function addElems(elems, root) {
+    let self = root || document.currentScript
+    for (let i = tags.length - 1; i >= 0; --i) {
+        let el = document.createElement(tags[i].tag)
+        for (let prop in tags[i].props) {
+            el[prop] = tags[i].props[prop]
+        }
+        if (tags[i].kids !== undefined)
+            addElems(tags[i].kids, el)
+        if (root === undefined) {
+            self.insertAdjacentElement('afterend', el)
+            self = el
+        } else {
+            self.insertAdjacentElement('beforeend', el)
+        }
+    }
 }

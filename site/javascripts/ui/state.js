@@ -6,7 +6,7 @@ state.js - gw1builds ui
 */
 
 function updObjInfo(upd) {
-  var formEl = dojo.byId('stateActions');
+  var formEl = document.getElementById('stateActions');
   var obj = g_state.getBuild();
   var isMember = g_user.hasRole();
   if (upd.keys.user) {
@@ -22,7 +22,7 @@ function updObjInfo(upd) {
   if (upd.keys.characters) {
     formEl.fSave.style.display =
       (obj.access && obj.access.role >= User.EDITOR) ? '' : 'none';
-    dojo.byId('header_current').innerHTML = obj.fullName();
+    document.getElementById('header_current').innerHTML = obj.fullName();
   } // upd.characters
 } // updObjInfo(...)
 
@@ -203,7 +203,7 @@ function saveObj() {
     // json = { result:<result>, toon:<id,name,packed,desc> }
     if (badResultAlert(data)) return;
     g_state.updBaseline();
-    dojo.byId('header_current').innerHTML = obj.fullName();
+    document.getElementById('header_current').innerHTML = obj.fullName();
   } // handler(data)
 } // saveObj()
 

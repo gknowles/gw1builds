@@ -16,7 +16,7 @@ var g_initLevel = 0;
 function init() {
   g_initLevel += 1;
   if (g_initLevel < 2) return;
-  if (dojo.render.html.ie) {
+  if (false /* dojo.render.html.ie */) {
     dojo.html.insertCssFile("stylesheets/adjust-ie.css");
   }
 
@@ -188,10 +188,10 @@ function insetTabSelect(el, pos) {
 //============================================================================
 function initAjax() {
   api.beforeQuery = function(handler, method) {
-    dojo.html.addClass(dojo.byId('header'), 'waiting');
+    document.getElementById('header').classList.add('waiting');
   }
   api.beforeHandler = function(handler, method, obj) {
-    dojo.html.removeClass(dojo.byId('header'), 'waiting');
+    document.getElementById('header').classList.remove('waiting');
     //alertObject(obj);
   }
   api.impl.init();

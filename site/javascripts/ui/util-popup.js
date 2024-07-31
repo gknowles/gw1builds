@@ -42,7 +42,7 @@ var DDPopup = {
   popEl: null,
 
   getEl: function() {
-    return this.popEl || (this.popEl = dojo.byId('menuPopup'));
+    return this.popEl || (this.popEl = document.getElementById('menuPopup'));
   },
 
   show: function(baseEl, body, className) {
