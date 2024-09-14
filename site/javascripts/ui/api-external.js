@@ -22,8 +22,11 @@ api-browser.js - gw1builds ui
  * FUNCTIONS
  *   api.user.current
  *   api.user.signup
+ *   api.user.activate
  *   api.user.login
  *   api.user.logout
+ *   api.user.recoverActivation
+ *   api.user.resetPassword
  *   api.user.changePassword
  *   api.user.changeEmail
  *   api.group.list
@@ -34,11 +37,14 @@ api-browser.js - gw1builds ui
  *   api.group.kick_memeber
  *   api.group.join
  *   api.group.leave
- *   api.build.list
- *   api.build.create
- *   api.build.update
- *   api.build.destroy
- *   api.misc.download - return sent data as file download
+ *   api.team.list
+ *   api.team.create
+ *   api.team.update
+ *   api.team.destroy
+ *   api.toon.list
+ *   api.toon.create
+ *   api.toon.update
+ *   api.toon.destroy
  */
 
 var api = {
@@ -51,25 +57,53 @@ var api = {
 
 api.impl = {
   init: function() {
-      srv.mock.init()
+      api.impl.urls = apiUrls();
   },
 
   query: function(handler, method, qs) {
     api.beforeQuery(handler, method);
-    let res = srv.mock.query(method, qs)
-    if (res == null) {
-        res = errRes("Error processing method: " + method)
-    }
+    var url = this.urls[method];
+    //alert([url, qs]);
+    dojo.io.bind({
+      headers: {'X-Requested-With': 'XMLHttpRequest'},
+      method: 'post',
+      url: url,
+      handle: metaHandler,
+      mimetype: 'text/plain',
+      postContent: qs
+    });
     api.afterQuery(handler, method);
 
-    setTimeout(callback, 1)
+    function metaHandler(type, data, impl) {
+      if (type == 'load' &&
+        impl.responseText.substr(0, 11) != "Status: 500")
+      {
+        try {
+          var jsonStr = impl.getResponseHeader('X-JSON');
+          data = dojo.json.evalJson(jsonStr);
+        } catch(e) {
+          data = null;
+        }
+        if (data) {
+          api.beforeHandler(handler, method, data);
+          handler(data);
+          api.afterHandler(handler, method, data);
+          return;
+        }
+        data = { message: "Error parsing JSON response" }
+      }
+      var win = window.open("","errorWindow","");
+      var doc = win.document;
+      if (data && data.message) {
+        doc.write("<pre>" + data.message + "</pre><hr>");
+      }
+      doc.write(impl.responseText + "<hr>");
+      var jsonStr = impl.getResponseHeader('X-JSON');
+      if (jsonStr) doc.write(jsonStr + "<hr>");
+      doc.close();
+    } // metaHandler(type, obj, impl)
 
-    function callback() {
-        api.beforeHandler(handler, method, res);
-        handler(res);
-        api.afterHandler(handler, method, res);
-    }
-  },
+  }, // query(handler, method, qs)
 
   squeryArgs: function(scope, squery) {
     var qs = [];
@@ -86,7 +120,7 @@ api.impl = {
       }
     }
     return qs.join('&');
-  },
+  }, // squeryArgs
 
   squeryUpdate: function(squery, data) {
     if (squery != null) {
@@ -107,7 +141,7 @@ api.impl = {
         squery.pages.pageSize = data.pages.pageSize;
       }
     }
-  },
+  } // squeryUpdate
 }
 
 
@@ -119,7 +153,7 @@ api.user = {
   * { result: 'ok', user: { id:, name:, role: }
   */
   current: function(handler) {
-    api.impl.query(api.group._listShim(handler), 'api.user.current', '');
+    api.impl.query(handler, 'api.user.current', '');
   }, // current
 
  /**
@@ -139,6 +173,22 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.signup', qs);
   }, // signup
+
+ /**
+  * Activate a created account so that it can be used. Generally
+  * used to verify the address by emailing the key needed to activate
+  * the account.
+  *
+  * handler gets:
+  * { result:, errors:, user: { id:, name: } }
+  */
+  activate: function(handler, name, key) {
+    var qs = [
+      'name=' + encodeURIComponent(name),
+      'activation_key=' + encodeURIComponent(key)
+    ].join('&');
+    api.impl.query(handler, 'api.user.activate', qs);
+  }, // activate
 
  /**
   * Login using an existing and activated account.
@@ -169,6 +219,34 @@ api.user = {
   logout: function(handler) {
     api.impl.query(handler, 'api.user.logout', '');
   }, // logout
+
+ /**
+  * Generate and email a new password for account with the given
+  * email address.
+  *
+  * handler gets:
+  * { result:, errors:, user: { id:, name:, role: } }
+  */
+  recoverActivation: function(handler, name) {
+    var qs = [
+      'user[name]=' + encodeURIComponent(name)
+    ].join('&');
+    api.impl.query(handler, 'api.user.recoverActivation', qs);
+  }, // recoverActivation
+
+ /**
+  * Generate and email a new password for account with the given
+  * email address.
+  *
+  * handler gets:
+  * { result:, errors:, user: { id:, name:, role: } }
+  */
+  resetPassword: function(handler, email) {
+    var qs = [
+      'user[email]=' + encodeURIComponent(email)
+    ].join('&');
+    api.impl.query(handler, 'api.user.resetPassword', qs);
+  }, // resetPassword
 
   changePassword: function(handler, user) {
     var qs = ['user[password_old]=' + encodeURIComponent(user.passOld),

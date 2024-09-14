@@ -11,8 +11,7 @@ build-list.js - gw1builds ui
  * - delegated click function
  */
 var DDBuildList = DDPolicy;
-Object.assign(DDBuildList, DDMixPartList)
-Object.assign(DDBuildList, {
+Object.assign(DDBuildList, DDMixPartList, {
   ddPolicyName: 'DDBuildList',
   elemId: 'buildList',
   partType: 'build',

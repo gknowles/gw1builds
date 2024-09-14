@@ -27,11 +27,7 @@ function Build(name, id, isTeam, isPve, type, desc, numSlots) {
     SlotSet.call(this, numSlots || 1, 'teamRoster');
   }
 }
-// These three statements mirror the way dojo.inherits works,
-// but we're trying to keep model/*.js dependency free
-Build.prototype = new SlotSet;
-Build.prototype.constructor = Build;
-Build.prototype.superclass = SlotSet.prototype;
+inherits(Build, SlotSet)
 
 
 /**

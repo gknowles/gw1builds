@@ -77,7 +77,7 @@ function setFirstFocus(parentEl, select) {
   var focusEl = dojo.html.getElementsByClass('firstFocus', parentEl)[0];
   if (focusEl) {
     if (dojo.html.hasClass(focusEl, 'firstSelect')) select = true;
-    dojo.lang.setTimeout(
+    setTimeout(
       function() {
         focusEl.focus();
         if (select && focusEl.select) focusEl.select();
@@ -93,7 +93,7 @@ function enterSubmits(el, event) {
   if (key == event.KEY_ENTER) {
     var subEl = el.form['submit'];
     if (subEl) {
-      dojo.lang.setTimeout(function() { subEl.click(); }, 1);
+      setTimeout(function() { subEl.click(); }, 1);
     }
     return false;
   }

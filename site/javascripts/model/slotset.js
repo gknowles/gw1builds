@@ -428,7 +428,7 @@ SlotSet.prototype.slotRefs = function(inclNulls/*=true*/) {
 
 
 SlotSet.prototype.slotValue = function(pos, alt) {
-  if (dojo.lang.isString(pos)) {
+  if (isString(pos)) {
     alt = this.bulletAlt(pos);
     pos = this.bulletPos(pos);
   } else {

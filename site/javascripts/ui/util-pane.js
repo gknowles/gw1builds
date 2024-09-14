@@ -320,13 +320,13 @@ PaneSet.prototype.drawTabs = function() {
   //alert(html);
   if (this.menuEl) {
     var el = this.menuEl;
-    // This little hide/show dance is to force firefox to reflow
-    // the menu, otherwise a 'float: right' menu may show dead space
-    // if the menu has become narrower. It would self corrects on the
-    // next reflow, but that could be a while.
+    // This little hide/show dance is to force firefox to reflow the menu,
+    // otherwise a 'float: right' menu may show dead space if the menu has
+    // become narrower. It would self correct on the next reflow, but that
+    // could be a while.
     el.style.display = 'none';
     el.innerHTML = html;
-    dojo.lang.setTimeout(
+    setTimeout(
       function() { el.style.display = ''; },
       1
     );

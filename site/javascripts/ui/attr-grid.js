@@ -73,7 +73,7 @@ function drawAttrGrid() {
       "<td onMouseOver=\"DDAttr.over(this, event, {name: 'WS'})\"",
         " onMouseOut='DDAttr.out(this, event)'");
 
-    var chkattr = "<img class='checkmark' src='/images/checkmark.png'>" +
+    var chkattr = "<img class='checkmark' src='../../images/checkmark.png'>" +
       "<span class='attr'>Wilderness Survival</span>"; // widest attr
 
     // secondary prof attr - span 2 cols, no rune dropdown ftw.

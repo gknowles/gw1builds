@@ -13,7 +13,7 @@ Common functions and variables
 function SkillDimensionAttribute(disabled) {
   this.init(disabled, 'Attribute', 'attr');
 }
-Object.assign(SkillDimensionAttribute.prototype, SearchDimension);
+inherits(SkillDimensionAttribute, SearchDimension);
 
 //===========================================================================
 SkillDimensionAttribute.prototype.compareValues = function(a,b) {
@@ -32,7 +32,7 @@ SkillDimensionAttribute.prototype.compareValues = function(a,b) {
 function SkillDimensionCategory(disabled) {
   this.init(disabled, 'Category', 'categories');
 }
-Object.assign(SkillDimensionCategory.prototype, SearchDimension);
+inherits(SkillDimensionCategory, SearchDimension);
 
 //===========================================================================
 SkillDimensionCategory.prototype.addObject = function(obj) {
@@ -62,7 +62,7 @@ SkillDimensionCategory.prototype.include = function(obj) {
 function SkillDimensionTag(disabled) {
   this.init(disabled, 'Tag', 'tags');
 }
-Object.assign(SkillDimensionTag.prototype, SearchDimension);
+inherits(SkillDimensionTag, SearchDimension);
 
 //===========================================================================
 SkillDimensionTag.prototype.addObject = function(obj) {
@@ -92,7 +92,7 @@ SkillDimensionTag.prototype.include = function(obj) {
 function SkillDimensionProfession(disabled) {
   this.init(disabled, 'Profession', 'pro', 4, 12);
 }
-Object.assign(SkillDimensionProfession.prototype, SearchDimension);
+inherits(SkillDimensionProfession, SearchDimension);
 
 //===========================================================================
 SkillDimensionProfession.prototype.addObject = function(obj) {
@@ -112,7 +112,7 @@ SkillDimensionProfession.prototype.addObject = function(obj) {
 function SkillDimensionType(disabled) {
   this.init(disabled, 'Type', 'type');
 }
-Object.assign(SkillDimensionType.prototype, SearchDimension);
+inherits(SkillDimensionType, SearchDimension);
 
 //===========================================================================
 SkillDimensionType.prototype.compareValues = function(a,b) {
@@ -132,7 +132,7 @@ SkillDimensionType.prototype.compareValues = function(a,b) {
 function SkillSearchFilter(dims) {
   this.init(dims);
 }
-Object.assign(SkillSearchFilter.prototype, SearchFilter);
+inherits(SkillSearchFilter, SearchFilter);
 
 //===========================================================================
 SkillSearchFilter.prototype.getKey = function(obj) {

@@ -42,7 +42,7 @@ DDSkillSlot2.rejectedDrop = function(obj, dragObj) {
   if (dragObj.type.skill) {
     var toon = obj.slotset;
     var skill = dragObj.value;
-    dojo.lang.setTimeout(function() {
+    setTimeout(function() {
         alert(toon.primary.name + '/' + toon.secondary.name +
           " can't use [" + skill.name + "]");
       },

@@ -68,3 +68,42 @@ function addElems(elems, root) {
         }
     }
 }
+
+//===========================================================================
+// Modify derived class so that it's superclass is base.
+function inherits(derived, base) {
+    if (typeof base != 'function') {
+        alert("The base class '" + base.toString() + "' must be a function.")
+    }
+    derived.prototype = new base();
+    derived.prototype.constructor = derived;
+    derived.superclass = base.prototype;
+}
+
+//===========================================================================
+function isArray(val) {
+    return Array.isArray(val)
+        || val && val instanceof Array;
+}
+
+//===========================================================================
+function isString(val) {
+    return !!arguments.length && val != null
+        && (typeof val == "string" || val instanceof String)
+}
+
+//===========================================================================
+function show(elem) {
+    if (elem.style.display != 'none' && elem.style.display != '') {
+        alert("Using show on element with non-standard display style.")
+    }
+    elem.style.removeProperty('display')
+}
+
+//===========================================================================
+function hide(elem) {
+    if (elem.style.display != 'none' && elem.style.display != '') {
+        alert("Using show on element with non-standard display style.")
+    }
+    elem.style.display = 'hide'
+}

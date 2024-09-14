@@ -50,6 +50,9 @@ var cssHover = {
 <script src="../../javascripts/model/data-equip.js"></script>
 <script src="../../images/skills/skill-tiles-pos.js"></script>
 
+<script src="../../javascripts/server/model.js"></script>
+<script src="../../javascripts/server/mock.js"></script>
+
 <script src="../../javascripts/model/util.js"></script>
 <script src="../../javascripts/model/base64codec.js"></script>
 <script src="../../javascripts/model/slotset.js"></script>
@@ -735,13 +738,13 @@ opts.pane = new Pane({
   toggleToonDetail: function(openEl) {
     var divEl = this.elems.edit.toonDetailEl;
     if (this.isToonDetailOpen) {
-      openEl.src = '/images/toggle-closed.png';
+      openEl.src = '../..images/toggle-closed.png';
       openEl.onmouseover = new Function("event",
         "DDToonAttrs.over(this, event, {toon: g_state.getMember()})");
       divEl.style.display = 'none';
       this.isToonDetailOpen = false;
     } else {
-      openEl.src = '/images/toggle-open.png';
+      openEl.src = '../..images/toggle-open.png';
       openEl.onmouseover = null;
       divEl.style.display = '';
       this.isToonDetailOpen = true;
@@ -752,11 +755,11 @@ opts.pane = new Pane({
   toggleSkillbar: function(openEl) {
     var sb2 = this.elems.edit.skillbar2El;
     if (this.isSkillbarOpen) {
-      openEl.src = '/images/toggle-closed.png';
+      openEl.src = '../..images/toggle-closed.png';
       setSkillbarMode( {basic: true} );
       this.isSkillbarOpen = false;
     } else {
-      openEl.src = '/images/toggle-open.png';
+      openEl.src = '../..images/toggle-open.png';
       setSkillbarMode( {tweak: true} );
       this.isSkillbarOpen = true;
     }
@@ -782,9 +785,9 @@ div above and table below to prevent IE from 'bouncing' -->
           >Import</button>
       </span>
       <img class="pvar-toonDetailOpen openClose"
-      src="/images/toggle-open.png"
-      onclick="<%= paneRef %>.toggleToonDetail(this)"
-      onmouseout="DDToonAttrs.out(this, event)">
+        src="../../images/toggle-open.png"
+        onclick="<%= paneRef %>.toggleToonDetail(this)"
+        onmouseout="DDToonAttrs.out(this, event)">
       Character
     </h2>
     <div class="pvar-toonInfo"></div>
@@ -803,7 +806,7 @@ div above and table below to prevent IE from 'bouncing' -->
             >+ Alt</button>
         </span>
         <img class="pvar-skillbar2Mode openClose"
-          src="/images/toggle-closed.png"
+          src="../../images/toggle-closed.png"
           onclick="<%= paneRef %>.toggleSkillbar(this)">
         Skillbar
       </h2>

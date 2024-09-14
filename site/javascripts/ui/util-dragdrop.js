@@ -200,10 +200,7 @@ var DDManager = {
 
     document.body.style.cursor = 'move';
 
-    dojo.lang.setTimeout(function() {
-        dijit._editor.selection.remove();
-      },
-      100);
+    setTimeout(function() { dijit._editor.selection.remove(); }, 100);
   },
 
   up: function(el, event, obj, policy) {

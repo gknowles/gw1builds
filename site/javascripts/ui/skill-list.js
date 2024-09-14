@@ -11,8 +11,7 @@ skill-list.js - gw1builds ui
  *  - drag source for skill objects
  */
 var DDSkillList = Object.create(DDPolicy)
-Object.assign(DDSkillList, DDMixPartList)
-Object.assign(DDSkillList, {
+Object.assign(DDSkillList, DDMixPartList, {
   ddPolicyName: 'DDSkillList',
   elemId: 'skillList',
   partType: 'skill',
@@ -103,7 +102,7 @@ DDSkillList.init = function() {
 //===========================================================================
 DDSkillList.updRoot = function(upd) {
   this.elems.matchesEl.innerHTML = 'Loading...';
-  dojo.lang.setTimeout(updRoot, 1, upd || {keys: this.changeKeys} );
+  setTimeout(updRoot, 1, upd || {keys: this.changeKeys} );
 }
 
 //===========================================================================
@@ -270,10 +269,10 @@ DDSkillList.updWidget = function(upd, initOnly/*=false*/) {
     } else if (this.viewMode == this.LIST) {
       updSkillSimpleList(this.squery.values, null);
     } else { // must be this.DETAIL
-      var method = dojo.render.html.ie ? updSkillDetailList_Draw :
-        updSkillDetailList_Swap;
-      dojo.lang.setTimeout(method, 1,
-        this.squery.values, null);
+      var method = /*dojo.render.html.ie=*/false
+        ? updSkillDetailList_Draw
+        : updSkillDetailList_Swap;
+      setTimeout(method, 1, this.squery.values, null);
     }
   } // if filter changed
 }
@@ -324,7 +323,7 @@ function updSkillIconList(skills, attrSource, opts) {
   var elems = DDSkillList.elems;
   if (elems.matchesEl) {
     elems.matchesEl.innerHTML = "Loading...";
-    dojo.lang.setTimeout(function(){
+    setTimeout(function(){
       setInnerHtml(elems.listEl, out);
       elems.matchesEl.innerHTML =
         skills.matches + " of " + skills.count;

@@ -8,6 +8,40 @@ Client side data storage
 */
 
 /////////////////////////////////////////////////
+// functions
+/////////////////////////////////////////////////
+function Store() {
+}
+
+Store.prototype.get = function(key) {
+  return localStorage.getItem(key);
+}
+
+Store.prototype.set = function(key, val) {
+  return localStorage.setItem(key, val, function(){});
+}
+
+Store.prototype.getKeys = function() {
+    let keys = []
+    for (let i = 0; i < localStorage.length; ++i) {
+        let val = localStorage.key(i)
+        if (val == null)
+            break
+        keys.push(val)
+    }
+    return keys
+}
+
+Store.prototype.remove = function(key) {
+  localStorage.removeItem(key);
+}
+
+Store.prototype.clear = function(key) {
+  localStorage.clear();
+}
+
+
+/////////////////////////////////////////////////
 // Static Data
 /////////////////////////////////////////////////
 // storage keys
@@ -24,32 +58,6 @@ Store.prototype.keys = {
   SKILLBAR_MODE: 'skillbarMode',
   TOON_AUTOADJUST: "toonAutoadjust",
   TOON_DETAIL_OPEN: 'toonDetailOpen'
-}
-
-/////////////////////////////////////////////////
-// functions
-/////////////////////////////////////////////////
-function Store() {
-}
-
-Store.prototype.get = function(key) {
-  return dojox.storage.get(key);
-}
-
-Store.prototype.set = function(key, val) {
-  return dojox.storage.put(key, val, function(){});
-}
-
-Store.prototype.getKeys = function() {
-  return dojox.storage.getKeys();
-}
-
-Store.prototype.remove = function(key) {
-  dojox.storage.remove(key);
-}
-
-Store.prototype.clear = function(key) {
-  dojox.storage.clear();
 }
 
 

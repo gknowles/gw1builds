@@ -64,14 +64,14 @@ DDTeamSlotGrid.click = function(el, event, obj) {
   if (this.lastToggleEl) {
     var hide = (el == this.lastToggleEl);
     document.getElementById('hidden').appendChild(gridEl);
-    this.lastToggleEl.src = '/images/toggle-closed.png';
+    this.lastToggleEl.src = '../../images/toggle-closed.png';
     this.lastToggleEl = null;
     this.lastToon = null;
     if (hide) return;
   }
   var parentEl = dojo.html.getParentByType(el, 'tr');
   parentEl = dojo.html.getParentByType(parentEl, 'td');
-  el.src = '/images/toggle-open.png';
+  el.src = '../../images/toggle-open.png';
   var toon = obj.slotset.slotRefs()[obj.id].value;
   this.lastToggleEl = el;
   this.lastToon = toon;
@@ -133,7 +133,7 @@ function teamMemberClose(el, event, obj) {
     if (slot.value == DDTeamSlotGrid.lastToon) {
       document.getElementById('attrGrid').style.display = 'none';
       if (DDTeamSlotGrid.lastToggleEl) {
-        DDTeamSlotGrid.lastToggleEl.src = '/images/toggle-closed.png';
+        DDTeamSlotGrid.lastToggleEl.src = '../../images/toggle-closed.png';
         DDTeamSlotGrid.lastToggleEl = null;
       }
       DDTeamSlotGrid.lastToon = null;
@@ -156,8 +156,7 @@ var teamMemberShow = null; // function('view' or 'edit', toon)
  * with full skill description
  */
 var DDTeamSlotSkill = Object.create(DDPolicy);
-Object.assign(DDTeamSlotSkill, DDMixSlotDrop);
-Object.assign(DDTeamSlotSkill, DDMixSlotReverseDrop);
+Object.assign(DDTeamSlotSkill, DDMixSlotDrop, DDMixSlotReverseDrop);
 DDTeamSlotSkill.slotType = 'skill';
 DDTeamSlotSkill.orientation = 'horizontal';
 DDTeamSlotSkill.maxSlots = MAX_SKILL_SLOTS;
@@ -198,7 +197,7 @@ DDTeamSlotSkill.rejectedDrop = function(obj, dragObj) {
   if (dragObj.type.skill) {
     var toon = obj.slotset;
     var skill = dragObj.value;
-    dojo.lang.setTimeout(alert, 1, toon.primary.name + '/' +
+    setTimeout(alert, 1, toon.primary.name + '/' +
       toon.secondary.name + " can't use [" + skill.name + "]");
   }
 };
@@ -251,7 +250,7 @@ function drawTeamRoster() {
 
     var toonKey = 'g_state.getBuild().slotRefs()[' + i1 + '].value';
     var openIcon = '<img class="openClose"' +
-      ' src="/images/toggle-closed.png"' +
+      ' src="../../images/toggle-closed.png"' +
       ' onclick="DDTeamSlotGrid.click' + args + '"' +
       ' onmouseover="DDTeamSlotGrid.over' + args + '"' +
       ' onmouseout="DDTeamSlotGrid.out' + args + '"' +

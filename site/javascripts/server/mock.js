@@ -1,23 +1,13 @@
 /*
-Copyright Glen Knowles 2006 - 2024.
+Copyright Glen Knowles 2024.
 Distributed under the Boost Software License, Version 1.0.
 
-api-browser.js - gw1builds ui
+mock.js - gw1builds server
 */
 
 /**
- * Defines the interface to the backend authentication and data
- * storage, primary goals are:
- * - single point of definition for enums, constants etc
- * - minimize number of round trips required
- * - allow for the possibility of some enterprising soul implementing
- *   a backend for a different application stack
- *
- * EVENTS
- *   api.beforeQuery
- *   api.afterQuery
- *   api.beforeHandler
- *   api.afterHandler
+ * Mock of backend server that exists on the browser and stores data in
+ * local storage.
  *
  * FUNCTIONS
  *   api.user.current
@@ -41,85 +31,188 @@ api-browser.js - gw1builds ui
  *   api.misc.download - return sent data as file download
  */
 
-var api = {
-  beforeQuery: function(handler, method) {},
-  afterQuery: function(handler, method) {},
-  beforeHandler: function(handler, method, data) {},
-  afterHandler: function(handler, method, data) {}
-}
+var srv = {}
 
+srv.mock = {
+  data: {
+    currentUser: {},
+    users: [],
+    usersByName: {},
+    groups: [],
+    toons: [],
+    teams: [],
+  },
 
-api.impl = {
   init: function() {
-      srv.mock.init()
+    let smd = srv.mock.data
+    var keys = g_store.getKeys();
+    for (var k in keys) {
+      var pre = k.split('.');
+      if (pre.length != 2) continue;
+      let id = Number.parseInt(pre[1])
+      if (Number.isNaN(id)) continue;
+      let obj = JSON.parse(g_store.get(k))
+      switch (pre[0]) {
+        case 'user':
+            if (obj.name == undefined)
+                continue
+            smd.users[id] = obj
+            smd.usersByName[obj.name] = id
+            break;
+        case 'group':
+            smd.groups[id] = obj
+            break;
+        case 'toon':
+            smd.toons[id] = obj
+            break;
+        case 'team':
+            smd.team[id] = obj;
+            break;
+      }
+    }
+    if (smd.users.length == 0) {
+        let u = { id: 1, name: "Local Account", role: User.MEMBER }
+        smd.users[u.id] = u
+        smd.usersByName[u.name] = u.id
+        let key = 'user.' + u.id.toString()
+        g_store.set(key, u)
+    }
+    smd.currentUser = smd.users[1]
+  }, // init
+
+  addNext: function(arr, obj) {
+      let id = arr.nextId || 0
+      while (arr[id]) {
+          id += 1
+      }
+      arr.nextId = id
+      obj.id = id
+      arr[id] = obj
+      return id
   },
 
-  query: function(handler, method, qs) {
-    api.beforeQuery(handler, method);
-    let res = srv.mock.query(method, qs)
-    if (res == null) {
-        res = errRes("Error processing method: " + method)
-    }
-    api.afterQuery(handler, method);
+  query: function(method, qs) {
+    let qry = new URLSearchParams(qs)
 
-    setTimeout(callback, 1)
-
-    function callback() {
-        api.beforeHandler(handler, method, res);
-        handler(res);
-        api.afterHandler(handler, method, res);
+    // Transform qry into params so that a[b][c]=d in qry makes params.a.b.c
+    // equal to d.
+    let params = {}
+    for (let [k, v] of qry.entries()) {
+        this.addParam(params, k, v)
     }
+
+    let methods = method.split('.')
+    if (methods.length != 3 || methods[0] != 'api')
+        return errRes("Invalid method '" + method + "'")
+    let op = this[methods[1]]
+    if (op != undefined)
+        op = op[methods[2]]
+    if (typeof op != 'function')
+        return errRes("Unknown method '" + method + "'")
+    return op(params)
   },
 
-  squeryArgs: function(scope, squery) {
-    var qs = [];
-    if (squery) {
-      if (squery.filter) {
-        qs.push(scope + "[filter]=" + squery.filter.exportSelected());
+  addParam: function(params, key, value) {
+      let obj = params
+      let pos = key.indexOf('[')
+      while (pos != -1) {
+          let epos = key.indexOf(']', pos)
+          if (epos == -1)
+              break
+          if (obj[key.slice(0, pos)] == undefined)
+              obj[key.slice(0, pos)] = {}
+          obj = obj[key.slice(0, pos)]
+          key = key.slice(pos, epos) + key.slice(epos + 1)
+          pos = key.indexOf('[')
       }
-      if (squery.sort && squery.sort.key) {
-        qs.push(scope + "[sort]=" + encodeURIComponent(squery.sort.key));
-      }
-      if (squery.pages) {
-        qs.push(scope + "[page]=" + squery.pages.current,
-          scope + "[pageSize]=" + squery.pages.pageSize);
-      }
-    }
-    return qs.join('&');
+      obj[key] = decodeURIComponent(value)
   },
 
-  squeryUpdate: function(squery, data) {
-    if (squery != null) {
-      var matches = {}
-      var list = data.list || [];
-      for (var i1 = 0; i1 < list.length; ++i1) {
-        var val = list[i1];
-        matches[squery.filter.getKey(val)] = val;
+  errRes: function(msg) {
+      return { result: 'bad', errors: [msg] }
+  },
+
+  ensureMember: function(res, minRole = User.MEMBER) {
+      if (data.currentUser.name == undefined) {
+          res = errRes("State: Authorization required")
+          return false
       }
-      squery.changed = true;
-      squery.values = list;
-      squery.filter.searched = data.searched;
-      squery.filter.matched = data.matched;
-      squery.filter.matches = matches;
-      if (data.pages) {
-        squery.pages.current = data.pages.current;
-        squery.pages.count = data.pages.count;
-        squery.pages.pageSize = data.pages.pageSize;
+      if (data.currentUser.role < minRole) {
+          res = errRes("Access denied")
+          return false
       }
-    }
+      return true
+  },
+
+  ensureGuest: function(res) {
+      if (data.currentUser.name != undefined
+          || data.currentUser.role != User.GUEST
+      ) {
+          res = errRes("State: You're currently logged in!")
+          return false
+      }
+      return true
+  },
+
+  ensurePresenceOf: function(res, obj, nodes) {
+      let errs = []
+      return true
+  },
+
+  ensureGroupMember: function(res, params, minRole) {
+      if (!ensurePresenceOf(res, params, 'group.name'))
+          return false
+      for (let g of data.groups) {
+          if (g.name == params.group.name
+              && g.members[data.currentUser.id] != undefined
+              && g.members[data.currentUser.id] >= minRole
+          ) {
+              params.group.id = g.id
+              return true
+          }
+      }
+      res = errRes("group.id: No acciessible matching group")
+      return false
+  },
+
+  getGroupList: function(res) {
+      let grps = []
+      for (let grp in this.data.groups) {
+          let role = grp.users[res.user.id] || 0
+          if (role >= User.MEMBER) {
+              let nmbrs = 0
+              for (let role of grp.users.values()) {
+                  if (role >= User.MEMBER)
+                      nmbrs += 1
+              }
+              grps.push({
+                  name: grp.name,
+                  id: grp.id,
+                  groupRole: role,
+                  numMembers: nmbrs,
+              })
+          }
+      }
+      res.group = {
+          list: grps,
+      }
   },
 }
 
 
-api.user = {
+srv.mock.user = {
  /**
   * Query user info for current session
   *
   * handler gets:
   * { result: 'ok', user: { id:, name:, role: }
   */
-  current: function(handler) {
-    api.impl.query(api.group._listShim(handler), 'api.user.current', '');
+  current: function(params) {
+    let smd = srv.mock.data
+    if (smd.currentUser.id == undefined) {
+        smd.currentUser = { role: User.GUEST }
+    }
+    return { result: 'ok', user: smd.currentUser }
   }, // current
 
  /**
@@ -129,16 +222,54 @@ api.user = {
   * handler gets:
   * { result:, errors:, user: { id:, name: } }
   */
-  signup: function(handler, user) {
-    var qs = [
-      'user[name]=' + encodeURIComponent(user.name),
-      'user[password]=' + encodeURIComponent(user.pass),
-      'user[password_confirmation]=' + encodeURIComponent(user.passCopy),
-      'user[email]=' + encodeURIComponent(user.email),
-      'user[email_confirmation]=' + encodeURIComponent(user.emailCopy)
-    ].join('&');
-    api.impl.query(handler, 'api.user.signup', qs);
+  signup: function(params) {
+      let res = {}
+      if (!ensureGuest(res) || !ensurePresenceOf(res, params,
+          'user.name',
+          'user.password',
+          'user.password_confirmation',
+          'user.email',
+          'user.email_confirmation',
+      )) {
+          return res
+      }
+
+      if (params.user.password != params.user.password_confirmation)
+          return errRes("Password must be entered the same way twice.")
+      if (params.user.email != params.user.email_confirmation)
+          return errRes("Email must be entered the same way twice.")
+
+      let smd = srv.mock.data
+      let id = smd.usersByName[params.user.name]
+      if (id != undefined)
+          return errRes("User name '" + params.user.name + "' already exists.")
+      let u = {
+          name: params.user.name,
+          role: User.MEMBER,
+          email: params.user.email,
+      }
+      this.addNext(smd.users, u)
+      smd.usersByName[u.name] = u.id
+      res = { result: 'ok', user: u }
+      getGroupList(res)
+      return res
   }, // signup
+
+ /**
+  * Activate a created account so that it can be used. Generally
+  * used to verify the address by emailing the key needed to activate
+  * the account.
+  *
+  * handler gets:
+  * { result:, errors:, user: { id:, name: } }
+  */
+  activate: function(handler, name, key) {
+    var qs = [
+      'name=' + encodeURIComponent(name),
+      'activation_key=' + encodeURIComponent(key)
+    ].join('&');
+    api.impl.query(handler, 'api.user.activate', qs);
+  }, // activate
 
  /**
   * Login using an existing and activated account.
@@ -170,6 +301,34 @@ api.user = {
     api.impl.query(handler, 'api.user.logout', '');
   }, // logout
 
+ /**
+  * Generate and email a new password for account with the given
+  * email address.
+  *
+  * handler gets:
+  * { result:, errors:, user: { id:, name:, role: } }
+  */
+  recoverActivation: function(handler, name) {
+    var qs = [
+      'user[name]=' + encodeURIComponent(name)
+    ].join('&');
+    api.impl.query(handler, 'api.user.recoverActivation', qs);
+  }, // recoverActivation
+
+ /**
+  * Generate and email a new password for account with the given
+  * email address.
+  *
+  * handler gets:
+  * { result:, errors:, user: { id:, name:, role: } }
+  */
+  resetPassword: function(handler, email) {
+    var qs = [
+      'user[email]=' + encodeURIComponent(email)
+    ].join('&');
+    api.impl.query(handler, 'api.user.resetPassword', qs);
+  }, // resetPassword
+
   changePassword: function(handler, user) {
     var qs = ['user[password_old]=' + encodeURIComponent(user.passOld),
       'user[password]=' + encodeURIComponent(user.pass),
@@ -190,7 +349,7 @@ api.user = {
 } // api.user.*
 
 
-api.group = {
+srv.mock.group = {
   /**
    * handler gets:
    * { result:, errors:,
@@ -285,7 +444,7 @@ api.group = {
 } // api.group.*
 
 
-api.team = {
+srv.mock.team = {
   /*
    * A team is returned to a handler with:
    * team.id // unique identifier
@@ -429,7 +588,7 @@ api.team = {
 } // api.team.*
 
 
-api.toon = {
+srv.mock.toon = {
   /*
    * A toon is returned to a handler with:
    * toon.id // unique identifier
@@ -553,4 +712,4 @@ api.toon = {
     }
   } // _toonListShim
 
-} // api.toon.*
+}

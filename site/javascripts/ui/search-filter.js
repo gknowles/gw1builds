@@ -216,7 +216,7 @@ SearchFilter.prototype.updValues = function(objs) {
     dims[i1].removeValues();
   }
 
-  if (dojo.lang.isArrayLike(objs)) {
+  if (Array.isArray(objs)) {
     for (var i2 = 0; i2 < objs.length; ++i2) {
       var obj = objs[i2];
       if (obj) updValue(this.getKey(obj), obj);
@@ -298,7 +298,7 @@ SearchQuery.prototype.sortedArray = function(values, filter, sort) {
   if (filter == null) filter = this.filter;
   if (sort == null) sort = this.sort;
 
-  if (dojo.lang.isArray(values)) {
+  if (Array.isArray(values)) {
     out.count = values.length;
     for (var i1 = 0; i1 < values.length; ++i1) {
       var val = values[i1];
@@ -315,7 +315,7 @@ SearchQuery.prototype.sortedArray = function(values, filter, sort) {
   }
   out.matches = out.length;
   var cmpFn, grpFn;
-  if (!dojo.lang.isArray(sort)) {
+  if (!Array.isArray(sort)) {
     cmpFn = sort.compare;
     grpFn = sort.group;
   } else {

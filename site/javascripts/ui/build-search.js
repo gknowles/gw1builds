@@ -12,7 +12,7 @@ build-search.js - gw1builds ui
 function BuildDimension(disabled, name, propName, minSize, maxSize) {
   this.init(disabled, name, propName, minSize, maxSize);
 }
-Object.assign(BuildDimension, SearchDimension);
+inherits(BuildDimension, SearchDimension);
 
 //===========================================================================
 BuildDimension.getValueArray = function() {
@@ -38,7 +38,7 @@ BuildDimension.getValueArray = function() {
 function BuildDimensionViewer(disabled) {
   this.init(disabled, 'Viewer', 'access.viewer');
 }
-Object.assign(BuildDimensionViewer, BuildDimension);
+inherits(BuildDimensionViewer, BuildDimension);
 
 
 /////////////////////////////////////////////////
@@ -48,7 +48,7 @@ Object.assign(BuildDimensionViewer, BuildDimension);
 function BuildSearchFilter(dims) {
   this.init(dims);
 }
-Object.assign(BuildSearchFilter.prototype, SearchFilter.prototype);
+inherits(BuildSearchFilter, SearchFilter);
 
 //===========================================================================
 BuildSearchFilter.getKey = function(obj) {
