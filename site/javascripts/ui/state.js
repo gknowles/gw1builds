@@ -112,7 +112,7 @@ function updObjSaveAsSelect(el) {
   var toon = team.slotValue(bullet);
   var nameEl = el.form.name;
   nameEl.value = toon.name;
-  dojo.html.selectInputText(nameEl);
+  selectInputText(nameEl);
 } // updObjSaveAsSelect
 
 function updObjSaveAs(el) {
@@ -184,8 +184,7 @@ function saveObjAs(form) {
         obj.setName(oldName);
       }
     } else { // assume json.result == 'bad'
-      var errEl = dojo.html.getElementsByClass('errorExplaination',
-        form, 'div')[0];
+      var errEl = form.querySelector('div.errorExplaination');
       errEl.innerHTML = Pane.prototype.formatErrors(
         data.errors, null);
     }

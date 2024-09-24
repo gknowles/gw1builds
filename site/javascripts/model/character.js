@@ -100,11 +100,7 @@ character.js - gw1builds model
 //   typeName (primary | secondary | level)
 /////////////////////////////////////////////////
 
-// These three statements mirror the way dojo.inherit(...) works,
-// but we're trying to keep model/*.js dependency free
-Character.prototype = new SlotSet;
-Character.prototype.constructor = Character;
-Character.prototype.superclass = SlotSet.prototype;
+inherits(Character, SlotSet)
 delete Character.prototype.insertSlot;
 delete Character.prototype.deleteSlot;
 

@@ -93,7 +93,30 @@ function isString(val) {
 }
 
 //===========================================================================
-function show(elem) {
+function isNode(val) {
+    // dojo.dom.isNode
+    alert("isNode: unimplemented");
+	//	summary:
+	//		checks to see if val is actually a node.
+	if(typeof Element == "function") {
+		try {
+			return val instanceof Element;	//	boolean
+		} catch(e) {}
+	} else {
+		// best-guess
+		return val && !isNaN(val.nodeType);	//	boolean
+	}
+}
+
+
+/****************************************************************************
+*
+*   HTML Dom helpers
+*
+**/
+
+//===========================================================================
+function showElem(elem) {
     if (elem.style.display != 'none' && elem.style.display != '') {
         alert("Using show on element with non-standard display style.")
     }
@@ -101,9 +124,88 @@ function show(elem) {
 }
 
 //===========================================================================
-function hide(elem) {
+function hideElem(elem) {
     if (elem.style.display != 'none' && elem.style.display != '') {
-        alert("Using show on element with non-standard display style.")
+        alert("Using hide on element with non-standard display style.")
     }
-    elem.style.display = 'hide'
+    elem.style.display = 'none'
+}
+
+//===========================================================================
+function isDescendantOf(node, ancestor, requireProperAncestor) {
+    // dojo.dom.isDescendantOf
+    if (node && requireProperAncestor) node = node.parentNode;
+    while (node) {
+        if (node == ancestor) return true;
+        node = node.parentNode;
+    }
+    return false;
+}
+
+//===========================================================================
+function selectInputText(el) {
+    // dojo.html.selectInputText
+    alert("selectInputText: unimplemented");
+}
+
+//===========================================================================
+function selectElementChildren(elem) {
+    // dojo.html.selection.selectElementChildren(this)
+    alert("selectElementChildren: unimplemented");
+}
+
+//===========================================================================
+function getViewport() {
+    // dojo.html.getViewport
+    alert("getViewport: unimplemented");
+}
+
+//===========================================================================
+function getScroll() {
+    // dojo.html.getScroll
+    alert("getScroll: unimplemented");
+}
+
+//===========================================================================
+function getBorderBox(elem) {
+    // dojo.html.getBorderBox
+    return { width: elem.offsetWidth, height: elem.offsetHeight };
+}
+
+//===========================================================================
+// Returns width (left + right) and height (top + bottom) of elements borders.
+function getBorder(elem) {
+    // dojo.html.getBorder
+    alert("getBorder: unimplemented");
+}
+
+//===========================================================================
+function getAbsolutePosition(elem) {
+    // dojo.html.getAbsolutePosition(elem, /*includeScroll*/ true, BORDER_BOX)
+    alert("getAbsolutePosition: unimplemented");
+}
+
+
+/****************************************************************************
+*
+*   HTML Dom event listeners
+*
+**/
+
+//===========================================================================
+function connectEvent(args) {
+    // dojo.event.connect
+    alert("connectEvent: unimplemented");
+}
+
+//===========================================================================
+function disconnectEvent(args) {
+    // dojo.event.disconnect
+    alert("disconnectEvent: unimplemented");
+}
+
+//===========================================================================
+function fixEvent(evt, el) {
+    // dojo.event.browser.fixEvent
+    alert("fixEvent: unimplemented");
 }

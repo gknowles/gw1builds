@@ -66,24 +66,26 @@ DDSkillSlot2._setHoverClass = function(obj, highlight/*=true*/) {
   for (var i1 = 0; i1 < numSlots; ++i1) {
     var tr = rows[i1];
     var td = tr.childNodes[0];
-    var tdClass = dojo.html.getClass(td);
     hoverOutStyle(td, cssHover.skillbarLinkedFull);
     var css = null;
-    if (tdClass == 'full') css = cssHover.skillbarLinkedFull;
-    else if (tdClass == 'fullAlt') css = cssHover.skillbarLinkedFullAlt;
+    if (td.classList.contains('full')) {
+        css = cssHover.skillbarLinkedFull;
+    } else if (td.classList.contains('fullAlt')) {
+        css = cssHover.skillbarLinkedFullAlt;
+    }
 
     if (i1 == obj.id) {
       if (highlight) {
         hoverOverStyle(td, css);
-        if (this.viewMode.tweak) dojo.html.show(td.lastChild);
+        if (this.viewMode.tweak) showElem(td.lastChild);
       } else {
-        if (this.viewMode.tweak) dojo.html.hide(td.lastChild);
+        if (this.viewMode.tweak) hideElem(td.lastChild);
       }
     } else {
       var skill = slots[i1].value;
       var markLinked = highlight && skill && skill.attr == linkedAttr;
       if (markLinked) hoverOverStyle(td, css);
-      if (this.viewMode.tweak) dojo.html.hide(td.lastChild);
+      if (this.viewMode.tweak) hideElem(td.lastChild);
     }
   }
 }; // _setHoverClass(obj, highlight)
@@ -264,7 +266,7 @@ function updSkillbar(upd) {
     var sdivs = td.childNodes; // tr[i1]/td/divs
     var isAlternate = slots[i1].alt != 0;
     updFullAltClass(td, skill != null, isAlternate);
-    dojo.html.show(rows[i1]);
+    showElem(rows[i1]);
 
     if (skill == null) {
       // div 0, [close button, skill name]
@@ -272,7 +274,11 @@ function updSkillbar(upd) {
       var div = sdivs[0].childNodes[1];
       div.innerHTML = drawSkill(skill, toon, {icon:true,costs:true}) +
         '&nbsp;Empty';
-      dojo.html[isAlternate ? 'show' : 'hide'](btn);
+      if (isAlternate) {
+          showElem(btn);
+      } else {
+          hideElem(btn);
+      }
       // row 1, attr abbrev, effect names / values
       div = sdivs[1];
       div.childNodes[0].innerHTML = '';
@@ -287,7 +293,7 @@ function updSkillbar(upd) {
     var btn = sdivs[0].childNodes[0];
     var div = sdivs[0].childNodes[1];
     div.innerHTML = drawSkill(skill, toon, {icon:true,costs:true});
-    dojo.html.hide(btn);
+    hideElem(btn);
     // row 1, attr abbrev, effect names / values
     div = sdivs[1];
     //div.childNodes[0].style.visibility = 'visible';
@@ -319,7 +325,7 @@ function updSkillbar(upd) {
 
   // hide unused slots
   for (; i1 < rows.length; ++i1) {
-    dojo.html.hide(rows[i1]);
+    hideElem(rows[i1]);
   }
 } // updSkillbar
 

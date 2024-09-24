@@ -69,8 +69,7 @@ DDTeamSlotGrid.click = function(el, event, obj) {
     this.lastToon = null;
     if (hide) return;
   }
-  var parentEl = dojo.html.getParentByType(el, 'tr');
-  parentEl = dojo.html.getParentByType(parentEl, 'td');
+  var parentEl = el.closest('tr').closest('td');
   el.src = '../../images/toggle-open.png';
   var toon = obj.slotset.slotRefs()[obj.id].value;
   this.lastToggleEl = el;
@@ -86,8 +85,7 @@ DDTeamSlotGrid.reattachGrid = function() {
     document.getElementById('hidden').appendChild(gridEl);
     return;
   }
-  var parentEl = dojo.html.getParentByType(el, 'tr');
-  parentEl = dojo.html.getParentByType(parentEl, 'td');
+  var parentEl = el.closest('tr').closest('td');
   parentEl.appendChild(gridEl);
 }
 
@@ -355,12 +353,11 @@ function updTeamRoster(upd) {
 
   var team = upd.what || g_state.getTeam();
   var el = document.getElementById('teamRoster');
-  var formEl = dojo.html.getParentByType(el, 'form');
+  var formEl = el.closest('form');
   var rows = el.lastChild.rows; // div/table/rows
   var slots = team.slotRefs();
 
-  var membersEl = dojo.html.getElementsByClass(
-    'teamMembers', el.childNodes[0])[0];
+  var membersEl = el.children[0].getElementsByClassName('teamMembers')[0];
   var primes = team.slots().length;
   var alts = slots.length - primes;
   var out = primes + (alts ? "+" + alts : "") + ' Member';
@@ -375,11 +372,11 @@ function updTeamRoster(upd) {
     var td = rows[i1].firstChild;
     var sdivs = td.childNodes; // tr[i1]/td/divs
     updFullAltClass(td, toon != null, isAlt);
-    dojo.html.show(rows[i1]);
+    showElem(rows[i1]);
 
     // Make sure there's no close button if there's just a single
     // empty slot left.
-    var el = dojo.html.getElementsByClass('sbClose', sdivs[0])[0];
+    var el = sdivs[0].getElementsByClassName('sbClose')[0];
     el.style.display = (toon == null && numSlots == 1) ? 'none' : '';
 
     if (toon == null) {
@@ -407,7 +404,7 @@ function updTeamRoster(upd) {
     updTeamRosterSkillbar(upd);
   } // for each toon slot
   for (; i1 < rows.length; ++i1) {
-    dojo.html.hide(rows[i1]);
+    hideElem(rows[i1]);
   }
 } // updTeamRoster
 

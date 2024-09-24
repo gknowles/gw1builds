@@ -14,7 +14,7 @@ myaccount.rhtml - gw1builds view user
 
   onload: function() { this.loadElems(); },
   onprepare: function() {
-    dojo.html.hide(this.elems.main.errpaneEl);
+    hideElem(this.elems.main.errpaneEl);
     this.openDiv('main');
   },
   onactive: function() { this.focusDiv('main'); },
@@ -28,9 +28,9 @@ myaccount.rhtml - gw1builds view user
   updateUser: function() {
     if (g_user.hasRole()) {
       document.getElementById('header_user').innerHTML = g_user.name;
-      dojo.html.addClass(document.body, 'member');
+      document.body.classList.add('member');
     } else {
-      dojo.html.removeClass(document.body, 'member');
+      document.body.classList.remove('member');
       document.getElementById('header_user').innerHTML = "<br>";
     }
   }, // updateUser
@@ -51,7 +51,7 @@ myaccount.rhtml - gw1builds view user
         self.elems.emailChanged.emailEl.innerHTML = email;
         self.openDiv('emailChanged');
       } else {
-        dojo.html.show(self.elems.main.errpaneEl);
+        showElem(self.elems.main.errpaneEl);
         self.elems.main.errorsEl.innerHTML = self.formatErrors(
           data.errors, "email change");
       }

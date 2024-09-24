@@ -17,7 +17,7 @@ function drawAccountLogin() {
   var elems = pane.elems;
   for (var k in elems) {
     var sec = elems[k];
-    if (sec.errpaneEl) dojo.html.hide(sec.errpaneEl);
+    if (sec.errpaneEl) hideElem(sec.errpaneEl);
     if (sec.errorsEl) sec.errorsEl.innerHTML = '';
   }
   pane.openDiv('login');
@@ -39,13 +39,13 @@ function accountLogin(form) {
     var elems = pane.elems;
     if (data.result == 'setup_needed') {
       elems.login.setupUrlEl.href = data.setup_url;
-      dojo.html.show(elems.login.setupEl);
-      dojo.html.hide(elems.login.errorsEl);
+      showElem(elems.login.setupEl);
+      hideElem(elems.login.errorsEl);
     } else if (data.result == 'signup_needed') {
       pane.openDiv('signup');
       elems.signup.formEl['name'].value = data.user.name;
     } else { // assume data.result == 'bad'
-      dojo.html.show(elems.login.errorsEl);
+      showElem(elems.login.errorsEl);
       elems.login.errorsEl.innerHTML = pane.formatErrors(
         data.errors, 'login');
     }
@@ -65,7 +65,7 @@ function accountSignup(form) {
     var pane = new Pane({divEl: form.parentNode.parentNode});
     pane.loadElems();
     var elems = pane.elems;
-    dojo.html.show(elems.signup.errorsEl);
+    showElem(elems.signup.errorsEl);
     elems.signup.errorsEl.innerHTML = pane.formatErrors(
       data.errors, 'sign up');
     var wgt = dijit.byId("dialog");

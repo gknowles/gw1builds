@@ -53,12 +53,12 @@ DDMixPartList.drawDrag = function(obj) {
   return body;
 } // drawDrag
 DDMixPartList.mouseOver = function(obj, dragObj) {
-  if (dojo.render.html.ie) {
+  if (/*dojo.render.html.ie*/ false) {
     hoverOverStyle(obj.srcEl, cssHover.partListTableTr);
   }
 } // mouseOver
 DDMixPartList.mouseOut = function(obj, dragObj) {
-  if (dojo.render.html.ie) {
+  if (/*dojo.render.html.ie*/ false) {
     hoverOutStyle(obj.srcEl, cssHover.partListTableTr);
   }
 } // mouseOver

@@ -22,8 +22,7 @@ function updToonView(el, toon, fmt) {
       el.innerHTML = drawToonViewCode(toon);
       break;
     case 'export':
-      var formEl = dojo.html.getParentByType(
-        document.getElementById('buildExport'), 'form');
+      var formEl = document.getElementById('buildExport').closest('form');
       loadExportView(formEl);
       break;
   }

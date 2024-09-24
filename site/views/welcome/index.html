@@ -267,11 +267,16 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
         title: "Builds",
         id: "topmenu_build",
 
-        onload: function() { PaneSet.prototype.load("topmenu_build_tab"); },
+        onload: function() {
+          this.loadElems();
+          PaneSet.prototype.load("topmenu_build_tab");
+        },
         onprepare: function() {
           PaneSet.prototype.activate(opts.tabId, "Builds");
         },
-        onblur: function() { return PaneSet.prototype.blur("topmenu_build_tab"); },
+        onblur: function() {
+          return PaneSet.prototype.blur("topmenu_build_tab");
+        },
         onupdate: function(upd) {
           PaneSet.prototype.update("topmenu_build_tab", upd);
         }
@@ -352,7 +357,7 @@ opts.pane = new Pane({
     var elems = this.elems.header;
     var formEl = document.getElementById('stateActions');
     elems.stateActionsEl.appendChild(formEl);
-    dojo.event.connect(formEl.fClose, 'onclick', this, 'close');
+    connectEvent(formEl.fClose, 'onclick', this, 'close');
     g_state.updBaseline();
     PaneSet.prototype.updateAll(
       "topmenu_build_tab_detail_tab",
@@ -372,7 +377,7 @@ opts.pane = new Pane({
     if (rc !== false) {
       document.getElementById('header_current').innerHTML = '';
       var formEl = document.getElementById('stateActions');
-      dojo.event.disconnect(formEl.fClose, 'onclick', this, 'close');
+      disconnectEvent(formEl.fClose, 'onclick', this, 'close');
     }
     return rc;
   },
@@ -1292,7 +1297,7 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
   <div class='section'>
     <span class='partType'>(Double-click on text to select all)</span>
     <div id='buildExportContent' class='scroll partDesc'
-      ondblclick='dojo.html.selection.selectElementChildren(this)'>
+      ondblclick='selectElementChildren(this)'>
     </div>
   </div>
 </div>

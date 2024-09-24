@@ -249,6 +249,6 @@ function findAttrToon() {
 
 function isTeamRoster() {
   var gridEl = document.getElementById('attrGrid');
-  var tr = dojo.html.getParentByType(gridEl, 'tr');
-  return (tr && dojo.html.hasClass(tr, 'toonslot'));
+  var tr = gridEl.closest('tr');
+  return (tr && tr.classList.contains('toonslot'));
 }

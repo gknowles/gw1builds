@@ -141,7 +141,7 @@ function updSkillFavorites(upd, attrSource) {
   var kids = el.childNodes;
   for (var i1 = kids.length - 1; i1 >= 0; --i1) {
     el = kids[i1];
-    if (dojo.html.hasClass(el, 'skillFavorites')) break;
+    if (el.classList.contains('skillFavorites')) break;
   }
 
   // update browser storage

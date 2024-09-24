@@ -23,8 +23,7 @@ function updTeamView(el, team, fmt) {
       el.innerHTML = drawTeamViewCode(team);
       break;
     case 'export':
-      var formEl = dojo.html.getParentByType(
-        document.getElementById('buildExport'), 'form');
+      var formEl = document.getElementById('buildExport').closest('form');
       loadExportView(formEl);
       break;
   }
@@ -33,7 +32,7 @@ function updTeamView(el, team, fmt) {
 
 function drawTeamViewNormal(team) {
   var slots = team ? team.slotRefs() : [];
-  var vport = dojo.html.getViewport().width;
+  var vport = getViewport().width;
   var cols = 2, coff = 0;
   if (vport > 980) cols = 4;
   else if (vport > 750) cols = 3, coff = 1;
@@ -109,13 +108,13 @@ function drawTeamViewCode(team) {
       out.push("<td style='padding-right: 0px'>",
         "<input size='20' readonly",
           " value=", htmlstring2(toon.toAnet(!inclNames)),
-          " onclick='dojo.html.selectInputText(this)'>",
+          " onclick='selectInputText(this)'>",
         "</td><td title=", jstring1('Download skills of ' + toon.name),
           ">", drawDownloadButton(toon.name, toon.toAnet(true)),
         "</td><td style='padding-right: 0px'>",
         "<input size='20' readonly",
           " value=", htmlstring2(toon.toAnetEquip(!inclNames)),
-          " onclick='dojo.html.selectInputText(this)'>",
+          " onclick='selectInputText(this)'>",
         "</td><td title=", jstring1('Download equipment of ' + toon.name),
           ">", drawDownloadButton(toon.name, toon.toAnetEquip(true)),
         "</td>"
@@ -124,13 +123,13 @@ function drawTeamViewCode(team) {
       out.push("<td>",
         "<input size='25' readonly",
         " value=", htmlstring2(toon.toCode()),
-        " onclick='dojo.html.selectInputText(this)'></td>"
+        " onclick='selectInputText(this)'></td>"
       );
       // gwbbcode
       out.push("<td>",
         "<input size='25' readonly",
         " value=", htmlstring2(toon.toGwBBCode()),
-        " onclick='dojo.html.selectInputText(this)'></td>"
+        " onclick='selectInputText(this)'></td>"
       );
     }
     out.push("</tr>");

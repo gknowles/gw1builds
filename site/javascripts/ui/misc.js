@@ -16,14 +16,9 @@ var g_initLevel = 0;
 function init() {
   g_initLevel += 1;
   if (g_initLevel < 2) return;
-  if (false /* dojo.render.html.ie */) {
-    dojo.html.insertCssFile("stylesheets/adjust-ie.css");
-  }
 
   initAjax();
   initGroupList();
-
-  api.user.current(handler);
 
   loadItems();
   loadSkills();
@@ -35,6 +30,8 @@ function init() {
   DDSkillList.init();
   DDBuildList.init();
   initTeamRoster();
+
+  api.user.current(handler);
 
   function handler(data) {
     g_user = new User;
@@ -74,9 +71,9 @@ function updRootAll(upd) {
 
 //============================================================================
 function setFirstFocus(parentEl, select) {
-  var focusEl = dojo.html.getElementsByClass('firstFocus', parentEl)[0];
+  var focusEl = parentEl.getElementsByClassName('firstFocus')[0];
   if (focusEl) {
-    if (dojo.html.hasClass(focusEl, 'firstSelect')) select = true;
+    if (focusEl.classList.contains('firstSelect')) select = true;
     setTimeout(
       function() {
         focusEl.focus();
@@ -88,7 +85,7 @@ function setFirstFocus(parentEl, select) {
 
 //============================================================================
 function enterSubmits(el, event) {
-  event = dojo.event.browser.fixEvent(event, el);
+  event = fixEvent(event, el);
   var key = event.key || event.keyCode;
   if (key == event.KEY_ENTER) {
     var subEl = el.form['submit'];
@@ -108,46 +105,24 @@ function enterSubmits(el, event) {
 //  @param adds  classes to add, can be a string or array of strings
 //  @param dels  classes to delete, string or array of strings
 function updateClasses(el, adds, dels) {
-  var classArr = dojo.html.getClasses(el);
-  var keys = {};
-  var changed = false;
-  for (var i1 = 0; i1 < classArr.length; ++i1) keys[classArr[i1]] = true;
-  if (isArray(dels)) {
-    for (var i1 = 0; i1 < dels.length; ++i1) {
-      var del = dels[i1];
-      if (keys[del]) {
-        changed = true;
-        delete keys[del];
-      }
-    }
-  } else if (dels != null) {
-    if (keys[dels]) {
-      changed = true;
-      delete keys[dels];
-    }
+  if (dels == null) {
+      dels = [];
+  } else if (!isArray(dels)) {
+      dels = [dels];
   }
-  if (changed) {
-    var out = [];
-    for (var i1 = 0; i1 < classArr.length; ++i1) {
-      var val = classArr[i1];
-      if (keys[val]) out.push(val);
-    }
-    classArr = out;
+  for (var i1 = 0; i1 < dels.length; ++i1) {
+      var val = dels[i1];
+      el.classList.remove(val);
   }
 
-  var olen = classArr.length;
-  if (isArray(adds)) {
-    for (var i1 = 0; i1 < adds.length; ++i1) {
+  if (adds == null) {
+      adds = [];
+  } else if (!isArray(adds)) {
+      adds = [adds];
+  }
+  for (var i1 = 0; i1 < adds.length; ++i1) {
       var val = adds[i1];
-      if (!keys[val]) classArr.push(val);
-    }
-  } else if (adds != null) {
-    if (!keys[adds]) classArr.push(adds);
-  }
-  changed |= (olen != classArr.length);
-
-  if (changed) {
-    dojo.html.setClass(el, classArr.join(' '));
+      el.classList.add(val);
   }
 }
 
@@ -166,15 +141,15 @@ function insetTabSelect(el, pos) {
   var ulEl = el.parentNode.parentNode;
   var topEl = ulEl.parentNode;
   var tabEls = ulEl.getElementsByTagName('a');
-  var paneEls = dojo.html.getElementsByClass('insetTabPane', topEl, 'div');
+  var paneEls = topEl.querySelectorAll('div.insetTabPane');
   var paneEl;
   for (var i1 = 0; i1 < paneEls.length; ++i1) {
     if (pos == i1) {
       paneEl = paneEls[i1];
-      dojo.html.show(paneEl);
+      showElem(paneEl);
       tabEls[i1].className = 'active';
     } else {
-      dojo.html.hide(paneEls[i1]);
+      hideElem(paneEls[i1]);
       tabEls[i1].className = '';
     }
   }

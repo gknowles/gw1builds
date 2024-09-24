@@ -99,7 +99,7 @@ function drawToon(toon, draw) {
         "<td class='detail'><input type='text' size='25' readonly",
           " style='font-size: 7pt'",
           " value=", htmlstring2(exps[i1][1]),
-          " onclick='dojo.html.selectInputText(this)'>");
+          " onclick='selectInputText(this)'>");
       if (exps[i1][2]) {
         out.push("</td><td>", drawDownloadButton(exps[i1][2], exps[i1][3]));
       }

@@ -67,9 +67,9 @@ function updMemberList() {
   elems.titleEl.innerHTML = groupName;
   if (group.groupRole == User.ADMIN) {
     elems.formEl.elements['user[name]'].value = "";
-    dojo.html.show(elems.inputEl);
+    showElem(elems.inputEl);
   } else {
-    dojo.html.hide(elems.inputEl);
+    hideElem(elems.inputEl);
   }
 
   var members = SGroupList.memberSearch.sortedArray(
@@ -91,7 +91,7 @@ function updMemberList() {
   out = ["<table>"];
   for (var i1 = 0; i1 < events.length; ++i1) {
     var event = events[i1];
-    out.push("<tr><td>", dojo.date.strftime(event.created_at, '%F'),
+    out.push("<tr><td>", event.created_at.toISOString(),
       "</td><td>", event.event, "</td></tr>");
   }
   out.push("</table>");
@@ -169,7 +169,7 @@ function clearMemberList() {
   SGroupList.memberSearch.values.groupRev = 0;
   var elems = SGroupList.elems.member;
   elems.titleEl.innerHTML = "(None)";
-  dojo.html.hide(elems.inputEl);
+  hideElem(elems.inputEl);
   elems.listEl.innerHTML = "No group selected";
   elems.historyEl.innerHTML = 'No group selected';
 } // clearMemberList

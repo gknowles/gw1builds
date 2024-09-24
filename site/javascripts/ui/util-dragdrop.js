@@ -181,9 +181,9 @@ var DDManager = {
       this._dragOffset = [4,4];
       style.visibility = 'hidden';
       style.display = "";
-      var view = dojo.html.getViewport();
-      var offset = dojo.html.getScroll();
-      var proxy = dojo.html.getBorderBox(this.dragEl);
+      var view = getViewport();
+      var offset = getScroll();
+      var proxy = getBorderBox(this.dragEl);
       this._dragLimitRight = offset.left + view.width -
         proxy.width - this._dragOffset[0];
     } else {
@@ -193,8 +193,8 @@ var DDManager = {
     style.left = pos[0] + this._dragOffset[0];
     style.top = pos[1] + this._dragOffset[1];
 
-    dojo.event.connect('before', document, 'onmousemove', this, '_dragMove');
-    dojo.event.connect(document, 'onmouseup', this, '_dragUp');
+    connectEvent('before', document, 'onmousemove', this, '_dragMove');
+    connectEvent(document, 'onmouseup', this, '_dragUp');
 
     event.preventDefault();
 
@@ -228,7 +228,7 @@ var DDManager = {
    * arguments of (el, event, obj, policy)
    */
   _prepare: function(args) {
-    args[1] = dojo.event.browser.fixEvent(args[1], args[0]);
+    args[1] = fixEvent(args[1], args[0]);
     if (args[2] == null) args[2] = {};
     var obj = args[2];
     obj.srcEl = args[0];
@@ -289,8 +289,8 @@ var DDManager = {
       this.dragObj = null;
     }
 
-    dojo.event.disconnect('before', document, 'onmousemove', this, '_dragMove');
-    dojo.event.disconnect(document, 'onmouseup', this, '_dragUp');
+    disconnectEvent('before', document, 'onmousemove', this, '_dragMove');
+    disconnectEvent(document, 'onmouseup', this, '_dragUp');
 
     if (this.isProxyEl) {
       this.dragEl.style.display = 'none';
@@ -316,9 +316,10 @@ var DDManager = {
     this._hoverPos = null;
     this._hoverSide = null;
     if (typeof this.acceptance == 'boolean') {
-      this._hoverClass = this.acceptance ?
-        policy.acceptDropClass : policy.rejectDropClass;
-      dojo.html.addClass(this._hoverEl, this._hoverClass);
+      this._hoverClass = this.acceptance
+        ? policy.acceptDropClass
+        : policy.rejectDropClass;
+      this._hoverEl.classList.remove(this._hoverClass);
     }
     // must be TBLR between indicator bar
     else {
@@ -345,7 +346,7 @@ var DDManager = {
         return;
       }
       if (typeof this.acceptance == 'boolean') {
-        dojo.html.removeClass(this._hoverEl, this._hoverClass);
+        this._hoverEl.classList.remove(this._hoverClass);
       } else { // must be tween indicator
         if (this.dropIndicatorEl) {
           this.dropIndicatorEl.style.display = 'none';
@@ -359,9 +360,8 @@ var DDManager = {
   _gravity: function(event) {
     var pos = this._hoverPos;
     if (pos == null) {
-      pos = dojo.html.getAbsolutePosition(this._hoverEl, true,
-        dojo.html.boxSizing.BORDER_BOX);
-      var bb = dojo.html.getBorderBox(this._hoverEl);
+      pos = getAbsolutePosition(this._hoverEl);
+      var bb = getBorderBox(this._hoverEl);
       pos.height = bb.height;
       pos.width = bb.width;
       this._hoverPos = pos;
@@ -411,7 +411,7 @@ var DDManager = {
       indEl.style.height = '0';
       indEl.style.width = this._hoverPos.width + 'px';
       indEl.style.top = (side == 't' ?
-        this._hoverPos.y - dojo.html.getBorderBox(indEl).height - gap :
+        this._hoverPos.y - getBorderBox(indEl).height - gap :
         this._hoverPos.y + this._hoverPos.height + gap
         ) + 'px';
       indEl.style.left = this._hoverPos.x + 'px';
@@ -422,7 +422,7 @@ var DDManager = {
       indEl.style.width = '0px';
       indEl.style.top = this._hoverPos.y + 'px';
       indEl.style.left = (side == 'l' ?
-        this._hoverPos.x - dojo.html.getBorder(indEl).width - gap :
+        this._hoverPos.x - getBorder(indEl).width - gap :
         this._hoverPos.x + this._hoverPos.width + gap
         ) + 'px';
     }
@@ -438,7 +438,7 @@ var DDManager = {
   	var tipEl = document.getElementById("tipPopup");
   	// dismissal or drag in progress? hide tips
     if (baseEl == null || body == null) {
-      dojo.html.hide(tipEl);
+      hideElem(tipEl);
       tipEl.style.left = "20px";
       tipEl.style.top = "20px";
       return;
@@ -457,7 +457,7 @@ var DDManager = {
 // Show div by element
 function showBy(tipEl, baseEl, side, align) {
   tipEl.style.visibility = 'hidden';
-  dojo.html.show(tipEl);
+  showElem(tipEl);
   positionBy(tipEl, baseEl, side, align);
   tipEl.style.visibility = 'visible';
 } // showBy
@@ -472,21 +472,20 @@ function showBy(tipEl, baseEl, side, align) {
 //                   not specified by side
 function positionBy(tipEl, baseEl, side, align) {
   var padSide = 4, padAlign = 0;
-  var view = dojo.html.getViewport();
-  var off = dojo.html.getScroll();
+  var view = getViewport();
+  var off = getScroll();
   view.top = off.top;
   view.left = off.left;
   view.bottom = view.top + view.height;
   view.right = view.left + view.width;
 
 	// Get absolute position and dimensions of base element
-  var base = dojo.html.getBorderBox(baseEl);
-  var page = dojo.html.getAbsolutePosition(baseEl, true,
-    dojo.html.boxSizing.BORDER_BOX);
+  var base = getBorderBox(baseEl);
+  var page = getAbsolutePosition(baseEl);
   base.left = page.left;
   base.top = page.top;
 
-  var tip = dojo.html.getBorderBox(tipEl);
+  var tip = getBorderBox(tipEl);
 
   if (side == 't' || side == 'b') {
     // place on side
@@ -506,8 +505,7 @@ function positionBy(tipEl, baseEl, side, align) {
     // off the left? move to left of viewport
     if (tip.left < view.left + padAlign) {
       tip.left = view.left + padAlign;
-    }
-    else {
+    } else {
       var maxLeft = view.left + view.width - tip.width - padAlign;
       // off the right? move to right of viewport
       if (tip.left > maxLeft) tip.left = maxLeft;

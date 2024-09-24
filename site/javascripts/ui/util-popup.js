@@ -15,14 +15,12 @@ if (typeof dojo != 'undefined') { dojo.provide("ui.util-popup"); }
 
 function showDialog(title, body, className) {
   var dlg = dijit.byId('dialog');
-  var titleEl = dojo.html.getElementsByClass(
-    "titlebar", dlg.containerNode)[0];
-  var contentEl = dojo.html.getElementsByClass(
-    "content", dlg.containerNode)[0];
+  var titleEl = dlg.containerNode.getElementsByClassName('titlebar')[0];
+  var contentEl = dlg.containerNode.getElementsByClassName('content')[0];
   dlg.containerNode.className = className ? className : '';
   titleEl.innerHTML = /[<>]/.test(title) ?
     title : ("<h2>" + title + "</h2>");
-  if (dojo.dom.isNode(body)) {
+  if (isNode(body)) {
     contentEl.innerHTML = '';
     contentEl.appendChild(body);
   } else {
@@ -37,7 +35,6 @@ function hideDialog() {
 } // hideDialog()
 
 
-
 var DDPopup = {
   popEl: null,
 
@@ -49,7 +46,7 @@ var DDPopup = {
     baseEl.blur();
     var popEl = this.getEl();
     popEl.className = className || '';
-    if (dojo.dom.isNode(body)) {
+    if (isNode(body)) {
       popEl.innerHTML = '';
       popEl.appendChild(body);
     } else {
@@ -57,21 +54,19 @@ var DDPopup = {
     }
     showBy(popEl, baseEl, 'b');
     setFirstFocus(popEl);
-    dojo.event.connect('before', document, 'onmousedown',
-      this, '_mouseHandler');
+    connectEvent('before', document, 'onmousedown', this, '_mouseHandler');
   }, // show
 
   hide: function() {
     var popEl = this.getEl();
-    dojo.html.hide(popEl);
-    dojo.event.disconnect('before', document, 'onmousedown',
-      this, '_mouseHandler');
+    hideElem(popEl);
+    disconnectEvent('before', document, 'onmousedown', this, '_mouseHandler');
   }, // hide
 
   _mouseHandler: function(event) {
-    dojo.event.browser.fixEvent(event);
+    fixEvent(event);
     var popEl = this.getEl();
-    if (!dojo.dom.isDescendantOf(event.target, popEl)) {
+    if (!isDescendantOf(event.target, popEl)) {
       this.hide();
     }
   } // mouseHandler

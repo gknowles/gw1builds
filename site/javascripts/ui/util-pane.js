@@ -60,24 +60,32 @@ PaneSet.prototype.getPaneSet = function(menuId, autoCreate/*=false*/) {
 } // PaneSet.prototype.getPaneSet(menuId)
 
 PaneSet.prototype.addPane = function(menuId, pane) {
-  var paneSet = this.getPaneSet(menuId, /*autoCreate=*/true);
+  let paneSet = this.getPaneSet(menuId, /*autoCreate=*/true);
   pane.pos = paneSet.panes.length;
   paneSet.panes.push(pane);
 } // PaneSet.prototype.addPane(menuId, pane)
 
 
 PaneSet.prototype.load = function(menuId) {
-  var paneSet = this.getPaneSet(menuId);
+    let paneSet = this.getPaneSet(menuId);
 
-  // set each pane el from id
-  for (var i1 = 0; i1 < paneSet.panes.length; ++i1) {
-    var pane = paneSet.panes[i1];
-    pane.divEl = document.getElementById(pane.id);
-    pane.tabId = paneSet.menuId + '.' + i1;
-  }
+    // set each pane el from id
+    for (let i = 0; i < paneSet.panes.length; ++i) {
+        let pane = paneSet.panes[i];
+        pane.divEl = document.getElementById(pane.id);
+        pane.tabId = paneSet.menuId + '.' + i;
+    }
 
-  // build tabs
-  paneSet.drawTabs();
+    for (let i = 0; i < paneSet.panes.length; ++i) {
+        let pane = paneSet.panes[i]
+        if (!pane._loaded) {
+            pane.onload();
+            pane._loaded = true;
+        }
+    }
+
+    // build tabs
+    paneSet.drawTabs();
 } // PaneSet.prototype.load(menuId, defaultPaneTitle)
 
 
@@ -138,11 +146,11 @@ PaneSet.prototype.activate = function(menuId, sel, appdata) {
   }
   for (var i1 = 0; i1 < paneSet.panes.length; ++i1) {
     var pane = paneSet.panes[i1];
-    if (pane.tabEl && dojo.html.hasClass(pane.tabEl, "active")) {
+    if (pane.tabEl && pane.tabEl.classList.contains("active")) {
       paneSet.prevPane = pane;
       if (pane.onblur() == false) return false;
-      dojo.html.hide(pane.divEl);
-      dojo.html.removeClass(pane.tabEl, "active");
+      hideElem(pane.divEl);
+      pane.tabEl.classList.remove("active");
       pane._active = false;
       // violently yank div from document so there's some
       // determinism in firefox's reflow sequence
@@ -154,7 +162,7 @@ PaneSet.prototype.activate = function(menuId, sel, appdata) {
   }
   paneSet.pane = paneSet.panes[pos];
   if (paneSet.pane.tabEl) {
-    dojo.html.addClass(paneSet.pane.tabEl, "active");
+    paneSet.pane.tabEl.classList.add("active");
     paneSet.pane.tabEl.blur();
   }
   if (!paneSet.pane._loaded) {
@@ -163,7 +171,7 @@ PaneSet.prototype.activate = function(menuId, sel, appdata) {
   }
   DDManager.hideTooltip();
   paneSet.pane.onprepare(appdata);
-  dojo.html.show(paneSet.pane.divEl);
+  showElem(paneSet.pane.divEl);
   paneSet.pane._active = true;
   paneSet.pane.onactive();
   return true;
@@ -185,8 +193,8 @@ PaneSet.prototype.blur = function(menuId) {
   var paneSet = this.getPaneSet(menuId);
   var pane = paneSet.pane;
   if (pane.onblur() == false) return false;
-  dojo.html.hide(pane.divEl);
-  dojo.html.removeClass(pane.tabEl, "active");
+  hideElem(pane.divEl);
+  pane.tabEl.classList.remove("active");
   pane._active = false;
 } // blur(menuId)
 
@@ -265,10 +273,10 @@ Pane.prototype.loadElems = function() {
 
 Pane.prototype.openDiv = function(name) {
   for (var n in this.elems) {
-    if (n != name) dojo.html.hide(this.elems[n].el);
+    if (n != name) hideElem(this.elems[n].el);
   }
   var elems = this.elems[name];
-  dojo.html.show(elems.el);
+  showElem(elems.el);
   var el = elems.errorsEl;
   if (el) el.innerHTML = "";
   if (this._active) this.focusDiv(name);
@@ -336,7 +344,7 @@ PaneSet.prototype.drawTabs = function() {
       pane.tabEl = document.getElementById(pane.tabId);
     }
     if (this.pane && this.pane.tabEl) {
-      dojo.html.addClass(this.pane.tabEl, 'active');
+      this.pane.tabEl.classList.add('active');
     }
   }
 } // drawTabs()

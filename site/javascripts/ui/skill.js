@@ -13,11 +13,11 @@ Common functions and variables
 function updSkillIcon(el, skill, enabled) {
   if (skill == null) {
     el.style.backgroundPosition = drawSkillIconOffset(0);
-    dojo.html.addClass(el, 'empty');
+    el.classList.add('empty');
     enabled = true;
   } else {
     el.style.backgroundPosition = drawSkillIconOffset(skill.id);
-    dojo.html.removeClass(el, 'empty');
+    el.classList.remove('empty');
   }
   if (enabled) {
     el.style.opacity = 1;
