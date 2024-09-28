@@ -4,6 +4,44 @@ Copyright Glen Knowles 2006 - 2024.
 Distributed under the Boost Software License, Version 1.0.
 
 index.html - gw1builds view welcome
+
+div.header
+  ul#topmenu
+div#content
+  div#topmenu_home (topmenu)
+  div#topmenu_faq (topmenu)
+  div#topmenu_build (topmenu)
+    ul#topmenu_buildmenu
+    div#topmenu_buildmenu_buildlist (topmenu_buildmenu)
+    div#topmenu_buildmenu_detail (topmenu_buildmenu)
+      ul#topmenu_buildmenu_detailmenu
+      div#topmenu_buildmenu_detailmenu_teamview (topmenu_buildmenu_detailmenu)
+      div#topmenu_buildmenu_detailmenu_teamedit (topmenu_buildmenu_detailmenu)
+      div#topmenu_buildmenu_detailmenu_charview (topmenu_buildmenu_detailmenu)
+      div#topmenu_buildmenu_detailmenu_charedit (topmenu_buildmenu_detailmenu)
+  div#topmenu_group (topmenu)
+  div#topmenu_data (topmenu)
+  link to draw user/login (topmenu)
+  div#topmenu_logout (topmenu)
+div#tipPopup
+div#menuPopup
+div#dragProxy
+div#dropIndicator
+div#dialog
+iframe#hiddenIframe
+div#hidden
+  form#stateActions
+  div#accountLogin - views/user
+  div#groupList - views/group
+  div#memberList - views/group
+  div#skillList - views/skill
+  div#skillFavorites - views/skill
+  div#buildList - views/build
+  div#buildExport - views/build
+  div#teamRoster - views/build
+  div#toonInfo - views/build
+  div#attrGrid - views/build
+  div#skillbar - views/build
 -->
 
 <html>
@@ -257,8 +295,8 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
 
     <!-- views/welcome/build.html -->
 <div class="pane" id="topmenu_build" style="display: none">
-  <div style="display:none; height: 25px">
-    <ul class="tabmenu" id="topmenu_build_tab"></ul>
+  <div style="display: none; height: 25px">
+    <ul class="tabmenu" id="topmenu_buildmenu"></ul>
   </div>
   <script>
     PaneSet.prototype.addPane(
@@ -269,26 +307,28 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
 
         onload: function() {
           this.loadElems();
-          PaneSet.prototype.load("topmenu_build_tab");
+          PaneSet.prototype.load("topmenu_buildmenu");
         },
         onprepare: function() {
           PaneSet.prototype.activate(opts.tabId, "Builds");
         },
         onblur: function() {
-          return PaneSet.prototype.blur("topmenu_build_tab");
+          return PaneSet.prototype.blur("topmenu_buildmenu");
         },
         onupdate: function(upd) {
-          PaneSet.prototype.update("topmenu_build_tab", upd);
+          PaneSet.prototype.update("topmenu_buildmenu", upd);
         }
       })
     );
   </script>
 
     <!-- views/build/list.html -->
+<div id="topmenu_buildmenu_buildlist" class="pane listPane"
+    style="display: none">
 <script>
 opts.pane = new Pane({
   title: "Builds",
-  id: "topmenu_build_tab_buildlist",
+  id: "topmenu_buildmenu_buildlist",
 
   onload: function() {
     this.loadElems();
@@ -311,19 +351,17 @@ opts.pane = new Pane({
     bld = bld || new Build('New Team', null, true);
     g_state.setBuild(bld);
     if (mode == 'edit') {
-      PaneSet.prototype.activate("topmenu_build_tab", 'Detail',
+      PaneSet.prototype.activate("topmenu_buildmenu", 'Detail',
         bld.isTeam ? 'Edit' : 'Character Edit');
     } else { // mode == 'view'
-      PaneSet.prototype.activate("topmenu_build_tab", 'Detail',
+      PaneSet.prototype.activate("topmenu_buildmenu", 'Detail',
         bld.isTeam ? 'View' : 'Character View');
     }
   }
 
 } );
-PaneSet.prototype.addPane("topmenu_build_tab", opts.pane);
+PaneSet.prototype.addPane("topmenu_buildmenu", opts.pane);
 </script>
-<div id="topmenu_build_tab_buildlist" class="pane listPane"
-    style="display: none">
 <table class='pane'><tr><td class='paneContent'>
   <div class="pdiv-main">
     <div class="pvar-list"></div>
@@ -339,14 +377,15 @@ PaneSet.prototype.addPane("topmenu_build_tab", opts.pane);
 </div>
 
     <!-- views/build/detail.html -->
+<div class="pane" id="topmenu_buildmenu_detail" style="display: none">
 <script type="text/javascript">
 opts.pane = new Pane({
   title: "Detail",
-  id: "topmenu_build_tab_detail",
+  id: "topmenu_buildmenu_detail",
 
   onload: function() {
     this.loadElems();
-    PaneSet.prototype.load("topmenu_build_tab_detail_tab");
+    PaneSet.prototype.load("topmenu_buildmenu_detailmenu");
   },
   onprepare: function(child) {
     if (g_state.getBuild().isTeam) {
@@ -360,12 +399,12 @@ opts.pane = new Pane({
     connectEvent(formEl.fClose, 'onclick', this, 'close');
     g_state.updBaseline();
     PaneSet.prototype.updateAll(
-      "topmenu_build_tab_detail_tab",
+      "topmenu_buildmenu_detailmenu",
       {keys: {paneSet: true} }
     );
     this.onupdate( {keys: {user: true, characters: true} } );
     if (child == null) child = 'View';
-    PaneSet.prototype.activate("topmenu_build_tab_detail_tab", child);
+    PaneSet.prototype.activate("topmenu_buildmenu_detailmenu", child);
   },
   onblur: function() {
     if (g_state.isChanged()) {
@@ -373,7 +412,7 @@ opts.pane = new Pane({
         g_state.getBuild().fullName() + "' without saving?");
       if (!sure) return false;
     }
-    var rc = PaneSet.prototype.blur("topmenu_build_tab_detail_tab");
+    var rc = PaneSet.prototype.blur("topmenu_buildmenu_detailmenu");
     if (rc !== false) {
       document.getElementById('header_current').innerHTML = '';
       var formEl = document.getElementById('stateActions');
@@ -383,32 +422,32 @@ opts.pane = new Pane({
   },
   onupdate: function(upd) {
     updObjInfo(upd);
-    PaneSet.prototype.update("topmenu_build_tab_detail_tab", upd);
+    PaneSet.prototype.update("topmenu_buildmenu_detailmenu", upd);
   },
 
   close: function() {
-    PaneSet.prototype.activate('topmenu_build_tab', 'Builds');
+    PaneSet.prototype.activate('topmenu_buildmenu', 'Builds');
   }
 } );
-PaneSet.prototype.addPane("topmenu_build_tab", opts.pane);
+PaneSet.prototype.addPane("topmenu_buildmenu", opts.pane);
 </script>
-
-<div class="pane" id="topmenu_build_tab_detail" style="display: none">
 <div class='pdiv-header'>
   <span class="pvar-stateActions" style="float: right"></span>
-  <ul class="tabmenu" id="topmenu_build_tab_detail_tab"></ul>
+  <ul class="tabmenu" id="topmenu_buildmenu_detailmenu"></ul>
 </div>
 
 <!-- views/build/team_view.html -->
 <script>
 opts.pane = new Pane({
   title: "View",
-  id: "topmenu_teamview",
+  id: "topmenu_buildmenu_detailmenu_teamview",
 
   onload: function() { this.loadElems(); },
 
   onprepare: function() {
-    this.elems.main.viewExportEl.appendChild(document.getElementById('buildExport'));
+    this.elems.main.viewExportEl.appendChild(
+      document.getElementById('buildExport')
+    );
     this.onupdate( {keys: Character.prototype.changeKeys} );
   },
 
@@ -427,10 +466,10 @@ opts.pane = new Pane({
     }
   } // onupdate
 } );
-PaneSet.prototype.addPane("topmenu", opts.pane);
+PaneSet.prototype.addPane("topmenu_buildmenu_detailmenu", opts.pane);
 </script>
 
-<div id="topmenu_teamview" class="pane teamPame viewPane"
+<div id="topmenu_buildmenu_detailmenu_teamview" class="pane teamPame viewPane"
   style="clear: both; display: none">
 <!-- this comment (or anything else) is required between the
 div above and table below to prevent IE from 'bouncing' -->
@@ -464,7 +503,7 @@ div above and table below to prevent IE from 'bouncing' -->
 <script>
 opts.pane = new Pane({
   title: "Edit",
-  id: "topmenu_teamedit",
+  id: "topmenu_buildmenu_detailmenu_teamedit",
 
   onload: function() {
     this.loadElems();
@@ -536,10 +575,10 @@ opts.pane = new Pane({
 
 } );
 
-PaneSet.prototype.addPane("topmenu", opts.pane);
+PaneSet.prototype.addPane("topmenu_buildmenu_detailmenu", opts.pane);
 </script>
 
-<div id="topmenu_teamedit" class="pane teamPane editPane"
+<div id="topmenu_buildmenu_detailmenu_teamedit" class="pane teamPane editPane"
     style="clear: both; display: none">
 <!-- this comment (or anything else) is required between the
 div above and table below to prevent IE from 'bouncing' -->
@@ -597,7 +636,7 @@ div above and table below to prevent IE from 'bouncing' -->
 <script type="text/javascript">
 opts.pane = new Pane({
   title: "Character View",
-  id: "topmenu_charview",
+  id: "topmenu_buildmenu_detailmenu_charview",
 
   onload: function() { this.loadElems(); },
 
@@ -620,10 +659,10 @@ opts.pane = new Pane({
     }
   } // onupdate
 } );
-PaneSet.prototype.addPane("topmenu", opts.pane);
+PaneSet.prototype.addPane("topmenu_buildmenu_detailmenu", opts.pane);
 </script>
 
-<div class="pane toonPane viewPane" id="topmenu_charview"
+<div class="pane toonPane viewPane" id="topmenu_buildmenu_detailmenu_charview"
     style="clear: both; display: none">
 <!-- this comment (or anything else) is required between the
 div above and table below to prevent IE from 'bouncing' -->
@@ -664,7 +703,7 @@ div above and table below to prevent IE from 'bouncing' -->
 <script type="text/javascript">
 opts.pane = new Pane({
   title: "Character Edit",
-  id: "topmenu_charedit",
+  id: "topmenu_buildmenu_detailmenu_charedit",
 
   isSkillbarOpen: false,
   isToonDetailOpen: true,
@@ -772,9 +811,9 @@ opts.pane = new Pane({
 
 } );
 
-PaneSet.prototype.addPane("topmenu", opts.pane);
+PaneSet.prototype.addPane("topmenu_buildmenu_detailmenu", opts.pane);
 </script>
-<div class="pane toonPane editPane" id="topmenu_charedit"
+<div class="pane toonPane editPane" id="topmenu_buildmenu_detailmenu_charedit"
   style="clear: both; display: none">
 <!-- this comment (or anything else) is required between the
 div above and table below to prevent IE from 'bouncing' -->
@@ -830,12 +869,12 @@ div above and table below to prevent IE from 'bouncing' -->
 </td></tr></table>
 </div>
 
-</div>
+</div> <!-- end of topmenu_buildmenu_detail -->
 
   <script>
     opts.menuId.shift()
   </script>
-</div>
+</div> <!-- end of topmenu_build
 
     <!-- views/group/list.html -->
 <script type="text/javascript">
@@ -884,7 +923,7 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
 <div class="pane dataPane" id="topmenu_data" style="display: none">
 <script>
 PaneSet.prototype.addPane(
-  opts.menuId[0],
+  "topmenu",
   new Pane({
     title: "Data",
     id: "topmenu_data"
@@ -1021,7 +1060,7 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
   </div>
 </div>
 
-  </div>
+</div> <!-- end of content -->
 
   <div id="tipPopup" style='display: none'></div>
   <div id="menuPopup" style='display: none'

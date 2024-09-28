@@ -5,6 +5,8 @@
 # README.md
 # conf/cmtupd.xml
 # configure.bat
+# docs/VisionScope.doc
+# docs/readme.wiki
 # site/data/armor.yml.txt
 # site/data/filters.yml.txt
 # site/data/gwshack-diff.html
@@ -85,9 +87,12 @@
 # site/javascripts/model/test-character.html
 # site/javascripts/model/user.js
 # site/javascripts/model/util.js
+# site/javascripts/server/mock.js
+# site/javascripts/server/model.js
 # site/javascripts/ui/__package__.js
 # site/javascripts/ui/account.js
 # site/javascripts/ui/api-browser.js
+# site/javascripts/ui/api-external.js
 # site/javascripts/ui/api-rails.js
 # site/javascripts/ui/attr-grid.js
 # site/javascripts/ui/build-info.js
