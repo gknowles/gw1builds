@@ -188,8 +188,7 @@ opts.pane = new Pane({
 PaneSet.prototype.addPane("topmenu", opts.pane);
 
 function activateHome(name) {
-  let id = closest('div').id
-  PaneSet.prototype.activate(id, name)
+  PaneSet.prototype.activate('topmenu', name)
 }
 </script>
 <table class='pane'><tr><td class='paneContent'>
