@@ -1,0 +1,33 @@
+== Setup Instructions ==
+
+# Get the files
+## Unpack instant rails and put it in a directory with no spaces in the path, mine is in c:\app\InstantRails
+## Run InstantRails.exe, agree when it asks if you want it to configure things for the directory you just put it in. The Instant Rails window should be open, and after a moment, Apache and MySQL both started.
+## Unpack the guildbuilds distribution and copy the bns directory into c:\app\InstantRails\rails_apps, you should now have a rails_apps/bns along with cookbook and typo (sample apps that come with InstantRails)
+# Create the database
+## Open the instant rails menu (click on the [I] next to the Apache button), and select Configure/Database
+## After phpMyAdmin comes up in a browser window there should be a "Create new database" field in the middle of the page, enter "bns" and click on the create button. The defaults should be fine.
+# Initialize the tables
+## From Instant Rails select I/Rails Applications/Open Ruby Console Window
+## You should be in rails_apps, move into the bns directory and run: "rake db:migrate RAILS_ENV=production"
+# Start the application
+## From Instant Rails select I/Rails Applications/Manage Rails Applications
+## Check the bns app and click "Configure Startup Mode..." button. Change "Runtime Mode" to 'production' and click Ok.
+## Make sure the bns app is still checked, and click "Start with Mongrel", it will run mongrel in a command window. The first line is "... listening at 0.0.0.0:3000", this is where to point your browser. You can change the port with "Configure Startup Mode..."
+## Open the browser and go to HTTP://127.0.0.1:3000, you should now be looking at the GuildBuilds main page.
+# Import skill data 
+## Login as admin (password 'admin'), go to the skills page and select 'Import / Export'
+## Import the following from the xml directory of the guildbuilds distribution:
+*** gwdata.xsd - must be done first
+*** skill-filters.xml
+*** skill-common.xml
+*** skill-a.xml, skill-d.xml, skill-e.xml, skill-me.xml, skill-mo.xml, skill-n.xml, skill-p.xml, skill-r.xml, skill-rt.xml, skill-w.xml
+# All done! 
+----
+To put it in development mode:
+
+* Create database 'bns_dev'
+* Run "rake db:migrate" (without the RAILS_ENV parameter)
+* Change the Runtime Mode to 'development' 
+
+Otherwise its the same as above. You will need to import the skill data into the new database, and you can switch back and forth by changing the run mode. Keep in mind that bns and bns_dev are different databases so they do not share data.
