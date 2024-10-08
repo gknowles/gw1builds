@@ -106,7 +106,7 @@ var cssHover = {
 <script src="../../javascripts/model/user.js"></script>
 
 <script src="../../javascripts/ui/misc.js"></script>
-<script src="../../javascripts/ui/api-browser.js"></script>
+<script src="../../javascripts/ui/api-mock.js"></script>
 <script src="../../javascripts/ui/util-pane.js"></script>
 <script src="../../javascripts/ui/hover-ie.js"></script>
 <script src="../../javascripts/ui/util-dragdrop.js"></script>
@@ -309,7 +309,7 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
           PaneSet.prototype.load("topmenu_buildmenu");
         },
         onprepare: function() {
-          PaneSet.prototype.activate(opts.tabId, "Builds");
+          PaneSet.prototype.activate("topmenu_buildmenu", "Builds");
         },
         onblur: function() {
           return PaneSet.prototype.blur("topmenu_buildmenu");

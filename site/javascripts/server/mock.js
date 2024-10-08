@@ -40,7 +40,7 @@ srv.mock = {
     usersByName: {},
     groups: [],
     toons: [],
-    teams: [],
+    builds: [],
   },
 
   init: function() {
@@ -65,19 +65,24 @@ srv.mock = {
         case 'toon':
             smd.toons[id] = obj
             break;
-        case 'team':
-            smd.team[id] = obj;
+        case 'build':
+            smd.build[id] = obj;
             break;
       }
     }
     if (smd.users.length == 0) {
-        let u = { id: 1, name: "Local Account", role: User.MEMBER }
+        let u = new MockUser
+        u.id = 1
+        u.name = "Admin"
+        u.role = MockUser.ADMIN
+        u.email = 'admin@example.com'
+        u.createdAt = Date.now()
         smd.users[u.id] = u
         smd.usersByName[u.name] = u.id
         let key = 'user.' + u.id.toString()
         g_store.set(key, u)
     }
-    smd.currentUser = smd.users[1]
+    smd.currentUser = new MockUser
   }, // init
 
   addNext: function(arr, obj) {
@@ -132,12 +137,13 @@ srv.mock = {
       return { result: 'bad', errors: [msg] }
   },
 
-  ensureMember: function(res, minRole = User.MEMBER) {
-      if (data.currentUser.name == undefined) {
+  ensureMember: function(res, minRole = MockUser.MEMBER) {
+      let user = srv.mock.data.currentUser
+      if (user.name == undefined) {
           res = errRes("State: Authorization required")
           return false
       }
-      if (data.currentUser.role < minRole) {
+      if (user.role < minRole) {
           res = errRes("Access denied")
           return false
       }
@@ -145,8 +151,9 @@ srv.mock = {
   },
 
   ensureGuest: function(res) {
-      if (data.currentUser.name != undefined
-          || data.currentUser.role != User.GUEST
+      let user = srv.mock.data.currentUser
+      if (user.name != undefined
+          || data.currentUser.role != MockUser.GUEST
       ) {
           res = errRes("State: You're currently logged in!")
           return false
@@ -160,12 +167,13 @@ srv.mock = {
   },
 
   ensureGroupMember: function(res, params, minRole) {
+      let smd = srv.mock.data
       if (!ensurePresenceOf(res, params, 'group.name'))
           return false
-      for (let g of data.groups) {
+      for (let g of smd.groups) {
           if (g.name == params.group.name
-              && g.members[data.currentUser.id] != undefined
-              && g.members[data.currentUser.id] >= minRole
+              && g.members[smd.currentUser.id] != undefined
+              && g.members[smd.currentUser.id] >= minRole
           ) {
               params.group.id = g.id
               return true
@@ -175,14 +183,25 @@ srv.mock = {
       return false
   },
 
-  getGroupList: function(res) {
+  exportUser: function(res, u) {
+      if (u == undefined)
+          u = srv.mock.data.currentUser
+      res.user = { role: u.role }
+      if (u.id != undefined)
+          res.user.id = u.id
+      if (u.name != undefined)
+          res.user.name = u.name
+  },
+
+  exportGroupList: function(res) {
+      let smd = srv.mock.data
       let grps = []
-      for (let grp in this.data.groups) {
+      for (let grp in smd.groups) {
           let role = grp.users[res.user.id] || 0
-          if (role >= User.MEMBER) {
+          if (role >= MockUser.MEMBER) {
               let nmbrs = 0
               for (let role of grp.users.values()) {
-                  if (role >= User.MEMBER)
+                  if (role >= MockUser.MEMBER)
                       nmbrs += 1
               }
               grps.push({
@@ -193,9 +212,7 @@ srv.mock = {
               })
           }
       }
-      res.group = {
-          list: grps,
-      }
+      res.group = { list: grps }
   },
 }
 
@@ -210,13 +227,56 @@ srv.mock.user = {
   current: function(params) {
     let smd = srv.mock.data
     if (smd.currentUser.id == undefined) {
-        smd.currentUser = { role: User.GUEST }
+        smd.currentUser = new MockUser
     }
-    return { result: 'ok', user: smd.currentUser }
+    let res = { result: 'ok' }
+    exportUser(res)
+    exportGroupList(res)
+    return res
   }, // current
 
  /**
-  * Create a new account, user param is a hash with:
+  * Login using an existing and activated account.
+  *
+  * handler gets:
+  * { result:
+  *     bad - name and/or password is bad
+  *     must_activate - name and password good, but the account needs
+  *       to be activated, user is not logged in
+  *     ok - user has been logged in
+  *   errors:
+  *   user: { id:, name:, role: } }
+  */
+  login: function(params) {
+    let res = {}
+    if (!ensureGuest(res) || !ensurePresenceOf(res, params, 'user.name'))
+        return res
+
+    let smd = srv.mock.data
+    let id = smd.usersByName[params.user.name]
+    if (id == undefined)
+        return errRes("Login failed.")
+    smd.currentUser = smd.users[id]
+    let res = { result: 'ok' }
+    exportUser(res)
+    exportGroupList(res)
+  }, // login
+
+ /**
+  * Logout
+  *
+  * handler gets:
+  * { result: 'ok', user: { role: GUEST } }
+  */
+  logout: function(handler) {
+    let smd = srv.mock.data
+    smd.currentUser = new MockUser
+    let res = { result: 'ok' }
+    exportUser(res)
+  }, // logout
+
+ /**
+  * Create a new account, user param is an object with properties:
   *   name, pass, passCopy, email, emailCopy
   *
   * handler gets:
@@ -233,7 +293,6 @@ srv.mock.user = {
       )) {
           return res
       }
-
       if (params.user.password != params.user.password_confirmation)
           return errRes("Password must be entered the same way twice.")
       if (params.user.email != params.user.email_confirmation)
@@ -243,108 +302,35 @@ srv.mock.user = {
       let id = smd.usersByName[params.user.name]
       if (id != undefined)
           return errRes("User name '" + params.user.name + "' already exists.")
-      let u = {
-          name: params.user.name,
-          role: User.MEMBER,
-          email: params.user.email,
-      }
+      let u = new MockUser
+      u.name = params.user.name
+      u.role = User.MEMBER
+      u.email = params.user.email
+      u.createdAt = Date.now()
       this.addNext(smd.users, u)
       smd.usersByName[u.name] = u.id
-      res = { result: 'ok', user: u }
-      getGroupList(res)
+      res = { result: 'ok' }
+      exportUser(res, u)
+      exportGroupList(res)
       return res
   }, // signup
 
- /**
-  * Activate a created account so that it can be used. Generally
-  * used to verify the address by emailing the key needed to activate
-  * the account.
-  *
-  * handler gets:
-  * { result:, errors:, user: { id:, name: } }
-  */
-  activate: function(handler, name, key) {
-    var qs = [
-      'name=' + encodeURIComponent(name),
-      'activation_key=' + encodeURIComponent(key)
-    ].join('&');
-    api.impl.query(handler, 'api.user.activate', qs);
-  }, // activate
-
- /**
-  * Login using an existing and activated account.
-  *
-  * handler gets:
-  * { result:
-  *     bad - name and/or password is bad
-  *     must_activate - name and password good, but the account needs
-  *       to be activated, user is not logged in
-  *     ok - user has been logged in
-  *   errors:
-  *   user: { id:, name:, role: } }
-  */
-  login: function(handler, name, pass) {
-    var qs = [
-      'user[name]=' + encodeURIComponent(name),
-      'user[password]=' + encodeURIComponent(pass)
-    ].join('&');
-    api.impl.query(handler, 'api.user.login', qs);
-  }, // login
-
- /**
-  * Logout
-  *
-  * handler gets:
-  * { result: 'ok', user: { role: GUEST } }
-  */
-  logout: function(handler) {
-    api.impl.query(handler, 'api.user.logout', '');
-  }, // logout
-
- /**
-  * Generate and email a new password for account with the given
-  * email address.
-  *
-  * handler gets:
-  * { result:, errors:, user: { id:, name:, role: } }
-  */
-  recoverActivation: function(handler, name) {
-    var qs = [
-      'user[name]=' + encodeURIComponent(name)
-    ].join('&');
-    api.impl.query(handler, 'api.user.recoverActivation', qs);
-  }, // recoverActivation
-
- /**
-  * Generate and email a new password for account with the given
-  * email address.
-  *
-  * handler gets:
-  * { result:, errors:, user: { id:, name:, role: } }
-  */
-  resetPassword: function(handler, email) {
-    var qs = [
-      'user[email]=' + encodeURIComponent(email)
-    ].join('&');
-    api.impl.query(handler, 'api.user.resetPassword', qs);
-  }, // resetPassword
-
-  changePassword: function(handler, user) {
-    var qs = ['user[password_old]=' + encodeURIComponent(user.passOld),
-      'user[password]=' + encodeURIComponent(user.pass),
-      'user[password_confirmation]=' + encodeURIComponent(user.passCopy)
-    ];
-    qs = qs.join('&');
-    api.impl.query(handler, 'api.user.changePassword', qs);
-  }, // update
-
   changeEmail: function(handler, user) {
-    var qs = [
-      'user[email]=' + encodeURIComponent(user.email),
-      'user[email_confirmation]=' + encodeURIComponent(user.emailCopy)
-    ];
-    qs = qs.join('&');
-    api.impl.query(handler, 'api.user.changeEmail', qs);
+      let res = { result: 'ok' }
+      if (!ensureMember(res) || !ensurePresenceOf(res, params,
+          'user.email',
+          'user.email_confirmation',
+      )) {
+          return res
+      }
+      if (params.user.email != params.user.email_confirmation)
+          return errRes("Email must be entered the same way twice.")
+      // TODO: validate email address format
+
+      let smd = srv.mock.data
+      smd.currentUser.email = params.user.Email
+      exportUser(res)
+      return res
   } // update
 } // api.user.*
 

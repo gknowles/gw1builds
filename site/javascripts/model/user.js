@@ -109,6 +109,7 @@ User.prototype.sorts["Name"] = {
   group:function(val) { return null; }
 };
 
+
 /////////////////////////////////////////////////
 // Group
 // In addition to name and role, a user may contain

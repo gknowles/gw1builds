@@ -22,8 +22,8 @@ api-rails.js - gw1builds ui
  * FUNCTIONS
  *   api.user.current
  *   api.user.login
- *   api.user.signup
  *   api.user.logout
+ *   api.user.signup
  *   api.group.list
  *   api.group.create
  *   api.group.invite_user
@@ -145,8 +145,7 @@ api.user = {
   * { result: 'ok', user: { id:, name:, role: }
   */
   current: function(handler) {
-    api.impl.query(api.group._listShim(handler),
-      'api.user.current', '');
+    api.impl.query(api.group._listShim(handler), 'api.user.current', '');
   }, // current
 
  /**
@@ -177,6 +176,16 @@ api.user = {
   }, // login
 
  /**
+  * Logout
+  *
+  * handler gets:
+  * { result: 'ok', user: { role: GUEST } }
+  */
+  logout: function(handler) {
+    api.impl.query(handler, 'api.user.logout', '');
+  } // logout
+
+ /**
   * Create a new account, user param is a hash with:
   *   name, pass, passCopy, email, emailCopy
   *
@@ -189,16 +198,6 @@ api.user = {
     ].join('&');
     api.impl.query(handler, 'api.user.signup', qs);
   }, // signup
-
- /**
-  * Logout
-  *
-  * handler gets:
-  * { result: 'ok', user: { role: GUEST } }
-  */
-  logout: function(handler) {
-    api.impl.query(handler, 'api.user.logout', '');
-  } // logout
 
 } // api.user.*
 
@@ -313,7 +312,7 @@ api.build = {
    */
 
   /**
-   * Gets a page of the list of visible teams.
+   * Gets a page of the list of visible builds.
    *
    * Set to returned results:
    *   squery.filter.searched
@@ -336,34 +335,34 @@ api.build = {
 
 
   /**
-   * Create a new team, fails if owner already has
-   * a team of the same name (unless replace is true).
-   * <team> must contain .access.owner and .access.viewer
+   * Create a new build, fails if owner already has
+   * a build of the same name (unless replace is true).
+   * <build> must contain .access.owner and .access.viewer
    *
    * handler gets:
-   * { result:, errors:, team: }
+   * { result:, errors:, build: }
    */
-  create: function(handler, team, replace/*=false*/) {
-    var qs = this._encodeBuild(team);
+  create: function(handler, build, replace/*=false*/) {
+    var qs = this._encodeBuild(build);
     if (replace) qs += '&replace=1';
     api.impl.query(this._buildShim(handler), 'api.build.create', qs);
   }, // create
 
 
   /**
-   * Updates an existing team, <team> must contain .access.owner
+   * Updates an existing build, <build> must contain .access.owner
    * received from a previous query.
    *
    * handler gets:
-   * { result:, errors:, team: }
+   * { result:, errors:, build: }
    */
-  update: function(handler, team) {
-    var qs = this._encodeBuild(team);
+  update: function(handler, build) {
+    var qs = this._encodeBuild(build);
     api.impl.query(this._buildShim(handler), 'api.build.update', qs);
   }, // update
 
   /**
-   * Delete an existing team, <team> must contain .access.owner
+   * Delete an existing build, <build> must contain .access.owner
    * received from a previous query
    *
    * handler gets:
@@ -371,10 +370,10 @@ api.build = {
    * or if destroy succeeded and squery is not null
    * <result returned from api.build.list(squery)>
    */
-  destroy: function(handler, team, squery) {
+  destroy: function(handler, build, squery) {
     var qs = [
-      'build[owner]=' + encodeURIComponent(team.access.owner),
-      'build[name]=' + encodeURIComponent(team.name)
+      'build[owner]=' + encodeURIComponent(build.access.owner),
+      'build[name]=' + encodeURIComponent(build.name)
     ];
     qs.push(api.impl.squeryArgs('build', squery));
     api.impl.query(this._buildListShim(handler, squery),
@@ -435,8 +434,8 @@ api.build = {
 
   _buildShim: function(handler) {
     return function(data) {
-      if (data.team) {
-        data.team = api.build._unpackBuild(data.team);
+      if (data.build) {
+        data.build = api.build._unpackBuild(data.build);
       }
       return handler(data);
     }

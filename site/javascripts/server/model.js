@@ -29,7 +29,7 @@ class MockUser {
     name;
     createdAt;
     loginAt;
-    role = MEMBER;
+    role = MockUser.GUEST;
     email;
 }
 
@@ -107,11 +107,11 @@ class MockToonSkill {
 
 /****************************************************************************
 *
-*   Team
+*   Build
 *
 ***/
 
-class MockTeam {
+class MockBuild {
     id = 0;
     rev = 1;
     ownerId;
@@ -128,7 +128,7 @@ class MockTeam {
     toons = []; // indexed by toon id
 }
 
-class MockTeamToon {
+class MockBuildToon {
     slot;
     alternate;
 }

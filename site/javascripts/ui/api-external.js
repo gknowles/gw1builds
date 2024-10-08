@@ -37,14 +37,11 @@ api-browser.js - gw1builds ui
  *   api.group.kick_memeber
  *   api.group.join
  *   api.group.leave
- *   api.team.list
- *   api.team.create
- *   api.team.update
- *   api.team.destroy
- *   api.toon.list
- *   api.toon.create
- *   api.toon.update
- *   api.toon.destroy
+ *   api.build.list
+ *   api.build.create
+ *   api.build.update
+ *   api.build.destroy
+ *   api.misc.download - return sent data as file download
  */
 
 var api = {
@@ -363,17 +360,17 @@ api.group = {
 } // api.group.*
 
 
-api.team = {
+api.build = {
   /*
-   * A team is returned to a handler with:
-   * team.id // unique identifier
-   * team.access.owner // name of owning group, '~your_name' for personal
-   * team.access.viewer // view group, '~your_name' for personal, or
-   *                    //   single '~' for public
+   * A build is returned to a handler with:
+   * build.id // unique identifier
+   * build.access.owner // name of owning group, '~your_name' for personal
+   * build.access.viewer // view group, '~your_name' for personal, or
+   *                     //   single '~' for public
    */
 
   /**
-   * Gets a page of the list of visible teams.
+   * Gets a page of the list of visible builds.
    *
    * Set to returned results:
    *   squery.filter.searched
@@ -384,7 +381,7 @@ api.team = {
    *
    * handler gets:
    * { result:, errors:,
-   *   searched:, matched:, list: [teams],
+   *   searched:, matched:, list: [builds],
    *   pages: { current:, count:, pageSize: } // current is 1 based
    * }
    */
@@ -396,9 +393,9 @@ api.team = {
 
 
   /**
-   * Create a new team, fails if owner already has
-   * a team of the same name (unless replace is true).
-   * <team> must contain .access.owner and .access.viewer
+   * Create a new build, fails if owner already has
+   * a build of the same name (unless replace is true).
+   * <build> must contain .access.owner and .access.viewer
    *
    * handler gets:
    * { result:, errors:, team: }
@@ -632,3 +629,18 @@ api.toon = {
   } // _toonListShim
 
 } // api.toon.*
+
+
+api.misc = {
+  download: function(filename, content, type/*='text/plain'*/) {
+    var qs = [
+      'filename=' + encodeURIComponent(filename),
+      'content=' + encodeURIComponent(content),
+      'type=' + encodeURIComponent(type || 'text/plain')
+    ];
+    var method = 'api.misc.download';
+    var url = api.impl.urls[method] || method;
+    var el = document.getElementById('hiddenIframe');
+    el.src = url + '?' + qs.join('&');
+  }
+} // api.misc.*
