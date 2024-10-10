@@ -83,7 +83,7 @@ srv.mock = {
         g_store.set(key, u)
     }
     smd.currentUser = new MockUser
-  }, // init
+  },
 
   addNext: function(arr, obj) {
       let id = arr.nextId || 0
@@ -161,14 +161,14 @@ srv.mock = {
       return true
   },
 
-  ensurePresenceOf: function(res, obj, nodes) {
+  ensureParams: function(res, obj, nodes) {
       let errs = []
       return true
   },
 
   ensureGroupMember: function(res, params, minRole) {
       let smd = srv.mock.data
-      if (!ensurePresenceOf(res, params, 'group.name'))
+      if (!ensureParams(res, params, 'group.name'))
           return false
       for (let g of smd.groups) {
           if (g.name == params.group.name
@@ -230,10 +230,10 @@ srv.mock.user = {
         smd.currentUser = new MockUser
     }
     let res = { result: 'ok' }
-    exportUser(res)
-    exportGroupList(res)
+    srv.mock.exportUser(res)
+    srv.mock.exportGroupList(res)
     return res
-  }, // current
+  },
 
  /**
   * Login using an existing and activated account.
@@ -248,8 +248,8 @@ srv.mock.user = {
   *   user: { id:, name:, role: } }
   */
   login: function(params) {
-    let res = {}
-    if (!ensureGuest(res) || !ensurePresenceOf(res, params, 'user.name'))
+    let res = { result: 'ok' }
+    if (!ensureGuest(res) || !ensureParams(res, params, 'user.name'))
         return res
 
     let smd = srv.mock.data
@@ -257,10 +257,10 @@ srv.mock.user = {
     if (id == undefined)
         return errRes("Login failed.")
     smd.currentUser = smd.users[id]
-    let res = { result: 'ok' }
     exportUser(res)
     exportGroupList(res)
-  }, // login
+    return res
+  },
 
  /**
   * Logout
@@ -268,12 +268,13 @@ srv.mock.user = {
   * handler gets:
   * { result: 'ok', user: { role: GUEST } }
   */
-  logout: function(handler) {
+  logout: function(params) {
     let smd = srv.mock.data
     smd.currentUser = new MockUser
     let res = { result: 'ok' }
     exportUser(res)
-  }, // logout
+    return res
+  },
 
  /**
   * Create a new account, user param is an object with properties:
@@ -284,7 +285,7 @@ srv.mock.user = {
   */
   signup: function(params) {
       let res = {}
-      if (!ensureGuest(res) || !ensurePresenceOf(res, params,
+      if (!ensureGuest(res) || !ensureParams(res, params,
           'user.name',
           'user.password',
           'user.password_confirmation',
@@ -313,11 +314,11 @@ srv.mock.user = {
       exportUser(res, u)
       exportGroupList(res)
       return res
-  }, // signup
+  },
 
-  changeEmail: function(handler, user) {
+  changeEmail: function(params) {
       let res = { result: 'ok' }
-      if (!ensureMember(res) || !ensurePresenceOf(res, params,
+      if (!ensureMember(res) || !ensureParams(res, params,
           'user.email',
           'user.email_confirmation',
       )) {
@@ -331,8 +332,8 @@ srv.mock.user = {
       smd.currentUser.email = params.user.Email
       exportUser(res)
       return res
-  } // update
-} // api.user.*
+  }
+}
 
 
 srv.mock.group = {
@@ -344,12 +345,25 @@ srv.mock.group = {
    * }
    */
 
+  MAX_GROUPS_PER_USER: 10,
+  MAX_INVITES_PER_USER: 50,
+
   /**
    * Get a page of associated groups and/or a page of members
    * of a specific group.
    */
-  list: function(handler, acctRev, groupName, groupRev) {
-    this._execute("api.group.list", handler, acctRev, groupName, groupRev);
+  list: function(params) {
+    let res = { result: 'ok' }
+    if (!ensureMember(res) || !ensureParams(res, params,
+        'account.rev',
+        'group.name',
+        'group.rev'
+    )) {
+        return res
+    }
+    exportGroupList(res)
+    exportGroupDetail(res)
+    return res
   },
 
   create: function(handler, acctRev, groupName, groupRev) {

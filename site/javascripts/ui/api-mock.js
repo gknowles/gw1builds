@@ -444,5 +444,3 @@ api.build = {
   } // _buildListShim
 
 } // api.build.*
-
-} // api.toon.*
