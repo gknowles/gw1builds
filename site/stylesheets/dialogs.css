@@ -21,7 +21,7 @@ div.searchDialog div.titlebar h2 {
 /* div.saveAsDialog ... { } */
 
 /* Common */
-div#dialog {
+dialog#dialog {
   background-repeat: repeat-x;
   background-color: var(--paneBG);
   color: var(--std);
@@ -32,16 +32,16 @@ div#dialog {
   border-color: var(--stdBorder);
   z-index: 100;
 }
-div#dialog div.content {
+dialog#dialog div.content {
   padding: 0px;
 }
-div#dialog div.titlebar {
+dialog#dialog div.titlebar {
   padding: 0px;
   font-size: 10pt;
   font-weight: bold;
   cursor: move;
 }
-div#dialog div.titlebar div.button {
+dialog#dialog div.titlebar div.button {
   float: right;
   clear: right;
   border: 1px solid;
@@ -50,7 +50,11 @@ div#dialog div.titlebar div.button {
   padding: 1px 6px 1px 6px;
   cursor: pointer;
 }
-div#dialog div.titlebar div.buttonOn {
+dialog#dialog div.titlebar div.buttonOn {
   border-color: #000000 #7781A9 #7781A9 #000000;
   background-color: #353e57;
+}
+dialog#dialog::backdrop {
+  background-color: #4e5a7e;
+  opacity: 0.5;
 }

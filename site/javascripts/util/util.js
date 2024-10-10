@@ -93,19 +93,9 @@ function isString(val) {
 }
 
 //===========================================================================
-function isNode(val) {
+function isElem(val) {
     // dojo.dom.isNode
-    alert("isNode: unimplemented");
-	//	summary:
-	//		checks to see if val is actually a node.
-	if(typeof Element == "function") {
-		try {
-			return val instanceof Element;	//	boolean
-		} catch(e) {}
-	} else {
-		// best-guess
-		return val && !isNaN(val.nodeType);	//	boolean
-	}
+    return val instanceof HTMLElement;
 }
 
 

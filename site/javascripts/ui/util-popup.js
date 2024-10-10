@@ -14,24 +14,24 @@ util-popup.js - gw1builds ui
 if (typeof dojo != 'undefined') { dojo.provide("ui.util-popup"); }
 
 function showDialog(title, body, className) {
-  var dlg = dijit.byId('dialog');
-  var titleEl = dlg.containerNode.getElementsByClassName('titlebar')[0];
-  var contentEl = dlg.containerNode.getElementsByClassName('content')[0];
-  dlg.containerNode.className = className ? className : '';
+  var dlg = document.getElementById('dialog');
+  var titleEl = dlg.getElementsByClassName('titlebar')[0];
+  var contentEl = dlg.getElementsByClassName('content')[0];
+  dlg.className = className ? className : '';
   titleEl.innerHTML = /[<>]/.test(title) ?
     title : ("<h2>" + title + "</h2>");
-  if (isNode(body)) {
+  if (isElem(body)) {
     contentEl.innerHTML = '';
     contentEl.appendChild(body);
   } else {
     contentEl.innerHTML = body;
   }
-  dlg.show();
+  dlg.showModal();
   setFirstFocus(contentEl);
 } // showDialog(title, body)
 
 function hideDialog() {
-  dijit.byId('dialog').hide();
+  document.getElementById('dialog').close();
 } // hideDialog()
 
 
@@ -46,7 +46,7 @@ var DDPopup = {
     baseEl.blur();
     var popEl = this.getEl();
     popEl.className = className || '';
-    if (isNode(body)) {
+    if (isElem(body)) {
       popEl.innerHTML = '';
       popEl.appendChild(body);
     } else {

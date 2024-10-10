@@ -1066,12 +1066,12 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
     onclick='DDPopup.hide()'></div>
   <div id="dragProxy" style='display: none'></div>
   <div id="dropIndicator" style='display: none'></div>
-  <div id="dialog" dojoType='dialog' style='display: none'>
+  <dialog id="dialog">
     <div class="titlebar"
       onMouseDown="DDMove.down(this, event,
         {node: this.parentNode.parentNode})">Search</div>
     <div class="content"></div>
-  </div>
+  </dialog>
   <iframe id='hiddenIframe' name='hiddenIframe'
     style='display: none'></iframe>
 
