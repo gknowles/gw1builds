@@ -113,7 +113,7 @@ var cssHover = {
 <script src="../../javascripts/ui/util-popup.js"></script>
 <script src="../../javascripts/ui/search-filter.js"></script>
 <script src="../../javascripts/ui/search-window.js"></script>
-<script src="../../javascripts/ui/account.js"></script>
+<script src="../../javascripts/ui/account-mock.js"></script>
 <script src="../../javascripts/ui/group-list.js"></script>
 <script src="../../javascripts/ui/attr-grid.js"></script>
 <script src="../../javascripts/ui/item-grid.js"></script>
@@ -1094,7 +1094,61 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
     </form>
 
 <!-- views/user/named_divs.html -->
-<div id='accountLogin' class='minwidth'>
+<div id='openidLogin' class='minwidth'>
+  <div class='pdiv-login'><form>
+  <div class='errpane section errorExplaination' style='display: none'></div>
+  <div class="section">
+    <table><tr><td>
+      <div style='text-align: right'>
+        <a target='_blank' href='http://iwantmyopenid.org/about/openid'
+          >What is OpenID?</a>
+      </div>
+      <label>OpenID:
+        <input class='openid_login firstFocus'
+          onkeydown='return enterSubmits(this, event)'
+          type='text' name='openid_url'
+          size='40'>
+      </label>
+    </td></tr><tr><td>
+      <p class='pvar-setup' style='display: none'>You need to login to
+      your OpenID provider and/or mark this site as trusted to continue.
+      Your provider says you can do that
+      <a target='_blank' class='pvar-setupUrl'>here</a>
+      [opens new window], then come back and try again.</p>
+    </td></tr><tr><td>
+      <br/>
+      <span style='float: right'>
+      <input type='button' name='submit' value='Login'
+        onclick='accountLogin(this.form)'>
+      <input type='button' value='Cancel'
+        onclick="hideDialog()">
+      </span>
+    </td></tr></table>
+  </div>
+  </form></div>
+
+  <div class="pdiv-signup" style="display: none"><form>
+  <div class="errorExplaination errpane section" style='display: none'></div>
+  <div class='section'>
+    <p>Congratulations, you have been authenticated successfully!
+    Now you just have to pick out a name to use while you're here.</p>
+    <p>Please select a user name for this site.</p>
+    Name: <input class='firstFocus' type="text" name="name"
+      onkeydown='return enterSubmits(this, event)'
+      size="20" maxlength='19'><br/>
+    <br/>
+    <span style='float: right'>
+      <input type="button" name="submit" value='Signup'
+        onclick="accountSignup(this.form)">
+      <input type="button" value='Cancel'
+        onclick="hideDialog()">
+    </span>
+    <br/>
+  </div>
+  </form></div>
+</div>
+
+<div id='mockLogin' class='minwidth'>
   <div class='pdiv-login'><form>
   <div class='errpane section errorExplaination' style='display: none'></div>
   <div class="section">

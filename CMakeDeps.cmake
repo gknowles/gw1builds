@@ -90,9 +90,10 @@
 # site/javascripts/server/mock.js
 # site/javascripts/server/model.js
 # site/javascripts/ui/__package__.js
-# site/javascripts/ui/account.js
-# site/javascripts/ui/api-browser.js
+# site/javascripts/ui/account-mock.js
+# site/javascripts/ui/account-openid.js
 # site/javascripts/ui/api-external.js
+# site/javascripts/ui/api-mock.js
 # site/javascripts/ui/api-rails.js
 # site/javascripts/ui/attr-grid.js
 # site/javascripts/ui/build-info.js

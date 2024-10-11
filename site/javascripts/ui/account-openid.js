@@ -2,7 +2,7 @@
 Copyright Glen Knowles 2006 - 2024.
 Distributed under the Boost Software License, Version 1.0.
 
-account.js - gw1builds ui
+account-openid.js - gw1builds ui
 */
 
 /////////////////////////////////////////////////
@@ -10,7 +10,7 @@ account.js - gw1builds ui
 /////////////////////////////////////////////////
 
 function drawAccountLogin() {
-  var el = document.getElementById('accountLogin').cloneNode(true);
+  var el = document.getElementById('openidLogin').cloneNode(true);
   el.removeAttribute('id');
   var pane = new Pane({divEl: el});
   pane.loadElems();

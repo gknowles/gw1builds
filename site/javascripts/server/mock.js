@@ -441,31 +441,24 @@ srv.mock.group = {
     }
   } // _listShim
 
-} // api.group.*
+}
 
 
-srv.mock.team = {
+srv.mock.build = {
   /*
-   * A team is returned to a handler with:
-   * team.id // unique identifier
-   * team.access.owner // name of owning group, '~your_name' for personal
-   * team.access.viewer // view group, '~your_name' for personal, or
+   * A build is returned to a handler with:
+   * build.id // unique identifier
+   * build.access.owner // name of owning group, '~your_name' for personal
+   * build.access.viewer // view group, '~your_name' for personal, or
    *                    //   single '~' for public
    */
 
   /**
-   * Gets a page of the list of visible teams.
-   *
-   * Set to returned results:
-   *   squery.filter.searched
-   *   squery.filter.matched
-   *   squery.filter.matches
-   *   squery.pages.current
-   *   squery.pages.count
+   * Gets a page of the list of visible build.
    *
    * handler gets:
    * { result:, errors:,
-   *   searched:, matched:, list: [teams],
+   *   searched:, matched:, list: [builds],
    *   pages: { current:, count:, pageSize: } // current is 1 based
    * }
    */
@@ -585,131 +578,6 @@ srv.mock.team = {
     }
   } // _teamListShim
 
-} // api.team.*
-
-
-srv.mock.toon = {
-  /*
-   * A toon is returned to a handler with:
-   * toon.id // unique identifier
-   * toon.access.owner // name of owning group, '~your_name' for personal
-   * toon.access.viewer // view group, '~your_name' for personal, or
-   *                    //   single '~' for public
-   */
-
-  /**
-   * Gets a page of the list of visible characters.
-   *
-   * Set to returned results:
-   *   squery.filter.searched
-   *   squery.filter.matched
-   *   squery.filter.matches
-   *   squery.pages.current
-   *   squery.pages.count
-   *
-   * handler gets:
-   * { result:, errors:,
-   *   searched:, matched:, list: [toons],
-   *   pages: { current:, count:, pageSize: } // current is 1 based
-   * }
-   */
-  list: function(handler, squery) {
-    var qs = api.impl.squeryArgs('toon', squery);
-    api.impl.query(this._toonListShim(handler, squery),
-      "api.toon.list", qs);
-  }, // list(handler)
-
-
-  /**
-   * Create a new character, fails if owner already has
-   * a character of the same name (unless replace is true).
-   * <toon> must contain .access.owner and .access.viewer
-   *
-   * handler gets:
-   * { result:, errors:, toon: }
-   */
-  create: function(handler, toon, replace/*=false*/) {
-    var qs = [
-      'toon[owner]=' + encodeURIComponent(toon.access.owner),
-      'toon[viewer]=' + encodeURIComponent(toon.access.viewer),
-      'toon[name]=' + encodeURIComponent(toon.name),
-      'toon[packed]=' + encodeURIComponent(toon.toCode(/*skipName=*/true)),
-      'toon[description]=' + encodeURIComponent(toon.desc)
-    ];
-    if (replace) qs.push('replace=1');
-    qs = qs.join('&');
-    api.impl.query(this._toonShim(handler), 'api.toon.create', qs);
-  }, // create
-
-
-  /**
-   * Updates an existing toon, <toon> must contain .access.owner
-   * received from a previous query.
-   *
-   * handler gets:
-   * { result:, errors:, toon: }
-   */
-  update: function(handler, toon) {
-    var qs = [
-      'toon[owner]=' + encodeURIComponent(toon.access.owner),
-      'toon[viewer]=' + encodeURIComponent(toon.access.viewer),
-      'toon[name]=' + encodeURIComponent(toon.name),
-      'toon[packed]=' + encodeURIComponent(toon.toCode(/*skipName=*/true)),
-      'toon[description]=' + encodeURIComponent(toon.desc)
-    ].join('&');
-    api.impl.query(this._toonShim(handler), 'api.toon.update', qs);
-  }, // update
-
-  /**
-   * Delete an existing toon, <toon> must contain .access.owner
-   * received from a previous query
-   *
-   * handler gets:
-   * { result, errors }
-   * or if destroy succeeded and squery is not null
-   * <result returned from api.toon.list(squery)>
-   */
-  destroy: function(handler, toon, squery) {
-    var qs = [
-      'toon[owner]=' + encodeURIComponent(toon.access.owner),
-      'toon[name]=' + encodeURIComponent(toon.name)
-    ];
-    qs.push(api.impl.squeryArgs('toon', squery));
-    api.impl.query(this._toonListShim(handler, squery),
-      'api.toon.destroy', qs.join('&'));
-  }, // destroy
-
-
-  _unpackToon: function(rtoon) {
-    var toon = Character.prototype.parse(rtoon.packed);
-    toon.id = rtoon.id;
-    toon.setName(rtoon.name);
-    toon.desc = rtoon.desc;
-    toon.access = rtoon.access;
-    return toon;
-  }, // _unpackToon
-
-  _toonShim: function(handler) {
-    return function(data) {
-      if (data.toon) {
-        data.toon = api.toon._unpackToon(data.toon);
-      }
-      return handler(data);
-    }
-  }, // _toonShim(handler)
-
-  _toonListShim: function(handler, squery) {
-    return function(data) {
-      var list = data.list;
-      if (list) {
-        for (var i1 = 0; i1 < list.length; ++i1) {
-          var toon = api.toon._unpackToon(list[i1]);
-          list[i1] = toon;
-        }
-      }
-      api.impl.squeryUpdate(squery, data);
-      return handler(data);
-    }
-  } // _toonListShim
-
 }
+
+
