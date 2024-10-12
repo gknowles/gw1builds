@@ -25,6 +25,11 @@ function drawAccountLogin() {
 }
 
 
+function showAccountLogin() {
+    showDialog("<h2>OpenID Login<\/h2>", drawAccountLogin(), "accountPane")
+}
+
+
 function accountLogin(form) {
   var identity_url = form['openid_url'].value;
   api.user.login(handler, identity_url);

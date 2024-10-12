@@ -197,5 +197,6 @@ function disconnectEvent(args) {
 //===========================================================================
 function fixEvent(evt, el) {
     // dojo.event.browser.fixEvent
-    alert("fixEvent: unimplemented");
+    // throw new Error("fixEvent: unimplemented");
+    return evt
 }

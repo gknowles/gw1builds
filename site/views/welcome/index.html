@@ -996,12 +996,11 @@ PaneSet.prototype.addPane(
 <!--
 opts.pane = new Pane({
   title: "Login",
-  link_to: 'javascript:showDialog("<h2>OpenID Login<\/h2>"' +
-    ', drawAccountLogin(), "accountPane")',
+  link_to: 'javascript:showAccountLogin()',
   hidden: false,
 
   onprepare: function() {
-    showDialog('<h2>Login<\/h2>', drawAccountLogin(), 'accountPane');
+    showAccountLogin();
     return false;
   },
   onupdate: function(upd) {
@@ -1094,27 +1093,18 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
     </form>
 
 <!-- views/user/named_divs.html -->
-<div id='openidLogin' class='minwidth'>
+<div id='mockLogin' class='minwidth'>
   <div class='pdiv-login'><form>
   <div class='errpane section errorExplaination' style='display: none'></div>
   <div class="section">
     <table><tr><td>
-      <div style='text-align: right'>
-        <a target='_blank' href='http://iwantmyopenid.org/about/openid'
-          >What is OpenID?</a>
-      </div>
-      <label>OpenID:
-        <input class='openid_login firstFocus'
+      <p></p>
+      <label>User Name:
+        <input class='firstFocus'
           onkeydown='return enterSubmits(this, event)'
-          type='text' name='openid_url'
+          type='text' name='user.name'
           size='40'>
       </label>
-    </td></tr><tr><td>
-      <p class='pvar-setup' style='display: none'>You need to login to
-      your OpenID provider and/or mark this site as trusted to continue.
-      Your provider says you can do that
-      <a target='_blank' class='pvar-setupUrl'>here</a>
-      [opens new window], then come back and try again.</p>
     </td></tr><tr><td>
       <br/>
       <span style='float: right'>
@@ -1136,6 +1126,9 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
     Name: <input class='firstFocus' type="text" name="name"
       onkeydown='return enterSubmits(this, event)'
       size="20" maxlength='19'><br/>
+    Email: <input type='text' name='email'
+      onkeydown='return enterSubmits(this, event)'
+      size='40' maxlength='64'/><br/>
     <br/>
     <span style='float: right'>
       <input type="button" name="submit" value='Signup'
@@ -1148,13 +1141,14 @@ PaneSet.prototype.addPane("topmenu", opts.pane);
   </form></div>
 </div>
 
-<div id='mockLogin' class='minwidth'>
+<div id='openidLogin' class='minwidth'>
   <div class='pdiv-login'><form>
   <div class='errpane section errorExplaination' style='display: none'></div>
   <div class="section">
     <table><tr><td>
       <div style='text-align: right'>
-        <a target='_blank' href='http://iwantmyopenid.org/about/openid'
+        <a target='_blank'
+          href='https://openid.net/developers/discover-openid-and-openid-connect'
           >What is OpenID?</a>
       </div>
       <label>OpenID:

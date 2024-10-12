@@ -1,3 +1,4 @@
+'use strict';
 /*
 Copyright Glen Knowles 2006 - 2024.
 Distributed under the Boost Software License, Version 1.0.
@@ -25,9 +26,14 @@ function drawAccountLogin() {
 }
 
 
+function showAccountLogin() {
+    showDialog("<h2>Login<\/h2>", drawAccountLogin(), "accountPane")
+}
+
+
 function accountLogin(form) {
-  var identity_url = form['openid_url'].value;
-  api.user.login(handler, identity_url);
+  var name = form['user.name'].value;
+  api.user.login(handler, name);
 
   function handler(data) {
     if (data.result == 'ok') {
@@ -49,10 +55,10 @@ function accountLogin(form) {
       elems.login.errorsEl.innerHTML = pane.formatErrors(
         data.errors, 'login');
     }
-    var wgt = dijit.byId("dialog");
-    wgt.placeModalDialog();
+    var dlg = document.getElementById("dialog");
+    dlg.showModal();
   }
-} // accountLogin(form)
+}
 
 
 function accountSignup(form) {
@@ -68,10 +74,10 @@ function accountSignup(form) {
     showElem(elems.signup.errorsEl);
     elems.signup.errorsEl.innerHTML = pane.formatErrors(
       data.errors, 'sign up');
-    var wgt = dijit.byId("dialog");
-    wgt.placeModalDialog();
+    var dlg = document.getElementById("dialog");
+    dlg.showModal();
   }
-} // accountResetPassword(form)
+}
 
 
 function accountLoginSuccess(data) {
@@ -81,4 +87,4 @@ function accountLoginSuccess(data) {
   groupListHandler(data);
   hideDialog();
   updRootAll( {keys: {user: true} } );
-} // accountLoginSuccess
+}

@@ -108,13 +108,13 @@ srv.mock = {
 
     let methods = method.split('.')
     if (methods.length != 3 || methods[0] != 'api')
-        return errRes("Invalid method '" + method + "'")
-    let op = this[methods[1]]
-    if (op != undefined)
-        op = op[methods[2]]
+        return this.errRes("Invalid method '" + method + "'")
+    let obj = this[methods[1]]
+    if (obj != undefined)
+        op = obj[methods[2]]
     if (typeof op != 'function')
-        return errRes("Unknown method '" + method + "'")
-    return op(params)
+        return this.errRes("Unknown method '" + method + "'")
+    return op.call(obj, params)
   },
 
   addParam: function(params, key, value) {
@@ -127,7 +127,7 @@ srv.mock = {
           if (obj[key.slice(0, pos)] == undefined)
               obj[key.slice(0, pos)] = {}
           obj = obj[key.slice(0, pos)]
-          key = key.slice(pos, epos) + key.slice(epos + 1)
+          key = key.slice(pos + 1, epos) + key.slice(epos + 1)
           pos = key.indexOf('[')
       }
       obj[key] = decodeURIComponent(value)
@@ -140,22 +140,23 @@ srv.mock = {
   ensureMember: function(res, minRole = MockUser.MEMBER) {
       let user = srv.mock.data.currentUser
       if (user.name == undefined) {
-          res = errRes("State: Authorization required")
+          res = this.errRes("State: Authorization required")
           return false
       }
       if (user.role < minRole) {
-          res = errRes("Access denied")
+          res = this.errRes("Access denied")
           return false
       }
       return true
   },
 
   ensureGuest: function(res) {
-      let user = srv.mock.data.currentUser
+      let smd = srv.mock.data
+      let user = smd.currentUser
       if (user.name != undefined
-          || data.currentUser.role != MockUser.GUEST
+          || smd.currentUser.role != MockUser.GUEST
       ) {
-          res = errRes("State: You're currently logged in!")
+          res = this.errRes("State: You're currently logged in!")
           return false
       }
       return true
@@ -179,7 +180,7 @@ srv.mock = {
               return true
           }
       }
-      res = errRes("group.id: No acciessible matching group")
+      res = this.errRes("group.id: No acciessible matching group")
       return false
   },
 
@@ -249,16 +250,23 @@ srv.mock.user = {
   */
   login: function(params) {
     let res = { result: 'ok' }
-    if (!ensureGuest(res) || !ensureParams(res, params, 'user.name'))
+    if (!srv.mock.ensureGuest(res)
+        || !srv.mock.ensureParams(res, params, 'user.name')
+    ) {
         return res
+    }
 
     let smd = srv.mock.data
     let id = smd.usersByName[params.user.name]
-    if (id == undefined)
-        return errRes("Login failed.")
+    if (id == undefined) {
+        res.result = 'signup_needed'
+        res.errors = ["user.name: Account not found"]
+        res.user = { name: params.user.name, role: MockUser.GUEST }
+        return res
+    }
     smd.currentUser = smd.users[id]
-    exportUser(res)
-    exportGroupList(res)
+    srv.mock.exportUser(res)
+    srv.mock.exportGroupList(res)
     return res
   },
 
@@ -272,7 +280,7 @@ srv.mock.user = {
     let smd = srv.mock.data
     smd.currentUser = new MockUser
     let res = { result: 'ok' }
-    exportUser(res)
+    srv.mock.exportUser(res)
     return res
   },
 
@@ -285,7 +293,7 @@ srv.mock.user = {
   */
   signup: function(params) {
       let res = {}
-      if (!ensureGuest(res) || !ensureParams(res, params,
+      if (!srv.mock.ensureGuest(res) || !srv.mock.ensureParams(res, params,
           'user.name',
           'user.password',
           'user.password_confirmation',
@@ -295,14 +303,17 @@ srv.mock.user = {
           return res
       }
       if (params.user.password != params.user.password_confirmation)
-          return errRes("Password must be entered the same way twice.")
+          return srv.mock.errRes("Password must be entered the same way twice.")
       if (params.user.email != params.user.email_confirmation)
-          return errRes("Email must be entered the same way twice.")
+          return srv.mock.errRes("Email must be entered the same way twice.")
 
       let smd = srv.mock.data
       let id = smd.usersByName[params.user.name]
-      if (id != undefined)
-          return errRes("User name '" + params.user.name + "' already exists.")
+      if (id != undefined) {
+          return srv.mock.errRes(
+              "User name '" + params.user.name + "' already exists."
+          )
+      }
       let u = new MockUser
       u.name = params.user.name
       u.role = User.MEMBER
@@ -318,14 +329,14 @@ srv.mock.user = {
 
   changeEmail: function(params) {
       let res = { result: 'ok' }
-      if (!ensureMember(res) || !ensureParams(res, params,
+      if (!srv.mock.ensureMember(res) || !srv.mock.ensureParams(res, params,
           'user.email',
           'user.email_confirmation',
       )) {
           return res
       }
       if (params.user.email != params.user.email_confirmation)
-          return errRes("Email must be entered the same way twice.")
+          return srv.mock.errRes("Email must be entered the same way twice.")
       // TODO: validate email address format
 
       let smd = srv.mock.data
