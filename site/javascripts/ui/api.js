@@ -2,7 +2,7 @@
 Copyright Glen Knowles 2006 - 2024.
 Distributed under the Boost Software License, Version 1.0.
 
-api-rails.js - gw1builds ui
+api.js - gw1builds ui
 */
 
 /**
@@ -20,10 +20,6 @@ api-rails.js - gw1builds ui
  *   api.afterHandler
  *
  * FUNCTIONS
- *   api.user.current
- *   api.user.login
- *   api.user.logout
- *   api.user.signup
  *   api.group.list
  *   api.group.create
  *   api.group.invite_user
@@ -49,53 +45,25 @@ var api = {
 
 api.impl = {
   init: function() {
-    api.impl.urls = apiUrls();
-  }, // init
+      srv.mock.init()
+  },
 
   query: function(handler, method, qs) {
     api.beforeQuery(handler, method);
-    var url = this.urls[method] || method;
-    //alert([url, qs]);
-    dojo.io.bind({
-      headers: {'X-Requested-With': 'XMLHttpRequest'},
-      method: 'post',
-      url: url,
-      handle: metaHandler,
-      mimetype: 'text/plain',
-      postContent: qs
-    });
+    let res = srv.mock.query(method, qs)
+    if (res == null) {
+        res = errRes("Error processing method: " + method)
+    }
     api.afterQuery(handler, method);
 
-    function metaHandler(type, data, impl) {
-      if (type == 'load' &&
-        impl.responseText.substr(0, 11) != "Status: 500")
-      {
-        try {
-          var jsonStr = impl.responseText;
-          data = dojo.json.evalJson(jsonStr.slice(3, jsonStr.length - 3));
-        } catch(e) {
-          data = null;
-        }
-        if (data) {
-          api.beforeHandler(handler, method, data);
-          handler(data);
-          api.afterHandler(handler, method, data);
-          return;
-        }
-        data = { message: "Error parsing JSON response" }
-      }
-      var win = window.open("","errorWindow","");
-      var doc = win.document;
-      if (data && data.message) {
-        doc.write("<pre>" + data.message + "</pre><hr>");
-      }
-      doc.write(impl.responseText + "<hr>");
-      var jsonStr = impl.getResponseHeader('X-JSON');
-      if (jsonStr) doc.write(jsonStr + "<hr>");
-      doc.close();
-    } // metaHandler(type, obj, impl)
+    setTimeout(callback, 1)
 
-  }, // query(handler, method, qs)
+    function callback() {
+        api.beforeHandler(handler, method, res);
+        handler(res);
+        api.afterHandler(handler, method, res);
+    }
+  },
 
   squeryArgs: function(scope, squery) {
     var qs = [];
@@ -112,7 +80,7 @@ api.impl = {
       }
     }
     return qs.join('&');
-  }, // squeryArgs
+  },
 
   squeryUpdate: function(squery, data) {
     if (squery != null) {
@@ -133,7 +101,7 @@ api.impl = {
         squery.pages.pageSize = data.pages.pageSize;
       }
     }
-  } // squeryUpdate
+  },
 }
 
 
@@ -154,25 +122,18 @@ api.user = {
   * handler gets:
   * { result:
   *     bad - name and/or password is bad
-  *     setup_needed - user must authenticate with their openid provider
-  *     signup_needed - authenticated, but user doesn't have an account
+  *     must_activate - name and password good, but the account needs
+  *       to be activated, user is not logged in
   *     ok - user has been logged in
   *   errors:
   *   user: { id:, name:, role: } }
   */
-  login: function(handler, identity_url) {
+  login: function(handler, name, pass) {
     var qs = [
-      'openid_url=' + encodeURIComponent(identity_url)
+      'user[name]=' + encodeURIComponent(name),
+      'user[password]=' + encodeURIComponent(pass)
     ].join('&');
-    api.impl.handler = api.group._listShim(handler);
-    api.impl.query(loginHandler, 'api.user.login', qs);
-
-    // receives either 'bad' or 'check_id'
-    function loginHandler(data) {
-      if (data.result != 'check_id') return api.impl.handler(data);
-      var el = document.getElementById('hiddenIframe');
-      el.src = data.checkid_url;
-    }
+    api.impl.query(handler, 'api.user.login', qs);
   }, // login
 
  /**
@@ -183,7 +144,7 @@ api.user = {
   */
   logout: function(handler) {
     api.impl.query(handler, 'api.user.logout', '');
-  } // logout
+  }, // logout
 
  /**
   * Create a new account, user param is a hash with:
@@ -194,11 +155,32 @@ api.user = {
   */
   signup: function(handler, user) {
     var qs = [
-      'user[name]=' + encodeURIComponent(user.name)
+      'user[name]=' + encodeURIComponent(user.name),
+      'user[password]=' + encodeURIComponent(user.pass),
+      'user[password_confirmation]=' + encodeURIComponent(user.passCopy),
+      'user[email]=' + encodeURIComponent(user.email),
+      'user[email_confirmation]=' + encodeURIComponent(user.emailCopy)
     ].join('&');
     api.impl.query(handler, 'api.user.signup', qs);
   }, // signup
 
+  changePassword: function(handler, user) {
+    var qs = ['user[password_old]=' + encodeURIComponent(user.passOld),
+      'user[password]=' + encodeURIComponent(user.pass),
+      'user[password_confirmation]=' + encodeURIComponent(user.passCopy)
+    ];
+    qs = qs.join('&');
+    api.impl.query(handler, 'api.user.changePassword', qs);
+  }, // update
+
+  changeEmail: function(handler, user) {
+    var qs = [
+      'user[email]=' + encodeURIComponent(user.email),
+      'user[email_confirmation]=' + encodeURIComponent(user.emailCopy)
+    ];
+    qs = qs.join('&');
+    api.impl.query(handler, 'api.user.changeEmail', qs);
+  } // update
 } // api.user.*
 
 
@@ -290,8 +272,8 @@ api.group = {
         }
         var events = data.member.events;
         for (var i1 = 0; i1 < events.length; ++i1) {
-          var raw = dojo.date.fromIso8601(events[i1].created_at);
-          events[i1].created_at = raw;
+            var raw = Date.parse(events[i1].created_at);
+            events[i1].created_at = raw;
         }
       }
 
@@ -456,18 +438,3 @@ api.build = {
   } // _buildListShim
 
 } // api.build.*
-
-
-api.misc = {
-  download: function(filename, content, type/*='text/plain'*/) {
-    var qs = [
-      'filename=' + encodeURIComponent(filename),
-      'content=' + encodeURIComponent(content),
-      'type=' + encodeURIComponent(type || 'text/plain')
-    ];
-    var method = 'api.misc.download';
-    var url = api.impl.urls[method] || method;
-    var el = document.getElementById('hiddenIframe');
-    el.src = url + '?' + qs.join('&');
-  }
-} // api.misc.*

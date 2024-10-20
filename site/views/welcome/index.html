@@ -90,6 +90,7 @@ var cssHover = {
 
 <script src="../../javascripts/server/model.js"></script>
 <script src="../../javascripts/server/mock.js"></script>
+<script src="../../javascripts/server/mock-noauth.js"></script>
 
 <script src="../../javascripts/model/util.js"></script>
 <script src="../../javascripts/model/base64codec.js"></script>
@@ -106,14 +107,16 @@ var cssHover = {
 <script src="../../javascripts/model/user.js"></script>
 
 <script src="../../javascripts/ui/misc.js"></script>
+<script src="../../javascripts/ui/api.js"></script>
 <script src="../../javascripts/ui/api-mock.js"></script>
+<script src="../../javascripts/ui/auth-noauth.js"></script>
 <script src="../../javascripts/ui/util-pane.js"></script>
 <script src="../../javascripts/ui/hover-ie.js"></script>
 <script src="../../javascripts/ui/util-dragdrop.js"></script>
 <script src="../../javascripts/ui/util-popup.js"></script>
 <script src="../../javascripts/ui/search-filter.js"></script>
 <script src="../../javascripts/ui/search-window.js"></script>
-<script src="../../javascripts/ui/account-mock.js"></script>
+<script src="../../javascripts/ui/account-noauth.js"></script>
 <script src="../../javascripts/ui/group-list.js"></script>
 <script src="../../javascripts/ui/attr-grid.js"></script>
 <script src="../../javascripts/ui/item-grid.js"></script>
@@ -964,19 +967,22 @@ PaneSet.prototype.addPane(
   </div>
   <div class='insetTabPane' style='display: none'>
     <div style='padding: 0px' class='section'>
-      <iframe src='util/scode.html' frameborder='0' height='570px' width='100%'>
+      <iframe src='../../util/scode.html' frameborder='0'
+        height='570px' width='100%'>
       </iframe>
     </div>
   </div>
   <div class='insetTabPane' style='display: none'>
     <div style='padding: 0px' class='section'>
-      <iframe src='util/ecode.html' frameborder='0' height='570px' width='100%'>
+      <iframe src='../../util/ecode.html' frameborder='0'
+        height='570px' width='100%'>
       </iframe>
     </div>
   </div>
   <div class='insetTabPane' style='display: none'>
     <div style='padding: 0px' class='section'>
-      <iframe src='util/progs.html' frameborder='0' height='570px' width='100%'>
+      <iframe src='../../util/progs.html' frameborder='0'
+        height='570px' width='100%'>
       </iframe>
     </div>
   </div>
