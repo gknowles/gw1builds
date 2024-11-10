@@ -1026,7 +1026,10 @@ opts.pane = new Pane({
 
   onload: function() { this.loadElems(); },
   onactive: function() {
-    api.user.logout(this.handlers.logout);
+    let handlers = this.handlers
+    api.user.logout(
+      function(data) { handlers.logout.call(handlers, data); }
+    );
   },
   onupdate: function(upd) {
     if (upd.keys.user) { this.hidden = !g_user.hasRole(); }
