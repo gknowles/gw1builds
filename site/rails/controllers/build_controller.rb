@@ -1,18 +1,18 @@
 class BuildController < ApplicationController
 
   def list
-    return unless 
+    return unless
       ensure_method(:xhr)
-      
+
     pbld = params['build'] || {}
-    
+
     select = "builds.*"
     where = []
     filter = decode_filter_string(pbld['filter'])
     unless current_user
       where << 'builds.viewer_id is null' # include all public
     else
-      case filter['Viewer'] ? filter['Viewer'][0] : nil # assoc or all
+      case filter['viewer'] ? filter['viewer'][0] : nil # assoc or all
       when 'assoc'
         where << "group_users.user_id = #{current_user.id} and " \
           "group_users.role >= #{User::MEMBER}";
@@ -32,24 +32,24 @@ class BuildController < ApplicationController
       when 'owner' then 'builds.owner_id, builds.name'
       when 'cat' then 'builds.is_pve desc, builds.build_type, ' \
         'builds.is_team, builds.name'
-      else 
+      else
         'builds.name'
     end
     params['page'] = pbld['page']
     pageSize = pbld['pageSize'].to_i
-    @build_pages, @builds = paginate :builds, 
+    @build_pages, @builds = paginate :builds,
       :per_page => pageSize,
       :select => select,
-      :joins => joins, 
+      :joins => joins,
       :conditions => where.join(' or '),
       :order => order
-    blds = @builds.collect { |t| 
-      t.to_json(current_user) 
+    blds = @builds.collect { |t|
+      t.to_json(current_user)
     }
     @json = { :result => :ok, :list => blds,
       :searched => 0,
       :matched => @build_pages.item_count,
-      :pages => { 
+      :pages => {
         :current => @build_pages.current_page.number,
         :count => @build_pages.page_count,
         :pageSize => @build_pages.items_per_page
@@ -62,18 +62,18 @@ class BuildController < ApplicationController
   # If 'replace' param is not present, and a toon with the same
   # name and owner already exists, the result will be :exists.
   # Otherwise the preexisting one is replaced
-  # 
+  #
   def create
     return unless
-      ensure_method(:post, :xhr) and 
+      ensure_method(:post, :xhr) and
       ensure_member and
-      ensure_presence_of('build.name', 'build.size', 
+      ensure_presence_of('build.name', 'build.size',
         'build.is_team', 'build.is_pve', 'build.build_type',
         'build.owner', 'build.viewer')
-        
+
     pbld = params['build'] || {}
     build = decode_build(pbld)
-    
+
     oname = pbld['owner'];
     vname = pbld['viewer'];
 
@@ -84,15 +84,15 @@ class BuildController < ApplicationController
       render_json(:result => :bad, :errors => [
         "Invalid combination of ownership and visibility"])
       return
-    end    
+    end
 
-    ogu = GroupUser.find_by_user_id(current_user.id, 
+    ogu = GroupUser.find_by_user_id(current_user.id,
       :include => :group,
       :conditions => ["groups.name = ?", oname])
     if vname == oname
       vgu = ogu
     elsif vname != '~' # not public
-      vgu = GroupUser.find_by_user_id(current_user.id, 
+      vgu = GroupUser.find_by_user_id(current_user.id,
         :include => :group,
         :conditions => ["groups.name = ?", vname])
     end
@@ -101,15 +101,15 @@ class BuildController < ApplicationController
         "id:#{current_user.id},'#{oname}','#{vname}'",
         "Proposed owner and/or viewer inaccessible"])
       return
-    end    
-               
+    end
+
     # editor access to proposed owner?
     if ogu.role < User::EDITOR
       render_json(:result => :bad, :errors => [
         "Insufficient access to proposed owner"])
       return
     end
-    
+
     build.owner_id = ogu.group_id
     build.viewer_id = vgu.group_id if vgu
 
@@ -133,24 +133,24 @@ class BuildController < ApplicationController
             end
           end
         end
-        raise RollbackHackException unless 
+        raise RollbackHackException unless
           build.errors.empty? and build.save
       end # transaction
     rescue RollbackHackException
       render_json(:result => :bad, :errors => build.errors.full_messages)
       return
     end
-        
+
     # done
     render_json(:result => :ok, :build => build.to_json(current_user))
   end # create
 
-  
+
   def update
     return unless
-      ensure_method(:post, :xhr) and 
+      ensure_method(:post, :xhr) and
       ensure_member and
-      ensure_presence_of('build.name', 'build.owner', 'build.size', 
+      ensure_presence_of('build.name', 'build.owner', 'build.size',
         'build.is_team', 'build.is_pve', 'build.build_type',
         'build.description')
 
@@ -178,22 +178,22 @@ class BuildController < ApplicationController
             end
           end
         end
-        raise RollbackHackException unless 
-          build.errors.empty? and build.save                      
+        raise RollbackHackException unless
+          build.errors.empty? and build.save
       end # transaction
     rescue RollbackHackException
       render_json(:result => :bad, :errors => build.errors.full_messages)
       return
     end
-    
-    #done    
+
+    #done
     render_json(:result => :ok, :build => build.to_json(current_user))
   end # update
 
 
   def destroy
     return unless
-      ensure_method(:post, :xhr) and 
+      ensure_method(:post, :xhr) and
       ensure_member and
       ensure_presence_of('build.owner', 'build.name')
 
@@ -207,12 +207,12 @@ class BuildController < ApplicationController
         )
       return
     end
-    
+
     unless build.destroy
       render_json(:result => :bad, :errors => build.errors.full_messages)
       return
     end
-    
+
     # done
     return self.list if pbld['page']
     render_json(:result => :ok)
@@ -241,5 +241,5 @@ private
     end
     build
   end
-  
+
 end

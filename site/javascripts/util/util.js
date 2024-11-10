@@ -98,6 +98,20 @@ function isElem(val) {
     return val instanceof HTMLElement;
 }
 
+//===========================================================================
+function deepMerge(out, src) {
+    for (let key in src) {
+        if (src.hasOwnProperty(key)) {
+            if (src[key] instanceof Object && out[key] instanceof Object) {
+                out[key] = deepMerge(out[key], src[key]);
+            } else {
+                out[key] = src[key];
+            }
+        }
+    }
+    return out;
+}
+
 
 /****************************************************************************
 *

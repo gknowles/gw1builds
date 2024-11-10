@@ -9,11 +9,11 @@ util.js - gw1builds model
  * Extracts parameters from a location object and returns them as
  * a hash. Most commonly used for parse document.location
  *
- * @param   location  object containing parameters
- * @return            hash of parameters
+ * @qs          querystring
+ * @return      hash of parameters
  */
 function parseQueryString(qs) {
-  var params = new Object;
+  var params = {};
   var pairs = qs.split('&');
   var key, val;
   for (var i1 = 0; i1 < pairs.length; ++i1) {
@@ -34,7 +34,7 @@ function parseQueryString(qs) {
  * @return          query string
  */
 function toQueryString(params) {
-  var out = new String;
+  var out = "";
   for (p in params) {
     if (out.length) out += "&";
     var key = encodeURIComponent(p).replace("'", "%27").replace('"', "%22");

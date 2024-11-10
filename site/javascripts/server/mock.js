@@ -97,7 +97,7 @@ srv.mock = {
     // equal to d.
     let params = {}
     for (let [k, v] of qry.entries()) {
-        this.addParam(params, k, v)
+        this.decodeParam(params, k, v)
     }
 
     let methods = method.split('.')
@@ -111,7 +111,7 @@ srv.mock = {
     return op.call(obj, params)
   },
 
-  addParam: function(params, key, value) {
+  decodeParam: function(params, key, value) {
       let obj = params
       let pos = key.indexOf('[')
       while (pos != -1) {
@@ -174,7 +174,7 @@ srv.mock = {
               return true
           }
       }
-      res = this.errRes("group.id: No acciessible matching group")
+      res = this.errRes("group.id: No accessible matching group")
       return false
   },
 
@@ -208,6 +208,28 @@ srv.mock = {
           }
       }
       res.group = { list: grps }
+  },
+
+  decodeFilterString: function(res, out, str) {
+      out = {}
+      if (typeof str !== 'string') {
+          res = this.errRes("build.filter: Malformed string")
+          return false
+      }
+      let pairs = str.split('&')
+      if (pairs.length < 1) {
+          res = this.errRes("build.filter: Malformed string")
+          return false
+      }
+      for (let pair in pairs) {
+          pair = pair.split('=')
+          if (pair.length != 2) {
+              res = this.errRes(`build.filter: Malformed pair: ${pair}`)
+              return false
+          }
+          out[pair[0]] = pair[1].split(',')
+      }
+      return true
   },
 }
 
@@ -338,11 +360,83 @@ srv.mock.build = {
    *   pages: { current:, count:, pageSize: } // current is 1 based
    * }
    */
-  list: function(handler, squery) {
-    var qs = api.impl.squeryArgs('team', squery);
-    api.impl.query(this._teamListShim(handler, squery),
-      "api.team.list", qs);
-  }, // list(handler)
+  list: function(params) {
+    let res = { result: 'ok' }
+    let defs = { build: {
+        filter: "viewer=all",
+        sort: "name",
+        page: 1,
+        pageSize: 10
+    } }
+    deepMerge(params, defs)
+    let pbld = params.build
+    let filter = null
+    if (!srv.mock.decodeFilterString(res, filter, pbld.filter))
+        return res
+    let smd = srv.mock.data
+    let blds = []
+
+    // Select builds
+    for (let bld in smd.builds) {
+        if (!smd.currentUser.id) {
+            if (bld.viewerId)
+                continue
+        } else if (filter.viewer[0] == 'assoc') {
+            let grp = smd.groups[bld.ownerId]
+            if (!grp || grp.groupUsers[smd.currentUser.id] < MockUser.MEMBER)
+                continue
+        } else {
+            // viewer = all
+            if (bld.viewerId) {
+                let grp = smd.groups[bld.viewerId]
+                if (!grp
+                    || grp.groupUsers[smd.currentUser.id] < MockUser.MEMBER
+                ) {
+                    continue
+                }
+            }
+        }
+        blds.push(bld)
+    }
+
+    // Sort builds
+    let fn = (a, b) => a.name.localCompare(b.name);
+    switch (pbld.sort) {
+    case 'owner':
+        fn = (a, b) => {
+            if (a.ownerId < b.ownerId) return -1
+            if (a.ownerId > b.ownerId) return 1
+            return a.name.localCompare(b.name)
+        }
+        break
+    case 'cat':
+        fn = (a, b) => {
+            if (a.isPve != b.isPve) return a.isPve ? 1 : -1 // descending
+            if (a.buildType < b.buildType) return -1
+            if (a.buildType > b.buildType) return 1
+            if (a.isTeam != b.isTeam) return a.isTeam ? -1 : 1
+            return a.name.localCompare(b.name)
+        }
+    }
+    blds.sort(fn)
+
+    // Paginate
+    let pgno = pbld.page > 0 ? pbld.page : 1
+    let psize = pbld.pageSize > 0 ? pbld.pageSize : 10
+    let pcnt = Math.max((blds.length + psize - 1) / psize, 1)
+    res = {
+        result: 'ok',
+        list: blds.slice((pgno - 1) * psize, pgno * psize),
+        searched: 0,
+        matched: blds.length,
+        pages: {
+            current: pgno,
+            count: pcnt,
+            pageSize: psize,
+        },
+    }
+    return res
+  },
 
 
   /**
@@ -353,11 +447,35 @@ srv.mock.build = {
    * handler gets:
    * { result:, errors:, team: }
    */
-  create: function(handler, team, replace/*=false*/) {
-    var qs = this._encodeTeam(team);
-    if (replace) qs += '&replace=1';
-    api.impl.query(this._teamShim(handler), 'api.team.create', qs);
-  }, // create
+  create: function(params) {
+    let res = { result: 'ok' }
+    if (!ensureMember(res) || !ensureParams(res, params,
+        'build.name',
+        'build.size',
+        'build.is_team',
+        'build.is_pve',
+        'build.build_type',
+        'build.owner',
+        'build.viewer'
+    )) {
+        return res
+    }
+
+    let oname = params.build.owner
+    let vname = params.build.viewer
+    if (oname.length > 1 && oname[0] == '~' // personal, any viewer
+        || vname == '~' // any owner, public viewer
+        || oname == vname // group owner and not public, viewer same as owner
+    ) {
+        res.errors = [
+            "Invalid combination of ownership and visibility"
+        ]
+        return res
+    }
+
+    res.errors = [ "Not implemented" ]
+    return res
+  },
 
 
   /**
