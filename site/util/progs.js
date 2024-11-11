@@ -37,17 +37,35 @@ function update() {
   // count filled in points
   var inputs = document.getElementById("inputs").elements;
   var pts = [];
+  var found = [];
   for (var i1 = 0; i1 < inputs.length; ++i1) {
     var val = Number(inputs[i1].value);
     if (val != NaN && inputs[i1].value.length > 0) {
       pts.push([i1, val]);
+      found.push(true)
+    } else {
+      found.push(false)
     }
   }
-  var result = findParms(pts);
-  document.getElementById("result").textContent = result.text;
+  var res = findParms(pts);
+  document.getElementById("result").textContent = res.text;
   for (var i1 = 0; i1 < 17; ++i1) {
-    if (result.at0 != null) {
-      out = effectValue(i1, result.at0, result.at15, result.factor);
+    if (res.matched) {
+      out = effectValue(i1, res.at0[0], res.at15[0], res.factor[0]);
+    } else if (res.at0 != null) {
+      if (found[i1]) {
+        out = Number(inputs[i1].value)
+      } else {
+        let a = effectValue(i1, res.at0[0], res.at15[1], res.factor[0])
+        let b = effectValue(i1, res.at0[1], res.at15[0], res.factor[1])
+        if (a == b) {
+          out = a
+        } else if (a < b) {
+          out = a + ' - ' + b
+        } else {
+          out = b + ' - ' + a
+        }
+      }
     } else {
       out = '';
     }
@@ -125,28 +143,23 @@ function findParms(pts) {
   var out = '';
   if (o0[0] == o0[1]) {
     matched += 1;
-    out += 'at0: ' + o0[0];
-  } else {
-    out += 'at0: [' + o0[0] + ' - ' + o0[1] + ']';
   }
   if (o15[0] == o15[1]) {
     matched += 1;
-    out += ',  at15: ' + o15[0];
-  } else {
-    out += ',  at15: [' + o15[0] + ' - ' + o15[1] + ']';
   }
   if (of[0] == of[1]) {
     matched += 1;
-    out += ',  factor: ' + Math.round(100*of[0]);
+    out += 'Factor: ' + Math.round(100*of[0]);
   } else {
-    out += ',  factor: [' + Math.round(100*of[0]) +
+    out += 'Factor: [' + Math.round(100*of[0]) +
       ' - ' + Math.round(100*of[1]) + ']';
   }
-  out = {text: out}
-  if (matched == 3) {
-    out.at0 = o0[0];
-    out.at15 = o15[0];
-    out.factor = of[0];
+  out = {
+      text: out,
+      matched: matched == 3,
+      at0: o0,
+      at15: o15,
+      factor: of,
   }
   return out;
 }
