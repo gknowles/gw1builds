@@ -1,4 +1,4 @@
-# Copyright Glen Knowles 2016 - 2024.
+# Copyright Glen Knowles 2016 - 2025.
 # Distributed under the Boost Software License, Version 1.0.
 #
 # CMakeLists.txt - general project generator
@@ -121,6 +121,7 @@ set(tmp "${LINK_STATIC_RUNTIME}")   # not used by clang or gcc builds
 # 2024-02-18 - Removed - install_archive_pdb() in favor of /Z7
 # 2024-07-19 - Added - Site projects
 # 2024-07-20 - Added - Changelog
+# 2025-01-09 - Changed - Use --std=c++2c with supporting GCC and Clang
 
 
 #############################################################################
@@ -235,8 +236,10 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
     elseif(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "11")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a")
-    else()
+    elseif(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "14")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2b")
+    else()
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2c")
     endif()
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "7")
@@ -246,8 +249,10 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
     elseif(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "12")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a")
-    else()
+    elseif(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "17")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2b")
+    else()
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2c")
     endif()
 endif()
 if(BUILD_COVERAGE)
