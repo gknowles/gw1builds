@@ -71,12 +71,15 @@ class MockToon {
     id = 0;
     rev = 1;
     name;
+    desc;
+
+    packed;
+
     level;
     attrBonusPts;
     primaryCode;
     secondaryCode;
     headgearAttrCode;
-    desc;
 
     attrs = [];
     items = [];

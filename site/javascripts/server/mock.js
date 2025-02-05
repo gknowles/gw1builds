@@ -33,6 +33,7 @@ srv.mock = {
     users: [],
     usersByName: {},
     groups: [],
+    groupsByName: {},
     toons: [],
     builds: [],
   },
@@ -55,6 +56,7 @@ srv.mock = {
             break;
         case 'group':
             smd.groups[id] = obj
+            smd.groupsByName[obj.name] = id
             break;
         case 'toon':
             smd.toons[id] = obj
@@ -127,8 +129,10 @@ srv.mock = {
       obj[key] = decodeURIComponent(value)
   },
 
-  errRes: function(msg) {
-      return { result: 'bad', errors: [msg] }
+  errRes: function(msgs) {
+      if (!isArray(msgs))
+          msgs = [msgs]
+      return { result: 'bad', errors: msgs }
   },
 
   ensureMember: function(res, minRole = MockUser.MEMBER) {
@@ -210,6 +214,29 @@ srv.mock = {
       res.group = { list: grps }
   },
 
+  exportBuild = function(res, bld) {
+      let smd = srv.mock.data
+      let out = {
+          name: bld.name,
+          id: bld.id,
+          isTeam: bld.isTeam,
+          isPve: bld.isPve,
+          type: bld.buildType,
+          desc: bld.desc,
+          size: bld.size,
+          list: []
+      }
+      for (let [id, mbr] of bld.toons.entries()) {
+          let toon = smd.toons[id]
+          out.list.push({
+              pos: mbr.slot,
+              alt: mbr.alternate,
+              value: toon.packed,
+          })
+      }
+      res.build = out
+  },
+
   decodeFilterString: function(res, out, str) {
       out = {}
       if (typeof str !== 'string') {
@@ -265,7 +292,9 @@ srv.mock.group = {
   },
 
   create: function(handler, acctRev, groupName, groupRev) {
-    this._execute("api.group.create", handler, acctRev, groupName, groupRev);
+    //u.createdAt = Date.now()
+    //srv.mock.addNext(smd.users, u)
+    //smd.usersByName[u.name] = u.id
   }, // create
 
   invite_user: function(handler, acctRev, groupName, groupRev, userName) {
@@ -440,7 +469,7 @@ srv.mock.build = {
 
 
   /**
-   * Create a new team, fails if owner already has
+   * Create a new build, fails if owner already has
    * a team of the same name (unless replace is true).
    * <team> must contain .access.owner and .access.viewer
    *
@@ -460,6 +489,7 @@ srv.mock.build = {
     )) {
         return res
     }
+    let bld = this._decodeBuild(params['build'])
 
     let oname = params.build.owner
     let vname = params.build.viewer
@@ -467,28 +497,77 @@ srv.mock.build = {
         || vname == '~' // any owner, public viewer
         || oname == vname // group owner and not public, viewer same as owner
     ) {
-        res.errors = [
-            "Invalid combination of ownership and visibility"
-        ]
-        return res
+        return errRes("Invalid combination of ownership and visibility")
     }
 
-    res.errors = [ "Not implemented" ]
+    let smd = srv.mock.data
+    let ogu = smd.groupsByName[oname]
+    if (!ogu)
+        ogu = smd.groups[ogu].groupUsers[smd.currentUser.id]
+    let vgu = null
+    if (vname == oname) {
+        vgu = ogu
+    } else if (vname != '~') {
+        // not public
+        vgu = smd.groupsByName[vname]
+        if (!vgu)
+            vgu = smd.groups[vgu].groupUsers[smd.currentUser.id]
+    }
+    if (!ogu || !vgu && vname != '~') {
+        return errRes([
+            `id:${smd.currentUser.id},'${oname}','${vname}'`,
+            "Proposed owner and/or viewer inaccessible"
+        ])
+    }
+
+    // owner must have at least editor access
+    if (ogu.role < MockUser.EDITOR) {
+        return errRes("Insufficient access to proposed owner")
+    }
+
+    bld.ownerId = ogu.id
+    if (vgu) bld.viewerId = vgu.id
+
+    if (!this._saveBuild(res, bld, params['replace']))
+        return res
+
+    srv.mock.exportBuild(res, bld)
     return res
   },
 
 
   /**
-   * Updates an existing team, <team> must contain .access.owner
+   * Updates an existing build, <build> must contain .access.owner
    * received from a previous query.
    *
    * handler gets:
-   * { result:, errors:, team: }
+   * { result:, errors:, build: }
    */
-  update: function(handler, team) {
-    var qs = this._encodeTeam(team);
-    api.impl.query(this._teamShim(handler), 'api.team.update', qs);
-  }, // update
+  update: function(params) {
+      let res = { result: 'ok' }
+      if (!ensureMember(res) || !ensureParams(res, params,
+           'build.name',
+           'build.size',
+           'build.is_team',
+           'build.is_pve',
+           'build.build_type',
+           'build.owner',
+           'build.description'
+       )) {
+           return res
+       }))
+
+       let pbld = params['build']
+       let owner = pbld.owner
+       let name = pbld.name
+       let bld = this._findBuild(owner, name)
+       if (!bld)
+           return errRes(`${owner}/${name}: No accessible matching build`)
+       let nbld = this._decodeBuild(params['build'])
+
+       let smd = srv.mock.data
+
+  },
 
   /**
    * Delete an existing team, <team> must contain .access.owner
@@ -509,32 +588,73 @@ srv.mock.build = {
       'api.team.destroy', qs.join('&'));
   }, // destroy
 
+  _decodeBuild: function(pbld) {
+    let bld = new MockBuild;
+    bld.name = pbld['name']
+    bld.desc = pbld['description']
+    bld.isTeam = pbld['is_team'] == 'true'
+    bld.isPve = pbld['is_pve'] == 'true'
+    bld.build_type = pbld['build_type']
+    let cnt = pbld['size']
+    for (let i = 0; i < cnt; ++i) {
+        let ptoon = pbld[i]
+        if (!ptoon)
+            continue
+        let toon = new MockToon
+        toon.name = ptoon.name
+        toon.desc = ptoon.desc
+        toon.packed = ptoon.packed
+        let member = new MockBuildToon
+        member.pos = ptoon.pos
+        member.alternate = ptoon.alt
+        member.toon = toon
+        bld.toons.push(member)
+    }
+    return bld
+  },
 
-  _encodeTeam: function(team) {
-    var qs = [
-      'team[name]=' + encodeURIComponent(team.name),
-      'team[description]=' + encodeURIComponent(team.desc),
-      'team[owner]=' + encodeURIComponent(team.access.owner),
-      'team[viewer]=' + encodeURIComponent(team.access.viewer),
-      'team[size]=' + encodeURIComponent(team.slots().length)
-    ];
-    var slots = team.slotRefs(/*inclNulls=*/false);
-    for (var i1 = 0; i1 < slots.length; ++i1) {
-      var slot = slots[i1];
-      var toon = slot.value;
-      var key = 'team[' + i1 + ']';
-      qs.push(
-        key + '[pos]=' + slot.pos,
-        key + '[alt]=' + slot.alt
-      );
-      qs.push(
-        key + '[name]=' + encodeURIComponent(toon.name),
-        key + '[packed]=' + encodeURIComponent(toon.toCode(/*skipName=*/true)),
-        key + '[description]=' + encodeURIComponent(toon.desc)
-      );
-    } // for each slot
-    return qs.join('&');
-  }, // _encodeTeam
+  _findBuild(owner, name) {
+      let smd = srv.mock.data
+      let ownerId = owner
+      if (typeof owner !== 'number')
+          ownerId = smd.groupsByName[owner]
+      let obld = smd.builds.find(function(b) {
+          b.ownerId == ownerId && b.name == name
+      })
+      return obld
+  },
+
+  _saveBuild(res, bld, replace) {
+    let smd = srv.mock.data
+    let obld = this._findBuild(bld.ownerId, bld.name)
+    if (!obld) {
+        bld.createdAt = Date.now()
+        srv.mock.addNext(smd.builds, bld)
+    } else {
+        if (!replace) {
+            res = {
+                result: 'exists',
+                errors: [ `Build '${bld.name}' already exists.`]
+            }
+            return false
+        }
+        bld.createdAt = obld.createdAt
+        bld.id = obld.id
+        smd.builds[bld.id] = bld
+        for (let mbrId of obld.toons.keys()) {
+            delete srv.mock.toons[mbrId]
+        }
+    }
+    bld.updatedAt = Date.now()
+    let toons = bld.toons
+    bld.toons = []
+    for (let mbr of toons) {
+        srv.mock.addNext(smd.toons, mbr.toon)
+        bld.toons[mbr.toon.id] = mbr
+        delete mbr.toon
+    }
+    return true
+  },
 
   _unpackTeam: function(rteam) {
     var team = new Team(rteam.name, rteam.id, rteam.desc, rteam.size);
