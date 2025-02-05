@@ -177,7 +177,7 @@ function initSkillSearch() {
 //===========================================================================
 function editSkillSearch() {
   var filter = g_skillSearch.filter.clone();
-  var dlgWgt = dijit.byId("dialog");
+  var dlgWgt = document.getElementById("dialog");
 
   var skills = DDSkillList.filteredSkills();
   g_currentSearch = new SearchWindow('Skill Search', dlgWgt, filter,

@@ -80,7 +80,7 @@ function initBuildSearch() {
 //===========================================================================
 function editBuildSearch() {
   var filter = g_buildSearch.filter.clone();
-  var dlgWgt = dijit.byId("dialog");
+  var dlgWgt = document.getElementById("dialog");
 
   g_currentSearch = new SearchWindow('Toon Search', dlgWgt, filter,
     {});

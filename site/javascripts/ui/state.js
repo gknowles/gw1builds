@@ -171,7 +171,7 @@ function saveObjAs(form) {
         g_state.updBaseline();
         updObjInfo( {keys: {characters: true} } );
       }
-      dijit.byId('dialog').hide();
+      hideDialog();
       return;
     }
 
@@ -188,8 +188,8 @@ function saveObjAs(form) {
       errEl.innerHTML = Pane.prototype.formatErrors(
         data.errors, null);
     }
-    var wgt = dijit.byId("dialog");
-    wgt.placeModalDialog();
+    var dlg = document.getElementById("dialog");
+    dlg.showModal();
   } // handler(data)
 } // saveObjAs(obj, form)
 

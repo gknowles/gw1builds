@@ -54,8 +54,8 @@ function accountLogin(form) {
       elems.login.errorsEl.innerHTML = pane.formatErrors(
         data.errors, 'login');
     }
-    var wgt = dijit.byId("dialog");
-    wgt.placeModalDialog();
+    var dlg = document.getElementById("dialog");
+    dlg.showModal();
   }
 } // accountLogin(form)
 
@@ -73,8 +73,8 @@ function accountSignup(form) {
     showElem(elems.signup.errorsEl);
     elems.signup.errorsEl.innerHTML = pane.formatErrors(
       data.errors, 'sign up');
-    var wgt = dijit.byId("dialog");
-    wgt.placeModalDialog();
+    var dlg = document.getElementById("dialog");
+    dlg.showModal();
   }
 } // accountResetPassword(form)
 

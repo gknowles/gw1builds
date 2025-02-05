@@ -28,11 +28,11 @@ function showDialog(title, body, className) {
   }
   dlg.showModal();
   setFirstFocus(contentEl);
-} // showDialog(title, body)
+}
 
 function hideDialog() {
   document.getElementById('dialog').close();
-} // hideDialog()
+}
 
 
 var DDPopup = {

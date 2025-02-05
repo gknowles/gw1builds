@@ -7,11 +7,7 @@ team-view.js - gw1builds ui
 
 /**
  * @team    team to draw
- * @fmt     format
- *   normal
- *   anet
- *   gwbbcode
- *   gbd
+ * @fmt     format (normal, anet, gwbbcode, or gbd)
  */
 function updTeamView(el, team, fmt) {
   switch (fmt) {
@@ -293,7 +289,7 @@ function drawViewTextWrap(pre) {
     "(Double-click on text to select all)",
     "</span>",
     "<div class='scroll partDesc'",
-    " ondblclick='dijit._editor.selection.selectElementChildren(this)'>"];
+    " ondblclick='document.getSelection().selectAllChildren(this)'>"];
   out.push(pre.replace(/\n/g, '<br/>'));
   out.push("</div></div></div>");
   out = out.join('');

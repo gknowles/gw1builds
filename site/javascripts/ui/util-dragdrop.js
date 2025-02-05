@@ -200,7 +200,7 @@ var DDManager = {
 
     document.body.style.cursor = 'move';
 
-    setTimeout(function() { dijit._editor.selection.remove(); }, 100);
+    setTimeout(function() { document.getSelection().empty(); }, 100);
   },
 
   up: function(el, event, obj, policy) {
@@ -307,7 +307,7 @@ var DDManager = {
     }
 
     // stop any possible swipe select that might be in progress
-    dijit._editor.selection.remove();
+    document.getSelection().empty();
 
     var policy = obj.srcPolicy;
     this.acceptance = policy.acceptDrop(obj, this.dragObj);
