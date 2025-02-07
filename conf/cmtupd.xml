@@ -1,13 +1,16 @@
 ﻿<!--
-Copyright Glen Knowles 2020 - 2024.
+Copyright Glen Knowles 2020 - 2025.
 Distributed under the Boost Software License, Version 1.0.
+
+cmtupd config file
+https://github.com/gknowles/dimapp/tree/master/tools/cmtupd
 
 Auto-generated variables:
     $CurrentYear: current year, 4-digits
     $CommitYear: year file was last committed, 4-digits
 
-Lines matched by Match/@regex are replaced with @replace if the file's
-$CommitYear is greater than LastYear.
+Lines matched by Match/@regex are replaced with @replace if an update action
+is triggered.
 
 The attributes @regex, @value, and @default are interpreted as attribute value
 templates, which means that Var's values can be embedded by surrounding the Var
@@ -22,26 +25,33 @@ and '} respectively.
         replace="{Prefix}Copyright {Owner} {FirstYear} - {$CurrentYear}.">
       <Capture var="FirstYear"/>
       <Capture var="LastYear" default="{FirstYear}"/>
+      <Action type="skip" arg1="{LastYear}" op=">" arg2="{$CommitYear}"
+          report="NEWER" reportType="warn"/>
+      <Action type="update" arg1="{LastYear}" op="&lt;" arg2="{$CommitYear}"
+          report="UPDATED" checkReport="obsolete" reportType="note"/>
     </Match>
     <Group>
       <File regex="CMakeLists\.txt"/>
       <File regex=".*\.cmake"/>
       <File regex=".*\.yaml"/>
       <File regex=".*\.yml"/>
+      <File regex=".*\.rb"/>
       <Exclude regex="CMakeDeps\.cmake"/>
+      <Exclude regex="site/rails/db/schema\.rb"/>
       <Var name="Prefix" value="# "/>
     </Group>
     <Group>
       <File regex=".*\.cpp"/>
       <File regex=".*\.h"/>
-      <Exclude regex=".*\.g.cpp"/>
-      <Exclude regex=".*\.g.h"/>
+      <Exclude regex=".*\.g\.cpp"/>
+      <Exclude regex=".*\.g\.h"/>
       <Var name="Prefix" value="// "/>
     </Group>
     <Group>
       <File regex=".*\.css"/>
       <File regex=".*\.html"/>
       <File regex=".*\.js"/>
+      <Exclude regex=".*\.g\.js"/>
       <Exclude regex="web/srv/vendor/.*"/>
       <Exclude regex="site/vendor/.*"/>
       <File regex=".*\.adoc"/>
@@ -50,7 +60,7 @@ and '} respectively.
       <File regex=".*\.xml"/>
       <File regex=".*\.xml\.sample"/>
       <File regex=".*\.xsd"/>
-      <Exclude regex=".*\.g.xsd"/>
+      <Exclude regex="tools/.*/schema\.xsd"/>
       <Var name="Prefix" value=""/>
     </Group>
     <Group>
