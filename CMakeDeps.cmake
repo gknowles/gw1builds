@@ -76,8 +76,8 @@
 # site/javascripts/model/character-export.js
 # site/javascripts/model/character-io.js
 # site/javascripts/model/character.js
-# site/javascripts/model/data-equip.js
-# site/javascripts/model/data-skill.js
+# site/javascripts/model/data-equip.g.js
+# site/javascripts/model/data-skill.g.js
 # site/javascripts/model/defs.js
 # site/javascripts/model/item.js
 # site/javascripts/model/skill.js
@@ -178,4 +178,4 @@
 # site/views/user/myaccount.html
 # site/views/welcome/index.html
 # site/views/welcome/urls.js
-# vendor/gw1builds
+# vendor/gh-pages
