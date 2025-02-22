@@ -1,17 +1,22 @@
+# Copyright Glen Knowles 2006.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# build.rb - gw1builds rails
+
 class Build < ActiveRecord::Base
   include ModelHelper
-  
+
   belongs_to :owner,
     :class_name => 'Group', :foreign_key => 'owner_id'
   belongs_to :viewer,
     :class_name => 'Group', :foreign_key => 'viewer_id'
   has_many :build_characters, :dependent => :destroy
-  has_many :characters, :through => :build_characters, 
+  has_many :characters, :through => :build_characters,
     :dependent => :destroy
-  
+
   validates_presence_of :owner_id
   validates_length_of :name, :in => 1..20
-  validates_format_of :name, 
+  validates_format_of :name,
     :with => /^[A-Za-z0-9]+(\s[A-Za-z0-9]+)*$/
 
   def to_json(current_user)
@@ -23,9 +28,9 @@ class Build < ActiveRecord::Base
       :type => self.build_type,
       :desc => self.description,
       :size => self.size,
-      :list => self.build_characters.collect { |tc| 
-        { :pos => tc.slot, :alt => tc.alternate, 
-          :value => tc.character.to_json(current_user) 
+      :list => self.build_characters.collect { |tc|
+        { :pos => tc.slot, :alt => tc.alternate,
+          :value => tc.character.to_json(current_user)
         }
       },
       :access => {
@@ -33,7 +38,7 @@ class Build < ActiveRecord::Base
         :viewer => self.viewer_id? ? self.viewer.name : '~',
         :created => self.created_at,
         :updated => self.updated_at
-      }      
+      }
     }
     if current_user
       ug = self.owner.group_users.find_by_user_id(current_user.id)
@@ -41,7 +46,7 @@ class Build < ActiveRecord::Base
     end
     ret
   end # to_json
-  
+
 
   def self.find_for_update(name, owner, current_user)
     team = self.find_by_name(name,
@@ -54,8 +59,8 @@ class Build < ActiveRecord::Base
       :include => [:build_characters])
     team
   end # find_for_update
-  
-  
+
+
   def update_from_unpacked(build)
     self.name = build.name if build.name?
     self.size = build.size
@@ -81,5 +86,5 @@ class Build < ActiveRecord::Base
       end
     end
   end # update_from_unpacked
-  
+
 end

@@ -1,28 +1,33 @@
+# Copyright Glen Knowles 2006.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# character.rb - gw1builds rails
+
 class Character < ActiveRecord::Base
   include ModelHelper
 
-  belongs_to :owner, 
+  belongs_to :owner,
     :class_name => 'Group', :foreign_key => 'owner_id'
   belongs_to :viewer,
     :class_name => 'Group', :foreign_key => 'viewer_id'
   has_many :character_attrs, :dependent => :destroy
   has_many :character_skills, :dependent => :destroy
   has_many :character_items, :dependent => :destroy
-  
+
   validates_presence_of :primary_code, :secondary_code
   validates_length_of :name, :in => 1..20
-  validates_format_of :name, 
+  validates_format_of :name,
     :with => /^[A-Za-z0-9]+(\s[A-Za-z0-9]+)*$/
   validates_inclusion_of :level, :within => 0..20
   validates_inclusion_of :attr_bonus_pts, :within => [0,15,30]
-  
+
   RUNE_TYPES = { 'None'=>0, 'Minor'=>1, 'Major'=>2, 'Superior'=>3 }
   #             0         1         2
   #             012345678901234567890123456
   NAME_CHARS = " abcdefghijklmnopqrstuvwxyz"
-  ITEM_LOCATIONS = [ 'weapon', 'offhand', 
+  ITEM_LOCATIONS = [ 'weapon', 'offhand',
     'head', 'chest', 'hands', 'legs', 'feet' ]
-  
+
   def pack(skipName = true)
     codec = Base64Codec.new
     # version
@@ -38,7 +43,7 @@ class Character < ActiveRecord::Base
     # attrs with runes and headgear
     width = 6 # bit width of attr codes
     codec.put width - 4, 4
-    num = self.character_attrs.collect { |ca| 
+    num = self.character_attrs.collect { |ca|
       ca.value == 0 ? nil : ca
     }.nitems
     codec.put num, 4
@@ -75,7 +80,7 @@ class Character < ActiveRecord::Base
         end
       end
     end
-    
+
     # items
     width = 1; uwidth = 1;
     num = 0
@@ -100,7 +105,7 @@ class Character < ActiveRecord::Base
         codec.put mod, uwidth
       end
     end
-    
+
     # name
     unless skipName
       codec.put 1,2
@@ -111,10 +116,10 @@ class Character < ActiveRecord::Base
     end
     # end
     codec.flush
-    codec.str 
+    codec.str
   end # pack(skipName)
-  
-  
+
+
   def self.unpack(src)
     toon = Character.new({:name => 'Unnamed'})
     codec = Base64Codec.new(src)
@@ -164,7 +169,7 @@ class Character < ActiveRecord::Base
     width = codec.get(4)
     uwidth = codec.get(4)
     num = codec.get(3)
-    1.upto num do 
+    1.upto num do
       citem = toon.character_items.build
       citem.where = ITEM_LOCATIONS[codec.get(3)]
       citem.base = codec.get(width)
@@ -183,13 +188,13 @@ class Character < ActiveRecord::Base
 #      raise ArgumentError if ch.nil?
 #      n += ch
 #    end
-#    toon.name = n if n.length > 0   
+#    toon.name = n if n.length > 0
     toon
   end # self.unpack(str)
-  
-  
+
+
   def to_json(current_user)
-    ret = { 
+    ret = {
       :id => self.id,
       :name => self.name,
       :packed => self.pack,
@@ -197,8 +202,8 @@ class Character < ActiveRecord::Base
     }
     ret
   end # to_json
-  
-  
+
+
   def self.find_for_update(name, owner, current_user)
     toon = Character.find_by_name(name,
       :conditions => ['group_users.user_id = ?' +
@@ -210,8 +215,8 @@ class Character < ActiveRecord::Base
       :include => [:character_attrs, :character_skills])
     toon
   end # find_for_update
-  
-  
+
+
   def update_from_unpacked(toon)
     self.primary_code = toon.primary_code
     self.secondary_code = toon.secondary_code

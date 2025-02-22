@@ -1,10 +1,15 @@
+# Copyright Glen Knowles 2006.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# application.rb - gw1builds rails
+
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_bns_session_id'
-  
+
   def current_user
     session[:user]
   end
@@ -13,9 +18,9 @@ class ApplicationController < ActionController::Base
   end
 
   def self.is_dev
-    ENV['RAILS_ENV'] == 'development'  
+    ENV['RAILS_ENV'] == 'development'
   end
-  
+
   def render_json(json = @json)
     if request.xhr?
       render :text => "/*\n" + json.to_json + "\n*/\n"
@@ -28,7 +33,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end # render_json
-  
+
   def ensure_method(*methods)
     if methods.index(:xhr) and not request.xhr?
       render :text => 'Operation must be invoke via XMLHttpRequest'
@@ -42,10 +47,10 @@ class ApplicationController < ActionController::Base
     end
     true
   end # ensure_method
-   
+
   def ensure_member(min_role = User::MEMBER)
     if current_user.nil?
-      @json = { :result => :guest, 
+      @json = { :result => :guest,
         :errors => ["State: Authorization required"] }
     else
       return true if current_user.role >= min_role
@@ -53,16 +58,16 @@ class ApplicationController < ActionController::Base
         :errors => ["Access denied"] }
     end
     render_json
-    false 
+    false
   end # ensure_member
 
   def ensure_guest
     return true if current_user.nil?
-    render_json({:result => :bad, 
+    render_json({:result => :bad,
       :errors => ["State: You're currently logged in!"]})
     false
   end # ensure_guest
-  
+
   def ensure_presence_of(*options)
     errs = []
     for p in options.flatten
@@ -83,22 +88,22 @@ class ApplicationController < ActionController::Base
     end
     true
   end # ensure_presence_of
-  
+
   def ensure_group_member(min_role)
-    return false unless 
+    return false unless
       ensure_presence_of 'group.name'
-    
+
     group = Group.find_by_name(params[:group][:name],
       :include => :users,
-      :conditions => ["users.id = ? and group_users.role >= ?", 
+      :conditions => ["users.id = ? and group_users.role >= ?",
         current_user.id, min_role]
       )
     unless group.nil?
       params[:group][:id] = group.id
       return true
     end
-    
-    render_json({ :result => :bad, 
+
+    render_json({ :result => :bad,
       :errors => ["group.id: No accessible matching group"] })
     false
   end # ensure_group_member
@@ -147,17 +152,17 @@ class ApplicationController < ActionController::Base
     return unless force == true or check_presence_of('account.rev')
 
     current_user.reload
-    return if not force and 
+    return if not force and
       current_user.rev == params[:account][:rev]
-    
+
     # all groups you are a member of
-    groups = Group.find(:all, 
+    groups = Group.find(:all,
       :include => :group_users,
       :conditions => ["group_users.user_id = ?", current_user.id])
     grps = []
     for group in groups
       numMembers = GroupUser.count(
-        :conditions => ['group_id = ? and role >= ?', 
+        :conditions => ['group_id = ? and role >= ?',
           group.id, User::MEMBER])
       guser = group.group_users.find_by_user_id(current_user.id)
       grps << {

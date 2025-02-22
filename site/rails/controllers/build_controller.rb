@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# build_controller.rb - gw1builds rails
+
 class BuildController < ApplicationController
 
   def list
