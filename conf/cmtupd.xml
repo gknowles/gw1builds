@@ -39,6 +39,7 @@ https://github.com/gknowles/dimapp/tree/master/tools/cmtupd
       <File regex=".*\.css"/>
       <File regex=".*\.html"/>
       <File regex=".*\.js"/>
+      <Exclude regex=".*\.g\.html"/>
       <Exclude regex=".*\.g\.js"/>
       <Exclude regex="web/srv/vendor/.*"/>
       <Exclude regex="site/vendor/.*"/>
