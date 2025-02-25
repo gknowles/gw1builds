@@ -214,7 +214,7 @@ srv.mock = {
       res.group = { list: grps }
   },
 
-  exportBuild = function(res, bld) {
+  exportBuild: function(res, bld) {
       let smd = srv.mock.data
       let out = {
           name: bld.name,
@@ -544,28 +544,28 @@ srv.mock.build = {
    * { result:, errors:, build: }
    */
   update: function(params) {
-      let res = { result: 'ok' }
-      if (!ensureMember(res) || !ensureParams(res, params,
-           'build.name',
-           'build.size',
-           'build.is_team',
-           'build.is_pve',
-           'build.build_type',
-           'build.owner',
-           'build.description'
-       )) {
-           return res
-       }))
+    let res = { result: 'ok' }
+    if (!ensureMember(res) || !ensureParams(res, params,
+        'build.name',
+        'build.size',
+        'build.is_team',
+        'build.is_pve',
+        'build.build_type',
+        'build.owner',
+        'build.description'
+    )) {
+        return res
+    }
 
-       let pbld = params['build']
-       let owner = pbld.owner
-       let name = pbld.name
-       let bld = this._findBuild(owner, name)
-       if (!bld)
-           return errRes(`${owner}/${name}: No accessible matching build`)
-       let nbld = this._decodeBuild(params['build'])
+    let pbld = params['build']
+    let owner = pbld.owner
+    let name = pbld.name
+    let bld = this._findBuild(owner, name)
+    if (!bld)
+        return errRes(`${owner}/${name}: No accessible matching build`)
+    let nbld = this._decodeBuild(params['build'])
 
-       let smd = srv.mock.data
+    let smd = srv.mock.data
 
   },
 
