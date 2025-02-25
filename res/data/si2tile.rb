@@ -18,7 +18,7 @@ c2p = []
 keys.sort!.each_index { |i|
   c2p[keys[i]] = i
 }
-File.open('skill-tiles-pos.js', 'w+') do |f|
+File.open('skill-tiles-pos.g.js', 'w+') do |f|
   f.puts "// Auto-generated #{Time.new}"
   f.puts
   f.puts "function skillTilePos(code) {"
