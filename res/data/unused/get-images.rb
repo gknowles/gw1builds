@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# get-images.rb - gw1builds data
+
 require 'util/skill'
 require 'net/http'
 
@@ -28,7 +33,7 @@ def get_remote_image skill
   password = 'admin'
   hdrs = {
     "Authorization" => "Basic " + ["#{user}:#{password}"].pack('m')
-  }  
+  }
 
   name = skill.name.downcase.delete('^a-z')
   prodir = $prodirs[skill.profession]
@@ -52,4 +57,4 @@ for skill in skills
   f.syswrite(data)
 end
 
-  
+

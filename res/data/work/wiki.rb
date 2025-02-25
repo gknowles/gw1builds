@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# wiki.rb - gw1builds data
+
 # GW Wiki framework
 
 require 'pp'
@@ -5,7 +10,7 @@ require '../yaml/util.rb'
 
 class Wiki
   attr_accessor :bot_user, :bot_password
-  
+
   def initialize
     if File.exists?('wiki_raw.yml')
       @cache = YAML.load_file 'wiki_raw.yml'
@@ -38,7 +43,7 @@ class Wiki
     for a,v in @cookies
       cookies << "#{a}=#{v}"
     end
-    headers = { 
+    headers = {
       'Content-Type' => 'application/x-www-form-urlencoded',
       'Cookie' => cookies.join('; '),
     }
@@ -48,10 +53,10 @@ class Wiki
     pp r
     puts r
   end
-    
+
   def read article
     return @cache[article] if @cache[article]
-    
+
     puts "Loading #{article}..."
     begin
       r, d = @http.get("/wiki/#{URI.escape(article)}?action=raw&maxlag=5")
@@ -70,25 +75,25 @@ class Wiki
       puts "#{article} error '#{r.code}'"
       nil
     end
-    
+
     sleep 1.2
     @cache[article] = d
     if (@unsaved += 1) >= 25
       save
     end
-    
+
     d
   end
 
   def save
     if @unsaved
       File.open("wiki_raw.yml", "w+") do |f|
-        YAML.dump @cache, f 
+        YAML.dump @cache, f
       end
       @unsaved = 0
     end
   end
-  
+
   def debrace val
     val = val.clone
     # remove [[blah]] and [[blah|long blah]] tags
@@ -117,7 +122,7 @@ private
     body.gsub!(/\{\{1\/2\}\}/m, '0.5')
     body.gsub!(/\{\{3\/4\}\}/m, '0.75')
     # convert {{gr|a|b}} to a..b
-    body.gsub!( /\{\{\s*gr2?\s*\|\s*(\+?\d+)\s*\|\s*(\d+)\s*\|?\}\}/, 
+    body.gsub!( /\{\{\s*gr2?\s*\|\s*(\+?\d+)\s*\|\s*(\d+)\s*\|?\}\}/,
       '\1..\2' )
     # convert {{PAGENAME}} to article name
     body.gsub!( /\{\{PAGENAME\}\}/, article )
@@ -153,7 +158,7 @@ private
           else
             puts "#{article}: requires = #{v}"
             return nil
-        end 
+        end
       elsif k == 'sacrifice'
         sk.tags[k] = nil
       else
@@ -181,7 +186,7 @@ private
       sk[k] = ['y','yes','true'].include?(sk[k].to_s.downcase)
     end
     sk.pve = true if / rank$/.match(sk.attribute)
-    
+
     # desc
     if rdesc.include?('{{sic')
       puts "#{article}: Description has {{sic}}"
@@ -201,7 +206,7 @@ private
       puts "#{article}: Skill type '#{tdesc}' != '#{typedesc}'"
       return nil
     end
-    
+
     # progressions
     unless md[2]
       sk.progressions = []
@@ -242,7 +247,7 @@ private
       end
       sk.progressions = progs.values
     end
-    
+
     sk
   end
 end

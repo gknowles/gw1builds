@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# tdiff.rb - gw1builds data
+
 load '../yaml/util.rb'
 
 d = YAML.load_file(ARGV[1] || '../yaml/skills.yml')['Skills']

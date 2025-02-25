@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# upd-skill-ids.rb - gw1builds data
+
 id = 1
 seq = [
   ["skill-common.xml", "Core"],
@@ -30,7 +35,7 @@ seq = [
 # load it all
 data = {}
 seq.each { |a|
-  if data[a[0]] == nil 
+  if data[a[0]] == nil
     puts "Loading #{a[0]}..."
     data[a[0]] = IO.readlines(a[0])
   end
@@ -43,7 +48,7 @@ seq.each { |a|
     line = data[a[0]][i1]
     campaign = line.scan(/ campaign=\"([^\"]*)\"/).flatten
     if !(a & campaign).empty?
-      data[a[0]][i1] = line.gsub(/Skill id=\"[^\"]*"/, 
+      data[a[0]][i1] = line.gsub(/Skill id=\"[^\"]*"/,
         'Skill id="' + id.to_s + '"')
       id += 1 if $~ != nil
     end
@@ -56,6 +61,6 @@ data.each { |k, v|
   puts "Saving #{k}..."
   File.open(k, "w+") { |f|
     f.puts v
-  }  
+  }
 }
 

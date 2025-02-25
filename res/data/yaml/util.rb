@@ -1,14 +1,20 @@
 #!/usr/bin/ruby1.8
+
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# util.rb - gw1builds data
+
 require 'active_support'
 
 Profession = Struct.new(:name, :code, :abbrev, :campaign, :desc, :attrs)
 Attribute = Struct.new(:name, :code, :abbrev, :primary, :skillAdjust, :desc)
 Filter = Struct.new(:name, :desc, :effects)
 
-SKILL_ATTRS_SIMPLE = [:name, :gwwName, :code, 
+SKILL_ATTRS_SIMPLE = [:name, :gwwName, :code,
   :profession, :attribute, :campaign,
   :elite, :multiple, :monster, :pve, :type,
-  :energy, :adrenaline, :activation, :recharge, :upkeep, 
+  :energy, :adrenaline, :activation, :recharge, :upkeep,
   :special,
   :exhaustion, :failure]
 Skill = Struct.new(*SKILL_ATTRS_SIMPLE + [:desc, :tags, :progressions])
@@ -21,7 +27,7 @@ class Profession
       next if a == 'attrs'
       p[a] = v
     end
-    
+
     p.attrs = {}
     for a,v in val['attrs']
       p.attrs[a] = Attribute.load_yaml a,v
@@ -52,7 +58,7 @@ class Skill
       elsif k == 'gww-name'
         sk.gwwName = val[k]
       else
-        sk[k.to_sym] = val[k] 
+        sk[k.to_sym] = val[k]
       end
     end
     for k in [:elite, :multiple, :monster, :pve, :exhaustion]
@@ -64,7 +70,7 @@ class Skill
     end
     sk.profession = 'No Profession' unless sk.profession
     sk.attribute = 'No Attribute' unless sk.attribute
-    act = sk.activation.to_f 
+    act = sk.activation.to_f
     sk.activation = (act == act.to_i) ? act.to_i : act
     sk.tags = {} unless sk.tags
     sk.progressions = [] unless sk.progressions
@@ -95,7 +101,7 @@ class Skill
     for prog in progressions
       out += "    - [#{prog[0].dump}, #{prog[1..-1].join(', ')}]\n"
     end
-    out 
+    out
   end
 end
 
@@ -117,4 +123,3 @@ def add_indent val, indent
   vals = val.split("\n")
   ' ' * indent + vals.join("\n" + ' ' * indent)
 end
-  

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright Glen Knowles 2006 - 2024.
+Distributed under the Boost Software License, Version 1.0.
+
+format-skill.xsl - gw1builds data
+-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -9,7 +15,7 @@
   <xsl:character-map name="crlf">
     <xsl:output-character character="&#10;" string="&#13;&#10;"/>
   </xsl:character-map>
-  
+
   <xsl:variable name="apos">'</xsl:variable>
   <xsl:variable name="adrenal" select="exists(//@adCost)"/>
   <xsl:variable name="default-margin" select="78"/>
@@ -156,7 +162,7 @@
 
     <xsl:variable name="out">
       <xsl:for-each select="$attrs">
-        <xsl:value-of select="concat(name(.), '=&quot;', 
+        <xsl:value-of select="concat(name(.), '=&quot;',
           replace(., '&quot;', '&amp;quot;'), '&quot;')"/>
         <xsl:if test="position() != last()"><xsl:text> </xsl:text></xsl:if>
       </xsl:for-each>

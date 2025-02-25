@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# s.rb - gw1builds data
+
 load 'yaml/util.rb'
 d = YAML.load_file 'yaml/skills.yml'
 for k in d['Skills'].keys.sort
@@ -7,7 +12,7 @@ for k in d['Skills'].keys.sort
     base = tag.slice(0, pos)
     unless sk.tags.include?(base)
 #      puts k
-      sk.tags[base] = nil 
+      sk.tags[base] = nil
     end
   end
 end

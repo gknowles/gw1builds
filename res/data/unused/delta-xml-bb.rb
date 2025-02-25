@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# delta-xml-bb.rb - gw1builds data
+
 require 'util/skill'
 load 'util/skill_db.rb'
 
@@ -32,7 +37,7 @@ for sk in skills
     next if found[k] or ov.nil?
     same = false
     #puts "#{sk.name}.#{k}: '#{sk.send(k)}' => '#{nil}'"
-    sk.send(k+'=',nil)    
+    sk.send(k+'=',nil)
   end
   bbsk.desc.gsub!(/\{.*\}/, '')
   if bbsk.desc == sk.desc_ranged

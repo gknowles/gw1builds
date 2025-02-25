@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# upd-reformat.rb - gw1builds data
+
 seq = [
   "skill-common.xml",
   "skill-e.xml",
@@ -21,4 +26,3 @@ seq.each { |src|
     f.puts result
   }
 }
-

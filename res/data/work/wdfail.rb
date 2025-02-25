@@ -1,3 +1,7 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# wdfail.rb - gw1builds data
 
 cache = YAML.load_file 'wiki_raw.yml'
 
@@ -20,5 +24,5 @@ else
 end
 
 File.open("wiki_raw.yml", "w+") do |f|
-  YAML.dump cache, f 
+  YAML.dump cache, f
 end

@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# w2y.rb - gw1builds data
+
 require 'pp'
 require '../yaml/util.rb'
 require 'wiki.rb'
@@ -14,7 +19,7 @@ for k in keys
   if / \((.+)\)$/.match(rk)
     allegiance = $1
     body = wiki.read rk[0, $~.begin(0)]
-  else 
+  else
     body = wiki.read rk
   end
   begin

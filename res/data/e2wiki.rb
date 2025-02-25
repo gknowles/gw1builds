@@ -1,16 +1,22 @@
 #!/usr/bin/ruby1.8
+
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# e2wiki.rb - gw1builds data
+
 require 'yaml'
 
 class Equipment
   attr_accessor :items, :upgrades
-  
+
   def initialize
     @items = {}
     @upgrades = {}
   end
-  
+
   def load_item val, pro, type, where
-    tmpl = { 'pro' => pro, 'type' => type, 'where' => where, 
+    tmpl = { 'pro' => pro, 'type' => type, 'where' => where,
       'effects' => val['effects'] }
     for skin in val['skins']
       out = tmpl.clone
@@ -18,7 +24,7 @@ class Equipment
       items[out['code']] = out
     end
   end # load_item
-  
+
   def load_upgrade val, pro, where
     tmpl = { 'pro' => pro, 'where' => where, 'name' => val['name'],
       'effects' => val['effects'] }
@@ -28,7 +34,7 @@ class Equipment
       upgrades[out['code']] = out
     end
   end # load_upgrade
-  
+
   def load_file file
     data = YAML.load_file file
     for pro, types in data
@@ -54,7 +60,7 @@ class Equipment
       energy = effect['value'] + energy.to_i if effect['type'] == 'energy'
       recovery = effect['value'] + recovery.to_i if effect['type'] == 'recovery'
     end
-  
+
     { 'health' => health, 'energy' => energy, 'recovery' => recovery,
       'attr' => attr, 'req' => req }
   end # rollup
@@ -67,11 +73,11 @@ data.load_file 'weapons.yml'
 
 File.open('items.txt', 'w+') do |f|
   items = data.items.values.sort {
-    |a,b| a['code'] <=> b['code'] 
+    |a,b| a['code'] <=> b['code']
   }
-  for val in items 
+  for val in items
     f.print "*#{val['code']} - "
-    f.print "PvP " if val['where'] == 'weapon' or 
+    f.print "PvP " if val['where'] == 'weapon' or
       val['where'] == 'offhand'
     f.print "#{val['name']}"
     f.print " ([[#{val['pro']}]])" unless val['pro'] == 'No Profession'
@@ -83,8 +89,8 @@ File.open('items.txt', 'w+') do |f|
 end
 
 xlate = {
-  'prefix' => { 'armor' => 'Insignia', 'axe' => 'Axe Haft', 
-    'bow' => 'Bow String', 'daggers' => 'Dagger Tang', 
+  'prefix' => { 'armor' => 'Insignia', 'axe' => 'Axe Haft',
+    'bow' => 'Bow String', 'daggers' => 'Dagger Tang',
     'hammer' => 'Hammer Haft', 'scythe' => 'Scythe Snathe',
     'spear' => 'Spearhead', 'sword' => 'Sword Hilt',
     'staff' => 'Staff Head', 'wand' => 'UNKNOWN',
@@ -99,12 +105,12 @@ xlate = {
   },
   'inside' => {}
 }
-    
+
 File.open('upgrades.txt', 'w+') do |f|
   upgrades = data.upgrades.values.sort {
-    |a,b| a['code'] <=> b['code'] 
+    |a,b| a['code'] <=> b['code']
   }
-  for val in upgrades 
+  for val in upgrades
     f.print "*#{val['code']} - "
     for_text = xlate[val['where']][val['fors'][0]];
     f.print case val['where']

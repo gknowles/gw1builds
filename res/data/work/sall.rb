@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# sall.rb - gw1builds data
+
 names = []
 File.open("skills_all.txt") do |f|
   f.each_line do |line|

@@ -1,20 +1,24 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# skill.rb - gw1builds data
 require 'rexml/document'
 
 class Skill
   NO_ATTRIBUTE = 'No Attribute'
   NO_PROFESSION = 'No Profession'
   NO_SKILL = 'No Skill'
-  PROFESSION_KEYS = [ 'common', 
+  PROFESSION_KEYS = [ 'common',
     'e', 'me', 'mo', 'n', 'r',
     'w', 'a',  'rt', 'd', 'p'
   ]
-  
-  attr_accessor :name, 
+
+  attr_accessor :name,
     :profession, :attribute, :campaign,
     :type, :desc, :desc2, :desc3
   attr_accessor :effects # hash of arrays by effect name
   attr_reader :code, :elite,
-    :en_cost, :ad_cost, :activation, :recharge, 
+    :en_cost, :ad_cost, :activation, :recharge,
     :upkeep
   def code=(val) @code = val.to_i end
   def elite=(val) @elite = val.nil? ? nil : (val == true) end
@@ -23,7 +27,7 @@ class Skill
   def activation=(val) @activation = val.nil? ? nil : val.to_s.to_f end
   def recharge=(val) @recharge = val.nil? ? nil : val.to_s.to_i end
   def upkeep=(val) @upkeep = val.nil? ? nil : val.to_s.to_i end
-  
+
   def desc_ranged
     tokens = @desc.gsub(/\s+/, ' ').strip.split '$'
     out = ""
@@ -33,18 +37,18 @@ class Skill
       else
         vals = @effects[tokens[i1]]
         out += vals[0].to_s
-        if (vals.length == 2) 
+        if (vals.length == 2)
           out += "..#{vals[1].to_s}"
         end
       end
     end
     if @effects['failure']
-      out += " (50% failure chance with #{@attribute} " + 
+      out += " (50% failure chance with #{@attribute} " +
         "#{@effects['failure'][0]} or less.)"
     end
     out
   end
-  
+
   def self.compareProAttrName(a,b)
     rc = a.profession <=> b.profession
     if rc == 0
@@ -57,10 +61,10 @@ class Skill
     rc = a.name <=> b.name if rc == 0
     rc
   end
-  
+
 end
 
-Profession = Struct.new('Profession', 
+Profession = Struct.new('Profession',
   :name, :code, :abbrev, :campaign, :desc, :attrs)
 Attribute = Struct.new('Attribute',
   :name, :code, :abbrev, :primary, :skillAdjust, :desc)
@@ -77,7 +81,7 @@ def parse_bb bbskills
     sk.name = bsk['name']
     sk.profession = bsk['profession']
     sk.attribute = bsk['attribute']
-    sk.campaign = ['Core','Prophecies','Factions','Nightfall'][bsk['chapter']] 
+    sk.campaign = ['Core','Prophecies','Factions','Nightfall'][bsk['chapter']]
     sk.type = bsk['type']
     sk.elite = (bsk['elite'] == 1)
     sk.en_cost = bsk['energy']
@@ -87,11 +91,11 @@ def parse_bb bbskills
     sk.upkeep = -bsk['eregen'] if bsk['eregen'] != 0
     sk.desc = bsk['desc']
     sk.effects = {}
-    
+
     #puts "#{sk.id} #{sk.name} (#{sk.campaign})"
     skills << sk
   end
-  
+
   skills
 end
 
@@ -103,7 +107,7 @@ def parse_txt file
   campaign = 'Nightfall'
   profession = 'Nightclerk'
   attribute = 'Whistling'
-  
+
   # modes
   #  pending
   #  type
@@ -112,8 +116,8 @@ def parse_txt file
   mode = :pending
   skills = []
   skill = Skill.new
-  
-  file.each do |line| 
+
+  file.each do |line|
     tokens = line.split
     #puts '[' + mode.to_s + ']: ' + line
     if tokens.length > 0
@@ -130,7 +134,7 @@ def parse_txt file
         next
       end
     end
-        
+
     case mode
       when :pending
         skill = Skill.new
@@ -171,7 +175,7 @@ def parse_txt file
       mode = :pending
     end
   end
-  
+
   skills
 end
 
@@ -210,12 +214,12 @@ def parse_xml file
             xef.attributes['at15']
             ].compact
         end
-  
-        skills << sk  
+
+        skills << sk
       end
     end
   end
-  
+
   skills
 end
 
@@ -248,7 +252,7 @@ def parse_pro_xml file
     end
     pros << pro
   end
-  
+
   pros
 end
 
@@ -259,7 +263,7 @@ end
 def put_xml skills
   skills.sort! { |a,b| Skill::compareProAttrName(a,b) }
 
-  puts '<SkillData>'  
+  puts '<SkillData>'
   profession = ''
   attribute = ''
   skills.each { |skill|
@@ -277,7 +281,7 @@ def put_xml skills
       attribute = skill.attribute
       puts '<Attribute name="' + attribute + '">'
     end
-  
+
     puts '<Skill code="' + (skill.code.nil? ? '0' : skill.code.to_s) + '"' +
       " name=\"#{skill.name.gsub('"','&quot;')}\"" +
       ' campaign="' + skill.campaign + '"'
@@ -310,7 +314,7 @@ def put_xml skills
       print ' desc3="',skill.desc3,'"'
     end
     puts '>'
-    
+
     skill.effects.each { |k,v|
       case v.length
         when 0
@@ -324,12 +328,12 @@ def put_xml skills
     }
     puts '</Skill>'
   }
-  
+
   if skills.length > 0
     puts '</Attribute>'
     puts '</Profession>'
   end
-  puts '</SkillData>'  
+  puts '</SkillData>'
 end
 
 
@@ -339,7 +343,7 @@ end
 def put_pro_yaml pros
   pros.sort! { |a,b| a.name <=> b.name }
   puts "Professions:"
-  
+
   for pro in pros
     puts "  #{pro.name}:"
     puts "    code: #{pro.code.nil? ? 0 : pro.code.to_s}"
@@ -348,14 +352,14 @@ def put_pro_yaml pros
     puts "    desc: >-"
     put_wrapped pro.desc.gsub(/\s+/, ' '), 6, 75, nil
     puts "    attrs:" if pro.attrs.length > 0
-    attrs = pro.attrs.values.sort { |a,b| 
+    attrs = pro.attrs.values.sort { |a,b|
       if a.primary != b.primary
         a.primary == true ? 1 : -1
       else
         a.name <=> b.name
       end
     }
-    for attr in attrs 
+    for attr in attrs
       puts "      #{attr.name}:"
       puts "        code: #{attr.code.to_s}"
       puts "        abbrev: #{attr.abbrev}"
@@ -371,7 +375,7 @@ end
 def put_yaml skills
   skills.sort! { |a,b| Skill::compareProAttrName(a,b) }
   puts "Skills:"
-  
+
   for sk in skills
     puts "  #{sk.name}:"
     puts "    code: #{sk.code.nil? ? 0 : sk.code.to_s}"
@@ -381,7 +385,7 @@ def put_yaml skills
     puts "    type: #{sk.type}"
     puts "    elite: true" if sk.elite
     puts "    enCost: #{sk.en_cost}"
-    puts "    adCost: #{sk.ad_cost}" unless 
+    puts "    adCost: #{sk.ad_cost}" unless
       sk.ad_cost.nil? or sk.ad_cost == 0
     puts "    activation: " + case sk.activation
       when 0.25 then '.25'

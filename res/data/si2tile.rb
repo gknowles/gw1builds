@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# si2tile.rb - gw1builds data
+
 require 'RMagick'
 include Magick
 
@@ -10,7 +15,7 @@ for fn in Dir.glob('images/skills/*.jpg')
   keys << code
 end
 c2p = []
-keys.sort!.each_index { |i|  
+keys.sort!.each_index { |i|
   c2p[keys[i]] = i
 }
 File.open('skill-tiles-pos.js', 'w+') do |f|

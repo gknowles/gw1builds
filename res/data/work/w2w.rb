@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# w2w.rb - gw1builds data
+
 # Wiki update bot
 
 require 'wiki.rb'

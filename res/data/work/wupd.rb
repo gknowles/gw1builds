@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# wupd.rb - gw1builds data
+
 load '../yaml/util.rb'
 
 d = YAML.load_file(ARGV[0] || '../yaml/skills.yml')['Skills']
@@ -9,7 +14,7 @@ for k in w.keys.sort
   sw = Skill.load_yaml k, w[k]
   sd = Skill.load_yaml k, d[k]
   changed = false
-  
+
   for a in SKILL_ATTRS_SIMPLE
     next if a == :code or a == :failure or a == :gwwName
     if sd[a] != sw[a]
@@ -27,7 +32,7 @@ for k in w.keys.sort
   end
 
   o[k] = sd
-  if changed  
+  if changed
     num += 1
     puts k
   end

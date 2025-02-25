@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# sdiff2h.rb - gw1builds data
+
 require 'diff/lcs'
 require 'yaml/util.rb'
 
@@ -38,7 +43,7 @@ for k in w.keys.sort
   sd = Skill.load_yaml k, d[k]
   next if (sw.pve or sd.pve) and baseline.include?('gwshack')
   next if sw.name == 'No Skill' or sw.name == 'Claim Resource'
-  
+
   vals = []
   for a in SKILL_ATTRS_SIMPLE
     next if a == :code or a == :failure or a == :exhaustion
@@ -52,7 +57,7 @@ for k in w.keys.sort
   ddiff = nil
   if sd.desc != sw.desc
     ddiff, a = '', '='
-    ddiff += '<span class="caseonly">' if 
+    ddiff += '<span class="caseonly">' if
       sd.desc.downcase == sw.desc.downcase
     for dv in Diff::LCS.sdiff(sd.desc, sw.desc)
       if dv.action != a
@@ -65,10 +70,10 @@ for k in w.keys.sort
       ddiff += (a == '-') ? dv.old_element : dv.new_element
     end
     ddiff += '</span>' if a != '='
-    ddiff += '</span>' if 
+    ddiff += '</span>' if
       sd.desc.downcase == sw.desc.downcase
   end
-  
+
   if vals.length > 0 || ddiff
     f.print "<tr"
     f.print " class='listBar'" if (bad / 2) % 2 == 0

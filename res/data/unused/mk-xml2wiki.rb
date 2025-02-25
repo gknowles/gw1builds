@@ -1,3 +1,8 @@
+# Copyright Glen Knowles 2006 - 2025.
+# Distributed under the Boost Software License, Version 1.0.
+#
+# mk-xml2wiki.rb - gw1builds data
+
 require 'util/skill'
 load 'util/skill_db.rb'
 
@@ -24,15 +29,15 @@ wpUploadFile=<actual file>
 wpSourceType=file
 wpDestFile=<skill>.jpg
 
-curl -c cookies -F wpName=Cloud -F wpPassword=mblx73 -F "wpLoginattempt=Log in" 
+curl -c cookies -F wpName=Cloud -F wpPassword=mblx73 -F "wpLoginattempt=Log in"
   "http://wiki.guildwars.com/index.php?title=Special:Userlogin&amp;action=submitlogin&amp;type=login"
 
 
-curl -F wpUploadFile=@1.jpg -F wpSourceType=file -F wpDestFile=Healing_Signet.jpg 
+curl -F wpUploadFile=@1.jpg -F wpSourceType=file -F wpDestFile=Healing_Signet.jpg
   -c cookies
   http://wiki.guildwars.com/wiki/Special:Upload
 
 str = "curl -c cookies -b cookies -F wpUploadFile=@#{localname} " \
   "-F wpDestFile=#{destname} -F \"wpUpload=Upload file\" " \
   "http://wiki.guildwars.com/wiki/Special:Upload"
-  
+
