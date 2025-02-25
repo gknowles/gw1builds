@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--
+Copyright Glen Knowles 2020 - 2025.
+Distributed under the Boost Software License, Version 1.0.
+
+gwdata1.xsd - gw1builds data
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:element name="GWData">
@@ -40,7 +46,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="Region">
     <xs:complexType>
       <xs:sequence>
@@ -102,12 +108,12 @@
       <xs:attribute name="npc" type="xs:string" use="required"/>
       <xs:attribute name="profession" type="profession" use="optional">
         <xs:annotation><xs:documentation>
-          Profession required to activate quest, if not present any profession can activate it  
+          Profession required to activate quest, if not present any profession can activate it
         </xs:documentation></xs:annotation>
       </xs:attribute>
       <xs:attribute name="prereq" type="xs:string" use="optional">
         <xs:annotation><xs:documentation>
-          Quest that must be taken before this one can be activated  
+          Quest that must be taken before this one can be activated
         </xs:documentation></xs:annotation>
       </xs:attribute>
     </xs:complexType>
