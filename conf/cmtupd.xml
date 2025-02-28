@@ -24,6 +24,7 @@ https://github.com/gknowles/dimapp/tree/master/tools/cmtupd
       <File regex=".*\.yaml"/>
       <File regex=".*\.yml"/>
       <File regex=".*\.rb"/>
+      <Exclude regex=".*\.g\.[^.]*"/>
       <Exclude regex="CMakeDeps\.cmake"/>
       <Exclude regex=".*/rails/db/schema\.rb"/>
       <Var name="Prefix" value="# "/>
