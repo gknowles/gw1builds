@@ -3,7 +3,7 @@
 #
 # wdfail.rb - gw1builds data
 
-cache = YAML.load_file 'wiki_raw.yml'
+cache = YAML.load_file 'wiki_raw.g.yml'
 
 if ARGV[0] == 'all'
   d = YAML.load_file '../yaml/skills.yml'
@@ -23,6 +23,6 @@ else
   end
 end
 
-File.open("wiki_raw.yml", "w+") do |f|
+File.open("wiki_raw.g.yml", "w+") do |f|
   YAML.dump cache, f
 end

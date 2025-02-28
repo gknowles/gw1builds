@@ -1346,8 +1346,8 @@
 # res/data/work/sfind.rb
 # res/data/work/sfound.txt
 # res/data/work/sid.yml
+# res/data/work/skill-names.g.yml
 # res/data/work/skill-names.txt
-# res/data/work/skill-names.yml
 # res/data/work/skills.yml
 # res/data/work/smaybe.txt
 # res/data/work/swiki.yml
@@ -1358,7 +1358,7 @@
 # res/data/work/w2y.rb
 # res/data/work/wdfail.rb
 # res/data/work/wiki.rb
-# res/data/work/wiki_raw.yml
+# res/data/work/wiki_raw.g.yml
 # res/data/work/wnames.rb
 # res/data/work/wpost.rb
 # res/data/work/wupd.rb
@@ -1418,7 +1418,7 @@
 # res/site/images/skill-upkeep.png
 # res/site/images/skills/skill-tiles-18.png
 # res/site/images/skills/skill-tiles-28.png
-# res/site/images/skills/skill-tiles-pos.js
+# res/site/images/skills/skill-tiles-pos.g.js
 # res/site/images/toggle-closed.png
 # res/site/images/toggle-open.png
 # res/site/images/unused/details-view.gif

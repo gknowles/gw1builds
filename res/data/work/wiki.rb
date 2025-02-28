@@ -12,8 +12,8 @@ class Wiki
   attr_accessor :bot_user, :bot_password
 
   def initialize
-    if File.exists?('wiki_raw.yml')
-      @cache = YAML.load_file 'wiki_raw.yml'
+    if File.exists?('wiki_raw.g.yml')
+      @cache = YAML.load_file 'wiki_raw.g.yml'
     else
       @cache = {}
     end
@@ -87,7 +87,7 @@ class Wiki
 
   def save
     if @unsaved
-      File.open("wiki_raw.yml", "w+") do |f|
+      File.open("wiki_raw.g.yml", "w+") do |f|
         YAML.dump @cache, f
       end
       @unsaved = 0

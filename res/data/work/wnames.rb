@@ -3,6 +3,7 @@
 #
 # wnames.rb - gw1builds data
 
+require 'yaml'
 keys = {}
 File.open('skill-names.txt') do |f|
   f.each_line do |k|
@@ -12,7 +13,7 @@ File.open('skill-names.txt') do |f|
   end
 end
 
-File.open('skill-names.yml', 'w+') do |f|
+File.open('skill-names.g.yml', 'w+') do |f|
   YAML.dump({'Skills' => keys}, f)
 end
 
